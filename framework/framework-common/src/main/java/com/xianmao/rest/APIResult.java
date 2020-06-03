@@ -1,5 +1,6 @@
 package com.xianmao.rest;
 
+import com.xianmao.constant.Constant;
 import com.xianmao.enums.IEnum;
 import org.apache.commons.lang3.StringUtils;
 
@@ -16,11 +17,11 @@ import java.util.HashMap;
 public class APIResult<T> extends HashMap<String, Object> implements Serializable {
 
     private static final long serialVersionUID = 6439723870077111495L;
-    private static String CODE_KEY = RConstant.DEFAULT_RESULT_CODE_KEY;
-    private static String MESSAGE_KEY = RConstant.DEFAULT_RESULT_MESSAGE_KEY;
-    private static String DATA_KEY = RConstant.DEFAULT_RESULT_DATA_KEY;
+    private static String CODE_KEY = Constant.Rest.DEFAULT_RESULT_CODE_KEY;
+    private static String MESSAGE_KEY = Constant.Rest.DEFAULT_RESULT_MESSAGE_KEY;
+    private static String DATA_KEY = Constant.Rest.DEFAULT_RESULT_DATA_KEY;
     private static String SUCCESS_KEY = null;
-    private static String PAGE_KEY = RConstant.DEFAULT_RESULT_PAGE_KEY;
+    private static String PAGE_KEY = Constant.Rest.DEFAULT_RESULT_PAGE_KEY;
     private static int SUCCESS_CODE = ResultCode.SUCCESS.getCode();
     private static int FAILURE_CODE = ResultCode.BAD_REQUEST.getCode();
 
@@ -111,7 +112,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> success(int code, T data, String msg) {
-        return new APIResult<>(code, data, data == null ? RConstant.DEFAULT_NULL_MESSAGE : msg);
+        return new APIResult<>(code, data, data == null ? Constant.Rest.DEFAULT_NULL_MESSAGE : msg);
     }
 
     /**
@@ -150,7 +151,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> success(T data) {
-        return success(data, RConstant.DEFAULT_SUCCESS_MESSAGE);
+        return success(data, Constant.Rest.DEFAULT_SUCCESS_MESSAGE);
     }
 
     /**
@@ -161,7 +162,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return
      */
     public static <T> APIResult<T> success(Page<T> page) {
-        return success(page, RConstant.DEFAULT_SUCCESS_MESSAGE);
+        return success(page, Constant.Rest.DEFAULT_SUCCESS_MESSAGE);
     }
 
     /**
@@ -199,7 +200,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     }
 
     public static <T> APIResult<T> failure() {
-        return new APIResult<>(FAILURE_CODE, RConstant.DEFAULT_FAILURE_MESSAGE);
+        return new APIResult<>(FAILURE_CODE, Constant.Rest.DEFAULT_FAILURE_MESSAGE);
     }
 
 
