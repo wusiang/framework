@@ -28,7 +28,7 @@ import java.util.*;
  */
 public class JsonUtil {
 
-    private static final Logger log = LoggerFactory.getLogger(JsonUtil.class);
+    private static Logger log = LoggerFactory.getLogger(JsonUtil.class);
 
     /**
      * 将对象序列化成json字符串
