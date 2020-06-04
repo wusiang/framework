@@ -23,7 +23,7 @@ public class StringUtil extends org.springframework.util.StringUtils {
     private static final String S_INT = "0123456789";
     private static final String S_STR = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static final String S_ALL = S_INT + S_STR;
-    private static final int INDEX_NOT_FOUND = -1;
+    public static final int INDEX_NOT_FOUND = -1;
 
     /**
      * Gets a String's length or <code>0</code> if the String is <code>null</code>.

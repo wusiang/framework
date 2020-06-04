@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.xianmao.annotation.ApiLog;
 import com.xianmao.enums.Level;
 import com.xianmao.utils.BeanUtil;
-import com.xianmao.utils.JsonUtil;
+import com.xianmao.jackson.JsonUtil;
 import com.xianmao.utils.StringUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

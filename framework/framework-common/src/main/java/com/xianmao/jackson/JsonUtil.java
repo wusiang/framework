@@ -1,4 +1,4 @@
-package com.xianmao.utils;
+package com.xianmao.jackson;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.xianmao.date.DateUtil;
 import com.xianmao.exception.ExceptionUtil;
 import com.xianmao.string.StringPool;
+import com.xianmao.utils.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
