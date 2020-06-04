@@ -2,7 +2,6 @@ package com.xianmao.rest;
 
 import com.xianmao.constant.Constant;
 import com.xianmao.enums.IEnum;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -17,28 +16,13 @@ import java.util.HashMap;
 public class APIResult<T> extends HashMap<String, Object> implements Serializable {
 
     private static final long serialVersionUID = 6439723870077111495L;
+    /***响应参数*/
     private static String CODE_KEY = Constant.Rest.DEFAULT_RESULT_CODE_KEY;
     private static String MESSAGE_KEY = Constant.Rest.DEFAULT_RESULT_MESSAGE_KEY;
     private static String DATA_KEY = Constant.Rest.DEFAULT_RESULT_DATA_KEY;
-    private static String SUCCESS_KEY = null;
-    private static String PAGE_KEY = Constant.Rest.DEFAULT_RESULT_PAGE_KEY;
+    /***响应状态码*/
     private static int SUCCESS_CODE = ResultCode.SUCCESS.getCode();
     private static int FAILURE_CODE = ResultCode.BAD_REQUEST.getCode();
-
-    public static void setCodeKeys(String codeKey, String messageKey, String dataKey, String successKey) {
-        if (StringUtils.isNotBlank(codeKey)) CODE_KEY = codeKey;
-        if (StringUtils.isNotBlank(messageKey)) MESSAGE_KEY = messageKey;
-        if (StringUtils.isNotBlank(dataKey)) DATA_KEY = dataKey;
-        if (StringUtils.isNotBlank(successKey)) SUCCESS_KEY = successKey;
-    }
-
-    public static void setDefaultSuccessCode(int successCode) {
-        SUCCESS_CODE = successCode;
-    }
-
-    public static void setDefaultFailureCode(int failureCode) {
-        FAILURE_CODE = failureCode;
-    }
 
     public int getResultCode() {
         String code = String.valueOf(this.get(CODE_KEY));
@@ -50,6 +34,10 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
         return msg;
     }
 
+    public Object getResultData() {
+        Object msg = this.get(DATA_KEY);
+        return msg;
+    }
 
     private APIResult(ResultCode resultCode) {
         this(resultCode.getCode(), resultCode.getValue());
@@ -74,32 +62,18 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     private APIResult(int code, String message) {
         this.put(CODE_KEY, code);
         this.put(MESSAGE_KEY, message);
-        appendSuccess(code);
-    }
-
-    private void appendSuccess(int code) {
-        if (StringUtils.isNotBlank(SUCCESS_KEY)) {
-            if (code >= 200 && code < 300) {
-                this.put(SUCCESS_KEY, true);
-            } else {
-                this.put(SUCCESS_KEY, false);
-            }
-        }
     }
 
     private APIResult(int code, T data, String message) {
         this.put(CODE_KEY, code);
         this.put(MESSAGE_KEY, message);
         this.put(DATA_KEY, data);
-        appendSuccess(code);
     }
 
     private APIResult(int code, Page<T> page, String message) {
         this.put(CODE_KEY, code);
         this.put(MESSAGE_KEY, message);
         this.put(DATA_KEY, page.getData());
-        this.put(PAGE_KEY, page.getPage());
-        appendSuccess(code);
     }
 
     /**
@@ -300,22 +274,6 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
 
     public static void setDataKey(String dataKey) {
         DATA_KEY = dataKey;
-    }
-
-    public static String getSuccessKey() {
-        return SUCCESS_KEY;
-    }
-
-    public static void setSuccessKey(String successKey) {
-        SUCCESS_KEY = successKey;
-    }
-
-    public static String getPageKey() {
-        return PAGE_KEY;
-    }
-
-    public static void setPageKey(String pageKey) {
-        PAGE_KEY = pageKey;
     }
 
     public static int getSuccessCode() {
