@@ -1,7 +1,6 @@
 package com.xianmao.annotation;
 
 import com.xianmao.enums.Level;
-import com.xianmao.enums.Position;
 
 import java.lang.annotation.*;
 
@@ -31,11 +30,4 @@ public @interface ApiLog {
      * @return
      */
     Level level() default Level.DEBUG;
-
-    /**
-     * 代码定位支持
-     *
-     * @return
-     */
-    Position position() default Position.DEFAULT;
 }
