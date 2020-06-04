@@ -1,6 +1,6 @@
 package com.xianmao.file;
 
-import com.xianmao.date.DateUtil;
+import com.xianmao.date.DateTimeUtil;
 import com.xianmao.string.StringPool;
 import com.xianmao.utils.ImageUtil;
 
@@ -66,7 +66,7 @@ public class FileProxyFactory implements IFileProxy {
     public static String getFileDir(String dir, String saveDir) {
         StringBuilder newFileDir = new StringBuilder();
         newFileDir.append(saveDir)
-                .append(File.separator).append(dir).append(File.separator).append(DateUtil.format(new Date(), "yyyyMMdd"))
+                .append(File.separator).append(dir).append(File.separator).append(DateTimeUtil.format(new Date(), "yyyyMMdd"))
                 .append(File.separator);
         return newFileDir.toString();
     }

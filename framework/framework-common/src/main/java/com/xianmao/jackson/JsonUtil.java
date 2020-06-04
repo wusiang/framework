@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.xianmao.date.DateUtil;
+import com.xianmao.date.DateTimeUtil;
 import com.xianmao.exception.ExceptionUtil;
 import com.xianmao.string.StringPool;
 import com.xianmao.utils.StringUtil;
@@ -293,7 +293,7 @@ public class JsonUtil {
             //设置为中国上海时区
             super.setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
             //序列化时，日期的统一格式
-            super.setDateFormat(new SimpleDateFormat(DateUtil.PATTERN_DATETIME, Locale.CHINA));
+            super.setDateFormat(new SimpleDateFormat(DateTimeUtil.PATTERN_DATETIME, Locale.CHINA));
             //序列化处理
             super.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
             super.configure(JsonParser.Feature.ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER, true);

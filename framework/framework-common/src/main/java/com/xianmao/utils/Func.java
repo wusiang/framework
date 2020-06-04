@@ -2,7 +2,6 @@ package com.xianmao.utils;
 
 import com.xianmao.date.ConcurrentDateFormat;
 import com.xianmao.date.DateTimeUtil;
-import com.xianmao.date.DateUtil;
 import com.xianmao.number.NumberUtil;
 import com.xianmao.obj.CollectionUtil;
 import com.xianmao.obj.ObjectUtil;
@@ -969,7 +968,7 @@ public class Func {
      * @return 格式化后的时间
      */
     public static String formatDateTime(Date date) {
-        return DateUtil.formatDateTime(date);
+        return DateTimeUtil.formatDateTime(date);
     }
 
     /**
@@ -979,7 +978,7 @@ public class Func {
      * @return 格式化后的时间
      */
     public static String formatDate(Date date) {
-        return DateUtil.formatDate(date);
+        return DateTimeUtil.formatDate(date);
     }
 
     /**
@@ -989,7 +988,7 @@ public class Func {
      * @return 格式化后的时间
      */
     public static String formatTime(Date date) {
-        return DateUtil.formatTime(date);
+        return DateTimeUtil.formatTime(date);
     }
 
     /**
@@ -1000,7 +999,7 @@ public class Func {
      * @return 格式化后的时间
      */
     public static String format(Date date, String pattern) {
-        return DateUtil.format(date, pattern);
+        return DateTimeUtil.format(date, pattern);
     }
 
     /**
@@ -1011,7 +1010,7 @@ public class Func {
      * @return 时间
      */
     public static Date parseDate(String dateStr, String pattern) {
-        return DateUtil.parse(dateStr, pattern);
+        return DateTimeUtil.parse(dateStr, pattern);
     }
 
     /**
@@ -1022,7 +1021,7 @@ public class Func {
      * @return 时间
      */
     public static Date parse(String dateStr, ConcurrentDateFormat format) {
-        return DateUtil.parse(dateStr, format);
+        return DateTimeUtil.parse(dateStr, format);
     }
 
     /**

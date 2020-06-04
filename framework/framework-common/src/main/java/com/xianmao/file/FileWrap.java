@@ -1,6 +1,6 @@
 package com.xianmao.file;
 
-import com.xianmao.date.DateUtil;
+import com.xianmao.date.DateTimeUtil;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -59,8 +59,8 @@ public class FileWrap {
         this.file = file;
         this.fileName = file.getName();
         this.originalFileName = file.getOriginalFilename();
-        this.uploadPath = FileUtil.formatUrl(java.io.File.separator + FileConstant.me().getUploadRealPath() + java.io.File.separator + dir + java.io.File.separator + DateUtil.format(new Date(), "yyyyMMdd") + java.io.File.separator + this.originalFileName);
-        this.uploadVirtualPath = FileUtil.formatUrl(FileConstant.me().getUploadCtxPath().replace(FileConstant.me().getContextPath(), "") + java.io.File.separator + dir + java.io.File.separator + DateUtil.format(new Date(), "yyyyMMdd") + java.io.File.separator + this.originalFileName);
+        this.uploadPath = FileUtil.formatUrl(java.io.File.separator + FileConstant.me().getUploadRealPath() + java.io.File.separator + dir + java.io.File.separator + DateTimeUtil.format(new Date(), "yyyyMMdd") + java.io.File.separator + this.originalFileName);
+        this.uploadVirtualPath = FileUtil.formatUrl(FileConstant.me().getUploadCtxPath().replace(FileConstant.me().getContextPath(), "") + java.io.File.separator + dir + java.io.File.separator + DateTimeUtil.format(new Date(), "yyyyMMdd") + java.io.File.separator + this.originalFileName);
     }
 
     public FileWrap(MultipartFile file, String dir, String uploadPath, String uploadVirtualPath) {

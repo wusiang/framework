@@ -1,5 +1,7 @@
 package com.xianmao.exception;
 
+import com.xianmao.obj.ObjectUtil;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
@@ -100,5 +102,18 @@ public class ExceptionUtil {
             cause = cause.getCause();
         }
         return false;
+    }
+
+    /**
+     * 获得完整消息，包括异常名
+     *
+     * @param e 异常
+     * @return 完整消息
+     */
+    public static String getMessage(Throwable e) {
+        if (ObjectUtil.isEmpty(e)) {
+            return null;
+        }
+        return String.format("%s:%s", e.getClass().getSimpleName(), e.getMessage());
     }
 }
