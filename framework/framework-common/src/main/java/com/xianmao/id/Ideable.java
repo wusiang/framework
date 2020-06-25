@@ -1,6 +1,6 @@
 package com.xianmao.id;
 
-public interface BaseIdeable<T> {
+public interface Ideable<T> {
     /**
      * id生成
      *

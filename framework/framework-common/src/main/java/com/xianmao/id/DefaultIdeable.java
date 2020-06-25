@@ -9,7 +9,7 @@ import java.util.UUID;
  * @Data 2020-06-04 12:33
  * @Version 1.0
  */
-public class DefaultIdeable implements BaseIdeable<String> {
+public class DefaultIdeable implements Ideable<String> {
 
     @Override
     public String generateId() {

@@ -25,7 +25,7 @@ import java.net.NetworkInterface;
  * @Data 2020-06-04 12:34
  * @Version 1.0
  */
-public class SnowflakeIdeable implements BaseIdeable<String> {
+public class SnowflakeIdeable implements Ideable<String> {
 
     // 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）
     private final long twepoch = 1288834974657L;

@@ -28,6 +28,8 @@ public class Constant {
         public static final String DEFAULT_RESULT_DATA_KEY = "data";
         public static final String DEFAULT_RESULT_SUCCESS_KEY = "success";
         public static final String DEFAULT_RESULT_PAGE_KEY = "page";
+        public static final String TOKEN = "token";
+        public static final String AUTHORIZATION = "Authorization";
     }
 
     /** Content-type常见类型*/
