@@ -1,6 +1,5 @@
 package com.xianmao.aspect;
 
-import com.alibaba.fastjson.JSON;
 import com.xianmao.annotation.ApiLog;
 import com.xianmao.enums.Level;
 import com.xianmao.utils.BeanUtil;
@@ -77,7 +76,7 @@ public class WebLogAspect {
     private String getAroundInfo(String busName, Method method, Object[] args, Object result) {
         StringBuilder builder = new StringBuilder();
         long startNs = System.nanoTime();
-        builder.append(getParamInfo(busName, method, args)).append(",").append("结果:").append(JSON.toJSONString(result));
+        builder.append(getParamInfo(busName, method, args)).append(",").append("结果:").append(JsonUtil.toJson(result));
         builder.append(getHeaderInfo());
         long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
         builder.append("耗时:"+tookMs+"ms");

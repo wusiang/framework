@@ -12,7 +12,7 @@ public class Constant {
     /** 项目环境类型*/
     public final static class Environment {
         public static final String PROD = "prod";
-        public static final String AUDIT = "audit";
+        public static final String TEST = "TEST";
         public static final String DEV = "dev";
         public static final String PRE = "pre";
     }
