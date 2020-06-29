@@ -1,4 +1,4 @@
-package com.xianmao.utils;
+package com.xianmao.http;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
