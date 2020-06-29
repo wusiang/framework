@@ -27,7 +27,6 @@
         <!--jar包版本号-->
         <lombok.version>1.18.8</lombok.version>
         <jwt.version>0.9.1</jwt.version>
-        <shiro.version>1.4.0</shiro.version>
         <commons.lang3.version>3.8.1</commons.lang3.version>
         <servlet.api.version>3.1.0</servlet.api.version>
         <javax.ws.rs.version>1.1.1</javax.ws.rs.version>
@@ -35,8 +34,6 @@
         <validation.version>2.0.1.Final</validation.version>
         <jackson.version>2.9.9</jackson.version>
         <spring.version>5.0.9.RELEASE</spring.version>
-        <ymal.version>1.23</ymal.version>
-        <joda.time.version>2.10.3</joda.time.version>
         <aspectjweaver.version>1.9.4</aspectjweaver.version>
         <javassist.version>3.25.0-GA</javassist.version>
         <httpclient.version>4.5.9</httpclient.version>
@@ -145,28 +142,11 @@
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
-            <!--shiro安全框架-->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
             <!--JSON Web Token-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jwt.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.yaml</groupId>
-                <artifactId>snakeyaml</artifactId>
-                <version>${ymal.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <scope>compile</scope>
-                <version>${joda.time.version}</version>
             </dependency>
             <!-- aop 这是Spring AOP所要用到的包 -->
             <dependency>
