@@ -1,5 +1,6 @@
 package com.xianmao.config;
 
+import com.xianmao.lock.RedisLock;
 import com.xianmao.utils.RedisUtil;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -23,17 +24,17 @@ import java.time.Duration;
  * @ClassName RedisTemplateConfiguration
  * @Description: redis配置类-实际项目继承该类即可
  * spring:
- *       redis:
- *             database: 0
- *             host: 127.0.0.1
- *             port: 60379
- *             password: lhtgirhigio411302
- *             pool:
- *               max-active: 500
- *               max-wait: 5000
- *               max-idle: 400
- *               min-idle: 0
- *             timeout: 5000
+ * redis:
+ * database: 0
+ * host: 127.0.0.1
+ * port: 60379
+ * password: lhtgirhigio411302
+ * pool:
+ * max-active: 500
+ * max-wait: 5000
+ * max-idle: 400
+ * min-idle: 0
+ * timeout: 5000
  * @Author wjh
  * @Data 2020-05-04 22:23
  * @Version 1.0
@@ -82,5 +83,11 @@ public class RedisTemplateConfiguration {
     @ConditionalOnBean(RedisTemplate.class)
     public RedisUtil redisUtils(RedisTemplate<String, Object> redisTemplate) {
         return new RedisUtil(redisTemplate);
+    }
+
+    @Bean(name = "redisLock")
+    @ConditionalOnBean(RedisTemplate.class)
+    public RedisLock redisLock(RedisTemplate<String, Object> redisTemplate) {
+        return new RedisLock(redisTemplate);
     }
 }
