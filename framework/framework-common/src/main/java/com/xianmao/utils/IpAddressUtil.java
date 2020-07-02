@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
  * @Data 2019-08-14 09:55
  * @Version 1.0
  */
-public class IPUtils {
+public class IpAddressUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(IPUtils.class);
+    private static Logger logger = LoggerFactory.getLogger(IpAddressUtil.class);
 
     /**
      * 获取IP地址

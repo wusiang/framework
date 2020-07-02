@@ -11,7 +11,7 @@ public enum ResultCode implements IEnum<Integer, String> {
     FORBIDDEN(103, "无权限"),
     FREQUENT_ACCESS_RESTRICTION(104, "频繁访问限制，请稍后重试"),
     REQ_REJECT(105, "请求被拒绝"),
-    INTERNAL_SERVER_ERROR(106, "服务器异常"),
+    INTERNAL_SERVER_ERROR(106, "哎服务器开小差"),
 
     /*** 200 请求成功*/
     SUCCESS(200, "操作成功"),

@@ -1,5 +1,8 @@
 package com.xianmao.utils;
 
+import com.xianmao.number.NumberUtil;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.*;
 
 /**
@@ -11,29 +14,34 @@ import java.util.*;
  */
 public class ConverterUtil {
 
-    /**
-     * <将obj转换为string，如果obj为null则返回defaultVal>
-     *
-     * @param obj        需要转换为string的对象
-     * @param defaultVal 默认值
-     * @return obj转换为string
-     */
-    public static String toString(Object obj, String defaultVal) {
-        if (obj == null) {
-            return defaultVal;
-        }
-        return obj.toString();
+    private ConverterUtil() {
+        throw new AssertionError("No " + getClass().getName() + " instances for you!");
     }
 
+    ;
 
     /**
-     * <将obj转换为string，默认为空>
+     * 强转string,并去掉多余空格
      *
-     * @param obj 需要转换为string的对象
-     * @return 将对象转换为string的字符串
+     * @param obj 字符串
+     * @return String
      */
     public static String toString(Object obj) {
         return toString(obj, "");
+    }
+
+    /**
+     * 强转string,并去掉多余空格
+     *
+     * @param obj          需要转换为string的对象
+     * @param defaultValue 默认值
+     * @return obj转换为string
+     */
+    public static String toString(Object obj, String defaultValue) {
+        if (null == obj) {
+            return defaultValue;
+        }
+        return String.valueOf(obj);
     }
 
     /**
@@ -96,6 +104,16 @@ public class ConverterUtil {
     /**
      * <将obj转换为long>
      *
+     * @param obj 需要转换的对象
+     * @return 如果obj为空则返回默认的0l，不为空则返回转换后的long结果
+     */
+    public static Long toLong(Object obj) {
+        return toLong(obj, 0l);
+    }
+
+    /**
+     * <将obj转换为long>
+     *
      * @param obj        需要转换的对象
      * @param defaultVal 默认值
      * @return 如果obj为空则返回默认，不为空则返回转换后的long结果
@@ -105,13 +123,13 @@ public class ConverterUtil {
     }
 
     /**
-     * <将obj转换为long>
+     * 将obj 转换为布尔类型
      *
-     * @param obj 需要转换的对象
-     * @return 如果obj为空则返回默认的0l，不为空则返回转换后的long结果
+     * @param obj 对象
+     * @return 转换为boolean 的结果
      */
-    public static Long toLong(Object obj) {
-        return toLong(obj, 0l);
+    public static Boolean toBoolean(Object obj) {
+        return toBoolean(obj, false);
     }
 
     /**
@@ -120,11 +138,23 @@ public class ConverterUtil {
      * @param obj 对象
      * @return 转换为boolean 的结果
      */
-    public static boolean toBoolean(Object obj) {
-        if (Objects.isNull(obj)) {
-            return false;
+    public static Boolean toBoolean(Object obj, Boolean defaultValue) {
+        if (obj != null) {
+            String val = String.valueOf(obj);
+            val = val.toLowerCase().trim();
+            return Boolean.parseBoolean(val);
         }
-        return "true".equals(obj.toString());
+        return defaultValue;
+    }
+
+    /**
+     * 将object转换为double类型，如果出错则返回 0d
+     *
+     * @param obj 需要转换的对象
+     * @return 转换后的结果
+     */
+    public static double toDouble(Object obj) {
+        return toDouble(obj, 0d);
     }
 
     /**
@@ -143,13 +173,54 @@ public class ConverterUtil {
     }
 
     /**
-     * 将object转换为double类型，如果出错则返回 0d
+     * 转换为Integer集合<br>
      *
-     * @param obj 需要转换的对象
-     * @return 转换后的结果
+     * @param str 结果被转换的值
+     * @return 结果
      */
-    public static double toDouble(Object obj) {
-        return toDouble(obj, 0d);
+    public static List<Integer> toIntList(String str) {
+        return Arrays.asList(toIntArray(str));
+    }
+
+    /**
+     * 转换为Integer集合<br>
+     *
+     * @param split 分隔符
+     * @param str   被转换的值
+     * @return 结果
+     */
+    public static List<Integer> toIntList(String split, String str) {
+        return Arrays.asList(toIntArray(split, str));
+    }
+
+    /**
+     * 转换为Integer数组<br>
+     *
+     * @param str 被转换的值
+     * @return 结果
+     */
+    public static Integer[] toIntArray(String str) {
+        return toIntArray(",", str);
+    }
+
+    /**
+     * 转换为Integer数组<br>
+     *
+     * @param split 分隔符
+     * @param str   被转换的值
+     * @return 结果
+     */
+    public static Integer[] toIntArray(String split, String str) {
+        if (StringUtil.isEmpty(str)) {
+            return new Integer[]{};
+        }
+        String[] arr = str.split(split);
+        final Integer[] ints = new Integer[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            final Integer v = toInt(arr[i], 0);
+            ints[i] = v;
+        }
+        return ints;
     }
 
     /**
@@ -165,6 +236,62 @@ public class ConverterUtil {
             result.add((HashMap<String, Object>) tempObj);
         }
         return result;
+    }
+
+
+    /**
+     * 转换为String数组<br>
+     *
+     * @param str 被转换的值
+     * @return 结果
+     */
+    public static String[] toStringArray(String str) {
+        return toStringArray(",", str);
+    }
+
+    /**
+     * 转换为String数组<br>
+     *
+     * @param split 分隔符
+     * @param str   被转换的值
+     * @return 结果
+     */
+    public static String[] toStringArray(String split, String str) {
+        if (StringUtils.isBlank(str)) {
+            return new String[]{};
+        }
+        return str.split(split);
+    }
+
+    /**
+     * 转换为String集合<br>
+     *
+     * @param str 结果被转换的值
+     * @return 结果
+     */
+    public static List<String> toStringList(String str) {
+        return Arrays.asList(toStringArray(str));
+    }
+
+    /**
+     * 转换为String集合<br>
+     *
+     * @param split 分隔符
+     * @param str   被转换的值
+     * @return 结果
+     */
+    public static List<String> toStringList(String split, String str) {
+        return Arrays.asList(toStringArray(split, str));
+    }
+
+    /**
+     * 将 long 转短字符串 为 62 进制
+     *
+     * @param num 数字
+     * @return 短字符串
+     */
+    public static String to62String(long num) {
+        return NumberUtil.to62String(num);
     }
 
     /**
