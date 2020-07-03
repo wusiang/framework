@@ -1,5 +1,7 @@
 package com.xianmao.utils;
 
+import com.xianmao.digest.Base64Util;
+import com.xianmao.digest.DigestUtil;
 import com.xianmao.number.NumberUtil;
 import com.xianmao.obj.CollectionUtil;
 import com.xianmao.obj.ObjectUtil;

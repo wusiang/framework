@@ -1,4 +1,4 @@
-package com.xianmao.utils;
+package com.xianmao.digest;
 
 import org.apache.commons.codec.Charsets;
 

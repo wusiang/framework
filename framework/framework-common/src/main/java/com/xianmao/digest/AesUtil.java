@@ -1,4 +1,4 @@
-package com.xianmao.utils;
+package com.xianmao.digest;
 
 import com.xianmao.exception.ExceptionUtil;
 import com.xianmao.random.RandomUtil;
