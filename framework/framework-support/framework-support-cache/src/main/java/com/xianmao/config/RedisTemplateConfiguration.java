@@ -1,5 +1,12 @@
 package com.xianmao.config;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.xianmao.jackson.JsonUtil;
 import com.xianmao.lock.RedisLock;
 import com.xianmao.utils.RedisUtil;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -18,7 +25,11 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.ZoneId;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * @ClassName RedisTemplateConfiguration
@@ -59,7 +70,15 @@ public class RedisTemplateConfiguration {
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory, RedisSerializer<Object> redisSerializer) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         RedisKeySerializer redisKeySerializer = new RedisKeySerializer();
-        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+
+        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(
+                Object.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
+        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
+
         // key 序列化
         redisTemplate.setKeySerializer(redisKeySerializer);
         redisTemplate.setHashKeySerializer(redisKeySerializer);
@@ -90,4 +109,6 @@ public class RedisTemplateConfiguration {
     public RedisLock redisLock(RedisTemplate<String, Object> redisTemplate) {
         return new RedisLock(redisTemplate);
     }
+
+
 }
