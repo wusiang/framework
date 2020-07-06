@@ -1,6 +1,5 @@
 package com.xianmao.utils;
 
-import com.xianmao.number.NumberUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
@@ -291,7 +290,7 @@ public class ConverterUtil {
      * @return 短字符串
      */
     public static String to62String(long num) {
-        return NumberUtil.to62String(num);
+        return ConverterUtil.to62String(num);
     }
 
     /**

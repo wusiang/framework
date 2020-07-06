@@ -1,5 +1,6 @@
 package com.xianmao.utils;
 
+import com.xianmao.date.DateTimeUtil;
 import com.xianmao.exception.BizException;
 import com.xianmao.rest.ResultCode;
 import io.jsonwebtoken.Claims;
@@ -9,7 +10,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -136,11 +136,13 @@ public class JWTUtil {
      */
     public static String buildJWT(SignatureAlgorithm alg, Key key, String sub, String aud, String jti, String iss, Date nbf, Integer duration) {
         // jwt的签发时间
-        DateTime iat = DateTime.now();
+        Date iat = new Date();
         // jwt的过期时间，这个过期时间必须要大于签发时间
-        DateTime exp = null;
+        Date exp = null;
         if (duration != null)
-            exp = (nbf == null ? iat.plusSeconds(duration) : new DateTime(nbf).plusSeconds(duration));
+            exp = (nbf == null ?
+                    DateTimeUtil.plusSeconds(iat,duration) :
+                    DateTimeUtil.plusSeconds(nbf,duration));
 
         // 获取JWT字符串
         String compact = Jwts.builder()
@@ -150,8 +152,8 @@ public class JWTUtil {
                 .setId(jti)
                 .setIssuer(iss)
                 .setNotBefore(nbf)
-                .setIssuedAt(iat.toDate())
-                .setExpiration(exp != null ? exp.toDate() : null)
+                .setIssuedAt(iat)
+                .setExpiration(exp != null ? exp : null)
                 .compact();
 
         // 在JWT字符串前添加"Bearer "字符串，用于加入"Authorization"请求头

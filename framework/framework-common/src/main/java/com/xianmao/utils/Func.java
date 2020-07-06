@@ -2,7 +2,6 @@ package com.xianmao.utils;
 
 import com.xianmao.digest.Base64Util;
 import com.xianmao.digest.DigestUtil;
-import com.xianmao.number.NumberUtil;
 import com.xianmao.obj.CollectionUtil;
 import com.xianmao.obj.ObjectUtil;
 import com.xianmao.random.RandomType;
@@ -410,7 +409,7 @@ public class Func {
      * conversion fails
      */
     public static int toInt(final Object value) {
-        return NumberUtil.toInt(String.valueOf(value));
+        return ConverterUtil.toInt(String.valueOf(value));
     }
 
     /**
@@ -430,7 +429,7 @@ public class Func {
      * @return the int represented by the string, or the default if conversion fails
      */
     public static int toInt(final Object value, final int defaultValue) {
-        return NumberUtil.toInt(String.valueOf(value), defaultValue);
+        return ConverterUtil.toInt(String.valueOf(value), defaultValue);
     }
 
     /**
@@ -450,7 +449,7 @@ public class Func {
      * conversion fails
      */
     public static long toLong(final Object value) {
-        return NumberUtil.toLong(String.valueOf(value));
+        return ConverterUtil.toLong(String.valueOf(value));
     }
 
     /**
@@ -470,7 +469,7 @@ public class Func {
      * @return the long represented by the string, or the default if conversion fails
      */
     public static long toLong(final Object value, final long defaultValue) {
-        return NumberUtil.toLong(String.valueOf(value), defaultValue);
+        return ConverterUtil.toLong(String.valueOf(value), defaultValue);
     }
 
     /**
@@ -509,7 +508,7 @@ public class Func {
      * @return the int represented by the string, or the default if conversion fails
      */
     public static Double toDouble(Object value, Double defaultValue) {
-        return NumberUtil.toDouble(String.valueOf(value), defaultValue);
+        return ConverterUtil.toDouble(String.valueOf(value), defaultValue);
     }
 
     /**
@@ -548,7 +547,7 @@ public class Func {
      * @return the int represented by the string, or the default if conversion fails
      */
     public static Float toFloat(Object value, Float defaultValue) {
-        return NumberUtil.toFloat(String.valueOf(value), defaultValue);
+        return ConverterUtil.toFloat(String.valueOf(value), defaultValue);
     }
 
     /**
@@ -749,7 +748,7 @@ public class Func {
      * @return 短字符串
      */
     public static String to62String(long num) {
-        return NumberUtil.to62String(num);
+        return ConverterUtil.to62String(num);
     }
 
     /**

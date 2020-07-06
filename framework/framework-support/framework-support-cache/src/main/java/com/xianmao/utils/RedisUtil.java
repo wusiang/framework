@@ -71,6 +71,19 @@ public class RedisUtil {
     }
 
     /**
+     * 获取缓存的key
+     *
+     * @param pattern
+     * @return
+     */
+    public Set<String> keys(String pattern) {
+        if (pattern != null && pattern.length() > 0) {
+            return redisTemplate.keys(pattern);
+        }
+        return null;
+    }
+
+    /**
      * 删除缓存
      *
      * @param key 可以传一个值 或多个
