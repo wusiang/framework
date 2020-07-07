@@ -396,7 +396,7 @@ public class StringUtil extends org.springframework.util.StringUtils {
         if (null == template) {
             return null;
         }
-        if (Func.isEmpty(params) || isBlank(template)) {
+        if (StringUtil.isEmpty(params) || isBlank(template)) {
             return template.toString();
         }
         return StrFormatter.format(template.toString(), params);
@@ -433,7 +433,7 @@ public class StringUtil extends org.springframework.util.StringUtils {
 
         String template2 = template.toString();
         for (Map.Entry<?, ?> entry : map.entrySet()) {
-            template2 = template2.replace("{" + entry.getKey() + "}", Func.toStr(entry.getValue()));
+            template2 = template2.replace("{" + entry.getKey() + "}", ConverterUtil.toString(entry.getValue()));
         }
         return template2;
     }
