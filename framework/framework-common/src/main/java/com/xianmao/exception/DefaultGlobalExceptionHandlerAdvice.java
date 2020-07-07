@@ -28,9 +28,9 @@ public class DefaultGlobalExceptionHandlerAdvice {
         logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req),ServletUtils.getHeaderMap(req).toString(),WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         if (e instanceof BizException) {
             BizException bizException = (BizException) e;
-            return APIResult.failure(bizException.getCode(), bizException.getMsg());
+            return APIResult.fail(bizException.getCode(), bizException.getMsg());
         } else {
-            return APIResult.failure(ResultCode.INTERNAL_SERVER_ERROR);
+            return APIResult.fail(ResultCode.INTERNAL_SERVER_ERROR);
         }
     }
 

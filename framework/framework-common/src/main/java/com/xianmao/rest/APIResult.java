@@ -155,11 +155,11 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @param <T> T 泛型标记
      * @return R
      */
-    public static <T> APIResult<T> failure(String msg) {
+    public static <T> APIResult<T> fail(String msg) {
         return new APIResult<>(FAILURE_CODE, msg);
     }
 
-    public static <T> APIResult<T> failure() {
+    public static <T> APIResult<T> fail() {
         return new APIResult<>(FAILURE_CODE, Constant.Rest.DEFAULT_FAILURE_MESSAGE);
     }
 
@@ -172,7 +172,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @param <T>  T 泛型标记
      * @return R
      */
-    public static <T> APIResult<T> failure(int code, String msg) {
+    public static <T> APIResult<T> fail(int code, String msg) {
         return new APIResult<>(code, msg);
     }
 
@@ -183,7 +183,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @param <T>        T 泛型标记
      * @return R
      */
-    public static <T> APIResult<T> failure(IEnum<Integer, String> resultCode) {
+    public static <T> APIResult<T> fail(IEnum<Integer, String> resultCode) {
         return new APIResult<>(resultCode.getCode(), resultCode.getValue());
     }
 
@@ -195,7 +195,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @param <T>        T 泛型标记
      * @return R
      */
-    public static <T> APIResult<T> failure(IEnum<Integer, String> resultCode, String msg) {
+    public static <T> APIResult<T> fail(IEnum<Integer, String> resultCode, String msg) {
         return new APIResult<>(resultCode.getCode(), msg);
     }
 
