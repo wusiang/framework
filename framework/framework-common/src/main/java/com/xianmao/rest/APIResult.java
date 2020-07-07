@@ -2,9 +2,12 @@ package com.xianmao.rest;
 
 import com.xianmao.constant.Constant;
 import com.xianmao.enums.IEnum;
+import com.xianmao.obj.ObjectUtil;
+import org.springframework.lang.Nullable;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Optional;
 
 /**
  * @ClassName RestAPI
@@ -35,24 +38,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     }
 
     public Object getResultData() {
-        Object msg = this.get(DATA_KEY);
-        return msg;
-    }
-
-    private APIResult(ResultCode resultCode) {
-        this(resultCode.getCode(), resultCode.getValue());
-    }
-
-    private APIResult(ResultCode resultCode, String msg) {
-        this(resultCode.getCode(), msg);
-    }
-
-    private APIResult(ResultCode resultCode, T data) {
-        this(resultCode, data, resultCode.getValue());
-    }
-
-    private APIResult(ResultCode resultCode, T data, String msg) {
-        this(resultCode.getCode(), data, msg);
+        return this.get(DATA_KEY);
     }
 
     private APIResult() {
@@ -79,19 +65,6 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     /**
      * 返回R
      *
-     * @param code 状态码
-     * @param data 数据
-     * @param msg  消息
-     * @param <T>  T 泛型标记
-     * @return R
-     */
-    public static <T> APIResult<T> success(int code, T data, String msg) {
-        return new APIResult<>(code, data, data == null ? Constant.Rest.DEFAULT_NULL_MESSAGE : msg);
-    }
-
-    /**
-     * 返回R
-     *
      * @param data 数据
      * @param msg  消息
      * @param <T>  T 泛型标记
@@ -103,6 +76,19 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
 
     public static <T> APIResult<T> success(Page<T> page, String msg) {
         return new APIResult<T>(SUCCESS_CODE, page, msg);
+    }
+
+    /**
+     * 返回R
+     *
+     * @param code 状态码
+     * @param data 数据
+     * @param msg  消息
+     * @param <T>  T 泛型标记
+     * @return R
+     */
+    public static <T> APIResult<T> success(int code, T data, String msg) {
+        return new APIResult<>(code, data, data == null ? Constant.Rest.DEFAULT_NULL_MESSAGE : msg);
     }
 
     /**
@@ -233,6 +219,28 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     public APIResult<T> fill(String key, Object value) {
         this.put(key, value);
         return this;
+    }
+
+    /**
+     * 请求成功是否
+     *
+     * @param result 响应体
+     * @return
+     */
+    public static boolean isSuccess(@Nullable APIResult<?> result) {
+        return Optional.ofNullable(result).map((x) -> {
+            return ObjectUtil.nullSafeEquals(ResultCode.SUCCESS.getCode(), x.getResultCode());
+        }).orElse(Boolean.FALSE);
+    }
+
+    /**
+     * 请求失败是否
+     *
+     * @param result 响应体
+     * @return
+     */
+    public static boolean isNotSuccess(@Nullable APIResult<?> result) {
+        return !isSuccess(result);
     }
 
     /**
