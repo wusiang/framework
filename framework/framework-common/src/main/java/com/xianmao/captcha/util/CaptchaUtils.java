@@ -51,7 +51,7 @@ public class CaptchaUtils {
         int interferingLineQuantity = captchaIPO.getInterferingLineQuantity();
 
         // 2. 创建空白图片
-        StringBuffer captcha = new StringBuffer();
+        StringBuilder captcha = new StringBuilder();
         BufferedImage captchaImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
         // 3. 获取图片画笔
