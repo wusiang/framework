@@ -2,7 +2,6 @@ package com.xianmao.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -18,9 +17,7 @@ public class ConverterUtil {
 
     private ConverterUtil() {
         throw new AssertionError("No " + getClass().getName() + " instances for you!");
-    }
-
-    ;
+    };
 
     /**
      * 强转string,并去掉多余空格
