@@ -1,14 +1,18 @@
 package com.xianmao.utils;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.bean.copier.CopyOptions;
-import cn.hutool.core.bean.copier.ValueProvider;
-import cn.hutool.core.exceptions.UtilException;
-import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.io.IORuntimeException;
-import cn.hutool.core.io.IoUtil;
-import cn.hutool.core.util.ArrayUtil;
-import cn.hutool.core.util.*;
+//import cn.hutool.core.bean.BeanUtil;
+//import cn.hutool.core.bean.copier.CopyOptions;
+//import cn.hutool.core.bean.copier.ValueProvider;
+//import cn.hutool.core.exceptions.UtilException;
+//import cn.hutool.core.io.FileUtil;
+//import cn.hutool.core.io.IORuntimeException;
+//import cn.hutool.core.io.IoUtil;
+//import cn.hutool.core.util.ArrayUtil;
+//import cn.hutool.core.util.*;
+
+import com.xianmao.exception.UtilException;
+import com.xianmao.obj.ObjectUtil;
+import com.xianmao.string.CharsetUtil;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -19,8 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
-import java.lang.reflect.Type;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class ServletUtils {
@@ -118,11 +122,13 @@ public class ServletUtils {
      * @return Map
      */
     public static Map<String, String> getParamMap(ServletRequest request) {
-        Map<String, String> params = new HashMap<String, String>();
-        for (Map.Entry<String, String[]> entry : getParams(request).entrySet()) {
-            params.put(entry.getKey(), ArrayUtil.join(entry.getValue(), StrUtil.COMMA));
+        Map<String, String> result = new HashMap<>();
+        Enumeration parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = (String) parameterNames.nextElement();
+            result.put(parameterName, request.getParameter(parameterName));
         }
-        return params;
+        return result;
     }
 
     /**
@@ -137,7 +143,7 @@ public class ServletUtils {
         try {
             return IoUtil.read(request.getReader());
         } catch (IOException e) {
-            throw new IORuntimeException(e);
+            throw new UtilException(e);
         }
     }
 
@@ -153,74 +159,10 @@ public class ServletUtils {
         try {
             return IoUtil.readBytes(request.getInputStream());
         } catch (IOException e) {
-            throw new IORuntimeException(e);
+            throw new UtilException(e);
         }
     }
     // --------------------------------------------------------- getParam end
-
-    // --------------------------------------------------------- fillBean start
-
-    /**
-     * ServletRequest 参数转Bean
-     *
-     * @param <T>         Bean类型
-     * @param request     ServletRequest
-     * @param bean        Bean
-     * @param copyOptions 注入时的设置
-     * @return Bean
-     * @since 3.0.4
-     */
-    public static <T> T fillBean(final ServletRequest request, T bean, CopyOptions copyOptions) {
-        final String beanName = StrUtil.lowerFirst(bean.getClass().getSimpleName());
-        return BeanUtil.fillBean(bean, new ValueProvider<String>() {
-            @Override
-            public Object value(String key, Type valueType) {
-                String value = request.getParameter(key);
-                if (StrUtil.isEmpty(value)) {
-                    // 使用类名前缀尝试查找值
-                    value = request.getParameter(beanName + StrUtil.DOT + key);
-                    if (StrUtil.isEmpty(value)) {
-                        // 此处取得的值为空时跳过，包括null和""
-                        value = null;
-                    }
-                }
-                return value;
-            }
-
-            @Override
-            public boolean containsKey(String key) {
-                // 对于Servlet来说，返回值null意味着无此参数
-                return (null != request.getParameter(key)) || (null != request.getParameter(beanName + StrUtil.DOT + key));
-            }
-        }, copyOptions);
-    }
-
-    /**
-     * ServletRequest 参数转Bean
-     *
-     * @param <T>           Bean类型
-     * @param request       {@link ServletRequest}
-     * @param bean          Bean
-     * @param isIgnoreError 是否忽略注入错误
-     * @return Bean
-     */
-    public static <T> T fillBean(ServletRequest request, T bean, boolean isIgnoreError) {
-        return fillBean(request, bean, CopyOptions.create().setIgnoreError(isIgnoreError));
-    }
-
-    /**
-     * ServletRequest 参数转Bean
-     *
-     * @param <T>           Bean类型
-     * @param request       ServletRequest
-     * @param beanClass     Bean Class
-     * @param isIgnoreError 是否忽略注入错误
-     * @return Bean
-     */
-    public static <T> T toBean(ServletRequest request, Class<T> beanClass, boolean isIgnoreError) {
-        return fillBean(request, ReflectUtil.newInstance(beanClass), isIgnoreError);
-    }
-    // --------------------------------------------------------- fillBean end
 
     /**
      * 获取客户端IP
@@ -367,7 +309,7 @@ public class ServletUtils {
     public static String getHeader(HttpServletRequest request, String name, Charset charset) {
         final String header = request.getHeader(name);
         if (null != header) {
-            return CharsetUtil.convert(header, CharsetUtil.CHARSET_ISO_8859_1, charset);
+            return ConverterUtil.convert(header, StandardCharsets.ISO_8859_1, charset);
         }
         return null;
     }
@@ -380,7 +322,7 @@ public class ServletUtils {
      */
     public static boolean isIE(HttpServletRequest request) {
         String userAgent = getHeaderIgnoreCase(request, "User-Agent");
-        if (StrUtil.isNotBlank(userAgent)) {
+        if (StringUtil.isNotBlank(userAgent)) {
             userAgent = userAgent.toUpperCase();
             if (userAgent.contains("MSIE") || userAgent.contains("TRIDENT")) {
                 return true;
@@ -421,7 +363,7 @@ public class ServletUtils {
         }
 
         String contentType = request.getContentType();
-        if (StrUtil.isBlank(contentType)) {
+        if (StringUtil.isBlank(contentType)) {
             return false;
         }
         if (contentType.toLowerCase().startsWith("multipart/")) {
@@ -551,14 +493,10 @@ public class ServletUtils {
      *
      * @param response 响应对象{@link HttpServletResponse}
      * @return 获得PrintWriter
-     * @throws IORuntimeException IO异常
+     * @throws IOException IO异常
      */
-    public static PrintWriter getWriter(HttpServletResponse response) throws IORuntimeException {
-        try {
-            return response.getWriter();
-        } catch (IOException e) {
-            throw new IORuntimeException(e);
-        }
+    public static PrintWriter getWriter(HttpServletResponse response) throws IOException {
+        return response.getWriter();
     }
 
     /**
@@ -607,41 +545,6 @@ public class ServletUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * 返回文件给客户端
-     *
-     * @param response 响应对象{@link HttpServletResponse}
-     * @param file     写出的文件对象
-     * @since 4.1.15
-     */
-    public static void write(HttpServletResponse response, File file) {
-        final String fileName = file.getName();
-        final String contentType = ObjectUtil.defaultIfNull(FileUtil.getMimeType(fileName), "application/octet-stream");
-        BufferedInputStream in = null;
-        try {
-            in = FileUtil.getInputStream(file);
-            write(response, in, contentType, fileName);
-        } finally {
-            IoUtil.close(in);
-        }
-    }
-
-    /**
-     * 返回数据给客户端
-     *
-     * @param response    响应对象{@link HttpServletResponse}
-     * @param in          需要返回客户端的内容
-     * @param contentType 返回的类型
-     * @param fileName    文件名
-     * @since 4.1.15
-     */
-    public static void write(HttpServletResponse response, InputStream in, String contentType, String fileName) {
-        final String charset = ObjectUtil.defaultIfNull(response.getCharacterEncoding(), CharsetUtil.UTF_8);
-        response.setHeader("Content-Disposition", StrUtil.format("attachment;filename={}", URLUtil.encode(fileName, charset)));
-        response.setContentType(contentType);
-        write(response, in);
     }
 
     /**
@@ -735,6 +638,6 @@ public class ServletUtils {
      * @return 是否未知
      */
     private static boolean isUnknow(String checkString) {
-        return StrUtil.isBlank(checkString) || "unknown".equalsIgnoreCase(checkString);
+        return StringUtil.isBlank(checkString) || "unknown".equalsIgnoreCase(checkString);
     }
 }

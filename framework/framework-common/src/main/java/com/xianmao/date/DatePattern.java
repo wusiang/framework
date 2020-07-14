@@ -1,7 +1,5 @@
 package com.xianmao.date;
 
-import cn.hutool.core.date.format.FastDateFormat;
-
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.SimpleFormatter;

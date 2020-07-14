@@ -32,11 +32,11 @@ import java.util.Map;
  * @Data 2019-08-21 08:50
  * @Version 1.0
  */
-public class HttpClientUtil {
+public class HttpUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(HttpClientUtil.class);
+    private static Logger logger = LoggerFactory.getLogger(HttpUtil.class);
 
-    private HttpClientUtil() {
+    private HttpUtil() {
         throw new IllegalAccessError("HttpClientUtils工具类不能实例化");
     }
 

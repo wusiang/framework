@@ -2,6 +2,9 @@ package com.xianmao.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.File;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /**
@@ -302,5 +305,47 @@ public class ConverterUtil {
      */
     public static int char2Int(char c) {
         return ((int) c) - 96;
+    }
+
+    /**
+     * 转换字符串的字符集编码
+     *
+     * @param source      字符串
+     * @param srcCharset  源字符集，默认ISO-8859-1
+     * @param destCharset 目标字符集，默认UTF-8
+     * @return 转换后的字符集
+     */
+    public static String convert(String source, String srcCharset, String destCharset) {
+        return convert(source, Charset.forName(srcCharset), Charset.forName(destCharset));
+    }
+
+    /**
+     * 转换字符串的字符集编码<br>
+     * 当以错误的编码读取为字符串时，打印字符串将出现乱码。<br>
+     * 此方法用于纠正因读取使用编码错误导致的乱码问题。<br>
+     * 例如，在Servlet请求中客户端用GBK编码了请求参数，我们使用UTF-8读取到的是乱码，此时，使用此方法即可还原原编码的内容
+     * <pre>
+     * 客户端 -》 GBK编码 -》 Servlet容器 -》 UTF-8解码 -》 乱码
+     * 乱码 -》 UTF-8编码 -》 GBK解码 -》 正确内容
+     * </pre>
+     *
+     * @param source      字符串
+     * @param srcCharset  源字符集，默认ISO-8859-1
+     * @param destCharset 目标字符集，默认UTF-8
+     * @return 转换后的字符集
+     */
+    public static String convert(String source, Charset srcCharset, Charset destCharset) {
+        if (null == srcCharset) {
+            srcCharset = StandardCharsets.ISO_8859_1;
+        }
+
+        if (null == destCharset) {
+            destCharset = StandardCharsets.UTF_8;
+        }
+
+        if (StringUtil.isBlank(source) || srcCharset.equals(destCharset)) {
+            return source;
+        }
+        return new String(source.getBytes(srcCharset), destCharset);
     }
 }

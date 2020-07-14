@@ -61,7 +61,7 @@ public class DateTimeUtil {
      * @return 格式化后的字符串
      */
     public static String formatLocalDateTime(LocalDateTime localDateTime) {
-        return format(localDateTime, cn.hutool.core.date.DatePattern.NORM_DATETIME_PATTERN);
+        return format(localDateTime, DatePattern.NORM_DATETIME_PATTERN);
     }
 
     /**

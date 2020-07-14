@@ -1,6 +1,6 @@
 package com.xianmao.utils;
 
-import cn.hutool.core.util.ObjectUtil;
+import com.xianmao.obj.ObjectUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.lang.Nullable;
 
