@@ -1,5 +1,6 @@
 package com.xianmao.date;
 
+import cn.hutool.core.date.DateTime;
 import com.xianmao.string.StringPool;
 import com.xianmao.utils.StringUtil;
 import org.springframework.util.Assert;
@@ -31,6 +32,26 @@ public class DateTimeUtil {
      */
     public static Date currentDate() {
         return Date.from(Instant.now());
+    }
+
+    /**
+     * 当前时间的时间戳
+     *
+     * @param isNano 是否为高精度时间
+     * @return 时间
+     */
+    public static long currentTimeMillis(boolean isNano) {
+        return isNano ? System.nanoTime() : System.currentTimeMillis();
+    }
+
+    /**
+     * 当前时间的时间戳（秒）
+     *
+     * @return 当前时间秒数
+     * @since 4.0.0
+     */
+    public static long currentSeconds() {
+        return System.currentTimeMillis() / 1000;
     }
 
     /**
@@ -447,25 +468,20 @@ public class DateTimeUtil {
     }
 
     /**
-     * 比较2个时间差，跨度比较小
-     *
-     * @param startInclusive 开始时间
-     * @param endExclusive   结束时间
-     * @return 时间间隔
-     */
-    public static Duration between(Temporal startInclusive, Temporal endExclusive) {
-        return Duration.between(startInclusive, endExclusive);
-    }
-
-    /**
      * 比较2个时间差，跨度比较大，年月日为单位
      *
      * @param startDate 开始时间
      * @param endDate   结束时间
+     * @param isAbs     日期间隔是否只保留绝对值正数
      * @return 时间间隔
      */
-    public static Period between(LocalDate startDate, LocalDate endDate) {
-        return Period.between(startDate, endDate);
+    public static Period between(LocalDate startDate, LocalDate endDate, boolean isAbs) {
+        if (isAbs && startDate.isAfter(endDate)) {
+            // 间隔只为正数的情况下，如果开始日期晚于结束日期，置换之
+            return Period.between(endDate, startDate);
+        } else {
+            return Period.between(startDate, endDate);
+        }
     }
 
     /**
@@ -473,10 +489,16 @@ public class DateTimeUtil {
      *
      * @param startDate 开始时间
      * @param endDate   结束时间
+     * @param isAbs     日期间隔是否只保留绝对值正数
      * @return 时间间隔
      */
-    public static Duration between(Date startDate, Date endDate) {
-        return Duration.between(startDate.toInstant(), endDate.toInstant());
+    public static Duration between(Date startDate, Date endDate, boolean isAbs) {
+        if (isAbs && startDate.after(endDate)) {
+            // 间隔只为正数的情况下，如果开始日期晚于结束日期，置换之
+            return Duration.between(endDate.toInstant(), startDate.toInstant());
+        } else {
+            return Duration.between(startDate.toInstant(), endDate.toInstant());
+        }
     }
 
     /**

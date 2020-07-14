@@ -1,5 +1,7 @@
 package com.xianmao.date;
 
+import cn.hutool.core.date.format.FastDateFormat;
+
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -49,6 +51,15 @@ public class DatePattern {
      * 纯净的日期格式化 <code>yyyyMMdd</code>
      */
     public final static DateTimeFormatter PURE_DATE_FORMAT = DateTimeFormatter.ofPattern(PURE_DATE_PATTERN);
+
+    /**
+     * 标准日期格式：yyyy年MM月dd日 HH时mm分ss秒
+     */
+    public static final String CHINESE_DATE_TIME_PATTERN = "yyyy年MM月dd日HH时mm分ss秒";
+    /**
+     * 标准日期格式 {@link FastDateFormat}：yyyy年MM月dd日HH时mm分ss秒
+     */
+    public static final DateTimeFormatter CHINESE_DATE_TIME_FORMAT = DateTimeFormatter.ofPattern(CHINESE_DATE_TIME_PATTERN);
 
     /**
      * 中文的日期格式 <code>yyyy年MM月dd日</code>
