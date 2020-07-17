@@ -21,7 +21,7 @@ public class AssertUtil {
      * @param expression 表达式
      * @throws RuntimeException 如果 {@code expression} 是True抛出
      */
-    public static void check(boolean expression) {
+    public static void isTrue(boolean expression) {
         if (expression) {
             throw new RuntimeException();
         }
@@ -34,7 +34,7 @@ public class AssertUtil {
      * @param e          异常
      * @throws RuntimeException 如果 {@code expression} 是True抛出{@code e}
      */
-    public static void check(boolean expression, RuntimeException e) {
+    public static void isTrue(boolean expression, RuntimeException e) {
         if (expression) {
             throw e;
         }
@@ -47,7 +47,7 @@ public class AssertUtil {
      * @param errorMessage 异常信息
      * @throws RuntimeException 如果{@code expression} 是True抛出
      */
-    public static void check(boolean expression, Object errorMessage) {
+    public static void isTrue(boolean expression, Object errorMessage) {
         if (expression) {
             throw new RuntimeException(String.valueOf(errorMessage));
         }
@@ -61,7 +61,7 @@ public class AssertUtil {
      * @param errorMessageArgs     模板替换的参数
      * @throws RuntimeException 如果{@code expression} 是True抛出
      */
-    public static void check(boolean expression, MessageFormat errorMessageTemplate, Object... errorMessageArgs) {
+    public static void isTrue(boolean expression, MessageFormat errorMessageTemplate, Object... errorMessageArgs) {
         if (expression) {
             throw new RuntimeException(errorMessageTemplate.format(errorMessageArgs));
         }
@@ -76,7 +76,7 @@ public class AssertUtil {
      * @return T 如果{@code obj} 不是null返回obj
      * @throws RuntimeException 如果{@code obj} 是null抛出
      */
-    public static <T> T check(T obj) {
+    public static <T> T isNull(T obj) {
         if (obj == null) {
             throw new RuntimeException();
         }
@@ -92,7 +92,7 @@ public class AssertUtil {
      * @return T 如果{@code obj} 不是null返回obj
      * @throws RuntimeException 如果{@code obj} 是null抛出
      */
-    public static <T> T check(T obj, Object message) {
+    public static <T> T isNull(T obj, Object message) {
         if (obj == null) {
             throw new RuntimeException(String.valueOf(message));
         }
@@ -109,7 +109,7 @@ public class AssertUtil {
      * @return T 如果{@code obj} 不是null返回obj
      * @throws RuntimeException 如果{@code obj} 是null抛出
      */
-    public static <T> T check(T obj, MessageFormat errorMessageTemplate, Object... errorMessageArgs) {
+    public static <T> T isNull(T obj, MessageFormat errorMessageTemplate, Object... errorMessageArgs) {
         if (obj == null) {
             throw new RuntimeException(errorMessageTemplate.format(errorMessageArgs));
         }
@@ -125,7 +125,7 @@ public class AssertUtil {
      * @return T 如果{@code obj} 不是null返回obj
      * @throws RuntimeException 如果{@code obj} 是null抛出{@code e}
      */
-    public static <T> T check(T obj, RuntimeException e) {
+    public static <T> T isNull(T obj, RuntimeException e) {
         if (obj == null) {
             throw e;
         }

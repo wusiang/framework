@@ -9,12 +9,12 @@ import java.security.MessageDigest;
  * @Data 2019-08-14 10:05
  * @Version 1.0
  */
-public class MD5Util {
+public class Md5Util {
 
     /**
      * 私用构造主法.因为此类是工具类
      */
-    private MD5Util() {
+    private Md5Util() {
     }
 
     /**
