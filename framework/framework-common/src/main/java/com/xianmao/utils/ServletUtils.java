@@ -1,17 +1,7 @@
 package com.xianmao.utils;
 
-//import cn.hutool.core.bean.BeanUtil;
-//import cn.hutool.core.bean.copier.CopyOptions;
-//import cn.hutool.core.bean.copier.ValueProvider;
-//import cn.hutool.core.exceptions.UtilException;
-//import cn.hutool.core.io.FileUtil;
-//import cn.hutool.core.io.IORuntimeException;
-//import cn.hutool.core.io.IoUtil;
-//import cn.hutool.core.util.ArrayUtil;
-//import cn.hutool.core.util.*;
 
 import com.xianmao.exception.UtilException;
-import com.xianmao.obj.ObjectUtil;
 import com.xianmao.string.CharsetUtil;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
