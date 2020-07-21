@@ -9,7 +9,7 @@ import com.xianmao.utils.StringUtil;
  * @Data 2020/7/14 3:50 下午
  * @Version 1.0
  */
-public class UtilException extends RuntimeException{
+public class UtilException extends RuntimeException {
     private static final long serialVersionUID = 8247610319171014183L;
 
     public UtilException(Throwable e) {

@@ -1,6 +1,7 @@
 package com.xianmao.exception;
 
 import com.xianmao.enums.IEnum;
+import com.xianmao.utils.StringUtil;
 
 /**
  * @ClassName BizException
@@ -19,7 +20,7 @@ public class BizException extends RuntimeException {
         this(message, 500);
     }
 
-    public BizException(IEnum<Integer,String> iEnum) {
+    public BizException(IEnum<Integer, String> iEnum) {
         super(iEnum.getValue());
         this.code = iEnum.getCode();
         this.message = iEnum.getValue();
@@ -46,6 +47,10 @@ public class BizException extends RuntimeException {
         super(msg, cause);
         this.message = msg;
         this.code = code;
+    }
+
+    public BizException(String messageTemplate, Object... params) {
+        super(StringUtil.format(messageTemplate, params));
     }
 
     public String getMsg() {
