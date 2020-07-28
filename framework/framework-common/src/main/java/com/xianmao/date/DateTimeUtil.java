@@ -520,6 +520,17 @@ public class DateTimeUtil {
      *
      * @param startDate 开始时间
      * @param endDate   结束时间
+     * @return 时间间隔
+     */
+    public static Period between(LocalDate startDate, LocalDate endDate) {
+        return between(startDate, endDate, true);
+    }
+
+    /**
+     * 比较2个时间差，跨度比较大，年月日为单位
+     *
+     * @param startDate 开始时间
+     * @param endDate   结束时间
      * @param isAbs     日期间隔是否只保留绝对值正数
      * @return 时间间隔
      */
@@ -530,6 +541,17 @@ public class DateTimeUtil {
         } else {
             return Period.between(startDate, endDate);
         }
+    }
+
+    /**
+     * 比较2个 时间差
+     *
+     * @param startDate 开始时间
+     * @param endDate   结束时间
+     * @return 时间间隔
+     */
+    public static Duration between(Date startDate, Date endDate) {
+        return between(startDate, endDate, true);
     }
 
     /**
