@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * @Version 1.0
  */
 public class RegexUtil {
-    
+
     /**
      * 用户名
      */
