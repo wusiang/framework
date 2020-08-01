@@ -1,4 +1,4 @@
-package com.xianmao.utils;
+package com.xianmao.digest;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,9 +14,9 @@ import java.security.spec.X509EncodedKeySpec;
  * @Data 2019-08-14 10:05
  * @Version 1.0
  */
-public class RsaUtil {
+public class RSAUtil {
 
-    private RsaUtil(){
+    private RSAUtil(){
         throw new AssertionError("No " + getClass().getName() + " instances for you!");
     }
 

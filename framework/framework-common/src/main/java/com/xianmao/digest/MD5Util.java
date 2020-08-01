@@ -1,5 +1,6 @@
-package com.xianmao.utils;
+package com.xianmao.digest;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
 /**
@@ -9,12 +10,12 @@ import java.security.MessageDigest;
  * @Data 2019-08-14 10:05
  * @Version 1.0
  */
-public class Md5Util {
+public class MD5Util {
 
     /**
      * 私用构造主法.因为此类是工具类
      */
-    private Md5Util() {
+    private MD5Util() {
     }
 
     /**
@@ -27,7 +28,7 @@ public class Md5Util {
 
         try {
             java.security.MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] array = md.digest(s.getBytes("UTF-8"));
+            byte[] array = md.digest(s.getBytes(StandardCharsets.UTF_8));
             StringBuilder sb = new StringBuilder();
             for (byte item : array) {
                 sb.append(Integer.toHexString((item & 0xFF) | 0x100).substring(1, 3));

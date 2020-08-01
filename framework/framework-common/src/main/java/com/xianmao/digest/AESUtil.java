@@ -17,8 +17,8 @@ import java.util.Arrays;
  * @Data 2020-05-04 23:44
  * @Version 1.0
  */
-public class AesUtil {
-    private AesUtil() {
+public class AESUtil {
+    private AESUtil() {
     }
 
     public static String genAesKey() {
