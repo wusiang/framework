@@ -1,14 +1,11 @@
 package com.xianmao.digest;
 
-import com.xianmao.exception.ExceptionUtil;
-import com.xianmao.random.RandomUtil;
-import org.apache.commons.codec.Charsets;
-import org.springframework.util.Assert;
+import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.util.Arrays;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * @ClassName AesUtil
@@ -18,98 +15,59 @@ import java.util.Arrays;
  * @Version 1.0
  */
 public class AESUtil {
-    private AESUtil() {
-    }
 
-    public static String genAesKey() {
-        return RandomUtil.random(32);
-    }
+    private static final String defaultCharset = "UTF-8";
+    private static final String KEY_AES = "AES";
+    private static final String KEY_MD5 = "MD5";
+    private static MessageDigest md5Digest;
 
-    public static byte[] encrypt(byte[] content, String aesTextKey) {
-        return encrypt(content, aesTextKey.getBytes(Charsets.UTF_8));
-    }
-
-    public static byte[] encrypt(String content, String aesTextKey) {
-        return encrypt(content.getBytes(Charsets.UTF_8), aesTextKey.getBytes(Charsets.UTF_8));
-    }
-
-    public static byte[] encrypt(String content, java.nio.charset.Charset charset, String aesTextKey) {
-        return encrypt(content.getBytes(charset), aesTextKey.getBytes(Charsets.UTF_8));
-    }
-
-    public static byte[] decrypt(byte[] content, String aesTextKey) {
-        return decrypt(content, aesTextKey.getBytes(Charsets.UTF_8));
-    }
-
-    public static String decryptToStr(byte[] content, String aesTextKey) {
-        return new String(decrypt(content, aesTextKey.getBytes(Charsets.UTF_8)), Charsets.UTF_8);
-    }
-
-    public static String decryptToStr(byte[] content, String aesTextKey, java.nio.charset.Charset charset) {
-        return new String(decrypt(content, aesTextKey.getBytes(Charsets.UTF_8)), charset);
-    }
-
-    public static byte[] encrypt(byte[] content, byte[] aesKey) {
-        Assert.isTrue(aesKey.length == 32, "IllegalAesKey, aesKey's length must be 32");
+    static {
         try {
-            Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            SecretKeySpec keySpec = new SecretKeySpec(aesKey, "AES");
-            IvParameterSpec iv = new IvParameterSpec(aesKey, 0, 16);
-            cipher.init(Cipher.ENCRYPT_MODE, keySpec, iv);
-            return cipher.doFinal(Pkcs7Encoder.encode(content));
-        } catch (Exception e) {
-            throw ExceptionUtil.unchecked(e);
-        }
-    }
+            md5Digest = MessageDigest.getInstance(KEY_MD5);
+        } catch (NoSuchAlgorithmException e) {
 
-    public static byte[] decrypt(byte[] encrypted, byte[] aesKey) {
-        Assert.isTrue(aesKey.length == 32, "IllegalAesKey, aesKey's length must be 32");
-        try {
-            Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            SecretKeySpec keySpec = new SecretKeySpec(aesKey, "AES");
-            IvParameterSpec iv = new IvParameterSpec(Arrays.copyOfRange(aesKey, 0, 16));
-            cipher.init(Cipher.DECRYPT_MODE, keySpec, iv);
-            return Pkcs7Encoder.decode(cipher.doFinal(encrypted));
-        } catch (Exception e) {
-            throw ExceptionUtil.unchecked(e);
         }
     }
 
     /**
-     * 提供基于PKCS7算法的加解密接口.
+     * 加密
      */
-    static class Pkcs7Encoder {
-        static int BLOCK_SIZE = 32;
+    public static String encrypt(String data, String key) {
+        return doAES(data, key, Cipher.ENCRYPT_MODE);
+    }
 
-        static byte[] encode(byte[] src) {
-            int count = src.length;
-            // 计算需要填充的位数
-            int amountToPad = BLOCK_SIZE - (count % BLOCK_SIZE);
-            if (amountToPad == 0) {
-                amountToPad = BLOCK_SIZE;
-            }
-            // 获得补位所用的字符
-            byte pad = (byte) (amountToPad & 0xFF);
-            byte[] pads = new byte[amountToPad];
-            for (int index = 0; index < amountToPad; index++) {
-                pads[index] = pad;
-            }
-            int length = count + amountToPad;
-            byte[] dest = new byte[length];
-            System.arraycopy(src, 0, dest, 0, count);
-            System.arraycopy(pads, 0, dest, count, amountToPad);
-            return dest;
-        }
+    /**
+     * 解密
+     */
+    public static String decrypt(String data, String key) {
+        return doAES(data, key, Cipher.DECRYPT_MODE);
+    }
 
-        static byte[] decode(byte[] decrypted) {
-            int pad = (int) decrypted[decrypted.length - 1];
-            if (pad < 1 || pad > BLOCK_SIZE) {
-                pad = 0;
+
+    /**
+     * 加解密
+     */
+    private static String doAES(String data, String key, int mode) {
+        try {
+            boolean encrypt = mode == Cipher.ENCRYPT_MODE;
+            byte[] content;
+            if (encrypt) {
+                content = data.getBytes(defaultCharset);
+            } else {
+                content = Base64.decodeBase64(data.getBytes());
             }
-            if (pad > 0) {
-                return Arrays.copyOfRange(decrypted, 0, decrypted.length - pad);
+            SecretKeySpec keySpec = new SecretKeySpec(md5Digest.digest(key.getBytes(defaultCharset))
+                    , KEY_AES);
+            Cipher cipher = Cipher.getInstance(KEY_AES);
+            cipher.init(mode, keySpec);
+            byte[] result = cipher.doFinal(content);
+            if (encrypt) {
+                return new String(Base64.encodeBase64(result));
+            } else {
+                return new String(result, defaultCharset);
             }
-            return decrypted;
+        } catch (Exception e) {
         }
+        return null;
     }
 }
