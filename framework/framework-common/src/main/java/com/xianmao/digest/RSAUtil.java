@@ -1,11 +1,16 @@
 package com.xianmao.digest;
 
+import javax.crypto.Cipher;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.security.*;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @ClassName RsaUtil
@@ -16,91 +21,146 @@ import java.security.spec.X509EncodedKeySpec;
  */
 public class RSAUtil {
 
-    private RSAUtil(){
+    //非对称密钥算法
+    public static final String KEY_ALGORITHM = "RSA";
+
+    /**
+     * 密钥长度，DH算法的默认密钥长度是1024
+     * 密钥长度必须是64的倍数，在512到65536位之间
+     */
+    private static final int KEY_SIZE = 1024;
+    //公钥
+    private static final String PUBLIC_KEY = "RSAPublicKey";
+    //私钥
+    private static final String PRIVATE_KEY = "RSAPrivateKey";
+
+    private RSAUtil() {
         throw new AssertionError("No " + getClass().getName() + " instances for you!");
     }
 
     /**
-     * 从文件中读取公钥
+     * 初始化密钥对
      *
-     * @param filename 公钥保存路径，相对于classpath
-     * @return 公钥对象
-     * @throws Exception
+     * @return Map 甲方密钥的Map
      */
-    public static PublicKey getPublicKey(String filename) throws Exception {
-        byte[] bytes = readFile(filename);
-        return getPublicKey(bytes);
+    public static Map<String, Object> initKey() throws Exception {
+        //实例化密钥生成器
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(KEY_ALGORITHM);
+        //初始化密钥生成器
+        keyPairGenerator.initialize(KEY_SIZE);
+        //生成密钥对
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+        //甲方公钥
+        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+        //甲方私钥
+        RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+        //将密钥存储在map中
+        Map<String, Object> keyMap = new HashMap<String, Object>();
+        keyMap.put(PUBLIC_KEY, publicKey);
+        keyMap.put(PRIVATE_KEY, privateKey);
+        return keyMap;
     }
 
     /**
-     * 从文件中读取密钥
+     * 私钥加密
      *
-     * @param filename 私钥保存路径，相对于classpath
-     * @return 私钥对象
-     * @throws Exception
+     * @param data 待加密数据
+     * @param key  密钥
+     * @return byte[] 加密数据
      */
-    public static PrivateKey getPrivateKey(String filename) throws Exception {
-        byte[] bytes = readFile(filename);
-        return getPrivateKey(bytes);
+    public static byte[] encryptByPrivateKey(byte[] data, byte[] key) throws Exception {
+        //取得私钥
+        PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(key);
+        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
+        //生成私钥
+        PrivateKey privateKey = keyFactory.generatePrivate(pkcs8KeySpec);
+        //数据加密
+        Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
+        cipher.init(Cipher.ENCRYPT_MODE, privateKey);
+        return cipher.doFinal(data);
     }
 
     /**
-     * 获取公钥
+     * 公钥加密
      *
-     * @param bytes 公钥的字节形式
-     * @return
-     * @throws Exception
+     * @param data 待加密数据
+     * @param key  密钥
+     * @return byte[] 加密数据
      */
-    public static PublicKey getPublicKey(byte[] bytes) throws Exception {
-        X509EncodedKeySpec spec = new X509EncodedKeySpec(bytes);
-        KeyFactory factory = KeyFactory.getInstance("RSA");
-        return factory.generatePublic(spec);
+    public static byte[] encryptByPublicKey(byte[] data, byte[] key) throws Exception {
+        //实例化密钥工厂
+        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
+        //初始化公钥
+        //密钥材料转换
+        X509EncodedKeySpec x509KeySpec = new X509EncodedKeySpec(key);
+        //产生公钥
+        PublicKey pubKey = keyFactory.generatePublic(x509KeySpec);
+        //数据加密
+        Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
+        cipher.init(Cipher.ENCRYPT_MODE, pubKey);
+        return cipher.doFinal(data);
     }
 
     /**
-     * 获取密钥
+     * 私钥解密
      *
-     * @param bytes 私钥的字节形式
-     * @return
-     * @throws Exception
+     * @param data 待解密数据
+     * @param key  密钥
+     * @return byte[] 解密数据
      */
-    public static PrivateKey getPrivateKey(byte[] bytes) throws Exception {
-        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(bytes);
-        KeyFactory factory = KeyFactory.getInstance("RSA");
-        return factory.generatePrivate(spec);
+    public static byte[] decryptByPrivateKey(byte[] data, byte[] key) throws Exception {
+        //取得私钥
+        PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(key);
+        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
+        //生成私钥
+        PrivateKey privateKey = keyFactory.generatePrivate(pkcs8KeySpec);
+        //数据解密
+        Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
+        cipher.init(Cipher.DECRYPT_MODE, privateKey);
+        return cipher.doFinal(data);
     }
 
     /**
-     * 根据密文，生成rsa公钥和私钥,并写入指定文件
+     * 公钥解密
      *
-     * @param publicKeyFilename  公钥文件路径
-     * @param privateKeyFilename 私钥文件路径
-     * @param secret             生成密钥的密文
-     * @throws IOException
-     * @throws NoSuchAlgorithmException
+     * @param data 待解密数据
+     * @param key  密钥
+     * @return byte[] 解密数据
      */
-    public static void generateKey(String publicKeyFilename, String privateKeyFilename, String secret) throws Exception {
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-        SecureRandom secureRandom = new SecureRandom(secret.getBytes());
-        keyPairGenerator.initialize(1024, secureRandom);
-        KeyPair keyPair = keyPairGenerator.genKeyPair();
-        // 获取公钥并写出
-        byte[] publicKeyBytes = keyPair.getPublic().getEncoded();
-        writeFile(publicKeyFilename, publicKeyBytes);
-        // 获取私钥并写出
-        byte[] privateKeyBytes = keyPair.getPrivate().getEncoded();
-        writeFile(privateKeyFilename, privateKeyBytes);
+    public static byte[] decryptByPublicKey(byte[] data, byte[] key) throws Exception {
+
+        //实例化密钥工厂
+        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
+        //初始化公钥
+        //密钥材料转换
+        X509EncodedKeySpec x509KeySpec = new X509EncodedKeySpec(key);
+        //产生公钥
+        PublicKey pubKey = keyFactory.generatePublic(x509KeySpec);
+        //数据解密
+        Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
+        cipher.init(Cipher.DECRYPT_MODE, pubKey);
+        return cipher.doFinal(data);
     }
 
-    private static byte[] readFile(String fileName) throws Exception {
-        return Files.readAllBytes(new File(fileName).toPath());
+    /**
+     * 取得私钥
+     *
+     * @param keyMap 密钥map
+     * @return byte[] 私钥
+     */
+    public static byte[] getPrivateKey(Map<String, Object> keyMap) {
+        Key key = (Key) keyMap.get(PRIVATE_KEY);
+        return key.getEncoded();
     }
 
-    private static void writeFile(String destPath, byte[] bytes) throws IOException {
-        File dest = new File(destPath);
-        if (!dest.exists()) {
-            dest.createNewFile();
-        }
-        Files.write(dest.toPath(), bytes);
+    /**
+     * 取得公钥
+     *
+     * @param keyMap 密钥map
+     * @return byte[] 公钥
+     */
+    public static byte[] getPublicKey(Map<String, Object> keyMap) throws Exception {
+        Key key = (Key) keyMap.get(PUBLIC_KEY);
+        return key.getEncoded();
     }
 }
