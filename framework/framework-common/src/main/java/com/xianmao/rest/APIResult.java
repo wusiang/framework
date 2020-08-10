@@ -28,45 +28,59 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     private static int SUCCESS_CODE = ResultCode.SUCCESS.getCode();
     private static int FAILURE_CODE = ResultCode.BAD_REQUEST.getCode();
 
+    private APIResult() {
+        super();
+    }
+
+    /**
+     * 获取请求状态码
+     *
+     * @return
+     */
     public int getCode() {
         String code = String.valueOf(this.get(CODE_KEY));
         return Integer.parseInt(code);
     }
 
+    /**
+     * 获取请求错误消息
+     *
+     * @return
+     */
     public String getMessage() {
         String msg = String.valueOf(this.get(MESSAGE_KEY));
         return msg;
     }
 
+    /**
+     * 获取请求数据
+     *
+     * @return
+     */
     public Object getData() {
         return this.get(DATA_KEY);
     }
 
-    private APIResult() {
-        super();
+    /**
+     * 请求成功是否
+     *
+     * @param result 响应体
+     * @return
+     */
+    public static boolean isSuccess(@Nullable APIResult<?> result) {
+        return Optional.ofNullable(result).map((x) -> {
+            return ObjectUtil.nullSafeEquals(ResultCode.SUCCESS.getCode(), x.getCode());
+        }).orElse(Boolean.FALSE);
     }
 
-    private APIResult(int code, String message) {
-        boolean success = code == SUCCESS_CODE;
-        this.put(CODE_KEY, code);
-        this.put(MESSAGE_KEY, message);
-        this.put(SUCCESS_KEY, success);
-    }
-
-    private APIResult(int code, T data, String message) {
-        boolean success = code == SUCCESS_CODE;
-        this.put(CODE_KEY, code);
-        this.put(MESSAGE_KEY, message);
-        this.put(DATA_KEY, data);
-        this.put(SUCCESS_KEY, success);
-    }
-
-    private APIResult(int code, Page<T> page, String message) {
-        boolean success = code == SUCCESS_CODE;
-        this.put(CODE_KEY, code);
-        this.put(MESSAGE_KEY, message);
-        this.put(DATA_KEY, page.getData());
-        this.put(SUCCESS_KEY, success);
+    /**
+     * 请求失败是否
+     *
+     * @param result 响应体
+     * @return
+     */
+    public static boolean isNotSuccess(@Nullable APIResult<?> result) {
+        return !isSuccess(result);
     }
 
     /**
@@ -228,39 +242,27 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
         return this;
     }
 
-    /**
-     * 请求成功是否
-     *
-     * @param result 响应体
-     * @return
-     */
-    public static boolean isSuccess(@Nullable APIResult<?> result) {
-        return Optional.ofNullable(result).map((x) -> {
-            return ObjectUtil.nullSafeEquals(ResultCode.SUCCESS.getCode(), x.getCode());
-        }).orElse(Boolean.FALSE);
+    private APIResult(int code, String message) {
+        boolean success = code == SUCCESS_CODE;
+        this.put(CODE_KEY, code);
+        this.put(MESSAGE_KEY, message);
+        this.put(SUCCESS_KEY, success);
     }
 
-    /**
-     * 请求失败是否
-     *
-     * @param result 响应体
-     * @return
-     */
-    public static boolean isNotSuccess(@Nullable APIResult<?> result) {
-        return !isSuccess(result);
+    private APIResult(int code, T data, String message) {
+        boolean success = code == SUCCESS_CODE;
+        this.put(CODE_KEY, code);
+        this.put(MESSAGE_KEY, message);
+        this.put(DATA_KEY, data);
+        this.put(SUCCESS_KEY, success);
     }
 
-    /**
-     * 请求结果生成时间戳
-     */
-    private long timestamp = System.currentTimeMillis();
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
+    private APIResult(int code, Page<T> page, String message) {
+        boolean success = code == SUCCESS_CODE;
+        this.put(CODE_KEY, code);
+        this.put(MESSAGE_KEY, message);
+        this.put(DATA_KEY, page.getData());
+        this.put(SUCCESS_KEY, success);
     }
 
     public static long getSerialVersionUID() {
