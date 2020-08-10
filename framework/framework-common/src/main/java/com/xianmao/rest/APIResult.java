@@ -23,21 +23,22 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     private static String CODE_KEY = Constant.Rest.DEFAULT_RESULT_CODE_KEY;
     private static String MESSAGE_KEY = Constant.Rest.DEFAULT_RESULT_MESSAGE_KEY;
     private static String DATA_KEY = Constant.Rest.DEFAULT_RESULT_DATA_KEY;
+    private static String SUCCESS_KEY = Constant.Rest.DEFAULT_RESULT_SUCCESS_KEY;
     /***响应状态码*/
     private static int SUCCESS_CODE = ResultCode.SUCCESS.getCode();
     private static int FAILURE_CODE = ResultCode.BAD_REQUEST.getCode();
 
-    public int getResultCode() {
+    public int getCode() {
         String code = String.valueOf(this.get(CODE_KEY));
         return Integer.parseInt(code);
     }
 
-    public String getResultMessage() {
+    public String getMessage() {
         String msg = String.valueOf(this.get(MESSAGE_KEY));
         return msg;
     }
 
-    public Object getResultData() {
+    public Object getData() {
         return this.get(DATA_KEY);
     }
 
@@ -46,20 +47,26 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     }
 
     private APIResult(int code, String message) {
+        boolean success = code == SUCCESS_CODE;
         this.put(CODE_KEY, code);
         this.put(MESSAGE_KEY, message);
+        this.put(SUCCESS_KEY, success);
     }
 
     private APIResult(int code, T data, String message) {
+        boolean success = code == SUCCESS_CODE;
         this.put(CODE_KEY, code);
         this.put(MESSAGE_KEY, message);
         this.put(DATA_KEY, data);
+        this.put(SUCCESS_KEY, success);
     }
 
     private APIResult(int code, Page<T> page, String message) {
+        boolean success = code == SUCCESS_CODE;
         this.put(CODE_KEY, code);
         this.put(MESSAGE_KEY, message);
         this.put(DATA_KEY, page.getData());
+        this.put(SUCCESS_KEY, success);
     }
 
     /**
@@ -229,7 +236,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      */
     public static boolean isSuccess(@Nullable APIResult<?> result) {
         return Optional.ofNullable(result).map((x) -> {
-            return ObjectUtil.nullSafeEquals(ResultCode.SUCCESS.getCode(), x.getResultCode());
+            return ObjectUtil.nullSafeEquals(ResultCode.SUCCESS.getCode(), x.getCode());
         }).orElse(Boolean.FALSE);
     }
 
