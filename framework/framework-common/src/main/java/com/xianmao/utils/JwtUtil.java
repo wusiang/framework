@@ -27,9 +27,9 @@ import java.util.UUID;
  * @Data 2019-08-14 20:02
  * @Version 1.0
  */
-public class JWTUtil {
+public class JwtUtil {
 
-    private static Logger log = LoggerFactory.getLogger(JWTUtil.class);
+    private static Logger log = LoggerFactory.getLogger(JwtUtil.class);
 
     /**
      * JWT 加解密类型
@@ -188,7 +188,7 @@ public class JWTUtil {
      */
     public static String parseJWTSub(String sub) {
         try {
-            Jws<Claims> jws = JWTUtil.parseJWT(JWTUtil.generateKey(SignatureAlgorithm.HS256, "wjtree.xin"), sub);
+            Jws<Claims> jws = JwtUtil.parseJWT(JwtUtil.generateKey(SignatureAlgorithm.HS256, "wjtree.xin"), sub);
             return String.valueOf(jws.getBody().get("sub"));
         } catch (Exception e) {
             log.warn("解析jwt错误：{}", e.getMessage());
