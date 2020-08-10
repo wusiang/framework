@@ -20,8 +20,8 @@ public class Constant {
     /** APIResult参数常量配置*/
     public final static class Rest {
         public static final String DEFAULT_NULL_MESSAGE = "暂无数据";
-        public static final String DEFAULT_SUCCESS_MESSAGE = "成功";
-        public static final String DEFAULT_FAILURE_MESSAGE = "失败";
+        public static final String DEFAULT_SUCCESS_MESSAGE = "操作成功";
+        public static final String DEFAULT_FAILURE_MESSAGE = "操作失败";
         public static final String DEFAULT_UNAUTHORIZED_MESSAGE = "认证失败";
         public static final String DEFAULT_RESULT_CODE_KEY = "code";
         public static final String DEFAULT_RESULT_MESSAGE_KEY = "message";

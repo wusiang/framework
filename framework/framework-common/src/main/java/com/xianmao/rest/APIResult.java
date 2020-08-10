@@ -86,42 +86,23 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     /**
      * 返回R
      *
+     * @param <T> T 泛型标记
+     * @return
+     */
+    public static <T> APIResult<T> success() {
+        return new APIResult<>(SUCCESS_CODE, Constant.Rest.DEFAULT_SUCCESS_MESSAGE);
+    }
+
+    /**
+     * 返回R
+     *
      * @param data 数据
      * @param msg  消息
      * @param <T>  T 泛型标记
      * @return R
      */
     public static <T> APIResult<T> success(T data, String msg) {
-        return success(SUCCESS_CODE, data, msg);
-    }
-
-    public static <T> APIResult<T> success(Page<T> page, String msg) {
-        return new APIResult<T>(SUCCESS_CODE, page, msg);
-    }
-
-    /**
-     * 返回R
-     *
-     * @param code 状态码
-     * @param data 数据
-     * @param msg  消息
-     * @param <T>  T 泛型标记
-     * @return R
-     */
-    public static <T> APIResult<T> success(int code, T data, String msg) {
-        return new APIResult<>(code, data, data == null ? Constant.Rest.DEFAULT_NULL_MESSAGE : msg);
-    }
-
-    /**
-     * 返回R
-     *
-     * @param data       数据
-     * @param resultCode rcode
-     * @param <T>        T 泛型标记
-     * @return R
-     */
-    public static <T> APIResult<T> success(T data, IEnum<Integer, String> resultCode) {
-        return success(resultCode.getCode(), data, resultCode.getValue());
+        return new APIResult<>(SUCCESS_CODE, data, msg);
     }
 
     /**
@@ -132,18 +113,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> success(T data) {
-        return success(data, Constant.Rest.DEFAULT_SUCCESS_MESSAGE);
-    }
-
-    /**
-     * 返回R
-     *
-     * @param page 分页数据
-     * @param <T>  类型
-     * @return
-     */
-    public static <T> APIResult<T> success(Page<T> page) {
-        return success(page, Constant.Rest.DEFAULT_SUCCESS_MESSAGE);
+        return new APIResult<>(SUCCESS_CODE, data, data == null ? Constant.Rest.DEFAULT_NULL_MESSAGE : Constant.Rest.DEFAULT_SUCCESS_MESSAGE);
     }
 
     /**
@@ -172,16 +142,22 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     /**
      * 返回R
      *
+     * @param <T> T 泛型标记
+     * @return
+     */
+    public static <T> APIResult<T> fail() {
+        return new APIResult<>(FAILURE_CODE, Constant.Rest.DEFAULT_FAILURE_MESSAGE);
+    }
+
+    /**
+     * 返回R
+     *
      * @param msg 消息
      * @param <T> T 泛型标记
      * @return R
      */
     public static <T> APIResult<T> fail(String msg) {
         return new APIResult<>(FAILURE_CODE, msg);
-    }
-
-    public static <T> APIResult<T> fail() {
-        return new APIResult<>(FAILURE_CODE, Constant.Rest.DEFAULT_FAILURE_MESSAGE);
     }
 
 
@@ -221,16 +197,6 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     }
 
     /**
-     * 空
-     *
-     * @return
-     */
-    public static <T> APIResult<T> none() {
-        return new APIResult<>();
-    }
-
-
-    /**
      * 需要扩展属性时使用
      *
      * @param key   属性名
@@ -254,14 +220,6 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
         this.put(CODE_KEY, code);
         this.put(MESSAGE_KEY, message);
         this.put(DATA_KEY, data);
-        this.put(SUCCESS_KEY, success);
-    }
-
-    private APIResult(int code, Page<T> page, String message) {
-        boolean success = code == SUCCESS_CODE;
-        this.put(CODE_KEY, code);
-        this.put(MESSAGE_KEY, message);
-        this.put(DATA_KEY, page.getData());
         this.put(SUCCESS_KEY, success);
     }
 
