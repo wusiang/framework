@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
  * @Data 2020-05-04 23:44
  * @Version 1.0
  */
-public class AESUtil {
+public class AesUtil {
 
     private static final String defaultCharset = "UTF-8";
     private static final String KEY_AES = "AES";

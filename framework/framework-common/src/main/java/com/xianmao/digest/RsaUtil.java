@@ -19,7 +19,7 @@ import java.util.Map;
  * @Data 2019-08-14 10:05
  * @Version 1.0
  */
-public class RSAUtil {
+public class RsaUtil {
 
     //非对称密钥算法
     public static final String KEY_ALGORITHM = "RSA";
@@ -34,7 +34,7 @@ public class RSAUtil {
     //私钥
     private static final String PRIVATE_KEY = "RSAPrivateKey";
 
-    private RSAUtil() {
+    private RsaUtil() {
         throw new AssertionError("No " + getClass().getName() + " instances for you!");
     }
 

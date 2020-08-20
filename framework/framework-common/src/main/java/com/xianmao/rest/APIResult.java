@@ -48,8 +48,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return
      */
     public String getMessage() {
-        String msg = String.valueOf(this.get(MESSAGE_KEY));
-        return msg;
+        return String.valueOf(this.get(MESSAGE_KEY));
     }
 
     /**

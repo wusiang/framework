@@ -18,7 +18,7 @@ import java.io.IOException;
  * @Data 2019-08-14 09:16
  * @Version 1.0
  */
-public class DefaultGlobalExceptionHandlerAdvice {
+public abstract class DefaultGlobalExceptionHandlerAdvice {
 
     private static Logger logger = LoggerFactory.getLogger(DefaultGlobalExceptionHandlerAdvice.class);
 
