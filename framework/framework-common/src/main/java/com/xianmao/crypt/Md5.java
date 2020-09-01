@@ -1,4 +1,4 @@
-package com.xianmao.digest;
+package com.xianmao.crypt;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -10,12 +10,12 @@ import java.security.MessageDigest;
  * @Data 2019-08-14 10:05
  * @Version 1.0
  */
-public class Md5Util {
+public class Md5 {
 
     /**
      * 私用构造主法.因为此类是工具类
      */
-    private Md5Util() {
+    private Md5() {
     }
 
     /**

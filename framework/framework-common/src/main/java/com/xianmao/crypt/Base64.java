@@ -1,4 +1,4 @@
-package com.xianmao.digest;
+package com.xianmao.crypt;
 
 import org.apache.commons.codec.Charsets;
 
@@ -9,7 +9,7 @@ import org.apache.commons.codec.Charsets;
  * @Data 2020-04-28 13:18
  * @Version 1.0
  */
-public class Base64Util extends org.springframework.util.Base64Utils  {
+public class Base64 extends org.springframework.util.Base64Utils  {
 
     /**
      * 编码
@@ -18,7 +18,7 @@ public class Base64Util extends org.springframework.util.Base64Utils  {
      * @return {String}
      */
     public static String encode(String value) {
-        return Base64Util.encode(value, Charsets.UTF_8);
+        return Base64.encode(value, Charsets.UTF_8);
     }
 
     /**
@@ -30,7 +30,7 @@ public class Base64Util extends org.springframework.util.Base64Utils  {
      */
     public static String encode(String value, java.nio.charset.Charset charset) {
         byte[] val = value.getBytes(charset);
-        return new String(Base64Util.encode(val), charset);
+        return new String(Base64.encode(val), charset);
     }
 
     /**
@@ -40,7 +40,7 @@ public class Base64Util extends org.springframework.util.Base64Utils  {
      * @return {String}
      */
     public static String encodeUrlSafe(String value) {
-        return Base64Util.encodeUrlSafe(value, Charsets.UTF_8);
+        return Base64.encodeUrlSafe(value, Charsets.UTF_8);
     }
 
     /**
@@ -52,7 +52,7 @@ public class Base64Util extends org.springframework.util.Base64Utils  {
      */
     public static String encodeUrlSafe(String value, java.nio.charset.Charset charset) {
         byte[] val = value.getBytes(charset);
-        return new String(Base64Util.encodeUrlSafe(val), charset);
+        return new String(Base64.encodeUrlSafe(val), charset);
     }
 
     /**
@@ -62,7 +62,7 @@ public class Base64Util extends org.springframework.util.Base64Utils  {
      * @return {String}
      */
     public static String decode(String value) {
-        return Base64Util.decode(value, Charsets.UTF_8);
+        return Base64.decode(value, Charsets.UTF_8);
     }
 
     /**
@@ -74,7 +74,7 @@ public class Base64Util extends org.springframework.util.Base64Utils  {
      */
     public static String decode(String value, java.nio.charset.Charset charset) {
         byte[] val = value.getBytes(charset);
-        byte[] decodedValue = Base64Util.decode(val);
+        byte[] decodedValue = Base64.decode(val);
         return new String(decodedValue, charset);
     }
 
@@ -85,7 +85,7 @@ public class Base64Util extends org.springframework.util.Base64Utils  {
      * @return {String}
      */
     public static String decodeUrlSafe(String value) {
-        return Base64Util.decodeUrlSafe(value, Charsets.UTF_8);
+        return Base64.decodeUrlSafe(value, Charsets.UTF_8);
     }
 
     /**
@@ -97,7 +97,7 @@ public class Base64Util extends org.springframework.util.Base64Utils  {
      */
     public static String decodeUrlSafe(String value, java.nio.charset.Charset charset) {
         byte[] val = value.getBytes(charset);
-        byte[] decodedValue = Base64Util.decodeUrlSafe(val);
+        byte[] decodedValue = Base64.decodeUrlSafe(val);
         return new String(decodedValue, charset);
     }
 }

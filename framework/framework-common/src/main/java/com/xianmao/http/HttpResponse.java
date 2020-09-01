@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Data 2020/7/25 9:15 下午
  * @Version 1.0
  */
-public class Result implements Serializable {
+public class HttpResponse implements Serializable {
 
     /**
      * 响应状态码
@@ -21,18 +21,18 @@ public class Result implements Serializable {
      */
     private String body;
 
-    public Result() {
+    public HttpResponse() {
     }
 
-    public Result(int code) {
+    public HttpResponse(int code) {
         this.code = code;
     }
 
-    public Result(String body) {
+    public HttpResponse(String body) {
         this.body = body;
     }
 
-    public Result(int code, String body) {
+    public HttpResponse(int code, String body) {
         this.code = code;
         this.body = body;
     }

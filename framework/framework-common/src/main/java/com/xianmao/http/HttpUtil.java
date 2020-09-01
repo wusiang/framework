@@ -22,7 +22,7 @@ import java.util.*;
  * @Data 2020/7/25 9:05 下午
  * @Version 1.0
  */
-public class HttpClientUtil {
+public class HttpUtil {
 
     // 编码格式。发送编码格式统一用UTF-8
     private static final String ENCODING = "UTF-8";
@@ -40,7 +40,7 @@ public class HttpClientUtil {
      * @return
      * @throws Exception
      */
-    public static Result doGet(String url) throws Exception {
+    public static HttpResponse doGet(String url) throws Exception {
         return doGet(url, null, null);
     }
 
@@ -52,7 +52,7 @@ public class HttpClientUtil {
      * @return
      * @throws Exception
      */
-    public static Result doGet(String url, Map<String, Object> params) throws Exception {
+    public static HttpResponse doGet(String url, Map<String, Object> params) throws Exception {
         return doGet(url, null, params);
     }
 
@@ -65,7 +65,7 @@ public class HttpClientUtil {
      * @return
      * @throws Exception
      */
-    public static Result doGet(String url, Map<String, String> headers, Map<String, Object> params) throws Exception {
+    public static HttpResponse doGet(String url, Map<String, String> headers, Map<String, Object> params) throws Exception {
         // 创建httpClient对象
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
@@ -119,7 +119,7 @@ public class HttpClientUtil {
      * @return
      * @throws Exception
      */
-    public static Result doPost(String url) throws Exception {
+    public static HttpResponse doPost(String url) throws Exception {
         return doPost(url, null, null);
     }
 
@@ -131,7 +131,7 @@ public class HttpClientUtil {
      * @return
      * @throws Exception
      */
-    public static Result doPost(String url, Map<String, Object> params) throws Exception {
+    public static HttpResponse doPost(String url, Map<String, Object> params) throws Exception {
         return doPost(url, null, params);
     }
 
@@ -144,7 +144,7 @@ public class HttpClientUtil {
      * @return
      * @throws Exception
      */
-    public static Result doPost(String url, Map<String, String> headers, Map<String, Object> params) throws Exception {
+    public static HttpResponse doPost(String url, Map<String, String> headers, Map<String, Object> params) throws Exception {
         // 创建httpClient对象
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
@@ -230,8 +230,8 @@ public class HttpClientUtil {
      * @return
      * @throws Exception
      */
-    public static Result getHttpClientResult(CloseableHttpResponse httpResponse,
-                                             CloseableHttpClient httpClient, HttpRequestBase httpMethod) throws Exception {
+    public static HttpResponse getHttpClientResult(CloseableHttpResponse httpResponse,
+                                                   CloseableHttpClient httpClient, HttpRequestBase httpMethod) throws Exception {
         // 执行请求
         httpResponse = httpClient.execute(httpMethod);
 
@@ -241,9 +241,9 @@ public class HttpClientUtil {
             if (httpResponse.getEntity() != null) {
                 content = EntityUtils.toString(httpResponse.getEntity(), ENCODING);
             }
-            return new Result(httpResponse.getStatusLine().getStatusCode(), content);
+            return new HttpResponse(httpResponse.getStatusLine().getStatusCode(), content);
         }
-        return new Result(HttpStatus.SC_INTERNAL_SERVER_ERROR);
+        return new HttpResponse(HttpStatus.SC_INTERNAL_SERVER_ERROR);
     }
 
     /**

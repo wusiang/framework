@@ -1,4 +1,4 @@
-package com.xianmao.digest;
+package com.xianmao.crypt;
 
 import com.xianmao.exception.ExceptionUtil;
 import org.apache.commons.codec.Charsets;
@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
  * @Data 2020-04-28 13:19
  * @Version 1.0
  */
-public class DigestUtil extends org.springframework.util.DigestUtils {
+public class Digest extends org.springframework.util.DigestUtils {
 
     /**
      * Calculates the MD5 digest and returns the value as a 32 character hex string.
@@ -23,7 +23,7 @@ public class DigestUtil extends org.springframework.util.DigestUtils {
      * @return MD5 digest as a hex string
      */
     public static String md5Hex(final String data) {
-        return DigestUtil.md5DigestAsHex(data.getBytes(Charsets.UTF_8));
+        return Digest.md5DigestAsHex(data.getBytes(Charsets.UTF_8));
     }
 
     /**
@@ -33,7 +33,7 @@ public class DigestUtil extends org.springframework.util.DigestUtils {
      * @return a hexadecimal digest string
      */
     public static String md5Hex(final byte[] bytes) {
-        return DigestUtil.md5DigestAsHex(bytes);
+        return Digest.md5DigestAsHex(bytes);
     }
 
     private static final char[] HEX_DIGITS = "0123456789abcdef".toCharArray();

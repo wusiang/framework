@@ -1,9 +1,6 @@
-package com.xianmao.digest;
+package com.xianmao.crypt;
 
 import javax.crypto.Cipher;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.security.*;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -19,7 +16,7 @@ import java.util.Map;
  * @Data 2019-08-14 10:05
  * @Version 1.0
  */
-public class RsaUtil {
+public class Rsa {
 
     //非对称密钥算法
     public static final String KEY_ALGORITHM = "RSA";
@@ -34,7 +31,7 @@ public class RsaUtil {
     //私钥
     private static final String PRIVATE_KEY = "RSAPrivateKey";
 
-    private RsaUtil() {
+    private Rsa() {
         throw new AssertionError("No " + getClass().getName() + " instances for you!");
     }
 

@@ -1,4 +1,4 @@
-package com.xianmao.digest;
+package com.xianmao.crypt;
 
 import org.apache.commons.codec.binary.Base64;
 
@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
  * @Data 2020-05-04 23:44
  * @Version 1.0
  */
-public class AesUtil {
+public class Aes {
 
     private static final String defaultCharset = "UTF-8";
     private static final String KEY_AES = "AES";
