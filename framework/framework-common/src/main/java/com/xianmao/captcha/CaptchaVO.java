@@ -1,7 +1,7 @@
 package com.xianmao.captcha;
 
 import com.xianmao.captcha.util.CaptchaUtils;
-import com.xianmao.utils.ServletUtils;
+import com.xianmao.utils.ServletUtil;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
@@ -39,8 +39,8 @@ public class CaptchaVO {
      * <p>将验证码图片写入response，并设置ContentType为image/png
      */
     public void writeResponseAndSetSession() {
-        HttpSession httpSession = ServletUtils.getSession();
-        HttpServletResponse response = ServletUtils.getResponse();
+        HttpSession httpSession = ServletUtil.getSession();
+        HttpServletResponse response = ServletUtil.getResponse();
 
         httpSession.setAttribute(CaptchaUtils.CAPTCHA_KEY, captcha);
         response.setContentType("image/png");

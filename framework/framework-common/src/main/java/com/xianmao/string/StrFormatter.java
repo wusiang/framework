@@ -1,16 +1,17 @@
 package com.xianmao.string;
 
-import com.xianmao.utils.ConverterUtil;
-import com.xianmao.utils.Utils;
+import com.xianmao.string.StringPool;
+import com.xianmao.utils.Converter;
+import com.xianmao.utils.StringUtil;
 
 /**
- * @ClassName StringFormatter
- * @Description: TODO
- * @Author guyi
- * @Data 2020-01-16 17:31
+ * @ClassName StrFormatter
+ * @Description: 字符串格式化
+ * @Author wjh
+ * @Data 2020-04-28 13:24
  * @Version 1.0
  */
-public class StringFormatter {
+public class StrFormatter {
 
     /**
      * 格式化字符串<br>
@@ -26,7 +27,7 @@ public class StringFormatter {
      * @return 结果
      */
     public static String format(final String strPattern, final Object... argArray) {
-        if (Utils.isBlank(strPattern) || Utils.isEmpty(argArray)) {
+        if (StringUtil.isBlank(strPattern) || StringUtil.isEmpty(argArray)) {
             return strPattern;
         }
         final int strPatternLength = strPattern.length();
@@ -71,7 +72,7 @@ public class StringFormatter {
                     if (delimIndex > 1 && strPattern.charAt(delimIndex - 2) == StringPool.BACK_SLASH) {
                         //转义符之前还有一个转义符，占位符依旧有效
                         sbuf.append(strPattern, handledPosition, delimIndex - 1);
-                        sbuf.append(ConverterUtil.toString(argArray[argIndex]));
+                        sbuf.append(Converter.toString(argArray[argIndex]));
                         handledPosition = delimIndex + 2;
                     } else {
                         //占位符被转义
@@ -82,7 +83,7 @@ public class StringFormatter {
                     }
                 } else {//正常占位符
                     sbuf.append(strPattern, handledPosition, delimIndex);
-                    sbuf.append(ConverterUtil.toString(argArray[argIndex]));
+                    sbuf.append(Converter.toString(argArray[argIndex]));
                     handledPosition = delimIndex + 2;
                 }
             }

@@ -17,7 +17,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-public class ServletUtils {
+public class ServletUtil {
 
     public static final String METHOD_DELETE = "DELETE";
     public static final String METHOD_HEAD = "HEAD";
@@ -299,7 +299,7 @@ public class ServletUtils {
     public static String getHeader(HttpServletRequest request, String name, Charset charset) {
         final String header = request.getHeader(name);
         if (null != header) {
-            return ConverterUtil.convert(header, StandardCharsets.ISO_8859_1, charset);
+            return Converter.convert(header, StandardCharsets.ISO_8859_1, charset);
         }
         return null;
     }

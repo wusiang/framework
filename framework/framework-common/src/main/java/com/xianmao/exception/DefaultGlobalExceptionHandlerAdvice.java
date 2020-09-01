@@ -2,7 +2,7 @@ package com.xianmao.exception;
 
 import com.xianmao.rest.APIResult;
 import com.xianmao.rest.ResultCode;
-import com.xianmao.utils.ServletUtils;
+import com.xianmao.utils.ServletUtil;
 import com.xianmao.utils.WebUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,7 @@ public abstract class DefaultGlobalExceptionHandlerAdvice {
     @ExceptionHandler(Exception.class)
     public APIResult<?> handleException(HttpServletRequest req, Exception e) throws IOException {
 
-        logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req),ServletUtils.getHeaderMap(req).toString(),WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
+        logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), ServletUtil.getHeaderMap(req).toString(),WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         if (e instanceof BizException) {
             BizException bizException = (BizException) e;
             return APIResult.fail(bizException.getCode(), bizException.getMsg());

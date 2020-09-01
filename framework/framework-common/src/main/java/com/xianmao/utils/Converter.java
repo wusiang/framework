@@ -13,9 +13,9 @@ import java.util.*;
  * @Data 2020/7/1 5:11 下午
  * @Version 1.0
  */
-public class ConverterUtil {
+public class Converter {
 
-    private ConverterUtil() {
+    private Converter() {
         throw new AssertionError("No " + getClass().getName() + " instances for you!");
     };
 
@@ -290,7 +290,7 @@ public class ConverterUtil {
      * @return 短字符串
      */
     public static String to62String(long num) {
-        return ConverterUtil.to62String(num);
+        return Converter.to62String(num);
     }
 
     /**

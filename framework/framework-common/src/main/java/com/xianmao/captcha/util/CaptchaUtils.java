@@ -2,7 +2,7 @@ package com.xianmao.captcha.util;
 
 import com.xianmao.captcha.CaptchaIPO;
 import com.xianmao.captcha.CaptchaVO;
-import com.xianmao.utils.ServletUtils;
+import com.xianmao.utils.ServletUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpSession;
@@ -101,7 +101,7 @@ public class CaptchaUtils {
      * @return 是否正确
      */
     public static boolean isValidateCaptcha(String captcha) {
-        HttpSession httpSession = ServletUtils.getSession();
+        HttpSession httpSession = ServletUtil.getSession();
         String randCaptcha = (String) httpSession.getAttribute(CAPTCHA_KEY);
         if (StringUtils.isEmpty(randCaptcha) || !randCaptcha.equalsIgnoreCase(captcha)) {
             return false;

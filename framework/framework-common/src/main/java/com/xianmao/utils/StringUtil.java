@@ -2,7 +2,7 @@ package com.xianmao.utils;
 
 import com.xianmao.obj.ObjectUtil;
 import com.xianmao.string.StringPool;
-import com.xianmao.support.StrFormatter;
+import com.xianmao.string.StrFormatter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.StringReader;
@@ -433,7 +433,7 @@ public class StringUtil extends org.springframework.util.StringUtils {
 
         String template2 = template.toString();
         for (Map.Entry<?, ?> entry : map.entrySet()) {
-            template2 = template2.replace("{" + entry.getKey() + "}", ConverterUtil.toString(entry.getValue()));
+            template2 = template2.replace("{" + entry.getKey() + "}", Converter.toString(entry.getValue()));
         }
         return template2;
     }
