@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.text.NumberFormat;
 import java.util.*;
 
 /**
@@ -17,7 +18,9 @@ public class Converter {
 
     private Converter() {
         throw new AssertionError("No " + getClass().getName() + " instances for you!");
-    };
+    }
+
+    ;
 
     /**
      * 强转string,并去掉多余空格
@@ -314,6 +317,19 @@ public class Converter {
      */
     public static String convert(String source, String srcCharset, String destCharset) {
         return convert(source, Charset.forName(srcCharset), Charset.forName(destCharset));
+    }
+
+    /**
+     * 格式化百分比，小数采用四舍五入方式
+     *
+     * @param number 值
+     * @param scale  保留小数位数
+     * @return 百分比
+     */
+    public static String formatPercent(double number, int scale) {
+        NumberFormat format = NumberFormat.getPercentInstance();
+        format.setMaximumFractionDigits(scale);
+        return format.format(number);
     }
 
     /**
