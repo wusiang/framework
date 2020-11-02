@@ -12,7 +12,6 @@
         <module>framework-common</module>
         <module>framework-core</module>
         <module>framework-support</module>
-        <module>framework-example</module>
     </modules>
 
     <name>framework</name>
