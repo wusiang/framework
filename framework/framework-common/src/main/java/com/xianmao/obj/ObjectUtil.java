@@ -35,6 +35,21 @@ public class ObjectUtil extends org.springframework.util.ObjectUtils {
     }
 
     /**
+     * 对象组中是否存在 Empty Object
+     *
+     * @param os 对象组
+     * @return boolean
+     */
+    public static boolean hasEmpty(Object... os) {
+        for (Object o : os) {
+            if (isEmpty(o)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * 如果给定对象为{@code null}返回默认值
      *
      * <pre>
