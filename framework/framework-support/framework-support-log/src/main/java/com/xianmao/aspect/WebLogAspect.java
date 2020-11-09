@@ -1,32 +1,32 @@
 package com.xianmao.aspect;
 
 import com.xianmao.annotation.ApiLog;
-import com.xianmao.enums.Level;
 import com.xianmao.utils.BeanUtil;
 import com.xianmao.jackson.JsonUtil;
+import com.xianmao.utils.ClassUtil;
 import com.xianmao.utils.StringUtil;
+import com.xianmao.utils.WebUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.MethodParameter;
-import org.springframework.core.annotation.SynthesizingMethodParameter;
+import org.springframework.core.io.InputStreamSource;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
 import java.lang.reflect.Method;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @ClassName WebLogAspect
@@ -53,113 +53,127 @@ public class WebLogAspect {
      */
     @Around(value = "@annotation(com.xianmao.annotation.ApiLog)")
     public Object aroundPrint(ProceedingJoinPoint joinPoint) throws Throwable {
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        MethodSignature ms = (MethodSignature) joinPoint.getSignature();
+        Method method = ms.getMethod();
         Object[] args = joinPoint.getArgs();
-        Object result = joinPoint.proceed(args);
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         ApiLog annotation = signature.getMethod().getAnnotation(ApiLog.class);
-        this.arountPrint(signature, args, result, annotation.value(), annotation.level());
-        return result;
-    }
-
-    private void arountPrint(MethodSignature signature, Object[] args, Object result, String busName, Level level) {
-
-        Method method = signature.getMethod();
-        try {
-            String roungInfo = getAroundInfo(busName, method, args, result);
-            print(level, roungInfo);
-        } catch (Exception e) {
-            log.error("日志打印错误:{}", e);
-        }
-    }
-
-
-    private String getAroundInfo(String busName, Method method, Object[] args, Object result) {
-        StringBuilder builder = new StringBuilder();
-        long startNs = System.nanoTime();
-        builder.append(getParamInfo(busName, method, args)).append(",").append("结果:").append(JsonUtil.toJson(result));
-        builder.append(getHeaderInfo());
-        long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
-        builder.append("耗时:"+tookMs+"ms");
-        return builder.toString();
-    }
-
-
-    private String getParamInfo(String busName, Method method, Object[] args) {
-        StringBuilder builder = createInfoBuilder(busName, method);
-        builder.append("入参:");
+        // 请求参数处理
         final Map<String, Object> paraMap = new HashMap<>(16);
         for (int i = 0; i < args.length; i++) {
-            MethodParameter methodParam = getMethodParameter(method, i);
+            // 读取方法参数
+            MethodParameter methodParam = ClassUtil.getMethodParameter(method, i);
+            // PathVariable 参数跳过
             PathVariable pathVariable = methodParam.getParameterAnnotation(PathVariable.class);
             if (pathVariable != null) {
                 continue;
             }
             RequestBody requestBody = methodParam.getParameterAnnotation(RequestBody.class);
-            Object object = args[i];
+            String parameterName = methodParam.getParameterName();
+            Object value = args[i];
             // 如果是body的json则是对象
-            if (requestBody != null && object != null) {
-                paraMap.putAll(BeanUtil.toMap(object));
+            if (requestBody != null && value != null) {
+                paraMap.putAll(BeanUtil.toMap(value));
+                continue;
+            }
+            // 处理 List
+            if (value instanceof List) {
+                value = ((List) value).get(0);
+            }
+            // 处理 参数
+            if (value instanceof HttpServletRequest) {
+                paraMap.putAll(((HttpServletRequest) value).getParameterMap());
+            } else if (value instanceof WebRequest) {
+                paraMap.putAll(((WebRequest) value).getParameterMap());
+            } else if (value instanceof MultipartFile) {
+                MultipartFile multipartFile = (MultipartFile) value;
+                String name = multipartFile.getName();
+                String fileName = multipartFile.getOriginalFilename();
+                paraMap.put(name, fileName);
+            } else if (value instanceof HttpServletResponse) {
+            } else if (value instanceof InputStream) {
+            } else if (value instanceof InputStreamSource) {
+            } else if (value instanceof List) {
+                List<?> list = (List<?>) value;
+                AtomicBoolean isSkip = new AtomicBoolean(false);
+                for (Object o : list) {
+                    if ("StandardMultipartFile".equalsIgnoreCase(o.getClass().getSimpleName())) {
+                        isSkip.set(true);
+                        break;
+                    }
+                }
+                if (isSkip.get()) {
+                    paraMap.put(parameterName, "此参数不能序列化为json");
+                }
             } else {
+                // 参数名
                 RequestParam requestParam = methodParam.getParameterAnnotation(RequestParam.class);
                 String paraName;
                 if (requestParam != null && StringUtil.isNotBlank(requestParam.value())) {
                     paraName = requestParam.value();
-                    paraMap.put(paraName, object);
                 } else {
                     paraName = methodParam.getParameterName();
-                    paraMap.put(paraName, JsonUtil.toJson(object));
                 }
+                paraMap.put(paraName, value);
             }
         }
-        builder.append(paraMap.toString());
-        return builder.toString();
-    }
+        HttpServletRequest request = WebUtil.getRequest();
+        String requestURI = Objects.requireNonNull(request).getRequestURI();
+        String requestMethod = request.getMethod();
 
-    private String getHeaderInfo() {
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        if (null == requestAttributes) {
-            return "";
+        // 构建成一条长 日志，避免并发下日志错乱
+        StringBuilder beforeReqLog = new StringBuilder(300);
+        // 日志参数
+        List<Object> beforeReqArgs = new ArrayList<>();
+        beforeReqLog.append("\n\n================  Request Start  ================\n");
+        // 打印路由
+        beforeReqLog.append("===> ");
+        beforeReqLog.append(annotation.value());
+        beforeReqLog.append("\n");
+        beforeReqLog.append("===> {}: {}");
+        beforeReqArgs.add(requestMethod);
+        beforeReqArgs.add(requestURI);
+        // 请求参数
+        if (paraMap.isEmpty()) {
+            beforeReqLog.append("\n");
+        } else {
+            beforeReqLog.append(" Parameters: {}\n");
+            beforeReqArgs.add(JsonUtil.toJson(paraMap));
         }
-        HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
+        // 打印请求头
         Enumeration<String> headers = request.getHeaderNames();
-        StringBuilder builder = new StringBuilder();
-        builder.append("请求头:");
         while (headers.hasMoreElements()) {
-            String key = headers.nextElement();
-            String value = request.getHeader(key);
-            builder.append(String.format("{%s}:{%s}", key, value));
+            String headerName = headers.nextElement();
+            String headerValue = request.getHeader(headerName);
+            beforeReqLog.append("===Headers===  {} : {}\n");
+            beforeReqArgs.add(headerName);
+            beforeReqArgs.add(headerValue);
         }
-        return builder.toString();
-    }
-
-    private StringBuilder createInfoBuilder(String busName, Method method) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("方法:");
-        builder.append(method.getName());
-        return builder.append(",").append("业务:").append(busName).append(",");
-    }
-
-    private void print(Level level, String msg) {
-        switch (level) {
-            case DEBUG:
-                log.debug(msg);
-                break;
-            case INFO:
-                log.info(msg);
-                break;
-            case WARN:
-                log.warn(msg);
-                break;
-            case ERROR:
-                log.error(msg);
-                break;
-            default:
+        beforeReqLog.append("================  Request End   ================\n");
+        // 打印执行时间
+        long startNs = System.nanoTime();
+        log.info(beforeReqLog.toString(), beforeReqArgs.toArray());
+        // aop 执行后的日志
+        StringBuilder afterReqLog = new StringBuilder(200);
+        // 日志参数
+        List<Object> afterReqArgs = new ArrayList<>();
+        afterReqLog.append("\n\n================  Response Start  ================\n");
+        try {
+            Object result = joinPoint.proceed();
+            // 打印返回结构体
+            afterReqLog.append("===Result===  {}\n");
+            afterReqArgs.add(JsonUtil.toJson(result));
+            return result;
+        } finally {
+            long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
+            afterReqLog.append("<=== {}: {} ({} ms)\n");
+            afterReqArgs.add(requestMethod);
+            afterReqArgs.add(requestURI);
+            afterReqArgs.add(tookMs);
+            afterReqLog.append("================  Response End   ================\n");
+            log.info(afterReqLog.toString(), afterReqArgs.toArray());
         }
     }
 
-    private MethodParameter getMethodParameter(Method method, int parameterIndex) {
-        MethodParameter methodParameter = new SynthesizingMethodParameter(method, parameterIndex);
-        methodParameter.initParameterNameDiscovery(new DefaultParameterNameDiscoverer());
-        return methodParameter;
-    }
+
 }
