@@ -13,5 +13,5 @@ public @interface ApiLog {
      *
      * @return
      */
-    String value();
+    String value() default "日志记录";
 }
