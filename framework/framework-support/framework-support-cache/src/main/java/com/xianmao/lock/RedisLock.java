@@ -27,7 +27,7 @@ public class RedisLock {
 
     private static final Logger logger = LoggerFactory.getLogger(RedisLock.class);
 
-    private RedisTemplate redisTemplate;
+    private final RedisTemplate redisTemplate;
 
     @Autowired
     private RedisUtil redisUtil;
