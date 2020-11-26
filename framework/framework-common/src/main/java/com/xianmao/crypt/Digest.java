@@ -2,8 +2,12 @@ package com.xianmao.crypt;
 
 import com.xianmao.exception.ExceptionUtil;
 import org.apache.commons.codec.Charsets;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.lang.Nullable;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -37,6 +41,35 @@ public class Digest extends org.springframework.util.DigestUtils {
     }
 
     private static final char[] HEX_DIGITS = "0123456789abcdef".toCharArray();
+
+    public static String hmacSha1(String text, SecretKeySpec sk) {
+        try {
+            Mac mac = Mac.getInstance("HmacSHA1");
+            mac.init(sk);
+            byte[] rawHmac = mac.doFinal(text.getBytes());
+            return new String(org.apache.commons.codec.binary.Base64.encodeBase64(rawHmac));
+        } catch (NoSuchAlgorithmException | InvalidKeyException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String hmacSha256(String text, String key) {
+        SecretKeySpec sk = new SecretKeySpec(key.getBytes(), "HmacSHA256");
+        return hmacSha1(text, sk);
+    }
+
+    public static String hmacSha256(String text, SecretKeySpec sk) {
+        try {
+            Mac mac = Mac.getInstance("HmacSHA256");
+            mac.init(sk);
+            byte[] rawHmac = mac.doFinal(text.getBytes());
+            return new String(Base64.encodeBase64(rawHmac));
+        } catch (NoSuchAlgorithmException | InvalidKeyException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
 
     public static String sha1(String srcStr) {
         return hash("SHA-1", srcStr);
