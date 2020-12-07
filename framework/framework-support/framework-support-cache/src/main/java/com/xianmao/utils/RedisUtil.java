@@ -1,6 +1,5 @@
 package com.xianmao.utils;
 
-import com.xianmao.obj.CollectionUtil;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.util.CollectionUtils;
