@@ -1,0 +1,8 @@
+com/xianmao/support/Condition.class
+com/xianmao/support/BaseEntityWrapper.class
+com/xianmao/base/BaseService.class
+com/xianmao/plugins/SqlLogInterceptor.class
+com/xianmao/base/BaseEntity.class
+com/xianmao/base/BaseServiceImpl.class
+com/xianmao/support/Query.class
+com/xianmao/support/SqlKeyword.class

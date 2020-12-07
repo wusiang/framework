@@ -1,0 +1,49 @@
+{
+  "groups": [
+    {
+      "name": "alioss",
+      "type": "com.xianmao.props.OssProperties",
+      "sourceType": "com.xianmao.props.OssProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "alioss.access-key",
+      "type": "java.lang.String",
+      "description": "Access key就像用户ID，可以唯一标识你的账户",
+      "sourceType": "com.xianmao.props.OssProperties"
+    },
+    {
+      "name": "alioss.access-key-secret",
+      "type": "java.lang.String",
+      "description": "Secret key是你账户的密码",
+      "sourceType": "com.xianmao.props.OssProperties"
+    },
+    {
+      "name": "alioss.args",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "description": "自定义属性",
+      "sourceType": "com.xianmao.props.OssProperties"
+    },
+    {
+      "name": "alioss.bucket-name",
+      "type": "java.lang.String",
+      "description": "默认的存储桶名称",
+      "sourceType": "com.xianmao.props.OssProperties",
+      "defaultValue": "bladex"
+    },
+    {
+      "name": "alioss.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用",
+      "sourceType": "com.xianmao.props.OssProperties"
+    },
+    {
+      "name": "alioss.endpoint",
+      "type": "java.lang.String",
+      "description": "对象存储服务的URL",
+      "sourceType": "com.xianmao.props.OssProperties"
+    }
+  ],
+  "hints": []
+}
