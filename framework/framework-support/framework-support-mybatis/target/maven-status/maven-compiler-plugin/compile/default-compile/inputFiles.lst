@@ -1,8 +1,8 @@
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/base/BaseServiceImpl.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/base/BaseService.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/plugins/SqlLogInterceptor.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/support/BaseEntityWrapper.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/support/Query.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/support/Condition.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/base/BaseEntity.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/support/SqlKeyword.java
+/Users/map/Desktop/wusiang/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/support/SqlKeyword.java
+/Users/map/Desktop/wusiang/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/base/BaseEntity.java
+/Users/map/Desktop/wusiang/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/plugins/SqlLogInterceptor.java
+/Users/map/Desktop/wusiang/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/base/BaseService.java
+/Users/map/Desktop/wusiang/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/support/Condition.java
+/Users/map/Desktop/wusiang/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/base/BaseServiceImpl.java
+/Users/map/Desktop/wusiang/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/support/Query.java
+/Users/map/Desktop/wusiang/framework/framework/framework-support/framework-support-mybatis/src/main/java/com/xianmao/support/BaseEntityWrapper.java
