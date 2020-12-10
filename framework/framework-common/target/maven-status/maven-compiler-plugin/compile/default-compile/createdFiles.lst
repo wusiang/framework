@@ -13,7 +13,6 @@ com/xianmao/xss/XssHttpServletRequestWrapper$1.class
 com/xianmao/support/BaseBeanCopier.class
 com/xianmao/crypt/Aes$Pkcs7Encoder.class
 com/xianmao/utils/UUIDUtil.class
-com/xianmao/exception/ExceptionUtil.class
 com/xianmao/jackson/BladeBeanSerializerModifier$NullJsonSerializers$5.class
 com/xianmao/utils/ArithUtil.class
 com/xianmao/utils/JwtUtil.class
@@ -29,6 +28,7 @@ com/xianmao/id/Ideable.class
 com/xianmao/jackson/BladeBeanSerializerModifier$NullJsonSerializers$1.class
 com/xianmao/string/StrFormatter.class
 com/xianmao/random/RandomUtil.class
+com/xianmao/exception/handle/DefaultGlobalExceptionHandler.class
 com/xianmao/id/SnowflakeIdeable.class
 com/xianmao/utils/Utils.class
 com/xianmao/utils/IntegerUtil.class
@@ -46,13 +46,13 @@ com/xianmao/crypt/Digest.class
 com/xianmao/obj/ObjectUtil.class
 com/xianmao/exception/BizException.class
 com/xianmao/jackson/BladeBeanSerializerModifier.class
-com/xianmao/exception/DefaultGlobalExceptionHandlerAdvice.class
 com/xianmao/exception/UtilException.class
 com/xianmao/timer/SystemClock$InstanceHolder.class
 com/xianmao/crypt/Aes.class
 com/xianmao/utils/ServletUtil.class
 com/xianmao/support/ImagePosition.class
 com/xianmao/obj/ClassUtil.class
+com/xianmao/exception/util/ExceptionUtil.class
 com/xianmao/utils/ArrayUtil.class
 com/xianmao/captcha/CaptchaVO.class
 com/xianmao/utils/MapUtil.class

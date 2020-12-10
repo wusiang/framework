@@ -24,6 +24,7 @@
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/utils/Utils.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/rest/APIResult.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/support/HtmlFilter.java
+/Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/exception/util/ExceptionUtil.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/support/SqlFilter.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/http/HttpResponse.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/crypt/Aes.java
@@ -40,7 +41,6 @@
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/captcha/CaptchaIPO.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/utils/IoUtil.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/xss/XssUrlProperties.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/exception/ExceptionUtil.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/utils/AssertUtil.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/utils/IpAddressUtil.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/captcha/CaptchaVO.java
@@ -63,9 +63,9 @@
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/utils/Converter.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/captcha/util/CaptchaUtils.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/string/StringPool.java
+/Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/exception/handle/DefaultGlobalExceptionHandler.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/http/HttpUtil.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/support/IMultiOutputStream.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/exception/DefaultGlobalExceptionHandlerAdvice.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/support/StrSpliter.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/constant/Constant.java
 /Users/huxiaomei/Desktop/privite/framework/framework/framework-common/src/main/java/com/xianmao/xss/XssHttpServletRequestWrapper.java
