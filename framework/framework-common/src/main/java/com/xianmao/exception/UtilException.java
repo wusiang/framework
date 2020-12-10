@@ -1,5 +1,6 @@
 package com.xianmao.exception;
 
+import com.xianmao.exception.util.ExceptionUtil;
 import com.xianmao.utils.StringUtil;
 
 /**

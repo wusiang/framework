@@ -1,16 +1,13 @@
 package com.xianmao.crypt;
 
-import com.xianmao.exception.ExceptionUtil;
+import com.xianmao.exception.util.ExceptionUtil;
 import com.xianmao.random.RandomUtil;
 import org.apache.commons.codec.Charsets;
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.util.Assert;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 /**

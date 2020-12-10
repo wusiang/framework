@@ -1,4 +1,4 @@
-package com.xianmao.exception;
+package com.xianmao.exception.util;
 
 import com.xianmao.obj.ObjectUtil;
 

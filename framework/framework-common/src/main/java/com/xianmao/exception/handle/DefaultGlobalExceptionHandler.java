@@ -1,5 +1,6 @@
-package com.xianmao.exception;
+package com.xianmao.exception.handle;
 
+import com.xianmao.exception.BizException;
 import com.xianmao.rest.APIResult;
 import com.xianmao.rest.ResultCode;
 import com.xianmao.utils.ServletUtil;
@@ -19,9 +20,9 @@ import java.io.IOException;
  * @Data 2019-08-14 09:16
  * @Version 1.0
  */
-public abstract class DefaultGlobalExceptionHandlerAdvice {
+public abstract class DefaultGlobalExceptionHandler {
 
-    private static Logger logger = LoggerFactory.getLogger(DefaultGlobalExceptionHandlerAdvice.class);
+    private static Logger logger = LoggerFactory.getLogger(DefaultGlobalExceptionHandler.class);
 
     @ExceptionHandler(Exception.class)
     public APIResult<?> handleException(HttpServletRequest req, Exception e) throws IOException {

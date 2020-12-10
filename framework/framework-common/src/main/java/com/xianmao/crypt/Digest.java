@@ -1,6 +1,6 @@
 package com.xianmao.crypt;
 
-import com.xianmao.exception.ExceptionUtil;
+import com.xianmao.exception.util.ExceptionUtil;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.lang.Nullable;
