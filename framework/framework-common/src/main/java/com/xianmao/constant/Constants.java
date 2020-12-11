@@ -7,12 +7,12 @@ package com.xianmao.constant;
  * @Data 2020-06-03 14:28
  * @Version 1.0
  */
-public class Constant {
+public class Constants {
 
     /** 项目环境类型*/
     public final static class Environment {
         public static final String PROD = "prod";
-        public static final String TEST = "TEST";
+        public static final String TEST = "test";
         public static final String DEV = "dev";
         public static final String PRE = "pre";
     }

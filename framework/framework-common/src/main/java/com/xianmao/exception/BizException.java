@@ -13,7 +13,9 @@ import com.xianmao.utils.StringUtil;
 public class BizException extends RuntimeException {
 
     private static final long serialVersionUID = -9220071231712256287L;
+    /** 错误内容 */
     private String message;
+    /** 错误状态码 */
     private Integer code = 500;
 
     public BizException(String message) {

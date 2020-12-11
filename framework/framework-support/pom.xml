@@ -19,7 +19,6 @@
         <module>framework-support-cache</module>
         <module>framework-support-log</module>
         <module>framework-support-oss</module>
-        <module>framework-support-mybatis</module>
     </modules>
 
     <properties>

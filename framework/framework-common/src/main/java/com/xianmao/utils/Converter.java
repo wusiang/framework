@@ -2,6 +2,7 @@ package com.xianmao.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
@@ -332,6 +333,54 @@ public class Converter {
         return format.format(number);
     }
 
+    /**
+     * 转换为BigDecimal<br>
+     * 如果给定的值为空，或者转换失败，返回默认值<br>
+     * 转换失败不会报错
+     *
+     * @param value 被转换的值
+     * @param defaultValue 转换错误时的默认值
+     * @return 结果
+     */
+    public static BigDecimal toBigDecimal(Object value, BigDecimal defaultValue) {
+        if (value == null) {
+            return defaultValue;
+        }
+        if (value instanceof BigDecimal) {
+            return (BigDecimal) value;
+        }
+        if (value instanceof Long) {
+            return new BigDecimal((Long) value);
+        }
+        if (value instanceof Double) {
+            return BigDecimal.valueOf((Double) value);
+        }
+        if (value instanceof Integer) {
+            return new BigDecimal((Integer) value);
+        }
+        final String valueStr = toString(value, null);
+        if (StringUtils.isEmpty(valueStr)) {
+            return defaultValue;
+        }
+        try {
+            return new BigDecimal(valueStr);
+        } catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
+    /**
+     * 转换为BigDecimal<br>
+     * 如果给定的值为空，或者转换失败，返回默认值<br>
+     * 转换失败不会报错
+     *
+     * @param value 被转换的值
+     * @return 结果
+     */
+    public static BigDecimal toBigDecimal(Object value)
+    {
+        return toBigDecimal(value, null);
+    }
     /**
      * 转换字符串的字符集编码<br>
      * 当以错误的编码读取为字符串时，打印字符串将出现乱码。<br>

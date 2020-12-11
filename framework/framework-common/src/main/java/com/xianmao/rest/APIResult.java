@@ -1,6 +1,6 @@
 package com.xianmao.rest;
 
-import com.xianmao.constant.Constant;
+import com.xianmao.constant.Constants;
 import com.xianmao.enums.IEnum;
 import com.xianmao.obj.ObjectUtil;
 import org.springframework.lang.Nullable;
@@ -20,10 +20,10 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
 
     private static final long serialVersionUID = 6439723870077111495L;
     /***响应参数*/
-    private static String CODE_KEY = Constant.Rest.DEFAULT_RESULT_CODE_KEY;
-    private static String MESSAGE_KEY = Constant.Rest.DEFAULT_RESULT_MESSAGE_KEY;
-    private static String DATA_KEY = Constant.Rest.DEFAULT_RESULT_DATA_KEY;
-    private static String SUCCESS_KEY = Constant.Rest.DEFAULT_RESULT_SUCCESS_KEY;
+    private static String CODE_KEY = Constants.Rest.DEFAULT_RESULT_CODE_KEY;
+    private static String MESSAGE_KEY = Constants.Rest.DEFAULT_RESULT_MESSAGE_KEY;
+    private static String DATA_KEY = Constants.Rest.DEFAULT_RESULT_DATA_KEY;
+    private static String SUCCESS_KEY = Constants.Rest.DEFAULT_RESULT_SUCCESS_KEY;
     /***响应状态码*/
     private static int SUCCESS_CODE = ResultCode.SUCCESS.getCode();
     private static int FAILURE_CODE = ResultCode.BAD_REQUEST.getCode();
@@ -89,7 +89,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return
      */
     public static <T> APIResult<T> success() {
-        return new APIResult<>(SUCCESS_CODE, Constant.Rest.DEFAULT_SUCCESS_MESSAGE);
+        return new APIResult<>(SUCCESS_CODE, Constants.Rest.DEFAULT_SUCCESS_MESSAGE);
     }
 
     /**
@@ -112,7 +112,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> success(T data) {
-        return new APIResult<>(SUCCESS_CODE, data, data == null ? Constant.Rest.DEFAULT_NULL_MESSAGE : Constant.Rest.DEFAULT_SUCCESS_MESSAGE);
+        return new APIResult<>(SUCCESS_CODE, data, data == null ? Constants.Rest.DEFAULT_NULL_MESSAGE : Constants.Rest.DEFAULT_SUCCESS_MESSAGE);
     }
 
     /**
@@ -145,7 +145,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return
      */
     public static <T> APIResult<T> fail() {
-        return new APIResult<>(FAILURE_CODE, Constant.Rest.DEFAULT_FAILURE_MESSAGE);
+        return new APIResult<>(FAILURE_CODE, Constants.Rest.DEFAULT_FAILURE_MESSAGE);
     }
 
     /**
