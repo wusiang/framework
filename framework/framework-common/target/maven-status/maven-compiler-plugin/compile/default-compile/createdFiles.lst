@@ -39,7 +39,6 @@ com/xianmao/timer/SystemClock.class
 com/xianmao/obj/CollectionUtil.class
 com/xianmao/enums/IEnum.class
 com/xianmao/support/SqlFilter.class
-com/xianmao/constant/Constants$Rest.class
 com/xianmao/jackson/BladeBeanSerializerModifier$NullJsonSerializers.class
 com/xianmao/string/StringPool.class
 com/xianmao/utils/StringUtil.class
@@ -72,6 +71,7 @@ com/xianmao/utils/Utils.class
 com/xianmao/constant/ScheduleConstants$Status.class
 com/xianmao/crypt/Base64.class
 com/xianmao/sensitive/enums/KeywordTypeEnum.class
+com/xianmao/constant/Constants$RestHeader.class
 com/xianmao/support/BeanProperty.class
 com/xianmao/obj/ObjectUtil.class
 com/xianmao/jackson/BladeBeanSerializerModifier.class

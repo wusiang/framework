@@ -17,18 +17,8 @@ public class Constants {
         public static final String PRE = "pre";
     }
 
-    /** APIResult参数常量配置*/
-    public final static class Rest {
-        public static final String DEFAULT_NULL_MESSAGE = "暂无数据";
-        public static final String DEFAULT_SUCCESS_MESSAGE = "操作成功";
-        public static final String DEFAULT_FAILURE_MESSAGE = "操作失败";
-        public static final String DEFAULT_UNAUTHORIZED_MESSAGE = "认证失败";
-        public static final String DEFAULT_RESULT_CODE_KEY = "code";
-        public static final String DEFAULT_RESULT_MESSAGE_KEY = "message";
-        public static final String DEFAULT_RESULT_DATA_KEY = "data";
-        public static final String DEFAULT_RESULT_SUCCESS_KEY = "success";
-        public static final String DEFAULT_RESULT_PAGE_KEY = "page";
-        public static final String TOKEN = "token";
+    /** 请求头参数*/
+    public final static class RestHeader {
         public static final String AUTHORIZATION = "Authorization";
     }
 

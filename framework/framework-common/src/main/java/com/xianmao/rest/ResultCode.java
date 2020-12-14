@@ -2,6 +2,8 @@ package com.xianmao.rest;
 
 import com.xianmao.enums.IEnum;
 
+import javax.servlet.http.HttpServletResponse;
+
 public enum ResultCode implements IEnum<Integer, String> {
 
     /*** 100 访问限制*/
@@ -28,11 +30,11 @@ public enum ResultCode implements IEnum<Integer, String> {
     NOT_ALLOW_NULL(418, "不允许为空"),
     NOT_ALLOWED_REPEAT(419, "不允许重复"),
     NO_RESOURCES(420, "资源不存在"),
-    PARAM_VALID_ERROR(421, "参数错误"),
+    PARAM_VALID_ERROR(400, "参数错误"),
     ERROR_JSON(499, "错误JSON"),
 
     /*** 服务器错误*/
-    BAD_REQUEST(500, "错误请求"),
+    FAILURE(500, "错误请求"),
     DATA_STRUCTURE(501, "数据结构异常"),
     DB_ERROR(502, "数据结构异常，请检查相应数据结构一致性"),
     CLIENT_FALLBACK(503, "哎哟喂！网络开小差了，请稍后重试..."),
@@ -42,12 +44,12 @@ public enum ResultCode implements IEnum<Integer, String> {
     /**
      * 状态码
      */
-    private Integer code;
+    private final Integer code;
 
     /**
      * 状态码对应说明文案
      */
-    private String value;
+    private final String value;
 
     @Override
     public Integer getCode() {

@@ -20,13 +20,13 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
 
     private static final long serialVersionUID = 6439723870077111495L;
     /***响应参数*/
-    private static String CODE_KEY = Constants.Rest.DEFAULT_RESULT_CODE_KEY;
-    private static String MESSAGE_KEY = Constants.Rest.DEFAULT_RESULT_MESSAGE_KEY;
-    private static String DATA_KEY = Constants.Rest.DEFAULT_RESULT_DATA_KEY;
-    private static String SUCCESS_KEY = Constants.Rest.DEFAULT_RESULT_SUCCESS_KEY;
+    private static String CODE_KEY = "code";
+    private static String MESSAGE_KEY = "message";
+    private static String DATA_KEY = "data";
+    private static String SUCCESS_KEY = "success";
     /***响应状态码*/
     private static int SUCCESS_CODE = ResultCode.SUCCESS.getCode();
-    private static int FAILURE_CODE = ResultCode.BAD_REQUEST.getCode();
+    private static int FAILURE_CODE = ResultCode.FAILURE.getCode();
 
     private APIResult() {
         super();
@@ -89,7 +89,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return
      */
     public static <T> APIResult<T> success() {
-        return new APIResult<>(SUCCESS_CODE, Constants.Rest.DEFAULT_SUCCESS_MESSAGE);
+        return new APIResult<>(SUCCESS_CODE, "操作成功");
     }
 
     /**
@@ -112,7 +112,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> success(T data) {
-        return new APIResult<>(SUCCESS_CODE, data, data == null ? Constants.Rest.DEFAULT_NULL_MESSAGE : Constants.Rest.DEFAULT_SUCCESS_MESSAGE);
+        return new APIResult<>(SUCCESS_CODE, data, data == null ? "暂无数据" : "操作成功");
     }
 
     /**
@@ -129,23 +129,11 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
     /**
      * 返回R
      *
-     * @param resultCode 业务代码
-     * @param msg        消息
-     * @param <T>        T 泛型标记
-     * @return R
-     */
-    public static <T> APIResult<T> success(IEnum<Integer, String> resultCode, String msg) {
-        return new APIResult<>(resultCode.getCode(), msg);
-    }
-
-    /**
-     * 返回R
-     *
      * @param <T> T 泛型标记
      * @return
      */
     public static <T> APIResult<T> fail() {
-        return new APIResult<>(FAILURE_CODE, Constants.Rest.DEFAULT_FAILURE_MESSAGE);
+        return new APIResult<>(FAILURE_CODE, "操作失败");
     }
 
     /**
@@ -181,18 +169,6 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      */
     public static <T> APIResult<T> fail(IEnum<Integer, String> resultCode) {
         return new APIResult<>(resultCode.getCode(), resultCode.getValue());
-    }
-
-    /**
-     * 返回R
-     *
-     * @param resultCode 业务代码
-     * @param msg        消息
-     * @param <T>        T 泛型标记
-     * @return R
-     */
-    public static <T> APIResult<T> fail(IEnum<Integer, String> resultCode, String msg) {
-        return new APIResult<>(resultCode.getCode(), msg);
     }
 
     /**
