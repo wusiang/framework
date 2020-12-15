@@ -68,15 +68,6 @@ public abstract class DefaultGlobalExceptionHandler {
     }
 
     /**
-     * 拦截未知的运行时异常
-     */
-    @ExceptionHandler(RuntimeException.class)
-    public APIResult<?> notFount(HttpServletRequest req, RuntimeException e) {
-        logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), ServletUtil.getHeaderMap(req).toString(), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
-        return APIResult.fail("运行时异常:" + e.getMessage());
-    }
-
-    /**
      * 业务异常
      */
     @ExceptionHandler(BizException.class)
