@@ -1,4 +1,0 @@
-com/xianmao/config/WebLogAspectConfiguration.class
-com/xianmao/annotation/EnableLogManagement.class
-com/xianmao/annotation/ApiLog.class
-com/xianmao/aspect/WebLogAspect.class

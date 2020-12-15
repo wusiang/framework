@@ -1,7 +1,0 @@
-com/xianmao/AliossTemplate.class
-META-INF/spring-configuration-metadata.json
-com/xianmao/rule/Rule.class
-com/xianmao/model/OssFile.class
-com/xianmao/props/OssProperties.class
-com/xianmao/rule/AliOssRule.class
-com/xianmao/config/AliossConfiguration.class
