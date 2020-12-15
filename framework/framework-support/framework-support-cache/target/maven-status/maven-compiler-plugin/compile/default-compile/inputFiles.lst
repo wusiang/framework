@@ -1,4 +1,4 @@
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/config/RedisKeySerializer.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/config/RedisTemplateConfiguration.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/lock/RedisLock.java
-/Users/huxiaomei/Desktop/privite/framework/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/utils/RedisUtil.java
+/Users/huxiaomei/Desktop/privite/xianmao-framework/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/config/RedisKeySerializer.java
+/Users/huxiaomei/Desktop/privite/xianmao-framework/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/lock/RedisLock.java
+/Users/huxiaomei/Desktop/privite/xianmao-framework/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/config/RedisTemplateConfiguration.java
+/Users/huxiaomei/Desktop/privite/xianmao-framework/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/utils/RedisUtil.java

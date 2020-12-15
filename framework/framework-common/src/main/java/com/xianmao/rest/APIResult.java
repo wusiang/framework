@@ -1,12 +1,10 @@
 package com.xianmao.rest;
 
-import com.xianmao.constant.Constants;
 import com.xianmao.enums.IEnum;
 import com.xianmao.obj.ObjectUtil;
 import org.springframework.lang.Nullable;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Optional;
 
 /**
@@ -16,48 +14,20 @@ import java.util.Optional;
  * @Data 2019-08-14 09:26
  * @Version 1.0
  */
-public class APIResult<T> extends HashMap<String, Object> implements Serializable {
+public class APIResult<T> implements Serializable {
 
     private static final long serialVersionUID = 6439723870077111495L;
     /***响应参数*/
-    private static String CODE_KEY = "code";
-    private static String MESSAGE_KEY = "message";
-    private static String DATA_KEY = "data";
-    private static String SUCCESS_KEY = "success";
+    private Integer code;
+    private String message;
+    private T data;
+    private Boolean success;
     /***响应状态码*/
     private static int SUCCESS_CODE = ResultCode.SUCCESS.getCode();
     private static int FAILURE_CODE = ResultCode.FAILURE.getCode();
 
     private APIResult() {
         super();
-    }
-
-    /**
-     * 获取请求状态码
-     *
-     * @return
-     */
-    public int getCode() {
-        String code = String.valueOf(this.get(CODE_KEY));
-        return Integer.parseInt(code);
-    }
-
-    /**
-     * 获取请求错误消息
-     *
-     * @return
-     */
-    public String getMessage() {
-        return String.valueOf(this.get(MESSAGE_KEY));
-    }
-
-    /**
-     * 获取请求数据
-     *
-     * @return
-     */
-    public Object getData() {
-        return this.get(DATA_KEY);
     }
 
     /**
@@ -89,19 +59,19 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return
      */
     public static <T> APIResult<T> success() {
-        return new APIResult<>(SUCCESS_CODE, "操作成功");
+        return restResult(SUCCESS_CODE, "操作成功", null, Boolean.TRUE);
     }
 
     /**
      * 返回R
      *
+     * @param <T>  T 泛型标记
      * @param data 数据
      * @param msg  消息
-     * @param <T>  T 泛型标记
      * @return R
      */
-    public static <T> APIResult<T> success(T data, String msg) {
-        return new APIResult<>(SUCCESS_CODE, data, msg);
+    public static <T> APIResult success(T data, String msg) {
+        return restResult(SUCCESS_CODE, data == null ? "暂无数据" : "操作成功", data, Boolean.TRUE);
     }
 
     /**
@@ -112,7 +82,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> success(T data) {
-        return new APIResult<>(SUCCESS_CODE, data, data == null ? "暂无数据" : "操作成功");
+        return restResult(SUCCESS_CODE, data == null ? "暂无数据" : "操作成功", data, Boolean.TRUE);
     }
 
     /**
@@ -123,7 +93,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> success(IEnum<Integer, String> resultCode) {
-        return new APIResult<>(resultCode.getCode(), resultCode.getValue());
+        return restResult(resultCode.getCode(), resultCode.getValue(), null, Boolean.FALSE);
     }
 
     /**
@@ -133,7 +103,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return
      */
     public static <T> APIResult<T> fail() {
-        return new APIResult<>(FAILURE_CODE, "操作失败");
+        return restResult(FAILURE_CODE, "操作失败", null, Boolean.FALSE);
     }
 
     /**
@@ -144,7 +114,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> fail(String msg) {
-        return new APIResult<>(FAILURE_CODE, msg);
+        return restResult(FAILURE_CODE, msg, null, Boolean.FALSE);
     }
 
 
@@ -157,7 +127,7 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> fail(int code, String msg) {
-        return new APIResult<>(code, msg);
+        return restResult(code, msg, null, Boolean.FALSE);
     }
 
     /**
@@ -168,62 +138,36 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
      * @return R
      */
     public static <T> APIResult<T> fail(IEnum<Integer, String> resultCode) {
-        return new APIResult<>(resultCode.getCode(), resultCode.getValue());
+        return restResult(resultCode.getCode(), resultCode.getValue(), null, Boolean.FALSE);
     }
 
-    /**
-     * 需要扩展属性时使用
-     *
-     * @param key   属性名
-     * @param value 属性值
-     * @return R
-     */
-    public APIResult<T> fill(String key, Object value) {
-        this.put(key, value);
-        return this;
+    public static <T> APIResult<T> restResult(Integer code, String message, T data, Boolean success) {
+        APIResult<T> apiResult = new APIResult<>();
+        apiResult.setCode(code);
+        apiResult.setData(data);
+        apiResult.setSuccess(success);
+        apiResult.setMessage(message);
+        return apiResult;
     }
 
-    private APIResult(int code, String message) {
-        boolean success = code == SUCCESS_CODE;
-        this.put(CODE_KEY, code);
-        this.put(MESSAGE_KEY, message);
-        this.put(SUCCESS_KEY, success);
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    private APIResult(int code, T data, String message) {
-        boolean success = code == SUCCESS_CODE;
-        this.put(CODE_KEY, code);
-        this.put(MESSAGE_KEY, message);
-        this.put(DATA_KEY, data);
-        this.put(SUCCESS_KEY, success);
+    public T getData() {
+        return data;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public void setData(T data) {
+        this.data = data;
     }
 
-    public static String getCodeKey() {
-        return CODE_KEY;
+    public Boolean getSuccess() {
+        return success;
     }
 
-    public static void setCodeKey(String codeKey) {
-        CODE_KEY = codeKey;
-    }
-
-    public static String getMessageKey() {
-        return MESSAGE_KEY;
-    }
-
-    public static void setMessageKey(String messageKey) {
-        MESSAGE_KEY = messageKey;
-    }
-
-    public static String getDataKey() {
-        return DATA_KEY;
-    }
-
-    public static void setDataKey(String dataKey) {
-        DATA_KEY = dataKey;
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
 
     public static int getSuccessCode() {
@@ -242,5 +186,15 @@ public class APIResult<T> extends HashMap<String, Object> implements Serializabl
         FAILURE_CODE = failureCode;
     }
 
+    public Integer getCode() {
+        return code;
+    }
 
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
