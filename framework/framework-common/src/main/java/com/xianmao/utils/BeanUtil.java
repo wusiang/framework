@@ -1,17 +1,15 @@
 package com.xianmao.utils;
 
-import com.xianmao.support.BaseBeanCopier;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.springframework.beans.BeansException;
+import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.cglib.beans.BeanMap;
-import org.springframework.cglib.core.CodeGenerationException;
-import org.springframework.util.Assert;
+import org.springframework.cglib.core.Converter;
 
-import java.beans.PropertyDescriptor;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @ClassName BeanUtil
@@ -20,59 +18,12 @@ import java.util.*;
  * @Data 2020-04-28 11:39
  * @Version 1.0
  */
-public class BeanUtil extends org.springframework.beans.BeanUtils {
+public class BeanUtil {
 
     /**
-     * 实例化对象
-     *
-     * @param clazz 类
-     * @param <T>   泛型标记
-     * @return 对象
+     * Bean copier cache
      */
-    @SuppressWarnings("unchecked")
-    public static <T> T newInstance(Class<?> clazz) {
-        return (T) instantiateClass(clazz);
-    }
-
-    /**
-     * 实例化对象
-     *
-     * @param clazzStr 类名
-     * @param <T>      泛型标记
-     * @return 对象
-     */
-    public static <T> T newInstance(String clazzStr) {
-        try {
-            Class<?> clazz = Class.forName(clazzStr);
-            return newInstance(clazz);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    /**
-     * 获取Bean的属性
-     *
-     * @param bean         bean
-     * @param propertyName 属性名
-     * @return 属性值
-     */
-    public static Object getProperty(Object bean, String propertyName) {
-        Assert.notNull(bean, "bean Could not null");
-        return BeanMap.create(bean).get(propertyName);
-    }
-
-    /**
-     * 设置Bean属性
-     *
-     * @param bean         bean
-     * @param propertyName 属性名
-     * @param value        属性值
-     */
-    public static void setProperty(Object bean, String propertyName, Object value) {
-        Assert.notNull(bean, "bean Could not null");
-        BeanMap.create(bean).put(propertyName, value);
-    }
+    private static final Map<String, BeanCopier> BEAN_COPIER_CACHE = new ConcurrentHashMap<>();
 
     /**
      * 深复制
@@ -88,50 +39,6 @@ public class BeanUtil extends org.springframework.beans.BeanUtils {
         return (T) BeanUtil.copy(source, source.getClass());
     }
 
-    /**
-     * copy 对象属性到另一个对象，默认不使用Convert
-     * <p>
-     * 注意：不支持链式Bean，链式用 copyProperties
-     *
-     * @param source 源对象
-     * @param clazz  类名
-     * @param <T>    泛型标记
-     * @return T
-     */
-    public static <T> T copy(Object source, Class<T> clazz) {
-        BaseBeanCopier copier = BaseBeanCopier.create(source.getClass(), clazz, false);
-
-        T to = newInstance(clazz);
-        copier.copy(source, to, null);
-        return to;
-    }
-
-    /**
-     * 拷贝对象
-     * <p>
-     * 注意：不支持链式Bean，链式用 copyProperties
-     *
-     * @param source     源对象
-     * @param targetBean 需要赋值的对象
-     */
-    public static void copy(Object source, Object targetBean) {
-        BaseBeanCopier copier = BaseBeanCopier
-                .create(source.getClass(), targetBean.getClass(), false);
-
-        copier.copy(source, targetBean, null);
-    }
-
-    /**
-     * 对象转换（空元素不覆盖）
-     *  
-     *
-     * @param source 原对象
-     * @param target 目标对象
-     */
-    public static <T> T copyIgnoreNull(Object source, T target) {
-        BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
-        return target;
-    }
 
     /**
      * 对象转换
@@ -150,22 +57,54 @@ public class BeanUtil extends org.springframework.beans.BeanUtils {
     }
 
     /**
-     * Copy the property values of the given source bean into the target class.
-     * <p>Note: The source and target classes do not have to match or even be derived
-     * from each other, as long as the properties match. Any bean properties that the
-     * source bean exposes but the target bean does not will silently be ignored.
-     * <p>This is just a convenience method. For more complex transfer needs,
+     * 属性拷贝
      *
-     * @param source the source bean
-     * @param target the target bean class
-     * @param <T>    泛型标记
-     * @return T
-     * @throws BeansException if the copying failed
+     * @param source the source
+     * @param target the target
      */
-    public static <T> T copyProperties(Object source, Class<T> target) throws BeansException {
-        T to = newInstance(target);
-        BeanUtil.copyProperties(source, to);
-        return to;
+    public static void copyProperties(Object source, Object target) {
+        if (source == null) {
+            return;
+        }
+        BeanCopier copier = getBeanCopier(source.getClass(), target.getClass());
+        copier.copy(source, target, null);
+    }
+
+    /**
+     * 属性拷贝
+     *
+     * @param source    the source
+     * @param target    the target
+     * @param converter the converter
+     */
+    public static void copyProperties(Object source, Object target, Converter converter) {
+        if (source == null) {
+            return;
+        }
+        BeanCopier copier = getBeanCopier(source.getClass(), target.getClass());
+        copier.copy(source, target, converter);
+    }
+
+    /**
+     * 属性拷贝
+     *
+     * @param <T>         the type parameter
+     * @param source      the source
+     * @param targetClass the target class
+     * @return the t
+     */
+    public static <T> T copyProperties(Object source, Class<T> targetClass) {
+        if (source == null) {
+            return null;
+        }
+        T t;
+        try {
+            t = targetClass.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException("Create new instance of " + targetClass + " failed: " + e.getMessage());
+        }
+        copyProperties(source, t);
+        return t;
     }
 
     /**
@@ -224,25 +163,19 @@ public class BeanUtil extends org.springframework.beans.BeanUtils {
      * 将map 转为 bean
      *
      * @param beanMap   map
-     * @param valueType 对象类型
+     * @param targetClass 对象类型
      * @param <T>       泛型标记
      * @return {T}
      */
-    public static <T> T toBean(Map<String, Object> beanMap, Class<T> valueType) {
-        T bean = BeanUtil.newInstance(valueType);
+    public static <T> T toBean(Map<String, Object> beanMap, Class<T> targetClass) {
+        T bean;
+        try {
+            bean = targetClass.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException("Create new instance of " + targetClass + " failed: " + e.getMessage());
+        }
         BeanMap.create(bean).putAll(beanMap);
         return bean;
-    }
-
-
-    /**
-     * 获取 Bean 的所有 get方法
-     *
-     * @param type 类
-     * @return PropertyDescriptor数组
-     */
-    public static PropertyDescriptor[] getBeanGetters(Class type) {
-        return getPropertiesHelper(type, true, false);
     }
 
     /**
@@ -265,34 +198,27 @@ public class BeanUtil extends org.springframework.beans.BeanUtils {
         return emptyNames.toArray(result);
     }
 
-    /**
-     * 获取 Bean 的所有 set方法
-     *
-     * @param type 类
-     * @return PropertyDescriptor数组
-     */
-    public static PropertyDescriptor[] getBeanSetters(Class type) {
-        return getPropertiesHelper(type, false, true);
+    private static BeanCopier getBeanCopier(Class sourceClass, Class targetClass) {
+        String beanKey = generateKey(sourceClass, targetClass);
+        BeanCopier copier;
+        if (!BEAN_COPIER_CACHE.containsKey(beanKey)) {
+            copier = BeanCopier.create(sourceClass, targetClass, false);
+            BEAN_COPIER_CACHE.put(beanKey, copier);
+        } else {
+            copier = BEAN_COPIER_CACHE.get(beanKey);
+        }
+        return copier;
     }
 
-    private static PropertyDescriptor[] getPropertiesHelper(Class type, boolean read, boolean write) {
-        try {
-            PropertyDescriptor[] all = BeanUtil.getPropertyDescriptors(type);
-            if (read && write) {
-                return all;
-            } else {
-                List<PropertyDescriptor> properties = new ArrayList<>(all.length);
-                for (PropertyDescriptor pd : all) {
-                    if (read && pd.getReadMethod() != null) {
-                        properties.add(pd);
-                    } else if (write && pd.getWriteMethod() != null) {
-                        properties.add(pd);
-                    }
-                }
-                return properties.toArray(new PropertyDescriptor[0]);
-            }
-        } catch (BeansException ex) {
-            throw new CodeGenerationException(ex);
-        }
+    /**
+     * Generate key
+     * Generate key description.
+     *
+     * @param class1 the class 1
+     * @param class2 the class 2
+     * @return string the string
+     */
+    private static String generateKey(Class<?> class1, Class<?> class2) {
+        return class1.toString() + class2.toString();
     }
 }
