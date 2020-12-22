@@ -10,6 +10,7 @@ import org.springframework.cglib.core.Converter;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Supplier;
 
 /**
  * @ClassName BeanUtil
@@ -108,6 +109,25 @@ public class BeanUtil {
     }
 
     /**
+     * 集合数据的拷贝
+     * List<ArticleVo> articleVoList = BeanUtil.copyListProperties(adminList, AdminVo::new);
+     * @param sources
+     * @param target
+     * @param <S>     数据源类
+     * @param <T>     目标类
+     * @return
+     */
+    public static <S, T> List<T> copyListProperties(List<S> sources, Supplier<T> target) {
+        List<T> list = new ArrayList<>(sources.size());
+        for (S source : sources) {
+            T t = target.get();
+            copyProperties(source, t);
+            list.add(t);
+        }
+        return list;
+    }
+
+    /**
      * 将对象装成map形式
      *
      * @param bean 源对象
@@ -162,9 +182,9 @@ public class BeanUtil {
     /**
      * 将map 转为 bean
      *
-     * @param beanMap   map
+     * @param beanMap     map
      * @param targetClass 对象类型
-     * @param <T>       泛型标记
+     * @param <T>         泛型标记
      * @return {T}
      */
     public static <T> T toBean(Map<String, Object> beanMap, Class<T> targetClass) {
