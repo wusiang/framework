@@ -1,6 +1,7 @@
 package com.xianmao.utils;
 
 import java.util.*;
+import java.util.function.BiConsumer;
 
 /**
  * @ClassName MapUtil
@@ -39,63 +40,78 @@ public class MapUtil {
     }
 
     /**
-     * 获取value
+     * 将map转成字符串
      *
-     * @param map          源
-     * @param key          字段
-     * @param defaultValue 默认值
-     * @return
+     * @param <K>               键类型
+     * @param <V>               值类型
+     * @param map               Map，为空返回otherParams拼接
+     * @param separator         entry之间的连接符
+     * @param keyValueSeparator kv之间的连接符
+     * @param otherParams       其它附加参数字符串（例如密钥）
+     * @return 连接后的字符串，map和otherParams为空返回""
      */
-    public static String getString(Map map, Object key, String defaultValue) {
-        return Converter.toString(map.get(key), defaultValue);
+    public static <K, V> String parseMapToString(Map<K, V> map, String separator, String keyValueSeparator, String... otherParams) {
+        return parseMapToString(map, separator, keyValueSeparator, false, otherParams);
     }
 
     /**
-     * 获取value
+     * 将map转成字符串
      *
-     * @param map          源
-     * @param key          字段
-     * @param defaultValue 默认值
-     * @return
+     * @param <K>               键类型
+     * @param <V>               值类型
+     * @param map               Map，为空返回otherParams拼接
+     * @param separator         entry之间的连接符
+     * @param keyValueSeparator kv之间的连接符
+     * @param isIgnoreNull      是否忽略null的键和值
+     * @param otherParams       其它附加参数字符串（例如密钥）
+     * @return 连接后的字符串，map和otherParams为空返回""
      */
-    public static <K> Long getLong(Map map, K key, Long defaultValue) {
-        return Converter.toLong(map.get(key), defaultValue);
+    public static <K, V> String parseMapToString(Map<K, V> map, String separator, String keyValueSeparator, boolean isIgnoreNull, String... otherParams) {
+        final StringBuilder strBuilder = new StringBuilder();
+        boolean isFirst = true;
+        if (isNotEmpty(map)) {
+            for (Map.Entry<K, V> entry : map.entrySet()) {
+                if (!isIgnoreNull || entry.getKey() != null && entry.getValue() != null) {
+                    if (isFirst) {
+                        isFirst = false;
+                    } else {
+                        strBuilder.append(separator);
+                    }
+                    strBuilder.append(Converter.toString(entry.getKey())).append(keyValueSeparator).append(Converter.toString(entry.getValue()));
+                }
+            }
+        }
+        if (ArrayUtil.isNotEmpty(otherParams)) {
+            for (String otherParam : otherParams) {
+                strBuilder.append(otherParam);
+            }
+        }
+        return strBuilder.toString();
     }
 
     /**
-     * 获取value
+     * 遍历
      *
-     * @param map          源
-     * @param key          字段
-     * @param defaultValue 默认值
-     * @return
+     * @param map    待遍历的 map
+     * @param action 操作
+     * @param <K>    map键泛型
+     * @param <V>    map值泛型
      */
-    public static <K> Integer getInteger(Map map, K key, Integer defaultValue) {
-        return Converter.toInt(map.get(key), defaultValue);
-    }
-
-    /**
-     * 获取value
-     *
-     * @param map          源
-     * @param key          字段
-     * @param defaultValue 默认值
-     * @return
-     */
-    public static <K> Float getFloat(Map map, K key, Float defaultValue) {
-        return Converter.toFloat(map.get(key), defaultValue);
-    }
-
-    /**
-     * 获取value
-     *
-     * @param map          源
-     * @param key          字段
-     * @param defaultValue 默认值
-     * @return
-     */
-    public static <K> Double getDouble(Map map, K key, Double defaultValue) {
-        return Converter.toDouble(map.get(key), defaultValue);
+    public static <K, V> void forEach(Map<K, V> map, BiConsumer<? super K, ? super V> action) {
+        if (isEmpty(map) || action == null) {
+            return;
+        }
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            K k;
+            V v;
+            try {
+                k = entry.getKey();
+                v = entry.getValue();
+            } catch (IllegalStateException ise) {
+                throw new ConcurrentModificationException(ise);
+            }
+            action.accept(k, v);
+        }
     }
 
     /**
