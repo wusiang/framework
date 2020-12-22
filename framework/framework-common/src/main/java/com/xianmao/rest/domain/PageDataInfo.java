@@ -21,7 +21,7 @@ public class PageDataInfo<T> implements Serializable {
      * @param list  列表数据
      * @param total 总记录数
      */
-    public PageDataInfo(List<T> list, int total) {
+    public PageDataInfo(List<T> list, long total) {
         this.rows = list;
         this.total = total;
     }

@@ -55,7 +55,7 @@ public class ServletUtil {
      * @return HttpServletRequest
      */
     public static HttpServletRequest getRequest() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
     }
 
     /**
@@ -64,7 +64,7 @@ public class ServletUtil {
      * @return HttpServletResponse
      */
     public static HttpServletResponse getResponse() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
+        return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getResponse();
     }
 
     /**
@@ -93,6 +93,48 @@ public class ServletUtil {
     }
 
     // --------------------------------------------------------- getParam start
+
+    /**
+     * 获取String参数
+     *
+     * @param name
+     * @return
+     */
+    public static String getParameter(String name) {
+        return getRequest().getParameter(name);
+    }
+
+    /**
+     * 获取String参数
+     *
+     * @param name
+     * @param defaultValue
+     * @return
+     */
+    public static String getParameter(String name, String defaultValue) {
+        return Converter.toString(getRequest().getParameter(name), defaultValue);
+    }
+
+    /**
+     * 获取Integer参数
+     *
+     * @param name
+     * @return
+     */
+    public static Integer getParameterToInt(String name) {
+        return Converter.toInt(getRequest().getParameter(name));
+    }
+
+    /**
+     * 获取Integer参数
+     *
+     * @param name
+     * @param defaultValue
+     * @return
+     */
+    public static Integer getParameterToInt(String name, Integer defaultValue) {
+        return Converter.toInt(getRequest().getParameter(name), defaultValue);
+    }
 
     /**
      * 获得所有请求参数
@@ -348,7 +390,7 @@ public class ServletUtil {
      * @return 是否为Multipart类型表单，此类型表单用于文件上传
      */
     public static boolean isMultipart(HttpServletRequest request) {
-        if (false == isPostMethod(request)) {
+        if (!isPostMethod(request)) {
             return false;
         }
 
@@ -356,11 +398,7 @@ public class ServletUtil {
         if (StringUtil.isBlank(contentType)) {
             return false;
         }
-        if (contentType.toLowerCase().startsWith("multipart/")) {
-            return true;
-        }
-
-        return false;
+        return contentType.toLowerCase().startsWith("multipart/");
     }
     // --------------------------------------------------------- Header end
 
@@ -612,7 +650,7 @@ public class ServletUtil {
         if (ip != null && ip.indexOf(",") > 0) {
             final String[] ips = ip.trim().split(",");
             for (String subIp : ips) {
-                if (false == isUnknow(subIp)) {
+                if (!isUnknow(subIp)) {
                     ip = subIp;
                     break;
                 }
