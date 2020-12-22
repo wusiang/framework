@@ -1,8 +1,6 @@
 package com.xianmao.utils;
 
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * @ClassName MapUtil
@@ -12,6 +10,11 @@ import java.util.TreeMap;
  * @Version 1.0
  */
 public class MapUtil {
+
+    private MapUtil() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
+
     /**
      * 判断Map是否为空
      *
@@ -19,9 +22,9 @@ public class MapUtil {
      * @return 是否为空，true：空；false：不为空
      */
     public static boolean isEmpty(Map<?, ?> map) {
-        if (map == null)
+        if (map == null) {
             return true;
-
+        }
         return map.isEmpty();
     }
 
@@ -36,72 +39,63 @@ public class MapUtil {
     }
 
     /**
-     * 将map转成字符串
+     * 获取value
      *
-     * @param <K>               键类型
-     * @param <V>               值类型
-     * @param map               Map
-     * @param separator         entry之间的连接符
-     * @param keyValueSeparator kv之间的连接符
-     * @param otherParams       其它附加参数字符串（例如密钥）
-     * @return 连接字符串
-     * @since 3.1.1
+     * @param map          源
+     * @param key          字段
+     * @param defaultValue 默认值
+     * @return
      */
-    public static <K, V> String join(Map<K, V> map, String separator, String keyValueSeparator, String... otherParams) {
-        return join(map, separator, keyValueSeparator, false, otherParams);
+    public static String getString(Map map, Object key, String defaultValue) {
+        return Converter.toString(map.get(key), defaultValue);
     }
 
     /**
-     * 根据参数排序后拼接为字符串，常用于签名
+     * 获取value
      *
-     * @param params            参数
-     * @param separator         entry之间的连接符
-     * @param keyValueSeparator kv之间的连接符
-     * @param isIgnoreNull      是否忽略null的键和值
-     * @param otherParams       其它附加参数字符串（例如密钥）
-     * @return 签名字符串
-     * @since 5.0.4
+     * @param map          源
+     * @param key          字段
+     * @param defaultValue 默认值
+     * @return
      */
-    public static String sortJoin(Map<?, ?> params, String separator, String keyValueSeparator, boolean isIgnoreNull,
-                                  String... otherParams) {
-        return join(sort(params), separator, keyValueSeparator, isIgnoreNull, otherParams);
+    public static <K> Long getLong(Map map, K key, Long defaultValue) {
+        return Converter.toLong(map.get(key), defaultValue);
     }
 
     /**
-     * 将map转成字符串
+     * 获取value
      *
-     * @param <K>               键类型
-     * @param <V>               值类型
-     * @param map               Map，为空返回otherParams拼接
-     * @param separator         entry之间的连接符
-     * @param keyValueSeparator kv之间的连接符
-     * @param isIgnoreNull      是否忽略null的键和值
-     * @param otherParams       其它附加参数字符串（例如密钥）
-     * @return 连接后的字符串，map和otherParams为空返回""
-     * @since 3.1.1
+     * @param map          源
+     * @param key          字段
+     * @param defaultValue 默认值
+     * @return
      */
-    public static <K, V> String join(Map<K, V> map, String separator, String keyValueSeparator, boolean isIgnoreNull, String... otherParams) {
-        final StringBuilder strBuilder = new StringBuilder();
-        boolean isFirst = true;
-        if (isNotEmpty(map)) {
-            for (Map.Entry<K, V> entry : map.entrySet()) {
-                if (!isIgnoreNull || entry.getKey() != null && entry.getValue() != null) {
-                    if (isFirst) {
-                        isFirst = false;
-                    } else {
-                        strBuilder.append(separator);
-                    }
-                    strBuilder.append(Converter.toString(entry.getKey())).append(keyValueSeparator).append(Converter.toString(entry.getValue()));
-                }
-            }
-        }
-        // 补充其它字符串到末尾，默认无分隔符
-        if (ArrayUtil.isNotEmpty(otherParams)) {
-            for (String otherParam : otherParams) {
-                strBuilder.append(otherParam);
-            }
-        }
-        return strBuilder.toString();
+    public static <K> Integer getInteger(Map map, K key, Integer defaultValue) {
+        return Converter.toInt(map.get(key), defaultValue);
+    }
+
+    /**
+     * 获取value
+     *
+     * @param map          源
+     * @param key          字段
+     * @param defaultValue 默认值
+     * @return
+     */
+    public static <K> Float getFloat(Map map, K key, Float defaultValue) {
+        return Converter.toFloat(map.get(key), defaultValue);
+    }
+
+    /**
+     * 获取value
+     *
+     * @param map          源
+     * @param key          字段
+     * @param defaultValue 默认值
+     * @return
+     */
+    public static <K> Double getDouble(Map map, K key, Double defaultValue) {
+        return Converter.toDouble(map.get(key), defaultValue);
     }
 
     /**
@@ -111,7 +105,6 @@ public class MapUtil {
      * @param <V> value的类型
      * @param map Map
      * @return TreeMap
-     * @see #newTreeMap(Map, Comparator)
      * @since 4.0.1
      */
     public static <K, V> TreeMap<K, V> sort(Map<K, V> map) {
@@ -126,8 +119,6 @@ public class MapUtil {
      * @param map        Map，为null返回null
      * @param comparator Key比较器
      * @return TreeMap，map为null返回null
-     * @see #newTreeMap(Map, Comparator)
-     * @since 4.0.1
      */
     public static <K, V> TreeMap<K, V> sort(Map<K, V> map, Comparator<? super K> comparator) {
         if (null == map) {
@@ -136,7 +127,6 @@ public class MapUtil {
 
         TreeMap<K, V> result;
         if (map instanceof TreeMap) {
-            // 已经是可排序Map，此时只有比较器一致才返回原map
             result = (TreeMap<K, V>) map;
             if (null == comparator || comparator.equals(result.comparator())) {
                 return result;
@@ -164,18 +154,5 @@ public class MapUtil {
             treeMap.putAll(map);
         }
         return treeMap;
-    }
-
-    /**
-     * 清除一个或多个Map集合内的元素，每个Map调用clear()方法
-     *
-     * @param maps 一个或多个Map
-     */
-    public static void clear(Map<?, ?>... maps) {
-        for (Map<?, ?> map : maps) {
-            if (isNotEmpty(map)) {
-                map.clear();
-            }
-        }
     }
 }

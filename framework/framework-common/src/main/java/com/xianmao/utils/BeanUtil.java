@@ -111,6 +111,7 @@ public class BeanUtil {
     /**
      * 集合数据的拷贝
      * List<ArticleVo> articleVoList = BeanUtil.copyListProperties(adminList, AdminVo::new);
+     *
      * @param sources
      * @param target
      * @param <S>     数据源类
@@ -133,33 +134,8 @@ public class BeanUtil {
      * @param bean 源对象
      * @return {Map}
      */
-    @SuppressWarnings("unchecked")
-    public static Map<String, Object> toMap(Object bean) {
-        return BeanMap.create(bean);
-    }
-
-    /**
-     * 将对象装成map形式
-     *
-     * @param bean
-     * @param null2String null是否转空字符串
-     * @param <T>
-     * @return
-     */
-    public static <T> Map<String, Object> toMap(T bean, Boolean null2String) {
-        Map<String, Object> map = new HashMap<>();
-        try {
-            if (bean != null) {
-                BeanMap beanMap = BeanMap.create(bean);
-                map.putAll(beanMap);
-                if (null2String) {
-                    map.replaceAll((k, v) -> v == null ? "" : v);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return map;
+    public static <T> Map<String, Object> toMap(T bean) {
+        return toMap(bean, false);
     }
 
     /**
@@ -172,9 +148,40 @@ public class BeanUtil {
      * @return
      */
     public static <T> Map<String, Object> toMap(T bean, Boolean null2String, String... ignoreProperties) {
-        Map<String, Object> map = toMap(bean, null2String);
+        Map<String, Object> map = toMap(bean, null2String, false);
+        if (Objects.isNull(map)) {
+            return null;
+        }
         for (String ignoreProperty : ignoreProperties) {
             map.remove(ignoreProperty);
+        }
+        return map;
+    }
+
+    /**
+     * 将对象装成map形式
+     *
+     * @param bean
+     * @param null2String null是否转空字符串
+     * @param <T>
+     * @return
+     */
+    public static <T> Map<String, Object> toMap(T bean, Boolean null2String, Boolean isToUnderlineCase) {
+        if (Objects.isNull(bean)) {
+            return null;
+        }
+        Map<String, Object> map = new HashMap<>();
+        try {
+            BeanMap beanMap = BeanMap.create(bean);
+            map.putAll(beanMap);
+            if (null2String) {
+                map.replaceAll((k, v) -> v == null ? "" : v);
+            }
+            if (isToUnderlineCase) {
+                map.replaceAll((k, v) -> k = StringUtil.underlineToHump(k));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return map;
     }
@@ -187,7 +194,7 @@ public class BeanUtil {
      * @param <T>         泛型标记
      * @return {T}
      */
-    public static <T> T toBean(Map<String, Object> beanMap, Class<T> targetClass) {
+    public static <T> T toBean(Map<?, ?> beanMap, Class<T> targetClass) {
         T bean;
         try {
             bean = targetClass.newInstance();
