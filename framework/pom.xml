@@ -51,7 +51,7 @@
         <springboot.version>2.3.5.RELEASE</springboot.version>
         <processor.version>2.3.5.RELEASE</processor.version>
         <pagehelper.version>5.2.0</pagehelper.version>
-        <oss.version>3.8.1</oss.version>
+        <oss.version>3.10.2</oss.version>
         <jackson.datatype.version>2.11.0</jackson.datatype.version>
     </properties>
 
