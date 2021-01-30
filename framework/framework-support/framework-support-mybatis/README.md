@@ -26,18 +26,16 @@ mybatis-plus:
 ```java
 @Configuration
 public class BatisPlusConfig {
+    /**
+     * sql 日志
+     *
+     * @return SqlLogInterceptor
+     */
     @Bean
-    public String myInterceptor(SqlSessionFactory sqlSessionFactory) {
-        //实例化插件
-        SqlLogInterceptor sqlInterceptor = new SqlLogInterceptor();
-        //创建属性值
-        Properties properties = new Properties();
-        properties.setProperty("prop1","value1");
-        //将属性值设置到插件中
-        sqlInterceptor.setProperties(properties);
-        //将插件添加到SqlSessionFactory工厂
-        sqlSessionFactory.getConfiguration().addInterceptor(sqlInterceptor);
-        return "interceptor";
+    @ConditionalOnProperty(value = "blade.mybatis-plus.sql-log", matchIfMissing = true)
+    public SqlLogInterceptor sqlLogInterceptor() {
+        return new SqlLogInterceptor();
     }
 }
+
 ```
