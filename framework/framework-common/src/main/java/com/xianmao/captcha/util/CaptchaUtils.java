@@ -4,10 +4,14 @@ import com.xianmao.captcha.CaptchaIPO;
 import com.xianmao.captcha.CaptchaVO;
 import com.xianmao.utils.ServletUtil;
 import org.apache.commons.lang3.StringUtils;
+import sun.misc.BASE64Encoder;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Random;
 
 public class CaptchaUtils {
@@ -92,6 +96,28 @@ public class CaptchaUtils {
         captchaVO.setCaptchaImage(captchaImage);
         // 8.返回验证码和图片
         return captchaVO;
+    }
+
+    /**
+     * 验证码转base64
+     *
+     * @param captchaVO
+     * @return
+     */
+    public static String toBase64(CaptchaVO captchaVO) {
+        BufferedImage image = captchaVO.getCaptchaImage();
+        String imageString = null;
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(image, "png", bos);
+            byte[] imageBytes = bos.toByteArray();
+            BASE64Encoder encoder = new BASE64Encoder();
+            imageString = encoder.encode(imageBytes);
+            bos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return imageString;
     }
 
     /**
