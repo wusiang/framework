@@ -1,4 +1,4 @@
-package com.xianmao.enums;
+package com.xianmao.utils;
 
 
 import com.xianmao.exception.UtilException;
