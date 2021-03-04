@@ -2,6 +2,7 @@ package com.xianmao.rest.web;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xianmao.exception.BizException;
 import com.xianmao.rest.APIResult;
 import com.xianmao.rest.domain.PageDataInfo;
 import com.xianmao.rest.domain.PageDomain;
@@ -22,16 +23,27 @@ public class BaseController {
      * 设置请求分页数据
      */
     protected void startPage() {
+        this.startPage(false);
+    }
+
+    /**
+     * 设置请求分页数据
+     */
+    protected void startPage(boolean isCheck) {
         PageDomain pageDomain = PageSupport.buildPageRequest();
         Integer pageNum = pageDomain.getPageNum();
         Integer pageSize = pageDomain.getPageSize();
-        PageHelper.startPage(pageNum, pageSize);
+        if (null != pageNum && null != pageSize) {
+            PageHelper.startPage(pageNum, pageSize);
+        } else if (isCheck) {
+            throw new BizException("分页不能为空");
+        }
     }
 
     /**
      * 响应请求分页数据
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     protected PageDataInfo getDataTable(List<?> list) {
         return new PageDataInfo(list, new PageInfo(list).getTotal());
     }

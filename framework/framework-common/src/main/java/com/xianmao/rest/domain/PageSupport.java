@@ -1,5 +1,7 @@
 package com.xianmao.rest.domain;
 
+import com.github.pagehelper.PageHelper;
+import com.xianmao.exception.BizException;
 import com.xianmao.utils.ServletUtil;
 
 public class PageSupport {
@@ -30,8 +32,32 @@ public class PageSupport {
         return pageDomain;
     }
 
+    /**
+     * 设置请求分页数据
+     */
     public static PageDomain buildPageRequest() {
         return getPageDomain();
+    }
+
+    /**
+     * 设置请求分页数据
+     */
+    public static void startPage() {
+        this.startPage(false);
+    }
+
+    /**
+     * 设置请求分页数据
+     */
+    public static void startPage(boolean isCheck) {
+        PageDomain pageDomain = getPageDomain();
+        Integer pageNum = pageDomain.getPageNum();
+        Integer pageSize = pageDomain.getPageSize();
+        if (null != pageNum && null != pageSize) {
+            PageHelper.startPage(pageNum, pageSize);
+        } else if (isCheck) {
+            throw new BizException("分页不能为空");
+        }
     }
 
 
