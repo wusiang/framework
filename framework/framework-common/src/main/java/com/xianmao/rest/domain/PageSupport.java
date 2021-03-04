@@ -43,7 +43,7 @@ public class PageSupport {
      * 设置请求分页数据
      */
     public static void startPage() {
-        this.startPage(false);
+        startPage(false);
     }
 
     /**
