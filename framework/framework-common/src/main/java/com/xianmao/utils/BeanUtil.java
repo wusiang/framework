@@ -1,5 +1,6 @@
 package com.xianmao.utils;
 
+import com.xianmao.obj.CollectionUtil;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
@@ -119,6 +120,9 @@ public class BeanUtil {
      * @return
      */
     public static <S, T> List<T> copyListProperties(List<S> sources, Supplier<T> target) {
+        if (CollectionUtil.isEmpty(sources)) {
+            return new ArrayList<>();
+        }
         List<T> list = new ArrayList<>(sources.size());
         for (S source : sources) {
             T t = target.get();
