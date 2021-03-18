@@ -2,6 +2,7 @@ package com.xianmao.string;
 
 import org.springframework.util.StringUtils;
 
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
 
@@ -33,7 +34,7 @@ public class CharsetUtil {
      * @return Charsets
      * @throws UnsupportedCharsetException 编码不支持
      */
-    public static java.nio.charset.Charset charset(String charsetName) throws UnsupportedCharsetException {
+    public static Charset charset(String charsetName) throws UnsupportedCharsetException {
         return StringUtils.isEmpty(charsetName) ? java.nio.charset.Charset.defaultCharset() : java.nio.charset.Charset.forName(charsetName);
     }
 }
