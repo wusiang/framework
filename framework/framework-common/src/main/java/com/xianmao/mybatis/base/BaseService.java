@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xianmao.base;
+package com.xianmao.mybatis.base;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 

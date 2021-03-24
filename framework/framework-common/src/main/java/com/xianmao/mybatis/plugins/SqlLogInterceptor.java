@@ -1,4 +1,4 @@
-package com.xianmao.plugins;
+package com.xianmao.mybatis.plugins;
 
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
