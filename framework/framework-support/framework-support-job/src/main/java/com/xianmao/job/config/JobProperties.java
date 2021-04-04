@@ -1,9 +1,7 @@
 package com.xianmao.job.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
-@Component
 @ConfigurationProperties(prefix = "elasticjob")
 public class JobProperties {
 
@@ -13,7 +11,7 @@ public class JobProperties {
     private String address;
 
     /**
-     * 命名空间.
+     * 命名空间
      */
     private String namespace;
 

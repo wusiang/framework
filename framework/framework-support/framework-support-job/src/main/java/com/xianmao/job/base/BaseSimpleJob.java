@@ -2,11 +2,11 @@ package com.xianmao.job.base;
 
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
-import com.xianmao.job.util.ApplicationContextUtil;
+import com.xianmao.job.config.JobBaseConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class BaseSimpleJob implements SimpleJob {
+public abstract class BaseSimpleJob extends JobBaseConfiguration implements SimpleJob {
 
     private static final Logger log = LoggerFactory.getLogger(BaseSimpleJob.class);
 
@@ -14,7 +14,7 @@ public abstract class BaseSimpleJob implements SimpleJob {
 
     @Override
     public void execute(ShardingContext shardingContext) {
-        BaseSimpleJob baseSimpleJob = ApplicationContextUtil.getContext().getBean(getBeanName(this.getClass().getName()), BaseSimpleJob.class);
+        BaseSimpleJob baseSimpleJob = applicationContext.getBean(getBeanName(this.getClass().getName()), BaseSimpleJob.class);
         baseSimpleJob.process(shardingContext);
     }
 

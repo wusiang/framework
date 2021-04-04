@@ -1,7 +1,5 @@
 package com.xianmao.job.config;
 
-import com.dangdang.ddframe.job.api.dataflow.DataflowJob;
-import com.dangdang.ddframe.job.api.simple.SimpleJob;
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.simple.SimpleJobConfiguration;
 import com.dangdang.ddframe.job.lite.api.JobScheduler;
@@ -11,19 +9,19 @@ import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 import com.xianmao.job.annotation.Job;
 import com.xianmao.job.base.BaseSimpleJob;
-import com.xianmao.job.util.ApplicationContextUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
-public class JobAutoConfiguration implements InitializingBean {
+@EnableConfigurationProperties(JobProperties.class)
+public class JobAutoConfiguration extends JobBaseConfiguration implements InitializingBean {
 
     private static final Logger log = LoggerFactory.getLogger(JobAutoConfiguration.class);
     @Autowired
@@ -32,9 +30,9 @@ public class JobAutoConfiguration implements InitializingBean {
     private Environment environment;
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         List<JobScheduler> jobSchedulerList = loadJobs();
-        if (jobSchedulerList == null || jobSchedulerList.size() == 0){
+        if (jobSchedulerList == null || jobSchedulerList.size() == 0) {
             return;
         }
         for (JobScheduler jobScheduler : jobSchedulerList) {
@@ -51,7 +49,7 @@ public class JobAutoConfiguration implements InitializingBean {
      */
     private List<JobScheduler> loadJobs() {
         List<JobScheduler> jobSchedulerList = new ArrayList<>();
-        Map<String, Object> beans = ApplicationContextUtil.getContext().getBeansWithAnnotation(Job.class);
+        Map<String, Object> beans = applicationContext.getBeansWithAnnotation(Job.class);
         if (beans == null || beans.size() == 0) {
             return null;
         }
