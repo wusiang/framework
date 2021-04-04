@@ -55,9 +55,6 @@
         <jackson.datatype.version>2.11.0</jackson.datatype.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <hutool-json.version>4.6.10</hutool-json.version>
-        <commons-pool2.version>2.7.0</commons-pool2.version>
-        <jedis.version>3.1.0</jedis.version>
-        <redisson.version>3.11.4</redisson.version>
     </properties>
 
 
@@ -202,34 +199,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${springboot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-pool2</artifactId>
-                <version>${commons-pool2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-json</artifactId>
-                <version>${hutool-json.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>redis.clients</groupId>
-                <artifactId>jedis</artifactId>
-                <version>${jedis.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.redisson</groupId>
-                <artifactId>redisson-spring-data-21</artifactId>
-                <version>${redisson.version}</version>
-                <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework.data</groupId>
-                        <artifactId>spring-data-redis</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>
