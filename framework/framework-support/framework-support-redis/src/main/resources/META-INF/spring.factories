@@ -1,0 +1,2 @@
+#redis初始化
+org.springframework.context.ApplicationContextInitializer=com.xianmao.redis.config.RedisInitializer

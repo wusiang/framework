@@ -24,11 +24,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.ZoneId;
-import java.util.Locale;
-import java.util.TimeZone;
 
 /**
  * @ClassName RedisTemplateConfiguration
