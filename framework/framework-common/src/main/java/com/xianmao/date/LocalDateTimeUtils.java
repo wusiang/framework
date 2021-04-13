@@ -261,6 +261,26 @@ public class LocalDateTimeUtils {
     }
 
     /**
+     * 获取一天最早时间
+     *
+     * @param time 日期
+     * @return
+     */
+    public static LocalDateTime beginOfDay(LocalDateTime time) {
+        return time.with(LocalTime.of(0, 0, 0, 0));
+    }
+
+    /**
+     * 获取一天的最晚时间
+     *
+     * @param time 日期
+     * @return
+     */
+    public static LocalDateTime endOfDay(LocalDateTime time) {
+        return time.with(LocalTime.of(23, 59, 59, 999999999));
+    }
+
+    /**
      * 格式化日期时间为指定格式
      *
      * @param time      {@link TemporalAccessor}
