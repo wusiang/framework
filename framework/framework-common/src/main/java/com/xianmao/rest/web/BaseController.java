@@ -44,6 +44,14 @@ public class BaseController {
      * 响应请求分页数据
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
+    protected PageDataInfo getDataTable(List<?> list, long total) {
+        return new PageDataInfo(list, total);
+    }
+
+    /**
+     * 响应请求分页数据
+     */
+    @SuppressWarnings({"rawtypes", "unchecked"})
     protected PageDataInfo getDataTable(List<?> list) {
         return new PageDataInfo(list, new PageInfo(list).getTotal());
     }
@@ -54,6 +62,7 @@ public class BaseController {
      * @param rows 影响行数
      * @return 操作结果
      */
+    @SuppressWarnings({"rawtypes"})
     protected APIResult toAPIReult(int rows) {
         return rows > 0 ? APIResult.success() : APIResult.fail();
     }
