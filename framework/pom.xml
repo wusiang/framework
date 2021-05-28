@@ -38,19 +38,8 @@
         <!--jar包版本号-->
         <lombok.version>1.18.8</lombok.version>
         <commons.lang3.version>3.11</commons.lang3.version>
-        <servlet.api.version>3.1.0</servlet.api.version>
-        <javax.ws.rs.version>1.1.1</javax.ws.rs.version>
-        <slf4j.version>1.7.30</slf4j.version>
-        <validation.version>2.0.1.Final</validation.version>
-        <jackson.version>2.12.1</jackson.version>
-        <spring.version>5.3.4</spring.version>
-        <aspectjweaver.version>1.9.6</aspectjweaver.version>
-        <httpclient.version>4.5.9</httpclient.version>
         <springboot.version>2.3.5.RELEASE</springboot.version>
-        <processor.version>2.3.5.RELEASE</processor.version>
-        <pagehelper.version>5.2.0</pagehelper.version>
-        <jackson.datatype.version>2.11.0</jackson.datatype.version>
-        <hutool-json.version>4.6.10</hutool-json.version>
+        <hutool.version>5.6.5</hutool.version>
     </properties>
 
 
@@ -67,7 +56,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.18</version>
+                <version>${lombok.version}</version>
             </dependency>
             <!--Commons工具组件-->
             <dependency>
@@ -75,11 +64,10 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons.lang3.version}</version>
             </dependency>
-            <!--httpclientutil网络请求工具类-->
             <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${httpclient.version}</version>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

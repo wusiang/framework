@@ -24,6 +24,9 @@
         <javax.ws.rs.version>1.1.1</javax.ws.rs.version>
         <pagehelper.version>5.2.0</pagehelper.version>
         <jwt.version>0.9.1</jwt.version>
+        <httpclient.version>4.5.9</httpclient.version>
+        <jackson.version>2.12.1</jackson.version>
+        <validation.version>2.0.1.Final</validation.version>
     </properties>
 
     <dependencies>
@@ -75,6 +78,7 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>

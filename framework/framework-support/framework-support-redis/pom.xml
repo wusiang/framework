@@ -37,8 +37,7 @@
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
-            <artifactId>hutool-json</artifactId>
-            <version>${hutool-json.version}</version>
+            <artifactId>hutool-all</artifactId>
         </dependency>
         <dependency>
             <groupId>redis.clients</groupId>
