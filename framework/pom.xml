@@ -11,6 +11,7 @@
     <modules>
         <module>framework-common</module>
         <module>framework-support</module>
+        <module>framework-cloud</module>
     </modules>
 
     <name>framework</name>
@@ -39,7 +40,9 @@
         <lombok.version>1.18.8</lombok.version>
         <commons.lang3.version>3.11</commons.lang3.version>
         <springboot.version>2.3.5.RELEASE</springboot.version>
+        <spring.cloud.version>2020.0.2</spring.cloud.version>
         <hutool.version>5.6.5</hutool.version>
+        <spring.plugin.version>2.0.0.RELEASE</spring.plugin.version>
     </properties>
 
 
@@ -52,13 +55,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-            <!--Commons工具组件-->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
@@ -68,6 +69,23 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-core</artifactId>
+                <version>${spring.plugin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-metadata</artifactId>
+                <version>${spring.plugin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

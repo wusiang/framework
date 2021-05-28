@@ -13,7 +13,6 @@ public enum ResultCode implements IEnum<Integer, String> {
     FORBIDDEN(103, "无权限"),
     FREQUENT_ACCESS_RESTRICTION(104, "频繁访问限制，请稍后重试"),
     REQ_REJECT(105, "请求被拒绝"),
-    INTERNAL_SERVER_ERROR(106, "哎服务器开小差"),
 
     /*** 200 请求成功*/
     SUCCESS(200, "操作成功"),
@@ -34,6 +33,7 @@ public enum ResultCode implements IEnum<Integer, String> {
     ERROR_JSON(499, "错误JSON"),
 
     /*** 服务器错误*/
+    INTERNAL_SERVER_ERROR(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "服务器异常"),
     FAILURE(500, "错误请求"),
     DATA_STRUCTURE(501, "数据结构异常"),
     DB_ERROR(502, "数据结构异常，请检查相应数据结构一致性"),
