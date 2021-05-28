@@ -15,6 +15,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <aspectjweaver.version>1.9.6</aspectjweaver.version>
+        <javassist.version>3.25.0-GA</javassist.version>
     </properties>
 
     <dependencies>
@@ -32,6 +34,7 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -44,6 +47,7 @@
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
+            <version>${javassist.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

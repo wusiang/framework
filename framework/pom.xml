@@ -37,7 +37,6 @@
 
         <!--jar包版本号-->
         <lombok.version>1.18.8</lombok.version>
-        <jwt.version>0.9.1</jwt.version>
         <commons.lang3.version>3.11</commons.lang3.version>
         <servlet.api.version>3.1.0</servlet.api.version>
         <javax.ws.rs.version>1.1.1</javax.ws.rs.version>
@@ -46,12 +45,10 @@
         <jackson.version>2.12.1</jackson.version>
         <spring.version>5.3.4</spring.version>
         <aspectjweaver.version>1.9.6</aspectjweaver.version>
-        <javassist.version>3.25.0-GA</javassist.version>
         <httpclient.version>4.5.9</httpclient.version>
         <springboot.version>2.3.5.RELEASE</springboot.version>
         <processor.version>2.3.5.RELEASE</processor.version>
         <pagehelper.version>5.2.0</pagehelper.version>
-        <oss.version>3.10.2</oss.version>
         <jackson.datatype.version>2.11.0</jackson.datatype.version>
         <hutool-json.version>4.6.10</hutool-json.version>
     </properties>
@@ -78,45 +75,11 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons.lang3.version}</version>
             </dependency>
-            <!--Redis-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-redis</artifactId>
-                <version>${springboot.version}</version>
-            </dependency>
-            <!--JSON Web Token-->
-            <dependency>
-                <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt</artifactId>
-                <version>${jwt.version}</version>
-            </dependency>
-            <!-- aop 这是Spring AOP所要用到的包 -->
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>${aspectjweaver.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.javassist</groupId>
-                <artifactId>javassist</artifactId>
-                <version>${javassist.version}</version>
-            </dependency>
             <!--httpclientutil网络请求工具类-->
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
-            </dependency>
-            <!--alioss-->
-            <dependency>
-                <groupId>com.aliyun.oss</groupId>
-                <artifactId>aliyun-sdk-oss</artifactId>
-                <version>${oss.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-redis</artifactId>
-                <version>${springboot.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
