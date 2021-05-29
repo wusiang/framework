@@ -2,7 +2,6 @@ package com.xianmao.utils;
 
 import com.xianmao.date.DateTimeUtil;
 import com.xianmao.exception.BizException;
-import com.xianmao.rest.ResultCode;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -176,7 +175,7 @@ public class JwtUtil {
             return Jwts.parser().setSigningKey(key).parseClaimsJws(claimsJws);
         } catch (Exception e) {
             log.warn("解析jwt错误：{}", e.getMessage());
-            throw new BizException(ResultCode.UNAUTHORIZED);
+            throw new BizException(e.getMessage());
         }
     }
 
@@ -192,7 +191,7 @@ public class JwtUtil {
             return String.valueOf(jws.getBody().get("sub"));
         } catch (Exception e) {
             log.warn("解析jwt错误：{}", e.getMessage());
-            throw new BizException(ResultCode.UNAUTHORIZED);
+            throw new BizException(e.getMessage());
         }
     }
 
@@ -210,7 +209,7 @@ public class JwtUtil {
             flag = (parseJWT(key, claimsJws).getBody() != null);
         } catch (Exception e) {
             log.warn("JWT验证出错，错误原因：{}", e.getMessage());
-            throw new BizException(ResultCode.UNAUTHORIZED);
+            throw new BizException(e.getMessage());
         }
         return flag;
     }
@@ -232,7 +231,7 @@ public class JwtUtil {
             flag = claims.getSubject().equals(sub);
         } catch (Exception e) {
             log.warn("JWT验证出错，错误原因：{}", e.getMessage());
-            throw new BizException(ResultCode.UNAUTHORIZED);
+            throw new BizException(e.getMessage());
         }
         return flag;
     }
@@ -249,7 +248,7 @@ public class JwtUtil {
             return checkJWT(generateKey(JWT_ALG, JWT_RULE), claimsJws, sub);
         } catch (Exception e) {
             log.error("JWT验证出错，错误原因：{}", e.getMessage());
-            throw new BizException(ResultCode.UNAUTHORIZED);
+            throw new BizException(e.getMessage());
         }
     }
 }

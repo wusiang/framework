@@ -23,6 +23,11 @@ public class XssFilter implements Filter {
 
     }
 
+    public XssFilter(XssProperties xssProperties, XssUrlProperties xssUrlProperties) {
+        this.xssProperties = xssProperties;
+        this.xssUrlProperties = xssUrlProperties;
+    }
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         String path = ((HttpServletRequest) request).getServletPath();
