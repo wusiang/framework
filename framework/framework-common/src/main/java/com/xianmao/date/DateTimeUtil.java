@@ -61,7 +61,7 @@ public class DateTimeUtil {
      * @return 格式化后的字符串
      */
     public static String formatLocalDateTime(LocalDateTime localDateTime) {
-        return format(localDateTime, DatePattern.NORM_DATETIME_PATTERN);
+        return format(localDateTime, DatePattern.YYYY_MM_DD_HH_MM_SS);
     }
 
     /**
@@ -134,7 +134,7 @@ public class DateTimeUtil {
         if (null == date) {
             return null;
         }
-        return DatePattern.NORM_DATETIME_FORMAT.format(date);
+        return DatePattern.YYYY_MM_DD_HH_MM_SS_FORMAT.format(date);
     }
 
     /**
@@ -148,7 +148,7 @@ public class DateTimeUtil {
         if (null == date) {
             return null;
         }
-        return DatePattern.NORM_DATE_FORMAT.format(date);
+        return DatePattern.YYYY_MM_DD_FORMAT.format(date);
     }
 
     /**
@@ -163,7 +163,7 @@ public class DateTimeUtil {
         if (null == date) {
             return null;
         }
-        return DatePattern.PATTERN_TIME_FORMAT.format(date);
+        return DatePattern.HH_MM_SS_FORMAT.format(date);
     }
     //
 

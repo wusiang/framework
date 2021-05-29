@@ -1,4 +1,4 @@
-package com.xianmao.annotation;
+package com.xianmao.boot.annotion;
 
 import java.lang.annotation.*;
 
