@@ -40,7 +40,8 @@
         <!--jar包版本号-->
         <lombok.version>1.18.8</lombok.version>
         <commons.lang3.version>3.11</commons.lang3.version>
-        <springboot.version>2.3.5.RELEASE</springboot.version>
+        <!-- springboot和springcloud版本关系对照网址：https://spring.io/projects/spring-cloud/-->
+        <springboot.version>2.4.0</springboot.version>
         <spring.cloud.version>2020.0.2</spring.cloud.version>
         <hutool.version>5.6.5</hutool.version>
         <spring.plugin.version>2.0.0.RELEASE</spring.plugin.version>
