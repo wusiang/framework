@@ -1,8 +1,15 @@
 package com.xianmao.boot.web.page;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.List;
 
+@AllArgsConstructor
+@Setter
+@Getter
 public class Page<T> implements Serializable {
 
     /**
@@ -16,29 +23,17 @@ public class Page<T> implements Serializable {
     private List<T> rows;
 
     /**
-     * 分页
-     *
-     * @param list  列表数据
-     * @param total 总记录数
+     * 是否有下一页
      */
-    public Page(List<T> list, long total) {
-        this.rows = list;
-        this.total = total;
-    }
+    private boolean hasNextPage = false;
 
-    public long getTotal() {
-        return total;
-    }
+    /**
+     * 当前页数
+     */
+    private int pageNum;
 
-    public void setTotal(long total) {
-        this.total = total;
-    }
-
-    public List<?> getRows() {
-        return rows;
-    }
-
-    public void setRows(List<T> rows) {
-        this.rows = rows;
-    }
+    /**
+     * 每页数量
+     */
+    private int pageSize;
 }

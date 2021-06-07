@@ -43,16 +43,9 @@ public class BaseController {
      * 响应请求分页数据
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
-    protected Page getDataTable(List<?> list, long total) {
-        return new Page(list, total);
-    }
-
-    /**
-     * 响应请求分页数据
-     */
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    protected Page getDataTable(List<?> list) {
-        return new Page(list, new PageInfo(list).getTotal());
+    protected <T> Page getDataTable(List<T> list) {
+        PageInfo pageInfo = new PageInfo(list);
+        return new Page(pageInfo.getTotal(), list, pageInfo.isHasNextPage(), pageInfo.getPageNum(), pageInfo.getPageSize());
     }
 
     /**

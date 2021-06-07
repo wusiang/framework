@@ -6,13 +6,13 @@ import com.xianmao.constant.Constants;
 import com.xianmao.jackson.JsonUtil;
 import com.xianmao.utils.ServletUtil;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
-public abstract class RepeatSubmitInterceptor extends HandlerInterceptorAdapter {
+public abstract class RepeatSubmitInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -29,7 +29,7 @@ public abstract class RepeatSubmitInterceptor extends HandlerInterceptorAdapter 
             }
             return true;
         } else {
-            return super.preHandle(request, response, handler);
+            return true;
         }
     }
 

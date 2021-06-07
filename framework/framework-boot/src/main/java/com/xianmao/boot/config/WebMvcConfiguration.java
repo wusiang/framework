@@ -18,7 +18,7 @@ import java.util.List;
 
 @Configuration
 @Slf4j
-public class WebMvcConfigguration extends WebMvcConfigurationSupport {
+public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {

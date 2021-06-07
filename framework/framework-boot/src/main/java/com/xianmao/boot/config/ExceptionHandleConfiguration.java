@@ -1,8 +1,8 @@
 package com.xianmao.boot.config;
 
 import com.xianmao.boot.web.exception.DefaultGlobalExceptionHandler;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@Configuration
+@RestControllerAdvice
 public class ExceptionHandleConfiguration extends DefaultGlobalExceptionHandler {
 }

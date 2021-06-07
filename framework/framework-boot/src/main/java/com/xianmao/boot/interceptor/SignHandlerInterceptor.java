@@ -10,6 +10,7 @@ import com.xianmao.utils.ServletUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 import java.util.*;
 
-public abstract class SignHandlerInterceptor extends HandlerInterceptorAdapter {
+public abstract class SignHandlerInterceptor implements HandlerInterceptor {
 
     /**
      * 签名超时时长，默认时间为5分钟，ms
