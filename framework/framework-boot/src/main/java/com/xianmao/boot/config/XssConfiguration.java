@@ -30,7 +30,6 @@ public class XssConfiguration {
     private final XssProperties xssProperties;
     private final XssUrlProperties xssUrlProperties;
 
-
     /**
      * 防XSS注入
      */
