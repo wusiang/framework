@@ -16,7 +16,7 @@ import java.util.List;
 
 @Configuration()
 @AllArgsConstructor
-public class MybatisPlusConfiguration implements WebMvcConfigurer {
+public class MybatisPlusConfiguration {
 
 
     /**
@@ -31,15 +31,6 @@ public class MybatisPlusConfiguration implements WebMvcConfigurer {
     @ConditionalOnProperty(value = "xianmao.mybatis-plus.sql-log", matchIfMissing = true)
     public SqlLogInterceptor sqlLogInterceptor() {
         return new SqlLogInterceptor();
-    }
-
-    /**
-     * SQL 过滤器避免SQL 注入
-     * @param argumentResolvers
-     */
-    @Override
-    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-        argumentResolvers.add(new SqlFilterArgumentResolver());
     }
 
     /**
