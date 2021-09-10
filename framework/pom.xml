@@ -12,7 +12,6 @@
         <module>framework-common</module>
         <module>framework-support</module>
         <module>framework-cloud</module>
-        <module>framework-boot</module>
     </modules>
 
     <name>framework</name>

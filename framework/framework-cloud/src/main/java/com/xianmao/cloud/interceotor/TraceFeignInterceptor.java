@@ -1,6 +1,6 @@
 package com.xianmao.cloud.interceotor;
 
-import com.xianmao.constant.TraceConstant;
+import com.xianmao.trace.TraceConstant;
 import com.xianmao.utils.StringUtil;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
