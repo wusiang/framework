@@ -4,10 +4,12 @@ import com.xianmao.obj.ObjectUtil;
 import com.xianmao.string.StringPool;
 import com.xianmao.string.StrFormatter;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.AntPathMatcher;
 
 import java.io.StringReader;
 import java.text.MessageFormat;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -37,10 +39,6 @@ public class StringUtil extends org.springframework.util.StringUtils {
     }
 
     /**
-     * Check whether the given {@code CharSequence} contains actual <em>text</em>.
-     * <p>More specifically, this method returns {@code true} if the
-     * {@code CharSequence} is not {@code null}, its length is greater than
-     * 0, and it contains at least one non-whitespace character.
      * <pre class="code">
      * StringUtil.isBlank(null) = true
      * StringUtil.isBlank("") = true
@@ -612,5 +610,39 @@ public class StringUtil extends org.springframework.util.StringUtils {
         } else {
             return str1.equals(str2);
         }
+    }
+
+    /**
+     * 查找指定字符串是否匹配指定字符串列表中的任意一个字符串
+     *
+     * @param str  指定字符串
+     * @param strs 需要检查的字符串数组
+     * @return 是否匹配
+     */
+    public static boolean matches(String str, List<String> strs) {
+        if (isEmpty(str) || isEmpty(strs)) {
+            return false;
+        }
+        for (String pattern : strs) {
+            if (isMatch(pattern, str)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 判断url是否与规则配置:
+     * ? 表示单个字符;
+     * * 表示一层路径内的任意字符串，不可跨层级;
+     * ** 表示任意层路径;
+     *
+     * @param pattern 匹配规则
+     * @param url     需要匹配的url
+     * @return
+     */
+    public static boolean isMatch(String pattern, String url) {
+        AntPathMatcher matcher = new AntPathMatcher();
+        return matcher.match(pattern, url);
     }
 }
