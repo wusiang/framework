@@ -27,7 +27,6 @@ import java.util.List;
  */
 @Configuration
 @EnableSwagger2
-@enables
 public class SwaggerConfig {
 
     private static final String DEFAULT_BASE_PATH = "/**";
@@ -53,7 +52,8 @@ public class SwaggerConfig {
         ApiSelectorBuilder apis = new Docket(DocumentationType.SWAGGER_2)
                 .host(swaggerProperties.getHost())
                 .apiInfo(apiInfo(swaggerProperties)).select()
-                .apis(SwaggerUtil.basePackages(swaggerProperties.getBasePackages()));
+                .apis(SwaggerUtil.basePackages(swaggerProperties.getBasePackages()))
+                .paths(PathSelectors.any());
 
         swaggerProperties.getBasePath().forEach(p -> apis.paths(PathSelectors.ant(p)));
         swaggerProperties.getExcludePath().forEach(p -> apis.paths(PathSelectors.ant(p).negate()));
