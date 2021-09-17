@@ -1,8 +1,8 @@
 package com.xianmao.cloud.feign;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.xianmao.jackson.JsonUtil;
-import com.xianmao.obj.ObjectUtil;
+import com.xianmao.common.jackson.JsonUtil;
+import com.xianmao.common.obj.ObjectUtil;
 import feign.FeignException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

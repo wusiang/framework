@@ -1,7 +1,7 @@
 package com.xianmao.cloud.trace;
 
-import com.xianmao.trace.TraceConstant;
-import com.xianmao.utils.StringUtil;
+import com.xianmao.common.trace.TraceConstant;
+import com.xianmao.common.utils.StringUtil;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.slf4j.MDC;

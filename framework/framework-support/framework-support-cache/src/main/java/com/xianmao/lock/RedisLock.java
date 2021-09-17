@@ -1,6 +1,6 @@
 package com.xianmao.lock;
 
-import com.xianmao.utils.RedisUtil;
+import com.xianmao.common.utils.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
