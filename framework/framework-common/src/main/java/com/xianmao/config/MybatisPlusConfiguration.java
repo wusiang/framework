@@ -16,14 +16,9 @@ public class MybatisPlusConfiguration {
 
     /**
      * sql 日志
-     * 默认开启可以设置关闭，配置如下
-     * xianmao:
-     *   mybatis-plus:
-     *     sql-log: false
      * @return SqlLogInterceptor
      */
     @Bean
-    @ConditionalOnProperty(value = "xianmao.mybatis-plus.sql-log", matchIfMissing = true)
     public SqlLogInterceptor sqlLogInterceptor() {
         return new SqlLogInterceptor();
     }
