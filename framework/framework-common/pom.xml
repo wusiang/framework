@@ -77,7 +77,7 @@
         <!-- Mybatis 依赖配置 -->
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
         </dependency>
         <!--json解析框架-->
