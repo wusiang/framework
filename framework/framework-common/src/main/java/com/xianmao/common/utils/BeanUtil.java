@@ -1,14 +1,20 @@
 package com.xianmao.common.utils;
 
+import com.fasterxml.jackson.databind.BeanProperty;
+import com.xianmao.common.exception.BizException;
 import com.xianmao.common.obj.CollectionUtil;
+import com.xianmao.common.support.BaseBeanCopier;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanGenerator;
 import org.springframework.cglib.beans.BeanMap;
 import org.springframework.cglib.core.Converter;
+import org.springframework.util.CollectionUtils;
 
+import java.beans.PropertyDescriptor;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
@@ -23,113 +29,95 @@ import java.util.function.Supplier;
 public class BeanUtil {
 
     /**
-     * Bean copier cache
+     * 实例化对象
+     *
+     * @param clazz 类
+     * @param <T>   泛型标记
+     * @return 对象
      */
-    private static final Map<String, BeanCopier> BEAN_COPIER_CACHE = new ConcurrentHashMap<>();
+    @SuppressWarnings("unchecked")
+    public static <T> T newInstance(Class<?> clazz) {
+        return (T) BeanUtils.instantiateClass(clazz);
+    }
 
     /**
-     * 深复制
+     * 实例化对象
+     *
+     * @param clazzStr 类名
+     * @param <T>      泛型标记
+     * @return 对象
+     */
+    public static <T> T newInstance(String clazzStr) {
+        try {
+            Class<?> clazz = Class.forName(clazzStr);
+            return newInstance(clazz);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * copy 对象属性到另一个对象，默认不使用Convert
      * <p>
-     * 注意：不支持链式Bean
+     * 注意：不支持链式Bean，链式用 copyProperties
      *
      * @param source 源对象
+     * @param clazz  类名
      * @param <T>    泛型标记
      * @return T
      */
-    @SuppressWarnings("unchecked")
-    public static <T> T clone(T source) {
-        return (T) BeanUtil.copy(source, source.getClass());
+    public static <T> T copyProperties(Object source, Class<T> clazz) {
+        BaseBeanCopier copier = BaseBeanCopier.create(source.getClass(), clazz, false);
+        T to = newInstance(clazz);
+        copier.copy(source, to, null);
+        return to;
+    }
+
+    /**
+     * 拷贝对象
+     * <p>
+     * 注意：不支持链式Bean，链式用 copyProperties
+     *
+     * @param source     源对象
+     * @param targetBean 需要赋值的对象
+     */
+    public static void copyProperties(Object source, Object targetBean) {
+        BaseBeanCopier copier = BaseBeanCopier
+                .create(source.getClass(), targetBean.getClass(), false);
+        copier.copy(source, targetBean, null);
     }
 
 
     /**
-     * 对象转换
+     * 属性拷贝
      *
-     * @param source           原对象
-     * @param target           目标对象
-     * @param ignoreProperties 排除要copy的属性
+     * @param source      list
+     * @param targetClass class
+     * @return 列表 the list
      */
-    public static <T> T copy(Object source, T target, String... ignoreProperties) {
-        if (ArrayUtils.isEmpty(ignoreProperties)) {
-            BeanUtils.copyProperties(source, target);
-        } else {
-            BeanUtils.copyProperties(source, target, ignoreProperties);
+    public static <T> List<T> copyList(List<?> source, Class<T> targetClass) {
+        if (CollectionUtils.isEmpty(source)) {
+            return new ArrayList<>();
         }
-        return target;
+        return handleCopyList(source, targetClass);
     }
 
     /**
      * 属性拷贝
      *
-     * @param source the source
-     * @param target the target
+     * @param source      数组
+     * @param targetClass class
+     * @return 列表 the list
      */
-    public static void copyProperties(Object source, Object target) {
-        if (source == null) {
-            return;
-        }
-        BeanCopier copier = getBeanCopier(source.getClass(), target.getClass());
-        copier.copy(source, target, null);
-    }
-
-    /**
-     * 属性拷贝
-     *
-     * @param source    the source
-     * @param target    the target
-     * @param converter the converter
-     */
-    public static void copyProperties(Object source, Object target, Converter converter) {
-        if (source == null) {
-            return;
-        }
-        BeanCopier copier = getBeanCopier(source.getClass(), target.getClass());
-        copier.copy(source, target, converter);
-    }
-
-    /**
-     * 属性拷贝
-     *
-     * @param <T>         the type parameter
-     * @param source      the source
-     * @param targetClass the target class
-     * @return the t
-     */
-    public static <T> T copyProperties(Object source, Class<T> targetClass) {
+    public static <T> List<T> copyList(Object[] source, Class<T> targetClass) {
         if (source == null) {
             return null;
         }
-        T t;
-        try {
-            t = targetClass.newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
-            throw new RuntimeException("Create new instance of " + targetClass + " failed: " + e.getMessage());
+        List<T> target = new ArrayList<>();
+        for (Object obj : source) {
+            target.add(copyProperties(obj, targetClass));
         }
-        copyProperties(source, t);
-        return t;
-    }
-
-    /**
-     * 集合数据的拷贝
-     * List<ArticleVo> articleVoList = BeanUtil.copyListProperties(adminList, AdminVo::new);
-     *
-     * @param sources
-     * @param target
-     * @param <S>     数据源类
-     * @param <T>     目标类
-     * @return
-     */
-    public static <S, T> List<T> copyListProperties(List<S> sources, Supplier<T> target) {
-        if (CollectionUtil.isEmpty(sources)) {
-            return new ArrayList<>();
-        }
-        List<T> list = new ArrayList<>(sources.size());
-        for (S source : sources) {
-            T t = target.get();
-            copyProperties(source, t);
-            list.add(t);
-        }
-        return list;
+        return target;
     }
 
     /**
@@ -138,118 +126,78 @@ public class BeanUtil {
      * @param bean 源对象
      * @return {Map}
      */
-    public static <T> Map<String, Object> toMap(T bean) {
-        return toMap(bean, false);
-    }
-
-    /**
-     * 将对象装成map形式
-     *
-     * @param bean
-     * @param null2String      null是否转空字符串
-     * @param ignoreProperties 忽略字符串
-     * @param <T>
-     * @return
-     */
-    public static <T> Map<String, Object> toMap(T bean, Boolean null2String, String... ignoreProperties) {
-        Map<String, Object> map = toMap(bean, null2String, false);
-        if (Objects.isNull(map)) {
-            return null;
-        }
-        for (String ignoreProperty : ignoreProperties) {
-            map.remove(ignoreProperty);
-        }
-        return map;
-    }
-
-    /**
-     * 将对象装成map形式
-     *
-     * @param bean
-     * @param null2String null是否转空字符串
-     * @param <T>
-     * @return
-     */
-    public static <T> Map<String, Object> toMap(T bean, Boolean null2String, Boolean isToUnderlineCase) {
-        if (Objects.isNull(bean)) {
-            return null;
-        }
-        Map<String, Object> map = new HashMap<>();
-        try {
-            BeanMap beanMap = BeanMap.create(bean);
-            map.putAll(beanMap);
-            if (null2String) {
-                map.replaceAll((k, v) -> v == null ? "" : v);
-            }
-            if (isToUnderlineCase) {
-                map.replaceAll((k, v) -> k = StringUtil.underlineToHump(k));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return map;
+    @SuppressWarnings("unchecked")
+    public static Map<String, Object> toMap(Object bean) {
+        return BeanMap.create(bean);
     }
 
     /**
      * 将map 转为 bean
      *
-     * @param beanMap     map
-     * @param targetClass 对象类型
-     * @param <T>         泛型标记
+     * @param beanMap   map
+     * @param valueType 对象类型
+     * @param <T>       泛型标记
      * @return {T}
      */
-    public static <T> T toBean(Map<?, ?> beanMap, Class<T> targetClass) {
-        T bean;
-        try {
-            bean = targetClass.newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
-            throw new RuntimeException("Create new instance of " + targetClass + " failed: " + e.getMessage());
-        }
+    public static <T> T toBean(Map<String, Object> beanMap, Class<T> valueType) {
+        T bean = BeanUtil.newInstance(valueType);
         BeanMap.create(bean).putAll(beanMap);
         return bean;
     }
 
     /**
-     * 查询对象中空的元素
+     * 内部 属性拷贝
      *
-     * @param source 查询对象
+     * @param source
+     * @param targetClass
+     * @return
      */
-    public static String[] getNullPropertyNames(Object source) {
-        final BeanWrapper src = new BeanWrapperImpl(source);
-        java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
-
-        Set<String> emptyNames = new HashSet<>();
-        for (java.beans.PropertyDescriptor pd : pds) {
-            Object srcValue = src.getPropertyValue(pd.getName());
-            if (srcValue == null) {
-                emptyNames.add(pd.getName());
-            }
+    private static <T> List<T> handleCopyList(List<?> source, Class<T> targetClass) {
+        List<T> target = new ArrayList<>();
+        for (Object obj : source) {
+            target.add(copyProperties(obj, targetClass));
         }
-        String[] result = new String[emptyNames.size()];
-        return emptyNames.toArray(result);
-    }
-
-    private static BeanCopier getBeanCopier(Class sourceClass, Class targetClass) {
-        String beanKey = generateKey(sourceClass, targetClass);
-        BeanCopier copier;
-        if (!BEAN_COPIER_CACHE.containsKey(beanKey)) {
-            copier = BeanCopier.create(sourceClass, targetClass, false);
-            BEAN_COPIER_CACHE.put(beanKey, copier);
-        } else {
-            copier = BEAN_COPIER_CACHE.get(beanKey);
-        }
-        return copier;
+        return target;
     }
 
     /**
-     * Generate key
-     * Generate key description.
+     * 获取 Bean 的所有 get方法
      *
-     * @param class1 the class 1
-     * @param class2 the class 2
-     * @return string the string
+     * @param type 类
+     * @return PropertyDescriptor数组
      */
-    private static String generateKey(Class<?> class1, Class<?> class2) {
-        return class1.toString() + class2.toString();
+    public static PropertyDescriptor[] getBeanGetters(Class type) {
+        return getPropertiesHelper(type, true, false);
+    }
+
+    /**
+     * 获取 Bean 的所有 set方法
+     *
+     * @param type 类
+     * @return PropertyDescriptor数组
+     */
+    public static PropertyDescriptor[] getBeanSetters(Class type) {
+        return getPropertiesHelper(type, false, true);
+    }
+
+    private static PropertyDescriptor[] getPropertiesHelper(Class type, boolean read, boolean write) {
+        try {
+            PropertyDescriptor[] all = BeanUtils.getPropertyDescriptors(type);
+            if (read && write) {
+                return all;
+            } else {
+                List<PropertyDescriptor> properties = new ArrayList<>(all.length);
+                for (PropertyDescriptor pd : all) {
+                    if (read && pd.getReadMethod() != null) {
+                        properties.add(pd);
+                    } else if (write && pd.getWriteMethod() != null) {
+                        properties.add(pd);
+                    }
+                }
+                return properties.toArray(new PropertyDescriptor[0]);
+            }
+        } catch (RuntimeException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }
