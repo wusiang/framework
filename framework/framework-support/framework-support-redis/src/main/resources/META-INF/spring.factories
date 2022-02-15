@@ -1,2 +1,2 @@
 #redis初始化
-org.springframework.context.ApplicationContextInitializer=com.xianmao.redis.config.RedisInitializer
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.zhuayin.redis.config.RedisAutoConfiguration
