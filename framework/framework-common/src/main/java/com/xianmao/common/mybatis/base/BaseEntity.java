@@ -18,6 +18,7 @@ package com.xianmao.common.mybatis.base;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.xianmao.common.date.DatePattern;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -33,21 +34,21 @@ public class BaseEntity implements Serializable {
 	/**
 	 * 创建时间
 	 */
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = DatePattern.YYYY_MM_DD_HH_MM_SS)
+	@JsonFormat(pattern = DatePattern.YYYY_MM_DD_HH_MM_SS)
 	private LocalDateTime createTime;
 	/**
 	 * 更新时间
 	 */
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = DatePattern.YYYY_MM_DD_HH_MM_SS)
+	@JsonFormat(pattern = DatePattern.YYYY_MM_DD_HH_MM_SS)
 	private LocalDateTime updateTime;
 
 	/**
 	 * 状态[0:未删除,1:删除]
 	 */
 	@TableLogic
-	private Integer isDeleted;
+	private Integer delFlag;
 
 	public LocalDateTime getCreateTime() {
 		return createTime;
@@ -65,11 +66,11 @@ public class BaseEntity implements Serializable {
 		this.updateTime = updateTime;
 	}
 
-	public Integer getIsDeleted() {
-		return isDeleted;
+	public Integer getDelFlag() {
+		return delFlag;
 	}
 
-	public void setIsDeleted(Integer isDeleted) {
-		this.isDeleted = isDeleted;
+	public void setDelFlag(Integer delFlag) {
+		this.delFlag = delFlag;
 	}
 }

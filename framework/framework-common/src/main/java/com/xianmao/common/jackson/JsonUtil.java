@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.xianmao.common.date.DatePattern;
 import com.xianmao.common.exception.util.ExceptionUtil;
 import com.xianmao.common.string.StringPool;
-import com.xianmao.common.utils.StringUtil;
+import com.xianmao.common.string.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

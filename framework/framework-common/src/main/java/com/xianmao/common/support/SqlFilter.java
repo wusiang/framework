@@ -1,6 +1,6 @@
 package com.xianmao.common.support;
 
-import com.xianmao.common.utils.StringUtil;
+import com.xianmao.common.string.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 
 /**

@@ -1,8 +1,9 @@
 package com.xianmao.common.utils;
 
 import com.xianmao.common.obj.ClassUtil;
-import com.xianmao.common.string.CharsetUtil;
 import com.xianmao.common.string.StringPool;
+import com.xianmao.common.string.StringUtil;
+import org.apache.commons.codec.Charsets;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
@@ -12,15 +13,10 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.method.HandlerMethod;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
+import java.io.*;
 import java.util.Enumeration;
 
 /**
@@ -129,25 +125,25 @@ public class WebUtil extends org.springframework.web.util.WebUtils {
     public static String getIP(HttpServletRequest request) {
         Assert.notNull(request, "HttpServletRequest is null");
         String ip = request.getHeader("X-Requested-For");
-        if (StringUtils.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
+        if (StringUtil.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("X-Forwarded-For");
         }
-        if (StringUtils.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
+        if (StringUtil.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
-        if (StringUtils.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
+        if (StringUtil.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (StringUtils.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
+        if (StringUtil.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("HTTP_CLIENT_IP");
         }
-        if (StringUtils.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
+        if (StringUtil.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("HTTP_X_FORWARDED_FOR");
         }
-        if (StringUtils.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
+        if (StringUtil.isBlank(ip) || UN_KNOWN.equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
-        return StringUtils.isBlank(ip) ? null : ip.split(",")[0];
+        return StringUtil.isBlank(ip) ? null : ip.split(",")[0];
     }
 
 
@@ -174,8 +170,8 @@ public class WebUtil extends org.springframework.web.util.WebUtils {
      */
     public static String getRequestStr(HttpServletRequest request) throws IOException {
         String queryString = request.getQueryString();
-        if (StringUtils.isNotBlank(queryString)) {
-            return new String(queryString.getBytes(CharsetUtil.ISO_8859_1), CharsetUtil.UTF_8).replaceAll("&amp;", "&").replaceAll("%22", "\"");
+        if (StringUtil.isNotBlank(queryString)) {
+            return new String(queryString.getBytes(Charsets.ISO_8859_1), Charsets.UTF_8).replaceAll("&amp;", "&").replaceAll("%22", "\"");
         }
         return getRequestStr(request, getRequestBytes(request));
     }
@@ -208,7 +204,7 @@ public class WebUtil extends org.springframework.web.util.WebUtils {
      * 获取 request 请求内容
      *
      * @param request request
-     * @param buffer  buffer
+     * @param buffer buffer
      * @return String
      * @throws IOException IOException
      */
@@ -218,7 +214,7 @@ public class WebUtil extends org.springframework.web.util.WebUtils {
             charEncoding = StringPool.UTF_8;
         }
         String str = new String(buffer, charEncoding).trim();
-        if (StringUtils.isBlank(str)) {
+        if (StringUtil.isBlank(str)) {
             StringBuilder sb = new StringBuilder();
             Enumeration<String> parameterNames = request.getParameterNames();
             while (parameterNames.hasMoreElements()) {
@@ -229,37 +225,6 @@ public class WebUtil extends org.springframework.web.util.WebUtils {
             str = StringUtil.removeSuffix(sb.toString(), "&");
         }
         return str.replaceAll("&amp;", "&");
-    }
-
-    /**
-     * 获取请求Body
-     *
-     * @param request
-     * @return
-     * @throws IOException
-     */
-    public static String getBodyStr(ServletRequest request) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        InputStream inputStream = null;
-        BufferedReader reader = null;
-        try {
-            inputStream = request.getInputStream();
-            reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
-            if (reader != null) {
-                reader.close();
-            }
-        }
-        return sb.toString();
     }
 
     /**

@@ -1,7 +1,6 @@
 package com.xianmao.common.string;
 
 import com.xianmao.common.utils.Converter;
-import com.xianmao.common.utils.StringUtil;
 
 /**
  * @ClassName StrFormatter

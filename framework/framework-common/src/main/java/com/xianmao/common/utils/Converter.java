@@ -1,5 +1,6 @@
 package com.xianmao.common.utils;
 
+import com.xianmao.common.string.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;

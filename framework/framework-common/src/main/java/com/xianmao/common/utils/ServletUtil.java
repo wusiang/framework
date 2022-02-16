@@ -3,6 +3,7 @@ package com.xianmao.common.utils;
 
 import com.xianmao.common.exception.UtilException;
 import com.xianmao.common.string.CharsetUtil;
+import com.xianmao.common.string.StringUtil;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 

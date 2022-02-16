@@ -2,6 +2,7 @@ package com.xianmao.common.config;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.*;
 import com.xianmao.common.date.DatePattern;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -38,8 +39,8 @@ public class JacksonConfiguration {
         //序列化时，日期的统一格式
         objectMapper.setDateFormat(new SimpleDateFormat(DatePattern.YYYY_MM_DD_HH_MM_SS, Locale.CHINA));
         //序列化处理
-        objectMapper.configure(SerializationFeature.INDENT_OUTPUT, false);
-        objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
+        objectMapper.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true);
+        objectMapper.configure(JsonReadFeature.ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER.mappedFeature(), true);
         objectMapper.findAndRegisterModules();
         //失败处理
         objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
@@ -49,15 +50,6 @@ public class JacksonConfiguration {
         //反序列化时，属性不存在的兼容处理
         objectMapper.getDeserializationConfig().withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         objectMapper.findAndRegisterModules();
-        // 字段保留，将null值转为""
-        objectMapper.getSerializerProvider().setNullValueSerializer(new JsonSerializer<Object>() {
-            @Override
-            public void serialize(Object o, JsonGenerator jsonGenerator,
-                                  SerializerProvider serializerProvider)
-                    throws IOException {
-                jsonGenerator.writeString("");
-            }
-        });
         return objectMapper;
     }
 }

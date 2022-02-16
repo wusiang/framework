@@ -14,44 +14,27 @@ import org.springframework.context.ApplicationEvent;
  */
 public class SpringContextUtil implements ApplicationContextAware {
 
-    private static ApplicationContext applicationContext;
+    private static ApplicationContext context;
 
     @Override
-    public void setApplicationContext(ApplicationContext arg0) throws BeansException {
-        SpringContextUtil.applicationContext = arg0;
+    public void setApplicationContext(ApplicationContext context) throws BeansException {
+        SpringContextUtil.context = context;
     }
 
-    /**
-     * 得到applicationContext 对象
-     *
-     * @return ApplicationContext
-     */
-    public static ApplicationContext getApplicationContext() {
-        if (applicationContext == null) {
+    public static <T> T getBean(Class<T> clazz) {
+        if (clazz == null) {
             return null;
         }
-        return applicationContext;
+        return context.getBean(clazz);
     }
 
-    /**
-     * 执行查找bean
-     *
-     * @param beanName beanName
-     * @return 返回查询到的bean实例
-     */
-    public static <T> T getBean(String beanName) {
-        if (null == beanName || "".equals(beanName.trim())) {
+    public static <T> T getBean(String beanId) {
+        if (beanId == null) {
             return null;
         }
-        return (T) applicationContext.getBean(beanName);
+        return (T) context.getBean(beanId);
     }
 
-    /**
-     * 执行查找bean
-     *
-     * @param beanName beanName
-     * @return 返回查询到的bean实例
-     */
     public static <T> T getBean(String beanName, Class<T> clazz) {
         if (null == beanName || "".equals(beanName.trim())) {
             return null;
@@ -59,19 +42,20 @@ public class SpringContextUtil implements ApplicationContextAware {
         if (clazz == null) {
             return null;
         }
-        return (T) applicationContext.getBean(beanName, clazz);
+        return (T) context.getBean(beanName, clazz);
     }
 
-    /**
-     * 发送事件
-     *
-     * @param event
-     * @throws Exception
-     */
-    public static void publishEvent(ApplicationEvent event) throws Exception {
-        if (applicationContext == null) {
+    public static ApplicationContext getContext() {
+        if (context == null) {
+            return null;
+        }
+        return context;
+    }
+
+    public static void publishEvent(ApplicationEvent event) {
+        if (context == null) {
             return;
         }
-        applicationContext.publishEvent(event);
+        context.publishEvent(event);
     }
 }

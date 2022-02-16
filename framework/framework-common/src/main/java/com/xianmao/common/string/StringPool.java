@@ -13,7 +13,7 @@ public interface StringPool {
     String AT				= "@";
     String ASTERISK			= "*";
     String STAR				= ASTERISK;
-    char SLASH				= '/';
+    String SLASH				= "/";
     char BACK_SLASH			= '\\';
     String DOUBLE_SLASH		= "#//";
     String COLON			= ":";
@@ -68,4 +68,7 @@ public interface StringPool {
     char L_A				= 'a';
     char U_Z				= 'Z';
     char L_Z				= 'z';
+    String UNKNOWN			= "unknown";
+    String GET				= "GET";
+    String POST				= "POST";
 }

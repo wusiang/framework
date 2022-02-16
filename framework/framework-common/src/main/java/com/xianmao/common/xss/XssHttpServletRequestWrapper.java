@@ -1,6 +1,6 @@
 package com.xianmao.common.xss;
 
-import com.xianmao.common.utils.StringUtil;
+import com.xianmao.common.string.StringUtil;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 

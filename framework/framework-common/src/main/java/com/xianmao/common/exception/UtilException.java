@@ -1,7 +1,7 @@
 package com.xianmao.common.exception;
 
 import com.xianmao.common.exception.util.ExceptionUtil;
-import com.xianmao.common.utils.StringUtil;
+import com.xianmao.common.string.StringUtil;
 
 /**
  * @ClassName UtilException

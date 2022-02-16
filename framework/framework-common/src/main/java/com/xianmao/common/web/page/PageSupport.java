@@ -1,8 +1,15 @@
 package com.xianmao.common.web.page;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xianmao.common.exception.BizException;
+import com.xianmao.common.utils.BeanUtil;
 import com.xianmao.common.utils.ServletUtil;
+
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class PageSupport {
 
@@ -60,5 +67,27 @@ public class PageSupport {
         }
     }
 
+    public static <R, T> Page<R> transferListClass(List<T> origin, Function<T, R> mapper) {
+        if (CollectionUtil.isEmpty(origin)) {
+            return new Page<>();
+        }
+        List<R> collect = origin.stream().map(mapper)
+                .collect(Collectors.toList());
+        return transferPage(collect, null);
+    }
+
+
+    public static <R, T> Page<R> transferPage(List<T> origin, Class<R> rClass) {
+        if (CollectionUtil.isEmpty(origin)) {
+            return new Page();
+        }
+        PageInfo<T> pageInfo = new PageInfo<>(origin);
+        Page<R> zPage = new Page<>();
+        zPage.setPageNum(pageInfo.getPageNum());
+        zPage.setPageSize(pageInfo.getPageSize());
+        zPage.setTotal(pageInfo.getTotal());
+        zPage.setRows(BeanUtil.copyList(origin, rClass));
+        return zPage;
+    }
 
 }

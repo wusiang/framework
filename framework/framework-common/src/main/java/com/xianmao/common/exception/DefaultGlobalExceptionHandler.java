@@ -31,7 +31,7 @@ public abstract class DefaultGlobalExceptionHandler {
         logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), ServletUtil.getHeaderMap(req).toString(), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         if (e instanceof BizException) {
             BizException bizException = (BizException) e;
-            return APIResult.fail(bizException.getCode(), bizException.getMsg());
+            return APIResult.fail(bizException.getCode(), bizException.getMessage());
         } else {
             return APIResult.fail(ResultCode.INTERNAL_SERVER_ERROR);
         }
@@ -42,7 +42,7 @@ public abstract class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler(value = BindException.class)
     public APIResult<?> validationExceptionHandler(HttpServletRequest req, BindException e) {
-        logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), ServletUtil.getHeaderMap(req).toString(), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
+        logger.error("method:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         return APIResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
     }
 
@@ -51,7 +51,7 @@ public abstract class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public APIResult<?> handleMissingServletRequestParameterException(HttpServletRequest req, MissingServletRequestParameterException e) {
-        logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), ServletUtil.getHeaderMap(req).toString(), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
+        logger.error("method:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         return APIResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
     }
 
@@ -60,7 +60,7 @@ public abstract class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public APIResult<?> handleException(HttpServletRequest req, HttpRequestMethodNotSupportedException e) {
-        logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), ServletUtil.getHeaderMap(req).toString(), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
+        logger.error("method:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         return APIResult.fail("不支持' " + e.getMethod() + "'请求");
     }
 
@@ -69,7 +69,7 @@ public abstract class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler(BizException.class)
     public Object businessException(HttpServletRequest req, BizException e) {
-        logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), ServletUtil.getHeaderMap(req).toString(), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
+        logger.error("method:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         return APIResult.fail(e.getMessage());
     }
 

@@ -1,7 +1,7 @@
 package com.xianmao.common.support;
 
 import com.xianmao.common.string.StringPool;
-import com.xianmao.common.utils.StringUtil;
+import com.xianmao.common.string.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;

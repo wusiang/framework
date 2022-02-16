@@ -2,7 +2,7 @@ package com.xianmao.common.date;
 
 
 import com.xianmao.common.string.StringPool;
-import com.xianmao.common.utils.StringUtil;
+import com.xianmao.common.string.StringUtil;
 import org.springframework.util.Assert;
 
 import java.text.DateFormat;

@@ -1,8 +1,7 @@
-package com.xianmao.common.utils;
+package com.xianmao.common.string;
 
 import com.xianmao.common.obj.ObjectUtil;
-import com.xianmao.common.string.StringPool;
-import com.xianmao.common.string.StrFormatter;
+import com.xianmao.common.utils.Converter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.AntPathMatcher;
 
@@ -644,5 +643,37 @@ public class StringUtil extends org.springframework.util.StringUtils {
     public static boolean isMatch(String pattern, String url) {
         AntPathMatcher matcher = new AntPathMatcher();
         return matcher.match(pattern, url);
+    }
+
+    /**
+     * 首字母变小写
+     *
+     * @param str 字符串
+     * @return {String}
+     */
+    public static String firstCharToLower(String str) {
+        char firstChar = str.charAt(0);
+        if (firstChar >= CharPool.UPPER_A && firstChar <= CharPool.UPPER_Z) {
+            char[] arr = str.toCharArray();
+            arr[0] += (CharPool.LOWER_A - CharPool.UPPER_A);
+            return new String(arr);
+        }
+        return str;
+    }
+
+    /**
+     * 首字母变大写
+     *
+     * @param str 字符串
+     * @return {String}
+     */
+    public static String firstCharToUpper(String str) {
+        char firstChar = str.charAt(0);
+        if (firstChar >= CharPool.LOWER_A && firstChar <= CharPool.LOWER_Z) {
+            char[] arr = str.toCharArray();
+            arr[0] -= (CharPool.LOWER_A - CharPool.UPPER_A);
+            return new String(arr);
+        }
+        return str;
     }
 }

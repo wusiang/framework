@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.xianmao.common.jackson.BladeBeanSerializerModifier;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,34 +29,5 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .allowedMethods("PUT,POST,GET,DELETE,OPTIONS")//配置允许访问该跨域资源服务器的请求方法，如：POST、GET、PUT、DELETE等
                 .allowedHeaders("*"); //配置允许请求header的访问，如 ：X-TOKEN
         super.addCorsMappings(registry);
-    }
-
-    /**
-     * APIResult返回值去除为NULL的字段
-     */
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        MappingJackson2HttpMessageConverter jackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
-        ObjectMapper objectMapper = new ObjectMapper();
-        SimpleModule simpleModule = new SimpleModule();
-        simpleModule.addSerializer(Long.class, new com.fasterxml.jackson.databind.ser.std.ToStringSerializer());
-        simpleModule.addSerializer(Long.TYPE, new com.fasterxml.jackson.databind.ser.std.ToStringSerializer());
-        objectMapper.registerModule(simpleModule);
-        jackson2HttpMessageConverter.setObjectMapper(objectMapper);
-        converters.add(customJackson2HttpMessageConverter());
-    }
-
-    @Bean
-    public MappingJackson2HttpMessageConverter customJackson2HttpMessageConverter() {
-        MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
-        ObjectMapper objectMapper = new ObjectMapper();
-        // 针对null处理设置默认值BladeBeanSerializerModifier
-        objectMapper.setSerializerFactory(objectMapper.copy().getSerializerFactory().withSerializerModifier(new BladeBeanSerializerModifier()));
-        // 去除null object
-        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        // 字段不存在时不报异常
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        jsonConverter.setObjectMapper(objectMapper);
-        return jsonConverter;
     }
 }

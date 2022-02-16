@@ -1,6 +1,6 @@
 package com.xianmao.common.obj;
 
-import com.xianmao.common.utils.StringUtil;
+import com.xianmao.common.string.StringUtil;
 
 /**
  * @ClassName ObjectUtil

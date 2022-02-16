@@ -3,6 +3,15 @@ package com.xianmao.common.id;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Enumeration;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @ClassName SnowflakeIdeable
@@ -27,146 +36,204 @@ import java.net.NetworkInterface;
  */
 public class SnowflakeIdeable implements Ideable<Long> {
 
-    // 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）
-    private final long twepoch = 1288834974657L;
+    private final static long TWEPOCH = 1288834974657L;
+
     // 机器标识位数
-    private final long workerIdBits = 5L;
+    private final static long WORKER_ID_BITS = 5L;
+
     // 数据中心标识位数
-    private final long datacenterIdBits = 5L;
-    // 机器ID最大值
-    private final long maxWorkerId = -1L ^ (-1L << workerIdBits);
-    // 数据中心ID最大值
-    private final long maxDatacenterId = -1L ^ (-1L << datacenterIdBits);
+    private final static long DATA_CENTER_ID_BITS = 5L;
+
+    // 机器ID最大值 31
+    private final static long MAX_WORKER_ID = -1L ^ (-1L << WORKER_ID_BITS);
+
+    // 数据中心ID最大值 31
+    private final static long MAX_DATA_CENTER_ID = -1L ^ (-1L << DATA_CENTER_ID_BITS);
+
     // 毫秒内自增位
-    private final long sequenceBits = 12L;
+    private final static long SEQUENCE_BITS = 12L;
+
     // 机器ID偏左移12位
-    private final long workerIdShift = sequenceBits;
-    // 数据中心ID左移17位
-    private final long datacenterIdShift = sequenceBits + workerIdBits;
+    private final static long WORKER_ID_SHIFT = SEQUENCE_BITS;
+
+    private final static long DATA_CENTER_ID_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS;
+
     // 时间毫秒左移22位
-    private final long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
+    private final static long TIMESTAMP_LEFT_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS + DATA_CENTER_ID_BITS;
 
-    private final long sequenceMask = -1L ^ (-1L << sequenceBits);
-    /* 上次生产id时间戳 */
+    /**
+     * 每台workerId服务器有3个备份workerId, 备份workerId数量越多, 可靠性越高, 但是可部署的sequence ID服务越少
+     */
+    private static final long BACKUP_COUNT = 3;
+
+    /**
+     * 保留workerId和lastTimestamp, 以及备用workerId和其对应的lastTimestamp
+     */
+    private static Map<Long, Long> workerIdLastTimeMap = new ConcurrentHashMap<>();
+
+    /**
+     * 最大容忍时间, 单位毫秒, 即如果时钟只是回拨了该变量指定的时间, 那么等待相应的时间即可;
+     * 考虑到sequence服务的高性能, 这个值不易过大
+     */
+    private static final long MAX_BACKWARD_MS = 3;
+
+    //原来代码 -1 的补码（二进制全1）右移13位, 然后取反
+    private static final long maxWorkerId = -1L ^ (-1L << WORKER_ID_BITS);
+
+
+    private final static long SEQUENCE_MASK = -1L ^ (-1L << SEQUENCE_BITS);
+
     private long lastTimestamp = -1L;
-    // 0，并发控制
+
     private long sequence = 0L;
+    private long workerId;
+    private long dataCenterId;
+    private static volatile SnowflakeIdeable snowflake = null;
+    private static Object lock = new Object();
 
-    private final long workerId;
-    // 数据标识id部分
-    private final long datacenterId;
-
-    public SnowflakeIdeable() {
-        this.datacenterId = getDatacenterId(maxDatacenterId);
-        this.workerId = getMaxWorkerId(datacenterId, maxWorkerId);
-    }
-
-    /**
-     * 初始化雪花算法
-     *
-     * @param workerId     工作机器ID
-     * @param datacenterId 序列号
-     */
-    public SnowflakeIdeable(long workerId, long datacenterId) {
-        if (workerId > maxWorkerId || workerId < 0) {
-            throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
+    //单例禁止new实例化
+    private SnowflakeIdeable(long workerId, long dataCenterId) {
+        if (workerId > MAX_WORKER_ID || workerId < 0) {
+            workerId = getRandom();
         }
-        if (datacenterId > maxDatacenterId || datacenterId < 0) {
-            throw new IllegalArgumentException(String.format("datacenter Id can't be greater than %d or less than 0", maxDatacenterId));
+
+        if (dataCenterId > MAX_DATA_CENTER_ID || dataCenterId < 0) {
+
+            throw new IllegalArgumentException(String.format("%s 数据中心ID最大值 必须是 %d 到 %d 之间", dataCenterId, 0, MAX_DATA_CENTER_ID));
         }
+
+        //存取三个workerId
+        for (int i = 0; i <= BACKUP_COUNT; i++) {
+            workerIdLastTimeMap.put(this.workerId + (i * maxWorkerId), 0L);
+        }
+
         this.workerId = workerId;
-        this.datacenterId = datacenterId;
+        this.dataCenterId = dataCenterId;
     }
 
     /**
-     * 获取下一个ID
+     * 获取单列
      *
-     * @return 返回下一个ID
+     * @return
      */
-    public synchronized long nextId() {
-        long timestamp = timeGen();
-        if (timestamp < lastTimestamp) {
-            throw new RuntimeException(String.format("Clock moved backwards.  Refusing to generate id for %d milliseconds", lastTimestamp - timestamp));
+    public static SnowflakeIdeable getInstanceSnowflake() {
+        if (snowflake == null) {
+            synchronized (lock) {
+                long workerId;
+                long dataCenterId = getRandom();
+                try {
+                    //第一次使用获取mac地址的
+                    workerId = getWorkerId();
+                } catch (Exception e) {
+                    workerId = getRandom();
+                }
+                snowflake = new SnowflakeIdeable(workerId, dataCenterId);
+            }
         }
+        return snowflake;
+    }
 
-        if (lastTimestamp == timestamp) {
+    /**
+     * 生成1-31之间的随机数
+     *
+     * @return
+     */
+    private static long getRandom() {
+        int max = (int) (MAX_WORKER_ID);
+        int min = 1;
+        Random random = new Random();
+        long result = random.nextInt(max - min) + min;
+        return result;
+    }
+
+    public static Long getSnowflakeId() {
+        return SnowflakeIdeable.getInstanceSnowflake().nextId();
+    }
+
+    public static String getDateSnowflakeId() throws Exception {
+        return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")) + getSnowflakeId();
+    }
+
+    private synchronized long nextId() {
+        if (lastTimestamp == -1l) {
+            lastTimestamp = time();
+        } else {
             // 当前毫秒内，则+1
-            sequence = (sequence + 1) & sequenceMask;
+            sequence = (sequence + 1) & SEQUENCE_MASK;
             if (sequence == 0) {
                 // 当前毫秒内计数满了，则等待下一秒
-                timestamp = tilNextMillis(lastTimestamp);
+                lastTimestamp = tilNextMillis(lastTimestamp);
             }
-        } else {
-            sequence = 0L;
         }
-        lastTimestamp = timestamp;
         // ID偏移组合生成最终的ID，并返回ID
-        long nextId = ((timestamp - twepoch) << timestampLeftShift)
-                | (datacenterId << datacenterIdShift)
-                | (workerId << workerIdShift) | sequence;
+        long nextId = ((lastTimestamp - TWEPOCH) << TIMESTAMP_LEFT_SHIFT)
+                | (dataCenterId << DATA_CENTER_ID_SHIFT) | (workerId << WORKER_ID_SHIFT) | sequence;
 
         return nextId;
     }
 
     private long tilNextMillis(final long lastTimestamp) {
-        long timestamp = this.timeGen();
-        while (timestamp <= lastTimestamp) {
-            timestamp = this.timeGen();
-        }
-        return timestamp;
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(lastTimestamp);
+        cal.add(Calendar.MILLISECOND, 1);
+        return cal.getTimeInMillis();
     }
 
-    private long timeGen() {
+    private static long time() {
         return System.currentTimeMillis();
     }
 
+    @SuppressWarnings("Duplicates")
+    private static long getWorkerId() throws SocketException, UnknownHostException, NullPointerException {
+        @SuppressWarnings("unused")
+        InetAddress ip = InetAddress.getLocalHost();
 
-    /**
-     * 获取 maxWorkerId
-     *
-     * @param datacenterId 数据中心ID
-     * @param maxWorkerId  最大任务Id
-     * @return 返回16位
-     */
-    protected long getMaxWorkerId(long datacenterId, long maxWorkerId) {
-        StringBuffer mpid = new StringBuffer();
-        mpid.append(datacenterId);
-        String name = ManagementFactory.getRuntimeMXBean().getName();
-        if (!name.isEmpty()) {
-            /*
-             * GET jvmPid
-             */
-            mpid.append(name.split("@")[0]);
+        NetworkInterface network = null;
+        Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();
+        while (en.hasMoreElements()) {
+            NetworkInterface nint = en.nextElement();
+            if (!nint.isLoopback() && nint.getHardwareAddress() != null) {
+                network = nint;
+                break;
+            }
         }
-        /*
-         * MAC + PID 的 hashcode 获取16个低位
-         */
-        return (mpid.toString().hashCode() & 0xffff) % (maxWorkerId + 1);
+
+        @SuppressWarnings("ConstantConditions")
+        byte[] mac = network.getHardwareAddress();
+
+        Random rnd = new Random();
+        byte rndByte = (byte) (rnd.nextInt() & 0x000000FF);
+
+        // 取mac地址最后一位和随机数
+        return ((0x000000FF & (long) mac[mac.length - 1]) | (0x0000FF00 & (((long) rndByte) << 8))) >> 6;
     }
 
     /**
-     * 数据标识id部分
+     * 尝试在workerId的备份workerId上生成
+     * 核心优化代码在方法tryGenerateKeyOnBackup()中，BACKUP_COUNT即备份workerId数越多，
+     * sequence服务避免时钟回拨影响的能力越强，但是可部署的sequence服务越少，
+     * 设置BACKUP_COUNT为3，最多可以部署1024/(3+1)即256个sequence服务，完全够用，
+     * 抗时钟回拨影响的能力也得到非常大的保障。
      *
-     * @param maxDatacenterId 最大的数据中心id
-     * @return 返回随机数
+     * @param currentMillis 当前时间
      */
-    protected long getDatacenterId(long maxDatacenterId) {
-        long id = 0L;
-        try {
-            InetAddress ip = InetAddress.getLocalHost();
-            NetworkInterface network = NetworkInterface.getByInetAddress(ip);
-            if (network == null) {
-                id = 1L;
-            } else {
-                byte[] mac = network.getHardwareAddress();
-                id = ((0x000000FF & (long) mac[mac.length - 1])
-                        | (0x0000FF00 & (((long) mac[mac.length - 2]) << 8))) >> 6;
-                id = id % (maxDatacenterId + 1);
+    private long tryGenerateKeyOnBackup(long currentMillis) {
+        // 遍历所有workerId(包括备用workerId, 查看哪些workerId可用)
+        for (Map.Entry<Long, Long> entry : workerIdLastTimeMap.entrySet()) {
+            this.workerId = entry.getKey();
+            // 取得备用workerId的lastTime
+            Long tempLastTime = entry.getValue();
+            lastTimestamp = tempLastTime == null ? 0L : tempLastTime;
+
+            // 如果找到了合适的workerId
+            if (lastTimestamp <= currentMillis) {
+                return lastTimestamp;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-        return id;
+
+        // 如果所有workerId以及备用workerId都处于时钟回拨, 那么抛出异常
+        throw new IllegalStateException("Clock is moving backwards, current time is "
+                + currentMillis + " milliseconds, workerId map = " + workerIdLastTimeMap);
     }
 
     /**
@@ -176,6 +243,6 @@ public class SnowflakeIdeable implements Ideable<Long> {
      */
     @Override
     public Long generateId() {
-        return nextId();
+        return getSnowflakeId();
     }
 }

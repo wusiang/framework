@@ -1,6 +1,6 @@
 package com.xianmao.common.trace;
 
-import com.xianmao.common.utils.StringUtil;
+import com.xianmao.common.string.StringUtil;
 import org.slf4j.MDC;
 import org.springframework.web.servlet.HandlerInterceptor;
 

@@ -4,7 +4,7 @@ import com.xianmao.annotation.ApiLog;
 import com.xianmao.common.utils.BeanUtil;
 import com.xianmao.common.jackson.JsonUtil;
 import com.xianmao.common.utils.ClassUtil;
-import com.xianmao.common.utils.StringUtil;
+import com.xianmao.common.string.StringUtil;
 import com.xianmao.common.utils.WebUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

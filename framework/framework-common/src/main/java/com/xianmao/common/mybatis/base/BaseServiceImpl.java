@@ -17,8 +17,11 @@ package com.xianmao.common.mybatis.base;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xianmao.common.enums.DeleteEnum;
 import org.springframework.util.CollectionUtils;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,12 +33,32 @@ import java.util.List;
  */
 public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseEntity> extends ServiceImpl<M, T> implements BaseService<T> {
 
-	@Override
-	public boolean deleteLogic(List<Long> ids) {
-		if (null == ids || CollectionUtils.isEmpty(ids)) {
-			throw new RuntimeException("ids must not empty");
-		}
-		return super.removeByIds(ids);
-	}
+    @Override
+    public boolean deleteLogic(List<Long> ids) {
+        if (null == ids || CollectionUtils.isEmpty(ids)) {
+            throw new RuntimeException("ids must not empty");
+        }
+        List<T> tList = this.listByIds(ids);
+        if (!CollectionUtils.isEmpty(tList)) {
+            tList.forEach(t -> t.setDelFlag(DeleteEnum.DELETE.getCode()));
+            this.updateBatchById(tList);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean save(T entity) {
+        LocalDateTime now = LocalDateTime.now();
+        entity.setCreateTime(now);
+        entity.setUpdateTime(now);
+        entity.setDelFlag(DeleteEnum.UN_DELETE.getCode());
+        return super.save(entity);
+    }
+
+    @Override
+    public boolean updateById(T entity) {
+        entity.setUpdateTime(LocalDateTime.now());
+        return super.updateById(entity);
+    }
 
 }

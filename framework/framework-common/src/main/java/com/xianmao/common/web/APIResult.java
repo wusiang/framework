@@ -2,18 +2,16 @@ package com.xianmao.common.web;
 
 import com.xianmao.common.enums.IEnum;
 import com.xianmao.common.obj.ObjectUtil;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.lang.Nullable;
 
 import java.io.Serializable;
 import java.util.Optional;
 
-/**
- * @ClassName RestAPI
- * @Description: 统一API响应结果封装
- * @Author guyi
- * @Data 2019-08-14 09:26
- * @Version 1.0
- */
+@Setter
+@Getter
 public class APIResult<T> implements Serializable {
 
     private static final long serialVersionUID = 6439723870077111495L;
@@ -148,53 +146,5 @@ public class APIResult<T> implements Serializable {
         apiResult.setSuccess(success);
         apiResult.setMessage(message);
         return apiResult;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public static int getSuccessCode() {
-        return SUCCESS_CODE;
-    }
-
-    public static void setSuccessCode(int successCode) {
-        SUCCESS_CODE = successCode;
-    }
-
-    public static int getFailureCode() {
-        return FAILURE_CODE;
-    }
-
-    public static void setFailureCode(int failureCode) {
-        FAILURE_CODE = failureCode;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
     }
 }
