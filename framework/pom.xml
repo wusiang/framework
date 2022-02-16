@@ -11,7 +11,6 @@
     <modules>
         <module>framework-common</module>
         <module>framework-support</module>
-        <module>framework-cloud</module>
     </modules>
 
     <name>framework</name>
@@ -40,8 +39,7 @@
         <lombok.version>1.18.8</lombok.version>
         <commons.lang3.version>3.11</commons.lang3.version>
         <!-- springboot和springcloud版本关系对照网址：https://spring.io/projects/spring-cloud/-->
-        <springboot.version>2.4.0</springboot.version>
-        <spring.cloud.version>2020.0.2</spring.cloud.version>
+        <springboot.version>2.4.6</springboot.version>
         <hutool.version>5.6.5</hutool.version>
         <spring.plugin.version>2.0.0.RELEASE</spring.plugin.version>
     </properties>
@@ -71,13 +69,6 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.plugin</groupId>
