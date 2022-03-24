@@ -2,8 +2,8 @@ package com.xianmao.common.enums;
 
 public enum DeleteEnum implements IEnum<Integer, String> {
 
-    UN_DELETE(0, "未删除"),
-    DELETE(1, "已删除");
+    NO(0, "未删除"),
+    YES(1, "已删除");
 
     DeleteEnum(Integer code, String value) {
         this.code = code;
