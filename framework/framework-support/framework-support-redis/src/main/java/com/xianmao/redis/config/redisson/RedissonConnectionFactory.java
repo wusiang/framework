@@ -7,6 +7,7 @@ import org.redisson.api.RedissonClient;
 import org.redisson.client.RedisClient;
 import org.redisson.client.protocol.RedisCommands;
 import org.redisson.connection.SentinelConnectionManager;
+import org.redisson.liveobject.core.RedissonObjectBuilder;
 import org.redisson.reactive.CommandReactiveService;
 import org.redisson.spring.data.connection.*;
 import org.springframework.beans.factory.DisposableBean;
@@ -106,12 +107,12 @@ public class RedissonConnectionFactory implements RedisConnectionFactory,
 
     @Override
     public ReactiveRedisConnection getReactiveConnection() {
-        return new RedissonReactiveRedisConnection(new CommandReactiveService(((Redisson) redisson).getConnectionManager()));
+        return new RedissonReactiveRedisConnection(new CommandReactiveService(((Redisson) redisson).getConnectionManager(), new RedissonObjectBuilder((redisson))));
     }
 
     @Override
     public ReactiveRedisClusterConnection getReactiveClusterConnection() {
-        return new RedissonReactiveRedisClusterConnection(new CommandReactiveService(((Redisson) redisson).getConnectionManager()));
+        return new RedissonReactiveRedisClusterConnection(new CommandReactiveService(((Redisson) redisson).getConnectionManager(), new RedissonObjectBuilder((redisson))));
     }
 
     public int getDatabase() {

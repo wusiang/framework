@@ -22,7 +22,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <commons-pool2.version>2.7.0</commons-pool2.version>
         <jedis.version>3.1.0</jedis.version>
-        <redisson.version>3.11.4</redisson.version>
+        <redisson.version>3.17.1</redisson.version>
     </properties>
 
     <dependencies>
@@ -47,7 +47,7 @@
         </dependency>
         <dependency>
             <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-data-21</artifactId>
+            <artifactId>redisson-spring-data-26</artifactId>
             <version>${redisson.version}</version>
             <scope>provided</scope>
             <exclusions>
