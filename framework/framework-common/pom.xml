@@ -25,7 +25,7 @@
         <pagehelper.version>1.4.1</pagehelper.version>
         <jwt.version>0.9.1</jwt.version>
         <httpclient.version>4.5.9</httpclient.version>
-        <jackson.version>2.12.5</jackson.version>
+        <jackson.version>2.12.6.1</jackson.version>
         <validation.version>2.0.1.Final</validation.version>
     </properties>
 
