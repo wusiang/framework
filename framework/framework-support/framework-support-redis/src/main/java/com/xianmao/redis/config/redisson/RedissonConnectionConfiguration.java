@@ -21,26 +21,7 @@ import java.util.UUID;
  * @since 1.8
  */
 public class RedissonConnectionConfiguration extends Config implements RedisConfiguration {
-    /**
-     * 哨兵配置
-     */
-    private SentinelServersConfig sentinelServersConfig;
-    /**
-     * 主从配置
-     */
-    private MasterSlaveServersConfig masterSlaveServersConfig;
-    /**
-     * 单机配置
-     */
-    private SingleServerConfig singleServerConfig;
-    /**
-     * 集群配置
-     */
-    private ClusterServersConfig clusterServersConfig;
-    /**
-     * 云托管配置
-     */
-    private ReplicatedServersConfig replicatedServersConfig;
+
     /**
      * 连接管理器
      */
@@ -61,7 +42,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @return 返回哨兵配置
      */
     public SentinelServersConfig getSentinelServersConfig() {
-        return sentinelServersConfig;
+        return super.getSentinelServersConfig();
     }
 
     /**
@@ -69,7 +50,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @param sentinelServersConfig 哨兵配置
      */
     public void setSentinelServersConfig(SentinelServersConfig sentinelServersConfig) {
-        this.sentinelServersConfig = sentinelServersConfig;
+        this.setSentinelServersConfig(sentinelServersConfig);
     }
 
     /**
@@ -77,7 +58,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @return 返回主从配置
      */
     public MasterSlaveServersConfig getMasterSlaveServersConfig() {
-        return masterSlaveServersConfig;
+        return super.getMasterSlaveServersConfig();
     }
 
     /**
@@ -85,7 +66,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @param masterSlaveServersConfig 主从配置
      */
     public void setMasterSlaveServersConfig(MasterSlaveServersConfig masterSlaveServersConfig) {
-        this.masterSlaveServersConfig = masterSlaveServersConfig;
+        this.setMasterSlaveServersConfig(masterSlaveServersConfig);
     }
 
     /**
@@ -93,7 +74,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @return 返回单机配置
      */
     public SingleServerConfig getSingleServerConfig() {
-        return singleServerConfig;
+        return super.getSingleServerConfig();
     }
 
     /**
@@ -101,7 +82,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @param singleServerConfig 单机配置
      */
     public void setSingleServerConfig(SingleServerConfig singleServerConfig) {
-        this.singleServerConfig = singleServerConfig;
+        this.setSingleServerConfig(singleServerConfig);
     }
 
     /**
@@ -109,7 +90,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @return 返回集群配置
      */
     public ClusterServersConfig getClusterServersConfig() {
-        return clusterServersConfig;
+        return super.getClusterServersConfig();
     }
 
     /**
@@ -117,7 +98,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @param clusterServersConfig 集群配置
      */
     public void setClusterServersConfig(ClusterServersConfig clusterServersConfig) {
-        this.clusterServersConfig = clusterServersConfig;
+        this.setClusterServersConfig(clusterServersConfig);
     }
 
     /**
@@ -125,7 +106,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @return 返回云托管配置
      */
     public ReplicatedServersConfig getReplicatedServersConfig() {
-        return replicatedServersConfig;
+        return super.getReplicatedServersConfig();
     }
 
     /**
@@ -133,7 +114,7 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @param replicatedServersConfig 云托管配置
      */
     public void setReplicatedServersConfig(ReplicatedServersConfig replicatedServersConfig) {
-        this.replicatedServersConfig = replicatedServersConfig;
+        this.setReplicatedServersConfig(replicatedServersConfig);
     }
 
     /**

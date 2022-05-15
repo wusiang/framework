@@ -1,2 +1,2 @@
 #redis初始化
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.zhuayin.redis.config.RedisAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.xianmao.redis.config.RedisAutoConfiguration
