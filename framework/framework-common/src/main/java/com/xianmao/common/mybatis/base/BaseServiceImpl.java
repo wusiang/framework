@@ -21,7 +21,6 @@ import com.xianmao.common.enums.DeleteEnum;
 import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,7 +39,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseEntity> exte
         }
         List<T> tList = this.listByIds(ids);
         if (!CollectionUtils.isEmpty(tList)) {
-            tList.forEach(t -> t.setDelFlag(DeleteEnum.DELETE.getCode()));
+            tList.forEach(t -> t.setDelFlag(DeleteEnum.YES.getCode()));
             this.updateBatchById(tList);
         }
         return true;
@@ -51,7 +50,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseEntity> exte
         LocalDateTime now = LocalDateTime.now();
         entity.setCreateTime(now);
         entity.setUpdateTime(now);
-        entity.setDelFlag(DeleteEnum.UN_DELETE.getCode());
+        entity.setDelFlag(DeleteEnum.NO.getCode());
         return super.save(entity);
     }
 
