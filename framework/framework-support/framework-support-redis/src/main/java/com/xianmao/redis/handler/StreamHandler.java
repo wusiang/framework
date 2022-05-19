@@ -5,6 +5,7 @@ import com.xianmao.redis.util.RedisUtil;
 import org.springframework.data.domain.Range;
 import org.springframework.data.redis.connection.RedisZSetCommands;
 import org.springframework.data.redis.connection.stream.*;
+import org.springframework.data.redis.connection.stream.Record;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StreamOperations;
 import org.springframework.data.redis.hash.HashMapper;

@@ -1,8 +1,8 @@
 package com.xianmao.common.web;
 
-import com.xianmao.common.enums.IEnum;
 import com.xianmao.common.obj.ObjectUtil;
-import lombok.Data;
+import com.xianmao.common.exception.error.IErrorCode;
+import com.xianmao.common.exception.error.CommonErrorCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
@@ -21,8 +21,8 @@ public class APIResult<T> implements Serializable {
     private T data;
     private Boolean success;
     /***响应状态码*/
-    private static int SUCCESS_CODE = ResultCode.SUCCESS.getCode();
-    private static int FAILURE_CODE = ResultCode.FAILURE.getCode();
+    private static int SUCCESS_CODE = 200;
+    private static int FAILURE_CODE = 500;
 
     private APIResult() {
         super();
@@ -36,7 +36,7 @@ public class APIResult<T> implements Serializable {
      */
     public static boolean isSuccess(@Nullable APIResult<?> result) {
         return Optional.ofNullable(result).map((x) -> {
-            return ObjectUtil.nullSafeEquals(ResultCode.SUCCESS.getCode(), x.getCode());
+            return ObjectUtil.nullSafeEquals(200, x.getCode());
         }).orElse(Boolean.FALSE);
     }
 
@@ -63,35 +63,12 @@ public class APIResult<T> implements Serializable {
     /**
      * 返回R
      *
-     * @param <T>  T 泛型标记
-     * @param data 数据
-     * @param msg  消息
-     * @return R
-     */
-    public static <T> APIResult success(T data, String msg) {
-        return restResult(SUCCESS_CODE, data == null ? "暂无数据" : "操作成功", data, Boolean.TRUE);
-    }
-
-    /**
-     * 返回R
-     *
      * @param data 数据
      * @param <T>  T 泛型标记
      * @return R
      */
     public static <T> APIResult<T> success(T data) {
         return restResult(SUCCESS_CODE, data == null ? "暂无数据" : "操作成功", data, Boolean.TRUE);
-    }
-
-    /**
-     * 返回R
-     *
-     * @param resultCode 业务代码
-     * @param <T>        T 泛型标记
-     * @return R
-     */
-    public static <T> APIResult<T> success(IEnum<Integer, String> resultCode) {
-        return restResult(resultCode.getCode(), resultCode.getValue(), null, Boolean.FALSE);
     }
 
     /**
@@ -131,12 +108,12 @@ public class APIResult<T> implements Serializable {
     /**
      * 返回R
      *
-     * @param resultCode 业务代码
+     * @param errorCode 业务代码
      * @param <T>        T 泛型标记
      * @return R
      */
-    public static <T> APIResult<T> fail(IEnum<Integer, String> resultCode) {
-        return restResult(resultCode.getCode(), resultCode.getValue(), null, Boolean.FALSE);
+    public static <T> APIResult<T> fail(IErrorCode errorCode) {
+        return restResult(errorCode.getCode(), errorCode.getValue(), null, Boolean.FALSE);
     }
 
     public static <T> APIResult<T> restResult(Integer code, String message, T data, Boolean success) {

@@ -1,6 +1,6 @@
 package com.xianmao.common.utils;
 
-import com.xianmao.common.exception.BizException;
+import com.xianmao.common.exception.BussinessException;
 import org.apache.commons.lang3.StringUtils;
 
 public class SqlUtil {
@@ -14,7 +14,7 @@ public class SqlUtil {
      */
     public static String escapeOrderBySql(String value) {
         if (StringUtils.isNotEmpty(value) && !isValidOrderBySql(value)) {
-            throw new BizException("参数不符合规范，不能进行查询");
+            throw new BussinessException("参数不符合规范，不能进行查询");
         }
         return value;
     }

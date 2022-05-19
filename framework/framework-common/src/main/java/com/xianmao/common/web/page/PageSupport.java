@@ -3,7 +3,7 @@ package com.xianmao.common.web.page;
 import cn.hutool.core.collection.CollectionUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.xianmao.common.exception.BizException;
+import com.xianmao.common.exception.BussinessException;
 import com.xianmao.common.utils.BeanUtil;
 import com.xianmao.common.utils.ServletUtil;
 
@@ -63,15 +63,15 @@ public class PageSupport {
         if (null != pageNum && null != pageSize) {
             PageHelper.startPage(pageNum, pageSize);
         } else if (isCheck) {
-            throw new BizException("分页不能为空");
+            throw new BussinessException("分页不能为空");
         }
     }
 
-    public static <R, T> Page<R> transferListClass(List<T> origin, Function<T, R> mapper) {
+    public static <R, T> Page<R> transferListClass(List<T> origin, Function<T, R> function) {
         if (CollectionUtil.isEmpty(origin)) {
             return new Page<>();
         }
-        List<R> collect = origin.stream().map(mapper)
+        List<R> collect = origin.stream().map(function)
                 .collect(Collectors.toList());
         return transferPage(collect, null);
     }
@@ -86,6 +86,7 @@ public class PageSupport {
         zPage.setPageNum(pageInfo.getPageNum());
         zPage.setPageSize(pageInfo.getPageSize());
         zPage.setTotal(pageInfo.getTotal());
+        zPage.setHasNextPage(pageInfo.isHasNextPage());
         zPage.setRows(BeanUtil.copyList(origin, rClass));
         return zPage;
     }

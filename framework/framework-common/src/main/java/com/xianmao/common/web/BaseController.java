@@ -2,7 +2,7 @@ package com.xianmao.common.web;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.xianmao.common.exception.BizException;
+import com.xianmao.common.exception.BussinessException;
 import com.xianmao.common.web.page.Page;
 import com.xianmao.common.web.page.PageDomain;
 import com.xianmao.common.web.page.PageSupport;
@@ -35,7 +35,7 @@ public class BaseController {
         if (null != pageNum && null != pageSize) {
             PageHelper.startPage(pageNum, pageSize);
         } else if (isCheck) {
-            throw new BizException("分页不能为空");
+            throw new BussinessException("分页不能为空");
         }
     }
 

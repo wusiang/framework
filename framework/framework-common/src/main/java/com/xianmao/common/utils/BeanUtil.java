@@ -1,23 +1,12 @@
 package com.xianmao.common.utils;
 
-import com.fasterxml.jackson.databind.BeanProperty;
-import com.xianmao.common.exception.BizException;
-import com.xianmao.common.obj.CollectionUtil;
 import com.xianmao.common.support.BaseBeanCopier;
-import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.BeanWrapper;
-import org.springframework.beans.BeanWrapperImpl;
-import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.cglib.beans.BeanGenerator;
 import org.springframework.cglib.beans.BeanMap;
-import org.springframework.cglib.core.Converter;
 import org.springframework.util.CollectionUtils;
 
 import java.beans.PropertyDescriptor;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Supplier;
 
 /**
  * @ClassName BeanUtil

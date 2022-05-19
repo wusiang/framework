@@ -1,14 +1,14 @@
 package com.xianmao.common.crypt;
 
-import com.xianmao.common.exception.util.ExceptionUtil;
-import com.xianmao.common.random.RandomUtil;
-import org.apache.commons.codec.Charsets;
-import org.springframework.util.Assert;
+import com.github.pagehelper.util.StringUtil;
+import com.xianmao.common.exception.BussinessException;
+import com.xianmao.common.utils.AssertUtil;
+import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.util.Arrays;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @ClassName AesUtil
@@ -19,95 +19,63 @@ import java.util.Arrays;
  */
 public class Aes {
 
-    public static String genAesKey() {
-        return RandomUtil.random(32);
+    public static String encrypt(String sSrc, String sKey) {
+        return encrypt(sSrc, sKey, null);
     }
 
-    public static byte[] encrypt(byte[] content, String aesTextKey) {
-        return encrypt(content, aesTextKey.getBytes(Charsets.UTF_8));
-    }
-
-    public static byte[] encrypt(String content, String aesTextKey) {
-        return encrypt(content.getBytes(Charsets.UTF_8), aesTextKey.getBytes(Charsets.UTF_8));
-    }
-
-    public static byte[] encrypt(String content, java.nio.charset.Charset charset, String aesTextKey) {
-        return encrypt(content.getBytes(charset), aesTextKey.getBytes(Charsets.UTF_8));
-    }
-
-    public static byte[] decrypt(byte[] content, String aesTextKey) {
-        return decrypt(content, aesTextKey.getBytes(Charsets.UTF_8));
-    }
-
-    public static String decryptToStr(byte[] content, String aesTextKey) {
-        return new String(decrypt(content, aesTextKey.getBytes(Charsets.UTF_8)), Charsets.UTF_8);
-    }
-
-    public static String decryptToStr(byte[] content, String aesTextKey, java.nio.charset.Charset charset) {
-        return new String(decrypt(content, aesTextKey.getBytes(Charsets.UTF_8)), charset);
-    }
-
-    public static byte[] encrypt(byte[] content, byte[] aesKey) {
-        Assert.isTrue(aesKey.length == 32, "IllegalAesKey, aesKey's length must be 32");
+    public static String encrypt(String sSrc, String sKey, String sIv) {
+        AssertUtil.isNull(sKey, "key must not been null");
+        byte[] raw = sKey.getBytes(StandardCharsets.UTF_8);
+        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
         try {
-            Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            SecretKeySpec keySpec = new SecretKeySpec(aesKey, "AES");
-            IvParameterSpec iv = new IvParameterSpec(aesKey, 0, 16);
-            cipher.init(Cipher.ENCRYPT_MODE, keySpec, iv);
-            return cipher.doFinal(Pkcs7Encoder.encode(content));
+            String type = "AES/ECB/PKCS5Padding";
+            if (StringUtil.isNotEmpty(sIv)) {
+                type = "AES/CBC/PKCS5Padding";
+            }
+            Cipher cipher = Cipher.getInstance(type);
+            if (StringUtil.isNotEmpty(sIv)) {
+                byte[] bytes = sIv.getBytes();
+
+                IvParameterSpec iv = new IvParameterSpec(bytes);
+                cipher.init(1, skeySpec, iv);
+            } else {
+                cipher.init(1, skeySpec);
+            }
+            byte[] encrypted = cipher.doFinal(sSrc.getBytes(StandardCharsets.UTF_8));
+
+            return new Base64().encodeToString(encrypted);
         } catch (Exception e) {
-            throw ExceptionUtil.unchecked(e);
+            throw new BussinessException("encrypt error");
         }
     }
 
-    public static byte[] decrypt(byte[] encrypted, byte[] aesKey) {
-        Assert.isTrue(aesKey.length == 32, "IllegalAesKey, aesKey's length must be 32");
+    public static String decrypt(String sSrc, String sKey) {
+        return decrypt(sSrc, sKey, null);
+    }
+
+    public static String decrypt(String sSrc, String sKey, String sIv) {
         try {
-            Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            SecretKeySpec keySpec = new SecretKeySpec(aesKey, "AES");
-            IvParameterSpec iv = new IvParameterSpec(Arrays.copyOfRange(aesKey, 0, 16));
-            cipher.init(Cipher.DECRYPT_MODE, keySpec, iv);
-            return Pkcs7Encoder.decode(cipher.doFinal(encrypted));
-        } catch (Exception e) {
-            throw ExceptionUtil.unchecked(e);
-        }
-    }
+            byte[] raw = sKey.getBytes(StandardCharsets.UTF_8);
+            SecretKeySpec keySpec = new SecretKeySpec(raw, "AES");
 
-    /**
-     * 提供基于PKCS7算法的加解密接口.
-     */
-    static class Pkcs7Encoder {
-        static int BLOCK_SIZE = 32;
+            String type = "AES/ECB/PKCS5Padding";
+            if (StringUtil.isNotEmpty(sIv)) {
+                type = "AES/CBC/PKCS5Padding";
+            }
+            Cipher cipher = Cipher.getInstance(type);
+            if (StringUtil.isNotEmpty(sIv)) {
+                byte[] bytes = sIv.getBytes();
 
-        static byte[] encode(byte[] src) {
-            int count = src.length;
-            // 计算需要填充的位数
-            int amountToPad = BLOCK_SIZE - (count % BLOCK_SIZE);
-            if (amountToPad == 0) {
-                amountToPad = BLOCK_SIZE;
+                IvParameterSpec iv = new IvParameterSpec(bytes);
+                cipher.init(2, keySpec, iv);
+            } else {
+                cipher.init(2, keySpec);
             }
-            // 获得补位所用的字符
-            byte pad = (byte) (amountToPad & 0xFF);
-            byte[] pads = new byte[amountToPad];
-            for (int index = 0; index < amountToPad; index++) {
-                pads[index] = pad;
-            }
-            int length = count + amountToPad;
-            byte[] dest = new byte[length];
-            System.arraycopy(src, 0, dest, 0, count);
-            System.arraycopy(pads, 0, dest, count, amountToPad);
-            return dest;
-        }
-
-        static byte[] decode(byte[] decrypted) {
-            int pad = (int) decrypted[decrypted.length - 1];
-            if (pad < 1 || pad > BLOCK_SIZE) {
-                pad = 0;
-            }
-            if (pad > 0) {
-                return Arrays.copyOfRange(decrypted, 0, decrypted.length - pad);
-            }
-            return decrypted;
+            byte[] encrypted1 = new Base64().decode(sSrc);
+            byte[] original = cipher.doFinal(encrypted1);
+            return new String(original, StandardCharsets.UTF_8);
+        } catch (Exception ex) {
+            throw new BussinessException("decrypt error");
         }
     }
 }

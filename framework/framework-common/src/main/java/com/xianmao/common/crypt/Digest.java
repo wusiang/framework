@@ -8,6 +8,7 @@ import org.springframework.lang.Nullable;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,22 +22,10 @@ import java.security.NoSuchAlgorithmException;
  */
 public class Digest extends org.springframework.util.DigestUtils {
 
-    /**
-     * Calculates the MD5 digest and returns the value as a 32 character hex string.
-     *
-     * @param data Data to digest
-     * @return MD5 digest as a hex string
-     */
     public static String md5Hex(final String data) {
-        return Digest.md5DigestAsHex(data.getBytes(Charsets.UTF_8));
+        return Digest.md5DigestAsHex(data.getBytes(StandardCharsets.UTF_8));
     }
 
-    /**
-     * Return a hexadecimal string representation of the MD5 digest of the given bytes.
-     *
-     * @param bytes the bytes to calculate the digest over
-     * @return a hexadecimal digest string
-     */
     public static String md5Hex(final byte[] bytes) {
         return Digest.md5DigestAsHex(bytes);
     }

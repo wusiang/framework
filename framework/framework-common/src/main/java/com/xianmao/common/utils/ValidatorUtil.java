@@ -1,6 +1,6 @@
 package com.xianmao.common.utils;
 
-import com.xianmao.common.exception.BizException;
+import com.xianmao.common.exception.BussinessException;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -38,14 +38,14 @@ public class ValidatorUtil {
      *
      * @param object 待校验对象
      * @param groups 待校验的组
-     * @throws BizException 校验不通过，则报RRException异常
+     * @throws BussinessException 校验不通过，则报RRException异常
      */
     public static void validateEntity(Object object, Class<?>... groups)
-            throws BizException {
+            throws BussinessException {
         Set<ConstraintViolation<Object>> constraintViolations = validator.validate(object, groups);
         if (!constraintViolations.isEmpty()) {
             ConstraintViolation<Object> constraint = (ConstraintViolation<Object>) constraintViolations.iterator().next();
-            throw new BizException(constraint.getMessage());
+            throw new BussinessException(constraint.getMessage());
         }
     }
 }

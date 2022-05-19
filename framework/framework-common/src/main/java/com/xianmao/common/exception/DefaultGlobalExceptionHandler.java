@@ -1,9 +1,7 @@
 package com.xianmao.common.exception;
 
-import com.xianmao.common.utils.ServletUtil;
-import com.xianmao.common.utils.WebUtil;
 import com.xianmao.common.web.APIResult;
-import com.xianmao.common.web.ResultCode;
+import com.xianmao.common.exception.error.CommonErrorCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -28,12 +26,11 @@ public abstract class DefaultGlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public APIResult<?> handleException(HttpServletRequest req, Exception e) throws IOException {
-        logger.error("method:{},header:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), ServletUtil.getHeaderMap(req).toString(), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
-        if (e instanceof BizException) {
-            BizException bizException = (BizException) e;
-            return APIResult.fail(bizException.getCode(), bizException.getMessage());
+        if (e instanceof BussinessException) {
+            BussinessException bussinessException = (BussinessException) e;
+            return APIResult.fail(bussinessException.getCode(), bussinessException.getMessage());
         } else {
-            return APIResult.fail(ResultCode.INTERNAL_SERVER_ERROR);
+            return APIResult.fail(CommonErrorCode.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -42,7 +39,6 @@ public abstract class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler(value = BindException.class)
     public APIResult<?> validationExceptionHandler(HttpServletRequest req, BindException e) {
-        logger.error("method:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         return APIResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
     }
 
@@ -51,7 +47,6 @@ public abstract class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public APIResult<?> handleMissingServletRequestParameterException(HttpServletRequest req, MissingServletRequestParameterException e) {
-        logger.error("method:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         return APIResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
     }
 
@@ -60,16 +55,14 @@ public abstract class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public APIResult<?> handleException(HttpServletRequest req, HttpRequestMethodNotSupportedException e) {
-        logger.error("method:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
         return APIResult.fail("不支持' " + e.getMethod() + "'请求");
     }
 
     /**
      * 业务异常
      */
-    @ExceptionHandler(BizException.class)
-    public Object businessException(HttpServletRequest req, BizException e) {
-        logger.error("method:{},param:{},ip:{},log:{},errorInfo__", WebUtil.getMethodName(req), WebUtil.getRequestParamString(req), WebUtil.getIP(req), e);
+    @ExceptionHandler(BussinessException.class)
+    public Object businessException(HttpServletRequest req, BussinessException e) {
         return APIResult.fail(e.getMessage());
     }
 
