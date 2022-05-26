@@ -2,7 +2,166 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/config/DateConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/config/JacksonConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/config/MybatisPlusConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/config/SwaggerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/config/TraceConfigurer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/config/WebMvcConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/config/XianmaoExecutorConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/config/XssConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/constant/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/constant/ScheduleConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/constant/TokenConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/crypt/Aes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/crypt/Digest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/date/DatePattern.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/date/DateTimeUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/enums/DeleteEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/enums/IEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/exception/BussinessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/exception/DefaultGlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/exception/UtilException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/exception/error/CommonErrorCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/exception/error/IErrorCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/exception/util/ExceptionUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/id/DefaultIdeable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/id/Ideable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/id/SnowflakeIdeable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/jackson/JsonUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/mybatis/base/BaseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/mybatis/base/BaseService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/mybatis/base/BaseServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/mybatis/plugins/SqlFilterArgumentResolver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/mybatis/plugins/SqlLogInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/obj/ClassUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/obj/CollectionUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/obj/ObjectUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/random/RandomType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/random/RandomUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/string/CharPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/string/CharsetUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/string/CrypStrUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/string/StrFormatter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/string/StringPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/string/StringUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/support/BaseBeanCopier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/support/SqlFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/support/StrSpliter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/thread/AsyncProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/timer/SystemClock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/trace/TraceConstant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/trace/TraceInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/ArrayUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/AssertUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/BeanUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/BigDecimalUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/ClassUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/Converter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/EnumUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/IntegerUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/IoUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/IpAddressUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/JwtUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/MapUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/ParamUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/PlaceholderUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/RegexUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/ServletUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/SpringContextUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/SqlUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/SuffixFileFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/TransferUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/UUIDUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/Utils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/ValidatorUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/utils/WebUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/web/APIResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/web/BaseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/web/exception/ExceptionHandleAdvice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/web/page/Page.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/web/page/PageDomain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/web/page/PageSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/xss/HtmlFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/xss/XssFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/xss/XssHttpServletRequestWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/xss/XssProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/java/com/xianmao/common/xss/XssUrlProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-common/src/main/resources/META-INF/spring.factories" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-cache/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/common/config/RedisKeySerializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/common/config/RedisTemplateConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/common/utils/RedisUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-cache/src/main/java/com/xianmao/lock/RedisLock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-job/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-job/src/main/java/com/xianmao/job/annotation/Job.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-job/src/main/java/com/xianmao/job/base/BaseSimpleJob.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-job/src/main/java/com/xianmao/job/config/JobAutoConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-job/src/main/java/com/xianmao/job/config/JobBaseConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-job/src/main/java/com/xianmao/job/config/JobProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-job/src/main/resources/META-INF/spring.factories" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-log/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-log/src/main/java/com/xianmao/annotation/ApiLog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-log/src/main/java/com/xianmao/annotation/EnableLogManagement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-log/src/main/java/com/xianmao/aspect/WebLogAspect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-log/src/main/java/com/xianmao/common/config/WebLogAspectConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-oss/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-oss/src/main/java/com/xianmao/AliossTemplate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-oss/src/main/java/com/xianmao/common/config/AliossConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-oss/src/main/java/com/xianmao/model/OssFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-oss/src/main/java/com/xianmao/props/OssProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-oss/src/main/java/com/xianmao/rule/AliOssRule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-oss/src/main/java/com/xianmao/rule/Rule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/JsonRedisSerializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/RedisAutoConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/RedisConnectionConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/RedisInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/RedisInitializerPostProcessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/cache/RedisCacheConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/jedis/JedisConnectionConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/lettuce/LettuceConnectionConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/lettuce/LettuceTypeHint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/redisson/RedissonAutoConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/redisson/RedissonClientHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/redisson/RedissonConnectionConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/redisson/RedissonConnectionFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/config/redisson/RedissonProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/BitmapHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/ClusterHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/CustomCommandHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/DBHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/GeoHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/HandlerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/HandlerManagerProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/HandlerType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/HashHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/HyperLogLogHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/KeyHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/ListHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/NumberHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/PubSubHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/RedisHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/RedisLockHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/ScriptHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/SentinelHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/SetHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/StreamHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/StringHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/TransactionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/handler/ZsetHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/util/ApplicationContextUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/util/ConvertUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/java/com/xianmao/redis/util/RedisUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/framework-support-redis/src/main/resources/META-INF/spring.factories" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework-support/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/pom.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,17 +171,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1qsDm7TkoAITcihE8dazMvHfvyX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -37,6 +199,7 @@
       <workItem from="1646975311343" duration="3000" />
       <workItem from="1646975330434" duration="79000" />
       <workItem from="1648080354865" duration="17000" />
+      <workItem from="1653561282743" duration="6000" />
     </task>
     <servers />
   </component>

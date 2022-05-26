@@ -1,9 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.xianmao.common.config.JacksonConfiguration,\
-  com.xianmao.common.config.DateConfiguration,\
-  com.xianmao.common.config.TraceConfigurer,\
-  com.xianmao.common.config.WebMvcConfiguration,\
-  com.xianmao.common.config.XianmaoExecutorConfiguration,\
-  com.xianmao.common.config.XssConfiguration,\
-  com.xianmao.common.config.MybatisPlusConfiguration
-

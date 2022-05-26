@@ -1,0 +1,6 @@
+com/xianmao/common/job/annotation/Job.class
+com/xianmao/common/job/config/JobAutoConfiguration.class
+com/xianmao/common/job/config/JobProperties.class
+com/xianmao/common/job/base/BaseSimpleJob.class
+com/xianmao/common/job/config/JobBaseConfiguration.class
+com/xianmao/common/job/App.class

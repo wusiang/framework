@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xianmao</groupId>
+    <artifactId>framework</artifactId>
+    <packaging>pom</packaging>
+    <version>${revision}</version>
+    <modules>
+        <module>framework-bom</module>
+        <module>framework-common-core</module>
+        <module>framework-common-mybatis</module>
+        <module>framework-common-web</module>
+        <module>framework-common-swagger</module>
+        <module>framework-common-redis</module>
+        <module>framework-common-excel</module>
+        <module>framework-common-job</module>
+    </modules>
+
+    <name>framework</name>
+
+    <properties>
+        <!---->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <!---->
+        <revision>1.0.0-SNAPSHOT</revision>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--公共版本定义-->
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Releases</name>
+            <url>http://127.0.0.1:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Snapshot</name>
+            <url>http://127.0.0.1:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <defaultGoal>compile</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
