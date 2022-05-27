@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="framework-common-redis" />
+        <module name="framework-common-job" />
+        <module name="framework-common-core" />
+        <module name="framework-common-swagger" />
+        <module name="framework-common-excel" />
+        <module name="framework-common-web" />
+        <module name="framework-common-mybatis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="1.8" />
+      <module name="framework-bom" target="1.7" />
+      <module name="framework-common-core" target="1.8" />
+      <module name="framework-common-excel" target="1.8" />
+      <module name="framework-common-job" target="1.8" />
+      <module name="framework-common-mybatis" target="1.8" />
+      <module name="framework-common-redis" target="1.8" />
+      <module name="framework-common-swagger" target="1.8" />
+      <module name="framework-common-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
