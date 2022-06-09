@@ -7,7 +7,7 @@
     <groupId>com.xianmao</groupId>
     <artifactId>framework</artifactId>
     <packaging>pom</packaging>
-    <version>${revision}</version>
+    <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>framework-bom</module>
         <module>framework-common-core</module>
@@ -27,7 +27,7 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <!---->
-        <revision>1.0.0-SNAPSHOT</revision>
+<!--        <revision>1.0.0-SNAPSHOT</revision>-->
     </properties>
 
     <dependencyManagement>

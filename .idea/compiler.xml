@@ -14,6 +14,7 @@
         <module name="framework-common-excel" />
         <module name="framework-common-web" />
         <module name="framework-common-mybatis" />
+        <module name="framework-bom" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
