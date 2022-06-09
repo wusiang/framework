@@ -5,20 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/common.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-bom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-bom/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-bom/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-bom/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-core/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-excel/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-excel/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-job/framework-common-job.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/framework-common-job.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-job/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-job/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-mybatis/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-redis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-redis/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-swagger/framework-common-swagger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/framework-common-swagger.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-swagger/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-swagger/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-web/framework-common-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/framework-common-web.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-web/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -48,6 +54,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -79,7 +86,8 @@
       <workItem from="1653874474730" duration="106000" />
       <workItem from="1653984269930" duration="174000" />
       <workItem from="1653985975732" duration="777000" />
-      <workItem from="1654767446273" duration="659000" />
+      <workItem from="1654767446273" duration="701000" />
+      <workItem from="1654768411120" duration="756000" />
     </task>
     <servers />
   </component>
