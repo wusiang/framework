@@ -35,6 +35,7 @@
         <!--job-->
         <com.dangdang.version>2.1.5</com.dangdang.version>
         <org.apache.curator.version>2.12.0</org.apache.curator.version>
+        <oss.version>3.14.0</oss.version>
     </properties>
 
     <dependencyManagement>
@@ -165,6 +166,12 @@
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-recipes</artifactId>
                 <version>${org.apache.curator.version}</version>
+            </dependency>
+            <!--  OSS上传组件  -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${oss.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

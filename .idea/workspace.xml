@@ -5,29 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-bom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-bom/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-bom/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-bom/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-excel/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-excel/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/framework-common-job.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/framework-common-job.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redis/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/framework-common-swagger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/framework-common-swagger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/framework-common-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/framework-common-web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,19 +31,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files",
-    "spring.configuration.checksum": "65e89b02d1760d49f8251a081a4d38e3"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.ignored.files&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;17f423e9bde8394a9f61edf35a3a4f91&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -88,6 +67,8 @@
       <workItem from="1653985975732" duration="777000" />
       <workItem from="1654767446273" duration="701000" />
       <workItem from="1654768411120" duration="756000" />
+      <workItem from="1655365106561" duration="670000" />
+      <workItem from="1655449825612" duration="301000" />
     </task>
     <servers />
   </component>
