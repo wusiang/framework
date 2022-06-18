@@ -14,11 +14,11 @@
         <module name="framework-common-excel" />
         <module name="framework-common-web" />
         <module name="framework-common-mybatis" />
-        <module name="framework-bom" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common" target="17" />
+      <module name="framework" target="1.7" />
       <module name="framework-bom" target="1.7" />
       <module name="framework-common-core" target="1.8" />
       <module name="framework-common-excel" target="1.8" />

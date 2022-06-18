@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/common.iml" filepath="$PROJECT_DIR$/.idea/common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/framework-bom/framework-bom.iml" filepath="$PROJECT_DIR$/framework-bom/framework-bom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework.iml" filepath="$PROJECT_DIR$/framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework-common-core/framework-common-core.iml" filepath="$PROJECT_DIR$/framework-common-core/framework-common-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework-common-excel/framework-common-excel.iml" filepath="$PROJECT_DIR$/framework-common-excel/framework-common-excel.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework-common-job/framework-common-job.iml" filepath="$PROJECT_DIR$/framework-common-job/framework-common-job.iml" />
