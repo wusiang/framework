@@ -24,7 +24,7 @@
       <module name="framework-common-excel" target="17" />
       <module name="framework-common-job" target="17" />
       <module name="framework-common-mybatis" target="17" />
-      <module name="framework-common-redis" target="1.8" />
+      <module name="framework-common-redis" target="17" />
       <module name="framework-common-swagger" target="17" />
       <module name="framework-common-web" target="17" />
     </bytecodeTargetLevel>

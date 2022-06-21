@@ -5,37 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flattened-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.flattened-pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/.flattened-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/.flattened-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/pom-xml-flattened" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/pom-xml-flattened" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-excel/.flattened-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/.flattened-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-excel/pom-xml-flattened" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/pom-xml-flattened" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-excel/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-excel/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/.flattened-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/.flattened-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/pom-xml-flattened" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/pom-xml-flattened" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-job/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/.flattened-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/.flattened-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/pom-xml-flattened" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/pom-xml-flattened" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redis/.flattened-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/.flattened-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redis/pom-xml-flattened" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/pom-xml-flattened" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-redis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redis/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/.flattened-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/.flattened-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/pom-xml-flattened" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/pom-xml-flattened" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-swagger/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/.flattened-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/.flattened-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/pom-xml-flattened" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/pom-xml-flattened" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +61,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files",
-    "spring.configuration.checksum": "17f423e9bde8394a9f61edf35a3a4f91"
+    "spring.configuration.checksum": "f30535694cdc4962cbbf5cfc29069a64"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -119,7 +96,8 @@
       <workItem from="1655794636927" duration="110000" />
       <workItem from="1655794766894" duration="123000" />
       <workItem from="1655794964000" duration="418000" />
-      <workItem from="1655800655478" duration="1527000" />
+      <workItem from="1655800655478" duration="1692000" />
+      <workItem from="1655804760602" duration="372000" />
     </task>
     <servers />
   </component>
