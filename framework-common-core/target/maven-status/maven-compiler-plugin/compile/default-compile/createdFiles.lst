@@ -17,7 +17,6 @@ com/xianmao/common/core/web/page/Page.class
 com/xianmao/common/core/web/APIResult.class
 com/xianmao/common/core/support/StringPool.class
 com/xianmao/common/core/thread/AsyncProperties.class
-com/xianmao/common/core/utils/SystemClockUtils$1.class
 com/xianmao/common/core/utils/JsonUtils$1.class
 com/xianmao/common/core/utils/SystemClockUtils$InstanceHolder.class
 com/xianmao/common/core/enums/IEnum.class
