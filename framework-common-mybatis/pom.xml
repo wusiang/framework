@@ -10,8 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>framework-common-mybatis</artifactId>
-
-    <name>framework-common-mybatis</name>
     <build>
         <plugins>
             <plugin>
