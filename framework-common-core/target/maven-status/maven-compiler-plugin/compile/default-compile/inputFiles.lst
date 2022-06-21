@@ -20,6 +20,7 @@
 /Users/wujh/Desktop/wusiang/framework/framework-common-core/src/main/java/com/xianmao/common/core/utils/JsonUtils.java
 /Users/wujh/Desktop/wusiang/framework/framework-common-core/src/main/java/com/xianmao/common/core/snowflake/SnowflakeIdeable.java
 /Users/wujh/Desktop/wusiang/framework/framework-common-core/src/main/java/com/xianmao/common/core/support/StringPool.java
+/Users/wujh/Desktop/wusiang/framework/framework-common-core/src/main/java/com/xianmao/common/core/utils/FileUtils.java
 /Users/wujh/Desktop/wusiang/framework/framework-common-core/src/main/java/com/xianmao/common/core/web/page/PageSupport.java
 /Users/wujh/Desktop/wusiang/framework/framework-common-core/src/main/java/com/xianmao/common/core/config/JacksonConfiguration.java
 /Users/wujh/Desktop/wusiang/framework/framework-common-core/src/main/java/com/xianmao/common/core/utils/AesUtils.java

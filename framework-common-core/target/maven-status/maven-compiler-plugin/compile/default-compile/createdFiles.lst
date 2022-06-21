@@ -24,6 +24,7 @@ com/xianmao/common/core/enums/IEnum.class
 com/xianmao/common/core/utils/ExceptionUtils.class
 com/xianmao/common/core/exception/BussinessException.class
 com/xianmao/common/core/constants/DatePattern.class
+com/xianmao/common/core/utils/FileUtils.class
 com/xianmao/common/core/constants/ScheduleConstants.class
 com/xianmao/common/core/utils/JsonUtils$JacksonHolder.class
 com/xianmao/common/core/utils/AesUtils.class
