@@ -1,8 +1,10 @@
 com/xianmao/common/web/config/DateConfiguration$3.class
 com/xianmao/common/web/config/DateConfiguration.class
+com/xianmao/common/web/config/SwaggerConfig$1.class
 com/xianmao/common/web/config/DateConfiguration$1.class
 com/xianmao/common/web/exception/ExceptionHandleAdvice.class
 com/xianmao/common/web/controller/BaseController.class
+com/xianmao/common/web/config/SwaggerConfig.class
 com/xianmao/common/web/config/DateConfiguration$4.class
 com/xianmao/common/web/config/WebMvcConfiguration.class
 com/xianmao/common/web/config/DateConfiguration$2.class
