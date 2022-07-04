@@ -21,7 +21,7 @@ public class DefaultGlobalExceptionHandler {
             BussinessException bussinessException = (BussinessException) e;
             return APIResult.fail(bussinessException.getCode(), bussinessException.getMessage());
         } else {
-            return APIResult.fail(CommonErrorCode.INTERNAL_SERVER_ERROR);
+            return APIResult.fail(ServerErrorCode.INTERNAL_SERVER_ERROR);
         }
     }
 

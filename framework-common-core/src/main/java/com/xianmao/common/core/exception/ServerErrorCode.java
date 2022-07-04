@@ -2,7 +2,7 @@ package com.xianmao.common.core.exception;
 
 import javax.servlet.http.HttpServletResponse;
 
-public enum CommonErrorCode implements IErrorCode {
+public enum ServerErrorCode implements IErrorCode {
 
     /*** 通用错误码*/
     ATTACK(100, "非法访问"),
@@ -34,7 +34,7 @@ public enum CommonErrorCode implements IErrorCode {
         return value;
     }
 
-    CommonErrorCode(Integer code, String value) {
+    ServerErrorCode(Integer code, String value) {
         this.code = code;
         this.value = value;
     }
