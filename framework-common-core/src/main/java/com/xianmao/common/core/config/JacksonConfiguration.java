@@ -3,6 +3,7 @@ package com.xianmao.common.core.config;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.xianmao.common.core.constants.DatePattern;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -26,6 +27,9 @@ public class JacksonConfiguration {
     @Bean
     public ObjectMapper objectMapper(Jackson2ObjectMapperBuilder builder) {
         builder.simpleDateFormat(DatePattern.YYYY_MM_DD_HH_MM_SS);
+        //将Long类型转换成string类型返回，避免大整数导致前端精度丢失的问题
+        builder.serializerByType(Long.TYPE, ToStringSerializer.instance);
+        builder.serializerByType(Long.class,ToStringSerializer.instance);
         //创建ObjectMapper
         ObjectMapper objectMapper = builder.createXmlMapper(false).build();
         //设置地点为中国
