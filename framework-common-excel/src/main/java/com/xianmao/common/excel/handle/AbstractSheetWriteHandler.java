@@ -89,6 +89,7 @@ public abstract class AbstractSheetWriteHandler implements SheetWriteHandler, Ap
 		response.setContentType(contentType);
 		response.setCharacterEncoding("utf-8");
 		response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + fileName);
+		response.setHeader("Access-Control-Expose-Headers", "content-disposition");
 		write(o, response, responseExcel);
 	}
 
@@ -110,11 +111,11 @@ public abstract class AbstractSheetWriteHandler implements SheetWriteHandler, Ap
 		}
 
 		if (responseExcel.include().length != 0) {
-			writerBuilder.includeColumnFiledNames(Arrays.asList(responseExcel.include()));
+			writerBuilder.includeColumnFieldNames(Arrays.asList(responseExcel.include()));
 		}
 
 		if (responseExcel.exclude().length != 0) {
-			writerBuilder.excludeColumnFiledNames(Arrays.asList(responseExcel.exclude()));
+			writerBuilder.excludeColumnFieldNames(Arrays.asList(responseExcel.exclude()));
 		}
 
 		if (responseExcel.writeHandler().length != 0) {
