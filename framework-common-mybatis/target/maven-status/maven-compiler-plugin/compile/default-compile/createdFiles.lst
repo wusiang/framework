@@ -1,8 +1,0 @@
-com/xianmao/common/mybatis/base/BaseService.class
-com/xianmao/common/mybatis/base/BaseServiceImpl.class
-com/xianmao/common/mybatis/plugins/SqlFilterArgumentResolver.class
-com/xianmao/common/mybatis/base/BaseEntity.class
-com/xianmao/common/mybatis/plugins/PigPaginationInnerInterceptor.class
-com/xianmao/common/mybatis/base/DefaultMapper.class
-com/xianmao/common/mybatis/plugins/SqlLogInterceptor.class
-com/xianmao/common/mybatis/config/MybatisPlusConfiguration.class

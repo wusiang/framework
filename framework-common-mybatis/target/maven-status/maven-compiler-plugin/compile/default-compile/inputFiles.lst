@@ -1,8 +1,0 @@
-/Users/wujh/Desktop/wusiang/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base/BaseEntity.java
-/Users/wujh/Desktop/wusiang/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base/BaseServiceImpl.java
-/Users/wujh/Desktop/wusiang/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base/BaseService.java
-/Users/wujh/Desktop/wusiang/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/plugins/SqlLogInterceptor.java
-/Users/wujh/Desktop/wusiang/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/config/MybatisPlusConfiguration.java
-/Users/wujh/Desktop/wusiang/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/plugins/SqlFilterArgumentResolver.java
-/Users/wujh/Desktop/wusiang/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base/DefaultMapper.java
-/Users/wujh/Desktop/wusiang/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/plugins/PigPaginationInnerInterceptor.java

@@ -79,10 +79,4 @@ public class TransferUtils {
             ReflectionUtils.setField(field, bean, entry.getValue());
         }
     }
-
-//    public static void main(String[] args) {
-//        TransferUtils.transfers(billHistoryPayerInfos, PayerHistoryResp::new, (s, d) -> {
-//            d.setUid(String.valueOf(s.getUid()));
-//        })
-//    }
 }

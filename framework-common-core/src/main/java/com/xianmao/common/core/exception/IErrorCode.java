@@ -28,4 +28,8 @@ public interface IErrorCode extends Serializable {
     default BussinessException exp(String... param) {
         return new BussinessException(getCode(), String.format(getValue(), param));
     }
+
+    default BussinessException exp(String param) {
+        return new BussinessException(getCode(), param);
+    }
 }

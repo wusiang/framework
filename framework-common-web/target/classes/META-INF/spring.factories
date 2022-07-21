@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.xianmao.common.web.config.DateConfiguration,\
-  com.xianmao.common.web.config.WebMvcConfiguration,\
-  com.xianmao.common.swagger.config.SwaggerConfig

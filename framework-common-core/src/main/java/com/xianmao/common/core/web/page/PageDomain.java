@@ -2,10 +2,10 @@ package com.xianmao.common.core.web.page;
 
 public class PageDomain {
     /** 当前记录起始索引 */
-    private Integer pageNum;
+    private Integer pageNum = 1;
 
     /** 每页显示记录数 */
-    private Integer pageSize;
+    private Integer pageSize = 20;
 
     /** 排序的方向desc或者asc */
     private String isAsc = "asc";

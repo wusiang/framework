@@ -17,8 +17,7 @@ public class DefaultGlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public APIResult<?> handleException(HttpServletRequest req, Exception e) throws IOException {
-        if (e instanceof BussinessException) {
-            BussinessException bussinessException = (BussinessException) e;
+        if (e instanceof BussinessException bussinessException) {
             return APIResult.fail(bussinessException.getCode(), bussinessException.getMessage());
         } else {
             return APIResult.fail(ServerErrorCode.INTERNAL_SERVER_ERROR);
