@@ -2,8 +2,14 @@ package com.xianmao.common.core.web.page;
 
 import cn.hutool.core.convert.Convert;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xianmao.common.core.exception.BussinessException;
 import com.xianmao.common.core.utils.ServletUtils;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class PageSupport {
 
@@ -59,6 +65,20 @@ public class PageSupport {
         } else if (isCheck) {
             throw new BussinessException("分页不能为空");
         }
+    }
+
+    public static <T, R> Page<R> convert2PageDTO(List<T> origin, Function<T, R> function) {
+        PageInfo<T> pageInfo = new PageInfo<>(origin);
+        Page<R> page = new Page();
+        page.setTotal((int) pageInfo.getTotal());
+        if (!CollectionUtils.isEmpty(origin)) {
+            if (function == null) {
+                page.setRows((List<R>) origin);
+            } else {
+                page.setRows(origin.stream().map(function::apply).collect(Collectors.toList()));
+            }
+        }
+        return page;
     }
 
 }
