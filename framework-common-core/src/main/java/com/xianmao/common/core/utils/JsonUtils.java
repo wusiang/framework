@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.xianmao.common.core.constants.DatePattern;
+import com.xianmao.common.core.jackson.JavaTimeModule;
 import com.xianmao.common.core.support.StringPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -205,6 +206,7 @@ public class JsonUtils {
             //反序列化时，属性不存在的兼容处理s
             super.getDeserializationConfig().withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
             //日期格式化
+            super.registerModule(new JavaTimeModule());
             super.findAndRegisterModules();
         }
 
