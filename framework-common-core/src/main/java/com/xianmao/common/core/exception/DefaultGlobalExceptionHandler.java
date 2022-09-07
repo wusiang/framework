@@ -1,42 +1,59 @@
 package com.xianmao.common.core.exception;
 
+import com.xianmao.common.core.utils.ExceptionUtils;
 import com.xianmao.common.core.web.APIResult;
+import org.apache.catalina.connector.ClientAbortException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.net.BindException;
+import java.text.ParseException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DefaultGlobalExceptionHandler {
     private static Logger logger = LoggerFactory.getLogger(DefaultGlobalExceptionHandler.class);
 
-    @ExceptionHandler(Exception.class)
-    public APIResult<?> handleException(HttpServletRequest req, Exception e) throws IOException {
-        if (e instanceof BussinessException bussinessException) {
-            return APIResult.fail(bussinessException.getCode(), bussinessException.getMessage());
-        } else {
-            return APIResult.fail(ServerErrorCode.INTERNAL_SERVER_ERROR);
+    private static Map<Class, IErrorCode> exceptionMap = new HashMap<>() {
+        {
+            put(HttpMessageNotReadableException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
+            put(ClientAbortException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
+            put(NoHandlerFoundException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
+            put(ParseException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
+            put(NumberFormatException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
+            put(IllegalArgumentException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
+            put(MaxUploadSizeExceededException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
+            put(BindException.class, ServerErrorCode.BAD_REQUEST);
         }
+    };
+
+    @ExceptionHandler(Exception.class)
+    public APIResult<?> handleException(Exception e) {
+        IErrorCode iErrorCode = exceptionMap.getOrDefault(e, ServerErrorCode.INTERNAL_SERVER_ERROR);
+        logger.error(Error.buildError(iErrorCode.getCode(), ExceptionUtils.getExceptionString(e)));
+        return APIResult.fail(iErrorCode);
     }
 
-    /**
-     * 校验异常
-     */
-    @ExceptionHandler(value = BindException.class)
-    public APIResult<?> validationExceptionHandler(HttpServletRequest req, BindException e) {
-        return APIResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
+    @ExceptionHandler(BussinessException.class)
+    public APIResult<?> handleBussinessException(BussinessException bussinessException) {
+        logger.error(Error.buildError(bussinessException.getCode(), ExceptionUtils.getExceptionString(bussinessException)));
+        return APIResult.fail(bussinessException.getCode(), bussinessException.getMessage());
     }
 
     /**
      * 校验异常
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
-    public APIResult<?> handleMissingServletRequestParameterException(HttpServletRequest req, MissingServletRequestParameterException e) {
+    public APIResult<?> handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
+        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR.getCode(), ExceptionUtils.getExceptionString(e)));
         return APIResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
     }
 
@@ -44,15 +61,8 @@ public class DefaultGlobalExceptionHandler {
      * 请求方式不支持
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
-    public APIResult<?> handleException(HttpServletRequest req, HttpRequestMethodNotSupportedException e) {
+    public APIResult<?> handleException(HttpRequestMethodNotSupportedException e) {
+        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR.getCode(), ExceptionUtils.getExceptionString(e)));
         return APIResult.fail("不支持' " + e.getMethod() + "'请求");
-    }
-
-    /**
-     * 业务异常
-     */
-    @ExceptionHandler(BussinessException.class)
-    public Object businessException(HttpServletRequest req, BussinessException e) {
-        return APIResult.fail(e.getMessage());
     }
 }

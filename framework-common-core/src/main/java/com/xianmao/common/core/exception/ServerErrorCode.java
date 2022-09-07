@@ -11,6 +11,7 @@ public enum ServerErrorCode implements IErrorCode {
     FORBIDDEN(103, "无权限"),
     FREQUENT_ACCESS_RESTRICTION(104, "频繁访问限制，请稍后重试"),
     REQ_REJECT(105, "请求被拒绝"),
+    BAD_REQUEST(400,"Bad Request"),
     INTERNAL_SERVER_ERROR(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "哎哟喂！服务都被您挤爆了.."),
     ;
 
