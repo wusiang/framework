@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.xianmao.common.mybatis.plugins.PigPaginationInnerInterceptor;
+import com.xianmao.common.mybatis.plugins.SqlCryptoInterceptor;
 import com.xianmao.common.mybatis.plugins.SqlLogInterceptor;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -32,5 +33,10 @@ public class MybatisPlusConfiguration {
     @ConditionalOnProperty(value = "xianmao.mybatis-plus.sql-log", matchIfMissing = true)
     public SqlLogInterceptor sqlLogInterceptor() {
         return new SqlLogInterceptor();
+    }
+
+    @Bean
+    public SqlCryptoInterceptor sqlCryptoInterceptor() {
+        return new SqlCryptoInterceptor();
     }
 }
