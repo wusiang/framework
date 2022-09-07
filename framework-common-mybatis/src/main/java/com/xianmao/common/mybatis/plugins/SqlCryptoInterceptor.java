@@ -41,23 +41,21 @@ public class SqlCryptoInterceptor extends com.baomidou.mybatisplus.extension.plu
                         for (Map.Entry<?, ?> entry : map.entrySet()) {
                             String key = (String) entry.getKey();
                             Object value = entry.getValue();
-                            // EntityWrapper对象 // 传参为Map类型 // 传参为String类型 // (批量)新增 或 MyBatis-Plus方式更新
                             if (!("ew".equals(key) || "param2".equals(key)
                                     || (value == null || value.getClass().isPrimitive()) || value instanceof String)) {
                                 obj = value;
                                 break;
                             }
                         }
-                    } else { // 新增
+                    } else {
                         obj = parameter;
                     }
                     if (obj != null) {
-                        // 获取数据库名称
                         List<?> list = null;
                         if (obj instanceof List<?>) {
                             list = (List<?>) obj;
                             CryptoUtils.encryptList(list);
-                        } else { // 新增或更新
+                        } else {
                             CryptoUtils.encryptObject(obj);
                         }
                     }
@@ -67,17 +65,12 @@ public class SqlCryptoInterceptor extends com.baomidou.mybatisplus.extension.plu
                 Object retVal = invocation.proceed();
                 if (retVal instanceof ArrayList<?>) {
                     List<?> list = (List<?>) retVal;
-                    // 结果集为空
                     if (list.size() == 0
-                            // 查询数量: selectCount, selectObjs
                             || list.get(0) instanceof Integer
-                            // 查询数量
                             || list.get(0) instanceof Long
-                            // 返回键值对: selectMaps, selectMapsPage
                             || list.get(0) instanceof Map<?, ?>) {
                         return retVal;
                     }
-                    // 调解密服务
                     CryptoUtils.decryptList(list);
                 }
                 return retVal;
