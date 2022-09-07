@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="修改错误类">
-      <change afterPath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/trace/SimpleJobTrace.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/trace/TraceConstant.java" afterDir="false" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="pageutil">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/base/BaseSimpleJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/base/BaseSimpleJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/config/JobAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/config/JobAutoConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +33,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="D:\java\soft\apache-maven-3.8.6\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -45,32 +45,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wujh/Desktop/wusiang/framework/framework-common-web/src/main/resources/META-INF&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.ignored.files&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;7f88338b5ee5280c76caf8c963574c4f&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/wujh/Desktop/wusiang/framework/framework-common-web/src/main/resources/META-INF",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "d96468f1849fabdddf5fac96587caa53"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/framework-common-web/src/main/resources/META-INF" />
       <recent name="$PROJECT_DIR$/framework-common-swagger/src/main/resources/META-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.xianmao.common.job.trace" />
       <recent name="com.xianmao.common.web.config" />
     </key>
   </component>
@@ -125,8 +124,8 @@
       <workItem from="1661931170100" duration="8000" />
       <workItem from="1661931833273" duration="7000" />
       <workItem from="1661931918804" duration="598000" />
-      <workItem from="1662099025413" duration="910000" />
-      <workItem from="1662535308533" duration="5634000" />
+      <workItem from="1662099025413" duration="867000" />
+      <workItem from="1662562497987" duration="237000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -135,21 +134,7 @@
       <option name="project" value="LOCAL" />
       <updated>1661413106890</updated>
     </task>
-    <task id="LOCAL-00002" summary="pageutil">
-      <created>1662099927820</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1662099927820</updated>
-    </task>
-    <task id="LOCAL-00003" summary="修改错误类">
-      <created>1662540944840</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1662540944840</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +153,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pageutil" />
-    <MESSAGE value="修改错误类" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改错误类" />
+    <option name="LAST_COMMIT_MESSAGE" value="pageutil" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
