@@ -15,8 +15,10 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -50,13 +52,17 @@ public class JobAutoConfiguration extends JobBaseConfiguration implements Initia
     private List<JobScheduler> loadJobs() {
         List<JobScheduler> jobSchedulerList = new ArrayList<>();
         Map<String, Object> beans = applicationContext.getBeansWithAnnotation(Job.class);
-        if (beans == null || beans.size() == 0) {
+        if (CollectionUtils.isEmpty(beans)) {
             return null;
         }
         for (Object o : beans.values()) {
             try {
+                if (!BaseSimpleJob.class.isAssignableFrom(o.getClass())) {
+                    throw new RuntimeException(o.getClass().getName() + " - consumer未实现Consumer抽象类");
+                }
                 JobScheduler jobScheduler = createJob(o.getClass().getName());
                 if (jobScheduler != null) {
+                    log.info(String.format("%s Job is Star Work", o.getClass().getName()));
                     jobSchedulerList.add(jobScheduler);
                 }
             } catch (Exception e) {
@@ -102,9 +108,9 @@ public class JobAutoConfiguration extends JobBaseConfiguration implements Initia
     private JobScheduler createSimpleJob(String className, Job annotation) {
         String applicationName = environment.getProperty("spring.application.name");
         if (applicationName == null) {
-            applicationName = "";
+            applicationName = "" ;
         } else {
-            applicationName = applicationName + ".";
+            applicationName = applicationName + "." ;
         }
         JobCoreConfiguration simpleCoreConfig = JobCoreConfiguration.newBuilder(applicationName + className, annotation.cron(), annotation.shardingCount())
                 .description(annotation.description())
