@@ -32,7 +32,6 @@ public class BaseEntity implements Serializable {
     private LocalDateTime updateTime;
 
     /*** 状态[0:未删除,1:删除]*/
-    @TableLogic
     @TableField("del_flag")
     private Integer delFlag;
 }

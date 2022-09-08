@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="mybatis自动加密解密">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/web/APIResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/web/APIResult.java" afterDir="false" />
-    </list>
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整baseEntity" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +58,6 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;d96468f1849fabdddf5fac96587caa53&quot;
-  }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -71,6 +65,7 @@
       <recent name="$PROJECT_DIR$/framework-common-swagger/src/main/resources/META-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xianmao.common.job.trace" />
       <recent name="com.xianmao.common.web.config" />
     </key>
   </component>
@@ -128,6 +123,10 @@
       <workItem from="1662099025413" duration="867000" />
       <workItem from="1662562497987" duration="1915000" />
       <workItem from="1662641535625" duration="624000" />
+      <workItem from="1662099025413" duration="910000" />
+      <workItem from="1662535308533" duration="5634000" />
+      <workItem from="1662607499717" duration="218000" />
+      <workItem from="1662621901190" duration="127000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -136,12 +135,33 @@
       <option name="project" value="LOCAL" />
       <updated>1661413106890</updated>
     </task>
-    <task id="LOCAL-00002" summary="maven-云效果">
-      <created>1662562898058</created>
+    <task id="LOCAL-00002" summary="pageutil">
+      <created>1662099927820</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1662562898058</updated>
+      <updated>1662099927820</updated>
+    </task>
+    <task id="LOCAL-00003" summary="修改错误类">
+      <created>1662540944840</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1662540944840</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修改错误类">
+      <created>1662607621391</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662607621391</updated>
+    </task>
+    <task id="LOCAL-00005" summary="调整baseEntity">
+      <created>1662621993924</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662621993924</updated>
     </task>
     <task id="LOCAL-00003" summary="mybatis自动加密解密">
       <created>1662563764562</created>
@@ -158,6 +178,7 @@
       <updated>1662563837836</updated>
     </task>
     <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +197,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pageutil" />
+    <MESSAGE value="修改错误类" />
+    <MESSAGE value="调整baseEntity" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整baseEntity" />
     <MESSAGE value="maven-云效果" />
     <MESSAGE value="mybatis自动加密解密" />
     <option name="LAST_COMMIT_MESSAGE" value="mybatis自动加密解密" />
