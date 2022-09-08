@@ -31,7 +31,7 @@ public class DefaultGlobalExceptionHandler {
             put(NumberFormatException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
             put(IllegalArgumentException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
             put(MaxUploadSizeExceededException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(BindException.class, ServerErrorCode.BAD_REQUEST);
+            put(BindException.class, ServerErrorCode.MSG_NOT_READABLE);
         }
     };
 

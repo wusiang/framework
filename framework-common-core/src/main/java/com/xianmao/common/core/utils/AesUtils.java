@@ -73,10 +73,4 @@ public class AesUtils {
             throw ExceptionUtil.wrapRuntime(ex);
         }
     }
-
-    public static void main(String[] args) {
-        System.out.println(decrypt(
-                "pFNcv3XOazyxD5rjvS+Z0UmLBr99L3ySU9F6x/ZkweuOY/xdsKQxl6zEFND4TkI6rC0hTNOZMXhRDQg0W6PRyuXVYnx7p8KzrO7d7ow2YngHZ2Ezsy7SYcJXK4QUwz6IqhAZbWZt9mdrC6E5ZLxMEtoIpM9r72omp6aUNPuVE9y++eU4GE6zucCtAxcamt/3hCVAJN8SRKoMbubVXaD6/vyKoLAJVIXggh2TEmPOc1MD9mTu+pzDCr79o8t2f2YKLzjalxxraH/Q+Auh8T+SorHZ99XlCjPSnLGztaHD7sLcciZt+Nn86vk1ioRqSaaEM2Th5OuizdYyi1+67bimpQ==",
-                "1234567812345679", "1243567812346579"));
-    }
 }

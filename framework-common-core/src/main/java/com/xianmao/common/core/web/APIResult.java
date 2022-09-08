@@ -2,6 +2,7 @@ package com.xianmao.common.core.web;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.xianmao.common.core.exception.IErrorCode;
+import com.xianmao.common.core.exception.ServerErrorCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
@@ -20,8 +21,8 @@ public class APIResult<T> implements Serializable {
     private T data;
     private Boolean success;
     /***响应状态码*/
-    private static int SUCCESS_CODE = 200;
-    private static int FAILURE_CODE = 500;
+    private static int SUCCESS_CODE = ServerErrorCode.SUCCESS.getCode();
+    private static int FAILURE_CODE = ServerErrorCode.FAILURE.getCode();
 
     private APIResult() {
         super();
@@ -35,7 +36,7 @@ public class APIResult<T> implements Serializable {
      */
     public static boolean isSuccess(@Nullable APIResult<?> result) {
         return Optional.ofNullable(result).map((x) -> {
-            return ObjectUtil.equal(200, x.getCode());
+            return ObjectUtil.equal(ServerErrorCode.SUCCESS.getCode(), x.getCode());
         }).orElse(Boolean.FALSE);
     }
 
