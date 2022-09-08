@@ -5,6 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="修改错误类" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="maven-云效果">
+      <change afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/annoation/Crypto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/plugins/SqlCryptoInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/utils/AesUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/utils/CryptoUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/config/MybatisPlusConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/config/MybatisPlusConfiguration.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

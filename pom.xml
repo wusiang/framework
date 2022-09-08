@@ -188,16 +188,26 @@
         </dependencies>
     </dependencyManagement>
 
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>sonatype-nexus-snapshots</id>-->
+<!--            <name>Releases</name>-->
+<!--            <url>http://127.0.0.1:8081/repository/maven-releases/</url>-->
+<!--        </repository>-->
+<!--        <snapshotRepository>-->
+<!--            <id>sonatype-nexus-snapshots</id>-->
+<!--            <name>Snapshot</name>-->
+<!--            <url>http://127.0.0.1:8081/repository/maven-snapshots/</url>-->
+<!--        </snapshotRepository>-->
+<!--    </distributionManagement>-->
     <distributionManagement>
         <repository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Releases</name>
-            <url>http://127.0.0.1:8081/repository/maven-releases/</url>
+            <id>rdc-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2231006-release-akfikC/</url>
         </repository>
         <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Snapshot</name>
-            <url>http://127.0.0.1:8081/repository/maven-snapshots/</url>
+            <id>rdc-snapshots</id>
+            <url>https://packages.aliyun.com/maven/repository/2231006-snapshot-2Q58s4/</url>
         </snapshotRepository>
     </distributionManagement>
 
