@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="修改错误类" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整baseEntity" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,6 +122,7 @@
       <workItem from="1662099025413" duration="910000" />
       <workItem from="1662535308533" duration="5634000" />
       <workItem from="1662607499717" duration="218000" />
+      <workItem from="1662621901190" duration="127000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -151,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662607621391</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="调整baseEntity">
+      <created>1662621993924</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662621993924</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +179,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pageutil" />
     <MESSAGE value="修改错误类" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改错误类" />
+    <MESSAGE value="调整baseEntity" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整baseEntity" />
   </component>
 </project>
