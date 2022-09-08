@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="修改错误类">
-      <change afterPath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/trace/SimpleJobTrace.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/trace/TraceConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/base/BaseSimpleJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/base/BaseSimpleJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/config/JobAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/src/main/java/com/xianmao/common/job/config/JobAutoConfiguration.java" afterDir="false" />
-    </list>
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="修改错误类" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

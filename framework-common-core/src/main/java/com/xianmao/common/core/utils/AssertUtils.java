@@ -1,5 +1,7 @@
 package com.xianmao.common.core.utils;
 
+import com.xianmao.common.core.exception.BussinessException;
+
 import java.text.MessageFormat;
 
 public class AssertUtils {
@@ -13,7 +15,7 @@ public class AssertUtils {
      */
     public static void isTrue(boolean expression) {
         if (expression) {
-            throw new RuntimeException();
+            throw new BussinessException("");
         }
     }
 
@@ -31,7 +33,7 @@ public class AssertUtils {
      */
     public static void isTrue(boolean expression, Object errorMessage) {
         if (expression) {
-            throw new RuntimeException(String.valueOf(errorMessage));
+            throw new BussinessException(String.valueOf(errorMessage));
         }
     }
 
@@ -40,7 +42,7 @@ public class AssertUtils {
      */
     public static void isTrue(boolean expression, MessageFormat errorMessageTemplate, Object... errorMessageArgs) {
         if (expression) {
-            throw new RuntimeException(errorMessageTemplate.format(errorMessageArgs));
+            throw new BussinessException(errorMessageTemplate.format(errorMessageArgs));
         }
     }
 
@@ -50,7 +52,7 @@ public class AssertUtils {
      */
     public static <T> T isNull(T obj) {
         if (obj == null) {
-            throw new RuntimeException();
+            throw new BussinessException("");
         }
         return obj;
     }
@@ -60,7 +62,7 @@ public class AssertUtils {
      */
     public static <T> T isNull(T obj, Object message) {
         if (obj == null) {
-            throw new RuntimeException(String.valueOf(message));
+            throw new BussinessException(String.valueOf(message));
         }
         return obj;
     }
@@ -70,7 +72,7 @@ public class AssertUtils {
      */
     public static <T> T isNull(T obj, MessageFormat errorMessageTemplate, Object... errorMessageArgs) {
         if (obj == null) {
-            throw new RuntimeException(errorMessageTemplate.format(errorMessageArgs));
+            throw new BussinessException(errorMessageTemplate.format(errorMessageArgs));
         }
         return obj;
     }
