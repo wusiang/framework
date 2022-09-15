@@ -4,7 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整baseEntity" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整baseEntity">
+      <change afterPath="$PROJECT_DIR$/ROCKETMQ.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/annotation/MQConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/annotation/MQKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/annotation/MQProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/annotation/MQTransactionProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQPushConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQTransactionProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/BaseMQ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/MessageBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MQBaseAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MQConsumerAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MQProducerAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MqProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/enums/ConsumeMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/exception/MQException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/trace/MessageTrace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/trace/TraceConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/framework-common-core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/framework-common-core.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/framework-common-excel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/framework-common-excel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-job/framework-common-job.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-job/framework-common-job.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/framework-common-mybatis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/framework-common-mybatis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/framework-common-redis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/framework-common-redis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-swagger/framework-common-swagger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/framework-common-swagger.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-web/framework-common-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/framework-common-web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,31 +75,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wujh/Desktop/wusiang/framework/framework-common-web/src/main/resources/META-INF&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.ignored.files&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;7f88338b5ee5280c76caf8c963574c4f&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "/Users/wujh/Desktop/wusiang/framework/framework-common-rocketmq/src/main/resources/META-INF",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files",
+    "spring.configuration.checksum": "7f88338b5ee5280c76caf8c963574c4f"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/framework-common-web/src/main/resources/META-INF" />
-      <recent name="$PROJECT_DIR$/framework-common-swagger/src/main/resources/META-INF" />
+      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/resources/META-INF" />
+      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/trace" />
+      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config" />
+      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base" />
+      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/annotation" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xianmao.common.rocketmq.exception" />
+      <recent name="com.xianmao.common.rocketmq.enums" />
       <recent name="com.xianmao.common.job.trace" />
       <recent name="com.xianmao.common.web.config" />
     </key>
