@@ -1,11 +1,9 @@
 package com.xianmao.common.rocketmq.base;
 
-import com.aliyun.openservices.ons.api.Action;
-import com.aliyun.openservices.ons.api.ConsumeContext;
-import com.aliyun.openservices.ons.api.Message;
-import com.aliyun.openservices.ons.api.MessageListener;
-import com.aliyun.openservices.ons.api.bean.ConsumerBean;
-import com.xianmao.common.rocketmq.trace.MessageTrace;
+import org.apache.rocketmq.client.apis.consumer.ConsumeResult;
+import org.apache.rocketmq.client.apis.consumer.MessageListener;
+import org.apache.rocketmq.client.apis.consumer.PushConsumer;
+import org.apache.rocketmq.client.apis.message.MessageView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,40 +14,41 @@ public abstract class AbstractMQPushConsumer<T> extends AbstractMQConsumer<T> im
 
     private final static Logger log = LoggerFactory.getLogger(AbstractMQPushConsumer.class);
 
-    private ConsumerBean consumer;
+    private PushConsumer consumer;
 
-    public ConsumerBean getConsumer() {
+    public PushConsumer getConsumer() {
         return consumer;
     }
 
-    public void setConsumer(ConsumerBean consumer) {
+    public void setConsumer(PushConsumer consumer) {
         this.consumer = consumer;
     }
 
     public AbstractMQPushConsumer() {
+
     }
 
+
     @Override
-    public Action consume(Message msg, ConsumeContext context) {
+    public ConsumeResult consume(MessageView messageView) {
         try {
-            MessageTrace.consumerTrace(msg);
-            log.debug("receive msgId: {}, tags : {}", msg.getMsgID(), msg.getTag());
-            T t = parseMessage(msg);
-            if (!process(t, context)) {
-                log.warn("consume fail , ask for re-consume , msgId: {}", msg.getMsgID());
-                return Action.ReconsumeLater;
+            log.debug("receive messageId: {}", messageView.getMessageId());
+            T t = parseMessage(messageView);
+            if (!process(t)) {
+                log.warn("consume fail , ask for re-consume , msgId: {}", messageView.getMessageId());
+                return ConsumeResult.FAILURE;
             }
-            return Action.CommitMessage;
+            return ConsumeResult.SUCCESS;
         } catch (Exception e) {
-            //消费失败
-            log.warn("consume fail , ask for re-consume , msgId: {}, {}", msg.getMsgID(), e);
-            return Action.ReconsumeLater;
+            log.warn("consume fail , ask for re-consume , msgId: {}, {}", messageView.getMessageId(), e);
+            return ConsumeResult.FAILURE;
         }
     }
 
     /**
      * 继承这个方法处理消息
+     *
      * @return 处理结果
      */
-    public abstract boolean process(T message, ConsumeContext context);
+    public abstract boolean process(T message);
 }

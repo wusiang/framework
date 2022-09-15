@@ -1,10 +1,10 @@
 package com.xianmao.common.rocketmq.config;
 
-import com.aliyun.openservices.ons.api.PropertyKeyConst;
+import org.apache.rocketmq.client.apis.ClientConfiguration;
+import org.apache.rocketmq.client.apis.SessionCredentialsProvider;
+import org.apache.rocketmq.client.apis.StaticSessionCredentialsProvider;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Properties;
 
 
 @Configuration
@@ -14,22 +14,13 @@ public class MqProperties {
     private String accessKey;
     private String secretKey;
     private String nameSrvAddr;
-    private String environment;
 
-    public Properties getMqPropertie() {
-        Properties properties = new Properties();
-        properties.setProperty(PropertyKeyConst.AccessKey, this.accessKey);
-        properties.setProperty(PropertyKeyConst.SecretKey, this.secretKey);
-        properties.setProperty(PropertyKeyConst.NAMESRV_ADDR, this.nameSrvAddr);
-        return properties;
-    }
-
-    public String getEnvironment() {
-        return environment;
-    }
-
-    public void setEnvironment(String environment) {
-        this.environment = environment;
+    public ClientConfiguration clientConfiguration() {
+        SessionCredentialsProvider sessionCredentialsProvider = new StaticSessionCredentialsProvider(this.accessKey, this.secretKey);
+        return ClientConfiguration.newBuilder()
+                .setEndpoints(this.nameSrvAddr)
+                .setCredentialProvider(sessionCredentialsProvider)
+                .build();
     }
 
     public String getAccessKey() {

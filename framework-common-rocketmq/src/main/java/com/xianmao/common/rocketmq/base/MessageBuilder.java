@@ -1,10 +1,10 @@
 package com.xianmao.common.rocketmq.base;
 
-import com.aliyun.openservices.ons.api.Message;
-import com.aliyun.openservices.shade.org.apache.commons.lang3.StringUtils;
 import com.google.gson.Gson;
 import com.xianmao.common.rocketmq.annotation.MQKey;
-import com.xianmao.common.rocketmq.trace.MessageTrace;
+import org.apache.rocketmq.client.apis.ClientServiceProvider;
+import org.apache.rocketmq.client.apis.message.Message;
+import org.apache.rocketmq.shaded.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -17,9 +17,7 @@ import java.nio.charset.StandardCharsets;
 public class MessageBuilder {
 
     private final Logger log = LoggerFactory.getLogger(MessageBuilder.class);
-
     private static Gson gson = new Gson();
-
     private String topic;
     private String tag;
     private String key;
@@ -53,6 +51,67 @@ public class MessageBuilder {
         this.key = key;
         return this;
     }
+
+    /**
+     * 延时时间单位为毫秒（ms），指定一个时刻，在这个时刻之后才能被消费，这个例子表示 3秒 后才能被消费
+     */
+    public MessageBuilder delayTimeLevel(long delayTime) {
+        // 延时时间单位为毫秒（ms），指定一个时刻，在这个时刻之后才能被消费，这个例子表示 3秒 后才能被消费
+        this.delayTimeLevel = System.currentTimeMillis() + delayTime;
+        return this;
+    }
+
+    public Message build() {
+        String messageKey = "";
+        try {
+            Field[] fields = message.getClass().getDeclaredFields();
+            for (Field field : fields) {
+                Annotation[] allFAnnos = field.getAnnotations();
+                if (allFAnnos.length > 0) {
+                    for (int i = 0; i < allFAnnos.length; i++) {
+                        if (allFAnnos[i].annotationType().equals(MQKey.class)) {
+                            field.setAccessible(true);
+                            MQKey mqKey = MQKey.class.cast(allFAnnos[i]);
+                            Object o = field.get(message);
+                            if (o != null) {
+                                messageKey = StringUtils.isEmpty(mqKey.prefix()) ? o.toString() : (mqKey.prefix() + o.toString());
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            log.error("parse key error : {}", e);
+        }
+        String str = gson.toJson(message);
+        if (StringUtils.isEmpty(topic)) {
+            if (StringUtils.isEmpty(getTopic())) {
+                throw new RuntimeException("no topic defined to send this message");
+            }
+        }
+        final ClientServiceProvider provider = ClientServiceProvider.loadService();
+
+        if (delayTimeLevel != null && delayTimeLevel > 0) {
+            Message message = provider.newMessageBuilder()
+                    .setTopic(topic)
+                    .setTag(tag)
+                    .setKeys(messageKey)
+                    .setDeliveryTimestamp(System.currentTimeMillis() + delayTimeLevel*1000)
+                    .setBody(str.getBytes(StandardCharsets.UTF_8))
+                    .build();
+            return message;
+        } else {
+            Message message = provider.newMessageBuilder()
+                    .setTopic(topic)
+                    .setTag(tag)
+                    .setKeys(messageKey)
+                    .setBody(str.getBytes(StandardCharsets.UTF_8))
+                    .build();
+            return message;
+        }
+    }
+
+
 
     public static Gson getGson() {
         return gson;
@@ -100,53 +159,5 @@ public class MessageBuilder {
 
     public void setDelayTimeLevel(Long delayTimeLevel) {
         this.delayTimeLevel = delayTimeLevel;
-    }
-
-    /**
-     * 延时时间单位为毫秒（ms），指定一个时刻，在这个时刻之后才能被消费，这个例子表示 3秒 后才能被消费
-     */
-    public MessageBuilder delayTimeLevel(long delayTime) {
-        // 延时时间单位为毫秒（ms），指定一个时刻，在这个时刻之后才能被消费，这个例子表示 3秒 后才能被消费
-        this.delayTimeLevel = System.currentTimeMillis() + delayTime;
-        return this;
-    }
-
-    public Message build() {
-        String messageKey = "";
-        try {
-            Field[] fields = message.getClass().getDeclaredFields();
-            for (Field field : fields) {
-                Annotation[] allFAnnos = field.getAnnotations();
-                if (allFAnnos.length > 0) {
-                    for (int i = 0; i < allFAnnos.length; i++) {
-                        if (allFAnnos[i].annotationType().equals(MQKey.class)) {
-                            field.setAccessible(true);
-                            MQKey mqKey = MQKey.class.cast(allFAnnos[i]);
-                            Object o = field.get(message);
-                            if (o != null) {
-                                messageKey = StringUtils.isEmpty(mqKey.prefix()) ? o.toString() : (mqKey.prefix() + o.toString());
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            log.error("parse key error : {}", e);
-        }
-        String str = gson.toJson(message);
-        if (StringUtils.isEmpty(topic)) {
-            if (StringUtils.isEmpty(getTopic())) {
-                throw new RuntimeException("no topic defined to send this message");
-            }
-        }
-        Message message = new Message(topic, tag, str.getBytes(StandardCharsets.UTF_8));
-        if (StringUtils.isNotEmpty(messageKey)) {
-            message.setKey(messageKey);
-        }
-        if (delayTimeLevel != null && delayTimeLevel > 0) {
-            message.setStartDeliverTime(delayTimeLevel);
-        }
-        MessageTrace.producerTrace(message);
-        return message;
     }
 }

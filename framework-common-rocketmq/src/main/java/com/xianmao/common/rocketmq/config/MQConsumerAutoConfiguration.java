@@ -1,13 +1,10 @@
 package com.xianmao.common.rocketmq.config;
 
-import com.aliyun.openservices.ons.api.MessageListener;
-import com.aliyun.openservices.ons.api.PropertyKeyConst;
-import com.aliyun.openservices.ons.api.bean.ConsumerBean;
-import com.aliyun.openservices.ons.api.bean.Subscription;
 import com.xianmao.common.rocketmq.annotation.MQConsumer;
 import com.xianmao.common.rocketmq.base.AbstractMQPushConsumer;
 import com.xianmao.common.rocketmq.base.BaseMQ;
-import com.xianmao.common.rocketmq.enums.ConsumeMode;
+import org.apache.rocketmq.client.apis.ClientServiceProvider;
+import org.apache.rocketmq.client.apis.consumer.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,14 +12,13 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * 自动装配消息消费者
@@ -36,6 +32,8 @@ public class MQConsumerAutoConfiguration extends MQBaseAutoConfiguration {
 
     private final static Logger log = LoggerFactory.getLogger(MQConsumerAutoConfiguration.class);
 
+    private final static ClientServiceProvider provider = ClientServiceProvider.loadService();
+
     @PostConstruct
     public void init() throws Exception {
         Map<String, Object> beans = applicationContext.getBeansWithAnnotation(MQConsumer.class);
@@ -47,7 +45,6 @@ public class MQConsumerAutoConfiguration extends MQBaseAutoConfiguration {
 
     private void checkMessageType(Map.Entry<String, Object> entry) {
         Type superType = entry.getValue().getClass().getGenericSuperclass();
-
         if (superType instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) superType;
             Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
@@ -73,35 +70,29 @@ public class MQConsumerAutoConfiguration extends MQBaseAutoConfiguration {
         Environment environment = applicationContext.getEnvironment();
 
         String topic = environment.resolvePlaceholders(mqConsumer.topic());
-        String tags = mqConsumer.tag();
+        String tag = mqConsumer.tag();
 
         // 配置push consumer
         AbstractMQPushConsumer.class.isAssignableFrom(bean.getClass());
-        ConsumerBean consumerBean = new ConsumerBean();
-
-        //配置文件
-        Properties properties = mqProperties.getMqPropertie();
-        properties.setProperty(PropertyKeyConst.GROUP_ID, getGroupId(mqConsumer));
-
-        //将消费者线程数固定为20个 20为默认值
-        properties.setProperty(PropertyKeyConst.ConsumeThreadNums, "20");
-        properties.put(PropertyKeyConst.MessageModel, environment.resolvePlaceholders(mqConsumer.messageMode()));
-        consumerBean.setProperties(properties);
-
-        //订阅关系
-        Map<Subscription, MessageListener> subscriptionTable = new HashMap<Subscription, MessageListener>();
-        Subscription subscription = new Subscription();
-        subscription.setTopic(topic);
-        subscription.setExpression(tags+getTag(mqProperties));
-        subscriptionTable.put(subscription, (MessageListener) bean);
-
-        //订阅多个topic如上面设置
-        consumerBean.setSubscriptionTable(subscriptionTable);
         AbstractMQPushConsumer abstractMQPushConsumer = (AbstractMQPushConsumer) bean;
-        abstractMQPushConsumer.setConsumer(consumerBean);
-        consumerBean.start();
 
-        log.info(String.format("%s is ready to subscribe message, 订阅关系:{}--{}", bean.getClass().getName()),subscription.getTopic(), subscription.getExpression());
+        PushConsumerBuilder pushConsumerBuilder = provider.newPushConsumerBuilder();
+        //配置文件
+        pushConsumerBuilder.setConsumerGroup(getGroupId(mqConsumer));
+        //将消费者线程数固定为20个 20为默认值
+        pushConsumerBuilder.setConsumptionThreadCount(20);
+        //订阅关系
+        Map<FilterExpression, MessageListener> subscriptionTable = new HashMap<>();
+        FilterExpression filterExpression = new FilterExpression(tag, FilterExpressionType.TAG);
+        subscriptionTable.put(filterExpression, (MessageListener) bean);
+        pushConsumerBuilder.setClientConfiguration(mqProperties.clientConfiguration());
+        pushConsumerBuilder.setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression));
+        pushConsumerBuilder.setMessageListener(abstractMQPushConsumer);
+
+        PushConsumer pushConsumer = pushConsumerBuilder.build();
+        abstractMQPushConsumer.setConsumer(pushConsumer);
+
+        log.info(String.format("%s is ready to subscribe message, 订阅关系:{}--{}", bean.getClass().getName()),topic, filterExpression);
     }
 
     private String getGroupId(MQConsumer mqConsumer) {
@@ -115,21 +106,7 @@ public class MQConsumerAutoConfiguration extends MQBaseAutoConfiguration {
         if (!"*".equals(tags)) {
             group_id.append("_").append(tags);
         }
-        if (!StringUtils.isEmpty(mqProperties.getEnvironment())) {
-            group_id.append("_" + mqProperties.getEnvironment());
-        }
-        if (ConsumeMode.APPNAME.equals(mqConsumer.consumerMode())) {
-            group_id.append("_").append(appName);
-        }
         return group_id.toString();
-    }
-
-    private String getTag(MqProperties mqProperties) {
-        StringBuilder tag = new StringBuilder();
-        if (!StringUtils.isEmpty(mqProperties.getEnvironment())) {
-            tag.append("_" + mqProperties.getEnvironment());
-        }
-        return tag.toString();
     }
 
 }
