@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="framework-common-rocketmq" />
         <module name="framework-common-redis" />
         <module name="framework-common-job" />
         <module name="framework-common-core" />
@@ -18,15 +19,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common" target="17" />
-      <module name="framework" target="17" />
       <module name="framework-bom" target="1.7" />
-      <module name="framework-common-core" target="17" />
-      <module name="framework-common-excel" target="17" />
-      <module name="framework-common-job" target="17" />
-      <module name="framework-common-mybatis" target="17" />
-      <module name="framework-common-redis" target="17" />
-      <module name="framework-common-swagger" target="17" />
-      <module name="framework-common-web" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

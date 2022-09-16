@@ -16,6 +16,7 @@
         <module>framework-common-redis</module>
         <module>framework-common-excel</module>
         <module>framework-common-job</module>
+        <module>framework-common-rocketmq</module>
     </modules>
 
     <name>framework</name>
@@ -46,6 +47,7 @@
         <com.dangdang.version>2.1.5</com.dangdang.version>
         <org.apache.curator.version>2.12.0</org.apache.curator.version>
         <oss.version>3.14.0</oss.version>
+        <rocketmq-client.version>5.0.0</rocketmq-client.version>
         <!---->
         <revision>1.0.0-SNAPSHOT</revision>
     </properties>
@@ -184,6 +186,11 @@
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${oss.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client-java</artifactId>
+                <version>${rocketmq-client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
