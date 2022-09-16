@@ -13,6 +13,7 @@
         <module name="framework-common-core" />
         <module name="framework-common-swagger" />
         <module name="framework-common-excel" />
+        <module name="framework-common-redo" />
         <module name="framework-common-web" />
         <module name="framework-common-mybatis" />
       </profile>

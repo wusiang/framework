@@ -17,6 +17,7 @@
         <module>framework-common-excel</module>
         <module>framework-common-job</module>
         <module>framework-common-rocketmq</module>
+        <module>framework-common-redo</module>
     </modules>
 
     <name>framework</name>

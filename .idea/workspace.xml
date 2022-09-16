@@ -5,21 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整baseEntity">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/annotation/EnableRedo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/annotation/MQConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/annotation/MQConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQPushConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQPushConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/AbstractMQTransactionProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/MessageBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base/MessageBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MQConsumerAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MQConsumerAutoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MQProducerAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MQProducerAutoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MqProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config/MqProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/enums/ConsumeMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/trace/MessageTrace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/trace/TraceConstant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/framework-common-core.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/framework-common-excel.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-job/framework-common-job.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/framework-common-mybatis.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/framework-common-redis.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-swagger/framework-common-swagger.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-web/framework-common-web.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="AnnotationType" />
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -64,45 +61,27 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wujh/Desktop/wusiang/framework/framework-common-web/src/main/resources/META-INF&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wujh/Desktop/wusiang/framework/framework-common-rocketmq/src/main/resources/META-INF&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d96468f1849fabdddf5fac96587caa53&quot;
-}</component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "/Users/wujh/Desktop/wusiang/framework/framework-common-rocketmq/src/main/resources/META-INF",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "f43f3c14083d0f49459d50deb61ecf11"
+    &quot;spring.configuration.checksum&quot;: &quot;f43f3c14083d0f49459d50deb61ecf11&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\project\xiammao\framework\framework-common-redo\src\main\java\com\xianmao\common\redo\lock" />
+      <recent name="D:\java\project\xiammao\framework\framework-common-redo\src\main\java\com\xianmao\common\redo\exception" />
+      <recent name="D:\java\project\xiammao\framework\framework-common-redo\src\main\java\com\xianmao\common\redo\jdbc\vo" />
       <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/resources/META-INF" />
       <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/trace" />
-      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config" />
-      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base" />
-      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/annotation" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.xianmao.common.rocketmq.exception" />
@@ -185,27 +164,6 @@
       <option name="project" value="LOCAL" />
       <updated>1662099927820</updated>
     </task>
-    <task id="LOCAL-00003" summary="修改错误类">
-      <created>1662540944840</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1662540944840</updated>
-    </task>
-    <task id="LOCAL-00004" summary="修改错误类">
-      <created>1662607621391</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1662607621391</updated>
-    </task>
-    <task id="LOCAL-00005" summary="调整baseEntity">
-      <created>1662621993924</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1662621993924</updated>
-    </task>
     <task id="LOCAL-00003" summary="mybatis自动加密解密">
       <created>1662563764562</created>
       <option name="number" value="00003" />
@@ -220,7 +178,13 @@
       <option name="project" value="LOCAL" />
       <updated>1662563837836</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="调整baseEntity">
+      <created>1662621993924</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662621993924</updated>
+    </task>
     <option name="localTasksCounter" value="6" />
     <servers />
   </component>
@@ -241,11 +205,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pageutil" />
     <MESSAGE value="修改错误类" />
-    <MESSAGE value="调整baseEntity" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整baseEntity" />
     <MESSAGE value="maven-云效果" />
     <MESSAGE value="mybatis自动加密解密" />
-    <option name="LAST_COMMIT_MESSAGE" value="mybatis自动加密解密" />
+    <MESSAGE value="调整baseEntity" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整baseEntity" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
