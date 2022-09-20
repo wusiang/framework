@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整baseEntity">
-      <change afterPath="$PROJECT_DIR$/framework-common-redo/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/annotation/EnableRedo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/config/RedoTaskConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/provider/IRedoTaskService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/provider/IRedoTaskServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/provider/entity/RedoTaskDO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/framework-common-core.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-excel/framework-common-excel.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-job/framework-common-job.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/framework-common-mybatis.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redis/framework-common-redis.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/framework-common-swagger.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/framework-common-web.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +19,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -149,6 +141,7 @@
       <workItem from="1662607499717" duration="218000" />
       <workItem from="1662621901190" duration="127000" />
       <workItem from="1663213028163" duration="11384000" />
+      <workItem from="1663653401043" duration="5657000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
