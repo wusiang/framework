@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整baseEntity">
-      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/config/RedoTaskConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/provider/IRedoTaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/provider/IRedoTaskServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/provider/entity/RedoTaskDO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/framework.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +62,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;f43f3c14083d0f49459d50deb61ecf11&quot;
+    &quot;spring.configuration.checksum&quot;: &quot;6f24567210ef1eb9430b50bfc4591de5&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -142,6 +140,11 @@
       <workItem from="1662621901190" duration="127000" />
       <workItem from="1663213028163" duration="11384000" />
       <workItem from="1663653401043" duration="5657000" />
+      <workItem from="1666838580677" duration="1498000" />
+      <workItem from="1666856786314" duration="10000" />
+      <workItem from="1667443481883" duration="643000" />
+      <workItem from="1667453616697" duration="264000" />
+      <workItem from="1667453891790" duration="458000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
