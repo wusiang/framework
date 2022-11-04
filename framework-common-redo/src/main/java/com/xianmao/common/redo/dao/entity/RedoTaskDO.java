@@ -1,9 +1,8 @@
-package com.xianmao.common.redo.provider.entity;
+package com.xianmao.common.redo.dao.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class RedoTaskDO {
-
     private String redoTaskId;
 
     /**
@@ -35,7 +34,7 @@ public class RedoTaskDO {
 
     private String reqParam;
 
-    private Date createTime;
+    private Date createTime = new Date();
 
     public String getRedoTaskId() {
         return redoTaskId;

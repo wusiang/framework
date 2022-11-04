@@ -5,9 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整baseEntity">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/framework.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/REDO.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/RedoDemoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/RedoTodoList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/annotation/DBClusterLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/bean/LockWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/bean/PessimisticLockDO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/bean/RedoReqParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/bean/RedoResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/bean/RedoTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/callback/RedoTaskCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/ClusterLockHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/DatabaseLockControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/LockControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/LockControlRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/DBClusterLockAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/DBClusterLockHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/DBOptimismClusterLockHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/aspect/DBClusterLockAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/dao/PessimisticLockMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/common/constants/RedoHistoryStatusConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/common/exception/RedoTaskCallbackNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/common/exception/RedoTaskNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/configuration/MyConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/configuration/RedoBeanAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/core/InnerMapperBeanDefinitionRegistrar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/core/RedoManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/core/RedoTaskRegisterFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/dao/entity/RedoTaskDO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/dao/mapper/RedoTaskMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/schedule/RedoTaskScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/utils/RedoLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/utils/RedoSleeper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-redo/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/annotation/EnableRedo.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/annotation/EnableRedo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/config/RedoTaskConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/provider/IRedoTaskService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/provider/IRedoTaskServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/provider/entity/RedoTaskDO.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +70,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="useMavenConfig" value="true" />
-        <option name="userSettingsFile" value="D:\java\soft\apache-maven-3.8.6\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -45,39 +81,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wujh/Desktop/wusiang/framework/framework-common-rocketmq/src/main/resources/META-INF&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;6f24567210ef1eb9430b50bfc4591de5&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "/Users/wujh/Desktop/wusiang/framework",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.40574712",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "6f24567210ef1eb9430b50bfc4591de5"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\java\project\xiammao\framework\framework-common-redo\src\main\java\com\xianmao\common\redo\lock" />
-      <recent name="D:\java\project\xiammao\framework\framework-common-redo\src\main\java\com\xianmao\common\redo\exception" />
-      <recent name="D:\java\project\xiammao\framework\framework-common-redo\src\main\java\com\xianmao\common\redo\jdbc\vo" />
-      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/resources/META-INF" />
-      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/trace" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock" />
+      <recent name="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock" />
+      <recent name="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/bean" />
+      <recent name="$PROJECT_DIR$/framework-common-redo/src/main/resources/META-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.xianmao.common.rocketmq.exception" />
-      <recent name="com.xianmao.common.rocketmq.enums" />
-      <recent name="com.xianmao.common.job.trace" />
-      <recent name="com.xianmao.common.web.config" />
+      <recent name="com.xianmao.common.redo" />
+      <recent name="com.xianmao.common.redo.clusterlock.dblock.asept" />
+      <recent name="com.xianmao.common.redo.clusterlock.dblock.dao" />
+      <recent name="com.xianmao.common.redo.clusterlock.dblock" />
+      <recent name="com.xianmao.common.redo.annotation" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -145,6 +182,9 @@
       <workItem from="1667443481883" duration="643000" />
       <workItem from="1667453616697" duration="264000" />
       <workItem from="1667453891790" duration="458000" />
+      <workItem from="1667457226439" duration="311000" />
+      <workItem from="1667546733860" duration="842000" />
+      <workItem from="1667549166773" duration="4137000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -181,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662621993924</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="调整baseEntity">
+      <created>1667457528983</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667457528983</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
