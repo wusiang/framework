@@ -16,8 +16,8 @@ public class InnerMapperBeanDefinitionRegistrar implements ImportBeanDefinitionR
 
     private ResourceLoader resourceLoader;
 
-    private String[] basePackages = new String[]{"cn.com.kun.component.redo.dao",
-            "cn.com.kun.component.clusterlock.dblock.dao"};
+    private String[] basePackages = new String[]{"com.xianmao.common.redo.dao.mapper",
+            "com.xianmao.common.redo.clusterlock.dblock.dao"};
 
     @Override
     public void setResourceLoader(ResourceLoader resourceLoader) {

@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 */
 @ComponentScan({"com.xianmao.common.redo"})
 @Configuration
-@Import({InnerMapperBeanDefinitionRegistrar.class})
+//@Import({InnerMapperBeanDefinitionRegistrar.class})
 public class RedoBeanAutoConfiguration {
 
     @PostConstruct

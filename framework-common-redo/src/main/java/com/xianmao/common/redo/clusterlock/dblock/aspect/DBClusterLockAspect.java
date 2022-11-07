@@ -33,7 +33,7 @@ public class DBClusterLockAspect {
     @Value("${dbclusterlock.clusterCode:}")
     private String clusterCode;
 
-    @Pointcut("@annotation(cn.com.kun.component.clusterlock.annotation.DBClusterLock)")
+    @Pointcut("@annotation(com.xianmao.common.redo.annotation.DBClusterLock)")
     public void pointCut(){
 
     }

@@ -46,6 +46,9 @@ public class DBClusterLockHandler implements ClusterLockHandler {
      */
     private Map<String, String> acquireLockThreadName = new HashMap<>();
 
+    @Autowired
+    private PessimisticLockMapper pessimisticLockMapper;
+
     /**
      * 悲观锁-上锁
      * @param resourceName
