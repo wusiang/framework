@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class Error {
 
-    public static String buildError(Integer code, String msg) {
+    public static String buildError(IErrorCode code, String msg) {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attr.getRequest();
         String paramInfo = null;
@@ -23,12 +23,12 @@ public class Error {
         return buildErrorInfo(code, msg, request.getMethod() + ":" + request.getRequestURI(), paramInfo);
     }
 
-    public static String buildErrorInfo(Integer code, String errorMsg, String method, String paramInfo, Object... extra) {
+    public static String buildErrorInfo(IErrorCode code, String errorMsg, String method, String paramInfo, Object... extra) {
         StringBuilder sb = new StringBuilder();
         sb.append("----");
         sb.append(StringPool.PIPE);
         sb.append("错误码:");
-        sb.append(code);
+        sb.append(code.getCode());
         sb.append(StringPool.PIPE);
         sb.append("方法:");
         sb.append(method);

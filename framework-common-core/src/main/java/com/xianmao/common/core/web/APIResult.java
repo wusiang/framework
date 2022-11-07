@@ -108,6 +108,18 @@ public class APIResult<T> implements Serializable {
     /**
      * 返回R
      *
+     * @param iErrorCode 状态码
+     * @param msg  消息
+     * @param <T>  T 泛型标记
+     * @return R
+     */
+    public static <T> APIResult<T> fail(IErrorCode iErrorCode, String msg) {
+        return restResult(iErrorCode.getCode(), msg, null, Boolean.FALSE);
+    }
+
+    /**
+     * 返回R
+     *
      * @param errorCode 业务代码
      * @param <T>        T 泛型标记
      * @return R

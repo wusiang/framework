@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整baseEntity">
-      <change afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ErrorLevel.java" afterDir="false" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整remo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/BussinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/BussinessException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/IErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/IErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/DBClusterLockAspect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/DBClusterLockHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/DBClusterLockHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/aspect/DBClusterLockAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/aspect/DBClusterLockAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/configuration/RedoBeanAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/configuration/RedoBeanAutoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/core/InnerMapperBeanDefinitionRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/core/InnerMapperBeanDefinitionRegistrar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +150,7 @@
       <workItem from="1667546733860" duration="842000" />
       <workItem from="1667549166773" duration="4655000" />
       <workItem from="1667554541327" duration="5497000" />
-      <workItem from="1667790325097" duration="1459000" />
+      <workItem from="1667790325097" duration="2303000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -200,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667457528983</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="调整remo">
+      <created>1667791894751</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667791894751</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +224,8 @@
     <MESSAGE value="maven-云效果" />
     <MESSAGE value="mybatis自动加密解密" />
     <MESSAGE value="调整baseEntity" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整baseEntity" />
+    <MESSAGE value="调整remo" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整remo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -40,7 +40,11 @@ public class DefaultGlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public APIResult<?> handleException(Exception e) {
         IErrorCode iErrorCode = exceptionMap.getOrDefault(e, ServerErrorCode.INTERNAL_SERVER_ERROR);
-        logger.error(Error.buildError(iErrorCode.getCode(), ExceptionUtils.getExceptionString(e)));
+        if (iErrorCode.getLevel().equals(ErrorLevel.ERROR)){
+            logger.error(Error.buildError(iErrorCode, ExceptionUtils.getExceptionString(e)));
+        } else {
+            logger.warn(Error.buildError(iErrorCode, ExceptionUtils.getExceptionString(e)));
+        }
         return APIResult.fail(iErrorCode);
     }
 
@@ -55,14 +59,14 @@ public class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public APIResult<?> handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
-        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR.getCode(), ExceptionUtils.getExceptionString(e)));
+        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)));
         return APIResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public APIResult<?> MethodArgumentNotValidException(MethodArgumentNotValidException e) {
         FieldError fieldError = e.getBindingResult().getFieldError();
-        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR.getCode(), ExceptionUtils.getExceptionString(e)), e);
+        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)), e);
         assert fieldError != null;
         return APIResult.fail(HttpStatus.BAD_REQUEST.value(), fieldError.getDefaultMessage());
     }
@@ -72,7 +76,7 @@ public class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public APIResult<?> handleException(HttpRequestMethodNotSupportedException e) {
-        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR.getCode(), ExceptionUtils.getExceptionString(e)));
+        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)));
         return APIResult.fail("不支持' " + e.getMethod() + "'请求");
     }
 }

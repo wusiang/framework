@@ -25,18 +25,18 @@ public interface IErrorCode extends Serializable {
     ErrorLevel getLevel();
 
     default BussinessException exp() {
-        return new BussinessException(getCode(), getValue());
+        return new BussinessException(this, getValue());
     }
 
     default BussinessException exp(Exception e) {
-        return new BussinessException(getCode(), getValue(), e);
+        return new BussinessException(this, getValue(), e);
     }
 
     default BussinessException exp(String... param) {
-        return new BussinessException(getCode(), String.format(getValue(), param));
+        return new BussinessException(this, String.format(getValue(), param));
     }
 
     default BussinessException exp(String param) {
-        return new BussinessException(getCode(), param);
+        return new BussinessException(this, param);
     }
 }
