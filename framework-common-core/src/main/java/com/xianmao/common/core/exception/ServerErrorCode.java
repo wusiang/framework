@@ -41,7 +41,10 @@ public enum ServerErrorCode implements IErrorCode {
      * 状态码对应说明文案
      */
     private final String value;
-
+    /**
+     * 日志级别
+     *
+     */
     private final ErrorLevel level;
 
     @Override
