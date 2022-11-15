@@ -1,7 +1,7 @@
 package com.xianmao.common.core.config;
 
 import cn.hutool.core.thread.ThreadFactoryBuilder;
-import com.xianmao.common.core.thread.AsyncProperties;
+import com.xianmao.common.core.props.AsyncProperties;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
