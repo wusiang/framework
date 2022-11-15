@@ -54,7 +54,6 @@ public class RedoManager {
      * @return
      */
     public boolean addRedoTask(String redoTaskId, String reqParam){
-
         //添加补偿任务入库
         RedoTask redoTask = RedoTaskRegisterFactory.findRedoTask(redoTaskId);
         RedoTaskDO redoTaskDO = new RedoTaskDO();
@@ -181,14 +180,12 @@ public class RedoManager {
     }
 
     private void deleteRedoTask(RedoTaskDO redoTaskDO) {
-
         //TODO 将执行记录记到 补偿流水表，能反馈组件的执行情况，记录是被成功执行或是已超过待补偿期限
         recordRedoHistory(redoTaskDO);
         redoTaskMapper.delete(redoTaskDO.getRedoTaskId());
     }
 
     private void recordRedoHistory(RedoTaskDO redoTaskDO) {
-
         //TODO 这个可以设置开关，让用户自行选择，是否需要记补偿流水
 
     }

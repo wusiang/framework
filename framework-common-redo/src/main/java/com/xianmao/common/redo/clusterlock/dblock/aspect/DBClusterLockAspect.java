@@ -16,11 +16,6 @@ import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Method;
 
-/**
- * author:xuyaokun_kzx
- * date:2021/7/7
- * desc:
-*/
 @Component
 @Aspect
 public class DBClusterLockAspect {

@@ -87,8 +87,8 @@ public class DBClusterLockHandler implements ClusterLockHandler {
         while (true){
             try {
                 //假如PessimisticLockMapper是通过xml文件定义，可以通过getMapper获取
-                PessimisticLockMapper mapper = sqlSession.getMapper(PessimisticLockMapper.class);
-                PessimisticLockDO pessimisticLockDO = mapper.acquireLock(paramMap);
+//                PessimisticLockMapper mapper = sqlSession.getMapper(PessimisticLockMapper.class);
+                PessimisticLockDO pessimisticLockDO = pessimisticLockMapper.acquireLock(paramMap);
                 if (pessimisticLockDO == null){
                     //抢锁失败
                     LOGGER.info("抢锁失败，PessimisticLockDO为空，请检查数据库配置，是否存在该记录行。resource：{}, 当前线程{}",

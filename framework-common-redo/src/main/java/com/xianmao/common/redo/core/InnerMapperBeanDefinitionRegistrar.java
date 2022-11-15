@@ -38,7 +38,7 @@ public class InnerMapperBeanDefinitionRegistrar implements ImportBeanDefinitionR
     }
 
     private String[] getAllBasePackages(BeanDefinitionRegistry registry) {
-
+        //根据启动类名称获取启动类
         BeanDefinition beanDefinition = registry.getBeanDefinition("application");
         //启动类
         String applicationBeanClass = beanDefinition.getBeanClassName();
