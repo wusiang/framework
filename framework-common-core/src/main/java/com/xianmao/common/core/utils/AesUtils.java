@@ -19,7 +19,7 @@ public class AesUtils {
     }
 
     public static String encrypt(String sSrc, String sKey, String sIv) {
-        AssertUtils.isNull(StrUtil.isBlank(sKey), "key must not been null");
+        AssertUtils.hasLength(sKey, "key must not been null");
         byte[] raw = sKey.getBytes(StandardCharsets.UTF_8);
         SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
         try {

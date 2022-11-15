@@ -1,8 +1,9 @@
 package com.xianmao.common.core.utils;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
+import com.github.pagehelper.util.StringUtil;
 import com.xianmao.common.core.exception.BussinessException;
-
-import java.text.MessageFormat;
 
 public class AssertUtils {
 
@@ -10,80 +11,63 @@ public class AssertUtils {
         throw new AssertionError("No " + getClass().getName() + " instances for you!");
     }
 
-    /**
-     * 检测表达式若为True则抛出异常
-     */
-    public static void isTrue(boolean expression) {
-        if (expression) {
-            throw new BussinessException("");
+    public static void assertTrue(boolean expression) {
+        assertTrue(expression, null, null, (Object[]) null);
+    }
+
+    public static void assertTrue(boolean expression, String message, Object... args) {
+        if (!expression) {
+            throw new BussinessException(getMessage(message, args, "[Assertion failed] - the expression must be true"));
         }
     }
 
-    /**
-     * 检测表达式若为True则抛出异常
-     */
-    public static void isTrue(boolean expression, RuntimeException e) {
-        if (expression) {
-            throw e;
-        }
-    }
-
-    /**
-     * 检测表达式若为True则抛出异常
-     */
-    public static void isTrue(boolean expression, Object errorMessage) {
-        if (expression) {
-            throw new BussinessException(String.valueOf(errorMessage));
-        }
-    }
-
-    /**
-     * 检测表达式若为True则抛出异常
-     */
-    public static void isTrue(boolean expression, MessageFormat errorMessageTemplate, Object... errorMessageArgs) {
-        if (expression) {
-            throw new BussinessException(errorMessageTemplate.format(errorMessageArgs));
-        }
+    public static <T> T assertNotNull(T object) {
+        return assertNotNull(object, null, null, (Object[]) null);
     }
 
 
-    /**
-     * 参数数据若为null则抛出异常
-     */
-    public static <T> T isNull(T obj) {
-        if (obj == null) {
-            throw new BussinessException("");
+    public static <T> T assertNotNull(T object, String message, Object... args) {
+        if (object == null) {
+            throw new BussinessException(getMessage(message, args, "[Assertion failed] - the argument is required; it must not be null"));
         }
-        return obj;
+        return object;
     }
 
-    /**
-     * 参数数据若为null则抛出异常
-     */
-    public static <T> T isNull(T obj, Object message) {
-        if (obj == null) {
-            throw new BussinessException(String.valueOf(message));
-        }
-        return obj;
+    public static <T> T assertNull(T object) {
+        return assertNull(object, null, null, (Object[]) null);
     }
 
-    /**
-     * 参数数据若为null则抛出异常
-     */
-    public static <T> T isNull(T obj, MessageFormat errorMessageTemplate, Object... errorMessageArgs) {
-        if (obj == null) {
-            throw new BussinessException(errorMessageTemplate.format(errorMessageArgs));
+
+    public static <T> T assertNull(T object, String message, Object... args) {
+        if (object != null) {
+            throw new BussinessException(getMessage(message, args, "[Assertion failed] - the object argument must be null"));
         }
-        return obj;
+        return object;
     }
 
-    /**
-     * 参数数据若为null则抛出异常
-     */
-    public static <T> T isNull(T obj, RuntimeException e) {
-        if (obj == null) {
-            throw e;
+    public static void notEmpty(Object[] array, String message) {
+        if (ObjectUtil.isEmpty(array)) {
+            throw new IllegalArgumentException(message);
         }
-        return obj;
+    }
+
+    public static void hasLength(String text, String message) {
+        if (StrUtil.isBlank(text)) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    public static void hasLength(String text) {
+        hasLength(text, "[Assertion failed] - this String argument must have length; it must not be null or empty");
+    }
+
+    private static String getMessage(String message, Object[] args, String defaultMessage) {
+        if (message == null) {
+            message = defaultMessage;
+        }
+        if (args == null || args.length == 0) {
+            return message;
+        }
+        return String.format(message, args);
     }
 }
