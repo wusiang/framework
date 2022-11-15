@@ -2,7 +2,6 @@ package com.xianmao.common.core.utils;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.github.pagehelper.util.StringUtil;
 import com.xianmao.common.core.exception.BussinessException;
 
 public class AssertUtils {
