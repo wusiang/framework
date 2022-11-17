@@ -28,6 +28,20 @@ CREATE TABLE `tbl_redotask`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 ```
+```java
+//@GetMapping("/test")
+//    public String test(){
+//        //组织即将入库的参数，后续会使用该参数触发回调
+//        RedoReqParam redoReqParam = new RedoReqParam();
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("name", "xyk");
+//        map.put("desc", "kunghsu");
+//        redoReqParam.setParams(map);
+//        //调用组件提供出来的工具类方法，添加回调任务
+//        redoManager.addRedoTask("redoBiz1", JsonUtils.toJson(redoReqParam));
+//        return "OK";
+//    }
+```
 
 
 

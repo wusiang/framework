@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="调整error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/DBClusterLockHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/DBClusterLockHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/aspect/DBClusterLockAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock/aspect/DBClusterLockAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/configuration/RedoBeanAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/configuration/RedoBeanAutoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/core/RedoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/core/RedoManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +155,8 @@
       <workItem from="1667890210862" duration="2684000" />
       <workItem from="1667961595444" duration="2694000" />
       <workItem from="1668481861894" duration="10151000" />
-      <workItem from="1668500764455" duration="1716000" />
+      <workItem from="1668500764455" duration="2517000" />
+      <workItem from="1668587024549" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
