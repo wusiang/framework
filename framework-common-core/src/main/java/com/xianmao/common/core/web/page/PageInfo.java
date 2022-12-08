@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Page<T> implements Serializable {
+public class PageInfo<T> implements Serializable {
 
     /**
      * 总记录数
