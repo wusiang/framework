@@ -23,11 +23,19 @@ public class JavaTimeModule extends SimpleModule {
 
     public JavaTimeModule() {
         super(PackageVersion.VERSION);
+        // ======================= 时间反序列化规则 ===============================
+        // yyyy-MM-dd HH:mm:ss
         this.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DATETIME_FORMAT));
+        // yyyy-MM-dd
         this.addDeserializer(LocalDate.class, new LocalDateDeserializer(DATE_FORMAT));
+        // HH:mm:ss
         this.addDeserializer(LocalTime.class, new LocalTimeDeserializer(TIME_FORMAT));
+        // ======================= 时间反序列化规则 ==============================
+        // yyyy-MM-dd HH:mm:ss
         this.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DATETIME_FORMAT));
+        // yyyy-MM-dd
         this.addSerializer(LocalDate.class, new LocalDateSerializer(DATE_FORMAT));
+        // HH:mm:ss
         this.addSerializer(LocalTime.class, new LocalTimeSerializer(TIME_FORMAT));
     }
 }
