@@ -29,8 +29,8 @@
         <maven.compiler.target>17</maven.compiler.target>
         <!---->
         <spring-boot.version>2.7.1</spring-boot.version>
-        <spring-cloud.version>2021.0.3</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
         <!---->
         <hutool.version>5.8.0</hutool.version>
         <knife4j.version>2.0.9</knife4j.version>
