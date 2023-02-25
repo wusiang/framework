@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
-      <change afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/support/MetaHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base/BaseEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +23,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -66,8 +65,8 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "3740c9a30da1e537c6406e4339bb237a",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "spring.configuration.checksum": "3606ca4ad7915a5f616445f3cfe7bf98",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -176,6 +175,10 @@
       <workItem from="1670569985723" duration="10000" />
       <workItem from="1670577283131" duration="2851000" />
       <workItem from="1670580925048" duration="337000" />
+      <workItem from="1671022133909" duration="27000" />
+      <workItem from="1677326407047" duration="1068000" />
+      <workItem from="1677327489155" duration="642000" />
+      <workItem from="1677328319538" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
