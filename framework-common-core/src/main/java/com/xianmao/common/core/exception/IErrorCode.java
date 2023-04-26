@@ -17,13 +17,6 @@ public interface IErrorCode extends Serializable {
      */
     String getValue();
 
-    /**
-     * 日志级别
-     *
-     * @return level
-     */
-    ErrorLevel getLevel();
-
     default BussinessException exp() {
         return new BussinessException(this, getValue());
     }

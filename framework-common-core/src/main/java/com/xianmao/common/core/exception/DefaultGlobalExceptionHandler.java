@@ -40,11 +40,7 @@ public class DefaultGlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public APIResult<?> handleException(Exception e) {
         IErrorCode iErrorCode = exceptionMap.getOrDefault(e, ServerErrorCode.INTERNAL_SERVER_ERROR);
-        if (iErrorCode.getLevel().equals(ErrorLevel.ERROR)){
-            logger.error(Error.buildError(iErrorCode, ExceptionUtils.getExceptionString(e)));
-        } else {
-            logger.warn(Error.buildError(iErrorCode, ExceptionUtils.getExceptionString(e)));
-        }
+        logger.error(Error.buildError(iErrorCode, ExceptionUtils.getExceptionString(e)));
         return APIResult.fail(iErrorCode);
     }
 
