@@ -12,9 +12,6 @@ public class PageUtils {
 
     /**
      * 转化成mybatis plus中的Page
-     *
-     * @param pageQuery 查询条件
-     * @return IPage
      */
     public static <T> IPage<T> getPage(PageQuery pageQuery) {
         Page<T> page = new Page<>(Convert.toInt(pageQuery.getPageNo(), 1), Convert.toInt(pageQuery.getPageSize(), 10));

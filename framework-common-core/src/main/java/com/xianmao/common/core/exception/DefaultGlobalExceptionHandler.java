@@ -24,7 +24,7 @@ import java.util.Map;
 public class DefaultGlobalExceptionHandler {
     private static Logger logger = LoggerFactory.getLogger(DefaultGlobalExceptionHandler.class);
 
-    private static Map<Class, IErrorCode> exceptionMap = new HashMap<>() {
+    private static Map<Class, IErrorCode> exceptionMap = new HashMap<Class, IErrorCode>() {
         {
             put(HttpMessageNotReadableException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
             put(ClientAbortException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);

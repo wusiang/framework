@@ -56,7 +56,7 @@ public class SwaggerConfig {
             }
             private <T extends RequestMappingInfoHandlerMapping> void customizeSpringfoxHandlerMappings(List<T> mappings) {
                 List<T> copy = mappings.stream()
-                        .filter(mapping -> mapping.getPatternParser() == null).toList();
+                        .filter(mapping -> mapping.getPatternParser() == null).collect(Collectors.toList());
                 mappings.clear();
                 mappings.addAll(copy);
             }

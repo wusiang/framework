@@ -45,7 +45,8 @@ public abstract class AbstractMQConsumer<T> {
      */
     protected Type getMessageType() {
         Type superType = this.getClass().getGenericSuperclass();
-        if (superType instanceof ParameterizedType parameterizedType) {
+        if (superType instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType)superType;
             Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
             Assert.isTrue(actualTypeArguments.length == 1, "Number of type arguments must be 1");
             return actualTypeArguments[0];
