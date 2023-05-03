@@ -79,6 +79,7 @@ public class CryptoUtils {
         });
     }
 
+
     /**
      * 对含加密注解的字段进行批量加密
      */
