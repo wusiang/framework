@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
+      <change afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/enums/Algorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ErrorLevel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/IErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/IErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/support/MetaHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/annoation/Crypto.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/annoation/Crypto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,35 +46,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wujh/Desktop/wusiang/framework/framework-common-log/src/main/java/com/xianmao/common/log/event&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;65188ab62f59c41efceadf450dbbddd8&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/java/project/xiammao/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/enums",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.40574712",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "spring.configuration.checksum": "65188ab62f59c41efceadf450dbbddd8",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\project\xiammao\framework\framework-common-mybatis\src\main\java\com\xianmao\common\mybatis\enums" />
       <recent name="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/event" />
       <recent name="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/cryptor" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock" />
-      <recent name="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock/dblock" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.xianmao.common.log.enums" />
@@ -189,6 +185,9 @@
       <workItem from="1681911820610" duration="3226000" />
       <workItem from="1682342854330" duration="118000" />
       <workItem from="1682508876934" duration="306000" />
+      <workItem from="1682514022617" duration="477000" />
+      <workItem from="1682598311002" duration="34000" />
+      <workItem from="1683104593821" duration="664000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
