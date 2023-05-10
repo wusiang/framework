@@ -61,7 +61,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "spring.configuration.checksum": "304e1c8e91ce651ce4ed34c454476d32",
     "vue.rearranger.settings.migration": "true"
   }
@@ -188,6 +188,7 @@
       <workItem from="1683104593821" duration="664000" />
       <workItem from="1683277005350" duration="1428000" />
       <workItem from="1683344141961" duration="21000" />
+      <workItem from="1683422768644" duration="1695000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
