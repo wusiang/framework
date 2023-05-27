@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
+      <change afterPath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/filter/TraceFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/trace/TraceHandlerInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/web/page/PageInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/support/PageInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/web/page/PageSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/utils/PageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/utils/PageUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/config/FilterConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/config/FilterConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +71,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;304e1c8e91ce651ce4ed34c454476d32&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;31d57f4e9bc551faf1ce833f5876a76d&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -187,6 +198,13 @@
       <workItem from="1683277005350" duration="1428000" />
       <workItem from="1683344141961" duration="21000" />
       <workItem from="1683422768644" duration="1695000" />
+      <workItem from="1683975140249" duration="1000" />
+      <workItem from="1684066581976" duration="740000" />
+      <workItem from="1684474896342" duration="1000" />
+      <workItem from="1684669508810" duration="23000" />
+      <workItem from="1684669539393" duration="22000" />
+      <workItem from="1684928387120" duration="48000" />
+      <workItem from="1685146680409" duration="703000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>

@@ -39,7 +39,6 @@
         <knife4j.version>2.0.9</knife4j.version>
         <easyexcel.version>3.1.0</easyexcel.version>
         <mybatis.plus.version>3.5.1</mybatis.plus.version>
-        <pagehelper.version>1.4.6</pagehelper.version>
         <lombok.version>1.18.22</lombok.version>
         <!--数据库-->
         <mysql.version>8.0.28</mysql.version>
@@ -144,11 +143,6 @@
                         <artifactId>spring-data-redis</artifactId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>

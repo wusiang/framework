@@ -4,9 +4,15 @@ import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.xianmao.common.mybatis.support.PageInfo;
 import com.xianmao.common.mybatis.support.PageQuery;
 import org.springframework.lang.Nullable;
+
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class PageUtils {
 
@@ -28,6 +34,20 @@ public class PageUtils {
             }
         }
         return page;
+    }
+
+    public static <T, R> PageInfo<R> convert2PageInfo(IPage<T> page, Function<T, R> function) {
+        PageInfo<R> pageInfo = new PageInfo<>();
+        pageInfo.setTotal(page.getTotal());
+        pageInfo.setCurrent(page.getCurrent());
+        if (!CollectionUtils.isEmpty(page.getRecords())) {
+            if (function == null) {
+                pageInfo.setRows((List<R>) page.getRecords());
+            } else {
+                pageInfo.setRows(page.getRecords().stream().map(function::apply).collect(Collectors.toList()));
+            }
+        }
+        return pageInfo;
     }
 
 

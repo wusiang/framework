@@ -18,6 +18,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.xianmao</groupId>
             <artifactId>framework-common-core</artifactId>
         </dependency>

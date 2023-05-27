@@ -1,4 +1,4 @@
-package com.xianmao.common.core.web.page;
+package com.xianmao.common.mybatis.support;
 
 
 import lombok.AllArgsConstructor;
@@ -19,6 +19,11 @@ public class PageInfo<T> implements Serializable {
      * 总记录数
      */
     private long total;
+
+    /**
+     * 当前页数
+     */
+    private long current;
 
     /**
      * 列表数据
