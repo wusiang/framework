@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
-      <change afterPath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/filter/TraceFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/trace/TraceHandlerInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/web/page/PageInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/support/PageInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/web/page/PageSupport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/utils/PageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/utils/PageUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/config/FilterConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/config/FilterConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +195,9 @@
       <workItem from="1684669508810" duration="23000" />
       <workItem from="1684669539393" duration="22000" />
       <workItem from="1684928387120" duration="48000" />
-      <workItem from="1685146680409" duration="703000" />
+      <workItem from="1685146680409" duration="1030000" />
+      <workItem from="1685266964099" duration="36000" />
+      <workItem from="1685366288967" duration="366000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -318,17 +311,6 @@
     <MESSAGE value="添加工具" />
     <MESSAGE value="升级版本" />
     <option name="LAST_COMMIT_MESSAGE" value="升级版本" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/core/InnerMapperBeanDefinitionRegistrar.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
