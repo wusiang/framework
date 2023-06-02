@@ -38,8 +38,10 @@ public class PageUtils {
 
     public static <T, R> PageInfo<R> convert2PageInfo(IPage<T> page, Function<T, R> function) {
         PageInfo<R> pageInfo = new PageInfo<>();
-        pageInfo.setTotal(page.getTotal());
-        pageInfo.setCurrent(page.getCurrent());
+        pageInfo.setTotalCount((int) page.getTotal());
+        pageInfo.setPageSize((int) page.getSize());
+        pageInfo.setCurrPage((int) page.getCurrent());
+        pageInfo.setTotalPage((int) page.getPages());
         if (!CollectionUtils.isEmpty(page.getRecords())) {
             if (function == null) {
                 pageInfo.setRows((List<R>) page.getRecords());
