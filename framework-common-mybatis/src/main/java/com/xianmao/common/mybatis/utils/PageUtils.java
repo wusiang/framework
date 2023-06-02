@@ -44,7 +44,7 @@ public class PageUtils {
         pageInfo.setTotalPage((int) page.getPages());
         if (!CollectionUtils.isEmpty(page.getRecords())) {
             if (function == null) {
-                pageInfo.setRows((List<R>) page.getRecords());
+                pageInfo.setRows(page.getRecords());
             } else {
                 pageInfo.setRows(page.getRecords().stream().map(function::apply).collect(Collectors.toList()));
             }
