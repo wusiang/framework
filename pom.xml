@@ -58,12 +58,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--项目组件-->
-            <dependency>
-                <groupId>com.xianmao</groupId>
-                <artifactId>framework-common-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <!-- spring boot 依赖 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -190,6 +184,17 @@
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-client-java</artifactId>
                 <version>${rocketmq-client.version}</version>
+            </dependency>
+            <!--项目组件-->
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-excel</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

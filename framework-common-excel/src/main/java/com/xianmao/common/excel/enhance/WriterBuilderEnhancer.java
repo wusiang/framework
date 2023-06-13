@@ -21,7 +21,7 @@ public interface WriterBuilderEnhancer {
 	 * @return ExcelWriterBuilder
 	 */
 	ExcelWriterBuilder enhanceExcel(ExcelWriterBuilder writerBuilder, HttpServletResponse response,
-									ResponseExcel responseExcel, String templatePath);
+			ResponseExcel responseExcel, String templatePath);
 
 	/**
 	 * ExcelWriterSheetBuilder 增强
@@ -34,6 +34,6 @@ public interface WriterBuilderEnhancer {
 	 * @return ExcelWriterSheetBuilder
 	 */
 	ExcelWriterSheetBuilder enhanceSheet(ExcelWriterSheetBuilder writerSheetBuilder, Integer sheetNo, String sheetName,
-                                         Class<?> dataClass, String template, Class<? extends HeadGenerator> headEnhancerClass);
+			Class<?> dataClass, String template, Class<? extends HeadGenerator> headEnhancerClass);
 
 }

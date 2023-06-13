@@ -23,7 +23,7 @@ public class DefaultWriterBuilderEnhancer implements WriterBuilderEnhancer {
 	 */
 	@Override
 	public ExcelWriterBuilder enhanceExcel(ExcelWriterBuilder writerBuilder, HttpServletResponse response,
-										   ResponseExcel responseExcel, String templatePath) {
+			ResponseExcel responseExcel, String templatePath) {
 		// doNothing
 		return writerBuilder;
 	}

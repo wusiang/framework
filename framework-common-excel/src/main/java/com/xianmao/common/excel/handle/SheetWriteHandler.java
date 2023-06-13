@@ -4,9 +4,6 @@ import com.xianmao.common.excel.annotation.ResponseExcel;
 
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * sheet 写出处理器
- */
 public interface SheetWriteHandler {
 
 	/**

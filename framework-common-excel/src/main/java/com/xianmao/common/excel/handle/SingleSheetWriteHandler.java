@@ -1,5 +1,6 @@
 package com.xianmao.common.excel.handle;
 
+import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.write.metadata.WriteSheet;
@@ -8,6 +9,7 @@ import com.xianmao.common.excel.config.ExcelConfigProperties;
 import com.xianmao.common.excel.enhance.WriterBuilderEnhancer;
 import com.xianmao.common.excel.kit.ExcelException;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.util.CollectionUtils;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
 public class SingleSheetWriteHandler extends AbstractSheetWriteHandler {
 
 	public SingleSheetWriteHandler(ExcelConfigProperties configProperties,
-								   ObjectProvider<List<Converter<?>>> converterProvider, WriterBuilderEnhancer excelWriterBuilderEnhance) {
+			ObjectProvider<List<Converter<?>>> converterProvider, WriterBuilderEnhancer excelWriterBuilderEnhance) {
 		super(configProperties, converterProvider, excelWriterBuilderEnhance);
 	}
 
@@ -40,14 +42,28 @@ public class SingleSheetWriteHandler extends AbstractSheetWriteHandler {
 
 	@Override
 	public void write(Object obj, HttpServletResponse response, ResponseExcel responseExcel) {
-		List<?> list = (List<?>) obj;
+		List<?> eleList = (List<?>) obj;
 		ExcelWriter excelWriter = getExcelWriter(response, responseExcel);
 
-		// 有模板则不指定sheet名
-		Class<?> dataClass = list.get(0).getClass();
-		WriteSheet sheet = this.sheet(responseExcel.sheets()[0], dataClass, responseExcel.template(),
-				responseExcel.headGenerator());
-		excelWriter.write(list, sheet);
+		WriteSheet sheet;
+		if (CollectionUtils.isEmpty(eleList)) {
+			sheet = EasyExcel.writerSheet(responseExcel.sheets()[0].sheetName()).build();
+		}
+		else {
+			// 有模板则不指定sheet名
+			Class<?> dataClass = eleList.get(0).getClass();
+			sheet = this.sheet(responseExcel.sheets()[0], dataClass, responseExcel.template(),
+					responseExcel.headGenerator());
+		}
+
+		// 填充 sheet
+		if (responseExcel.fill()) {
+			excelWriter.fill(eleList, sheet);
+		}
+		else {
+			// 写入sheet
+			excelWriter.write(eleList, sheet);
+		}
 		excelWriter.finish();
 	}
 

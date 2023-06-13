@@ -88,8 +88,7 @@ public abstract class AbstractSheetWriteHandler implements SheetWriteHandler, Ap
 				.orElse("application/vnd.ms-excel");
 		response.setContentType(contentType);
 		response.setCharacterEncoding("utf-8");
-		response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + fileName);
-		response.setHeader("Access-Control-Expose-Headers", "content-disposition");
+		response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename*=utf-8''" + fileName);
 		write(o, response, responseExcel);
 	}
 
@@ -168,7 +167,7 @@ public abstract class AbstractSheetWriteHandler implements SheetWriteHandler, Ap
 	 * @return WriteSheet
 	 */
 	public WriteSheet sheet(Sheet sheet, Class<?> dataClass, String template,
-							Class<? extends HeadGenerator> bookHeadEnhancerClass) {
+			Class<? extends HeadGenerator> bookHeadEnhancerClass) {
 
 		// Sheet 编号和名称
 		Integer sheetNo = sheet.sheetNo() >= 0 ? sheet.sheetNo() : null;
@@ -196,7 +195,7 @@ public abstract class AbstractSheetWriteHandler implements SheetWriteHandler, Ap
 				writerSheetBuilder.excludeColumnFieldNames(Arrays.asList(sheet.excludes()));
 			}
 			if (sheet.includes().length > 0) {
-				writerSheetBuilder.excludeColumnFieldNames(Arrays.asList(sheet.includes()));
+				writerSheetBuilder.includeColumnFieldNames(Arrays.asList(sheet.includes()));
 			}
 		}
 

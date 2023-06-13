@@ -1,8 +1,5 @@
 package com.xianmao.common.excel.head;
 
-/**
- * Excel头生成器，用于自定义生成头部信息
- */
 public interface HeadGenerator {
 
 	/**
