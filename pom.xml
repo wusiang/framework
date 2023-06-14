@@ -44,7 +44,7 @@
         <mysql.version>8.0.28</mysql.version>
         <druid.version>1.1.22</druid.version>
         <!--谷歌工具包-->
-        <guava.version>31.1-jre</guava.version>
+        <guava.version>32.0.0-jre</guava.version>
         <redisson.version>3.17.1</redisson.version>
         <!--job-->
         <com.dangdang.version>2.1.5</com.dangdang.version>
