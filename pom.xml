@@ -19,6 +19,7 @@
         <module>framework-common-rocketmq</module>
         <module>framework-common-redo</module>
         <module>framework-common-log</module>
+        <module>framework-common-cloud</module>
     </modules>
 
     <name>framework</name>

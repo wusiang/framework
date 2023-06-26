@@ -16,6 +16,7 @@
         <module name="framework-common-excel" />
         <module name="framework-common-web" />
         <module name="framework-common-log" />
+        <module name="framework-common-cloud" />
         <module name="framework-common-mybatis" />
       </profile>
     </annotationProcessing>

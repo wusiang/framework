@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-cloud/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/annotation/XianmaoCloudApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/config/FeignClientConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/config/TraceFeignAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/feign/TraceFeignRequestInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/http/HttpLoggingInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/http/OkHttpSlf4jLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-swagger/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-swagger/src/main/java/com/xianmao/common/swagger/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/src/main/java/com/xianmao/common/swagger/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +64,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "17",
+    "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "D:/java/project/xiammao/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/enums",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -63,7 +75,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.40574712",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "spring.configuration.checksum": "f15a90176e0493e4d456af96141ed900",
+    "spring.configuration.checksum": "3460ff48343c6fe1374518b2bb6823f3",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -201,6 +213,9 @@
       <workItem from="1685366288967" duration="366000" />
       <workItem from="1686535968060" duration="695000" />
       <workItem from="1686644786201" duration="349000" />
+      <workItem from="1687337046343" duration="630000" />
+      <workItem from="1687340378518" duration="325000" />
+      <workItem from="1687756045656" duration="835000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
