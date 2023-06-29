@@ -9,13 +9,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="framework-common-rocketmq" />
         <module name="framework-common-redis" />
+        <module name="framework-common-entity" />
+        <module name="framework-common-log" />
         <module name="framework-common-job" />
         <module name="framework-common-core" />
         <module name="framework-common-swagger" />
         <module name="framework-common-redo" />
         <module name="framework-common-excel" />
+        <module name="framework-common-trace" />
+        <module name="framework-common-feign" />
         <module name="framework-common-web" />
-        <module name="framework-common-log" />
         <module name="framework-common-cloud" />
         <module name="framework-common-mybatis" />
       </profile>

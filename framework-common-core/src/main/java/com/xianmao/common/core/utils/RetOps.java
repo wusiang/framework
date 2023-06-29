@@ -2,7 +2,7 @@ package com.xianmao.common.core.utils;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.xianmao.common.core.exception.ServerErrorCode;
-import com.xianmao.common.core.web.ApiResult;
+import com.xianmao.common.entity.web.ApiResult;
 
 import java.util.Arrays;
 import java.util.Objects;

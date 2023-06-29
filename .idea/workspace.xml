@@ -5,19 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
-      <change afterPath="$PROJECT_DIR$/framework-common-cloud/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/annotation/XianmaoCloudApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/config/FeignClientConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/config/TraceFeignAutoConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/feign/TraceFeignRequestInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/http/HttpLoggingInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/http/OkHttpSlf4jLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-entity/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-feign/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/TraceAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/TraceContentFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/TraceFormatEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/TraceLogProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/constants/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/handles/DefaultTraceMetaObjectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/handles/TraceMetaObjectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/feign/TraceFeignClientAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/feign/TraceFeignRequestInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/gateway/TraceGatewayAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/gateway/TraceGatewayFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/servlet/TraceServletConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/servlet/TraceServletFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/thread/ThreadMdcUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/thread/ThreadPoolExecutorMdcWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/processor/TraceEnvironmentPostProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/utils/EnvironmentUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/utils/StrUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/utils/TraceIdUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-trace/src/main/resources/META-INF/spring.factories" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/src/main/java/com/xianmao/common/swagger/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/src/main/java/com/xianmao/common/swagger/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-cloud/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-cloud/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/config/FeignClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/config/FeignClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/config/TraceFeignAutoConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/feign/TraceFeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/interceptor/TraceFeignRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/http/HttpLoggingInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/http/HttpLoggingInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-cloud/src/main/java/com/xianmao/cloud/http/OkHttpSlf4jLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/http/OkHttpSlf4jLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/config/JacksonConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/config/JacksonConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/constants/DatePattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/constants/DatePattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/constants/ScheduleConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/constants/ScheduleConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/constants/TokenConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/constants/TokenConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/jackson/JavaTimeModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/jackson/JavaTimeModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/JsonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/JsonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/RetOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/RetOps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/web/ApiResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/web/ApiResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,34 +94,34 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/java/project/xiammao/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/enums",
+    "last_opened_file_path": "/Users/wujinghua/Desktop/xianmao/framework/framework-common-trace/src/main/resources/META-INF",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "spring.configuration.checksum": "3460ff48343c6fe1374518b2bb6823f3",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "22353b5e0b77dfdaab1cde00ea62312a",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\java\project\xiammao\framework\framework-common-mybatis\src\main\java\com\xianmao\common\mybatis\enums" />
-      <recent name="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/event" />
-      <recent name="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/cryptor" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/framework-common-redo/src/main/java/com/xianmao/common/redo/clusterlock" />
+      <recent name="$PROJECT_DIR$/framework-common-trace/src/main/resources/META-INF" />
+      <recent name="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/feign" />
+      <recent name="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/gateway" />
+      <recent name="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/servlet" />
+      <recent name="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/thread" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xianmao.common.trace.processor" />
+      <recent name="com.xianmao.common.trace.constants" />
+      <recent name="com.xianmao.cloud.feign" />
+      <recent name="com.xianmao.cloud.annotation" />
       <recent name="com.xianmao.common.web.filter" />
-      <recent name="com.xianmao.common.web.config" />
-      <recent name="com.xianmao.common.log.enums" />
-      <recent name="com.xianmao.common.log.utils" />
-      <recent name="com.xianmao.common.log.aspect" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -215,7 +244,12 @@
       <workItem from="1686644786201" duration="349000" />
       <workItem from="1687337046343" duration="630000" />
       <workItem from="1687340378518" duration="325000" />
-      <workItem from="1687756045656" duration="835000" />
+      <workItem from="1687756045656" duration="1315000" />
+      <workItem from="1687760571174" duration="196000" />
+      <workItem from="1687760789741" duration="63000" />
+      <workItem from="1687856941430" duration="19000" />
+      <workItem from="1687935151844" duration="1742000" />
+      <workItem from="1688008704532" duration="4641000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>

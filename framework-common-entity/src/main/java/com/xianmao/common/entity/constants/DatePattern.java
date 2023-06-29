@@ -1,4 +1,4 @@
-package com.xianmao.common.core.constants;
+package com.xianmao.common.entity.constants;
 
 import java.text.SimpleDateFormat;
 

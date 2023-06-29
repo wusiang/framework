@@ -20,6 +20,9 @@
         <module>framework-common-redo</module>
         <module>framework-common-log</module>
         <module>framework-common-cloud</module>
+        <module>framework-common-entity</module>
+        <module>framework-common-feign</module>
+        <module>framework-common-trace</module>
     </modules>
 
     <name>framework</name>
@@ -195,6 +198,16 @@
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-excel</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-entity</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-feign</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

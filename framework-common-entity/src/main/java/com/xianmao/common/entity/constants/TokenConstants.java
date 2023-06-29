@@ -1,4 +1,4 @@
-package com.xianmao.common.core.constants;
+package com.xianmao.common.entity.constants;
 
 public class TokenConstants {
     /*** 获取到的凭证 */

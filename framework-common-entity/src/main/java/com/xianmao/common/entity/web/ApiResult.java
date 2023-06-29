@@ -1,13 +1,10 @@
-package com.xianmao.common.core.web;
+package com.xianmao.common.entity.web;
 
-import cn.hutool.core.util.ObjectUtil;
-import com.xianmao.common.core.exception.IErrorCode;
-import com.xianmao.common.core.exception.ServerErrorCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.lang.Nullable;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Optional;
 
 @Setter
@@ -21,8 +18,8 @@ public class ApiResult<T> implements Serializable {
     private T data;
     private Boolean success;
     /***响应状态码*/
-    private static int SUCCESS_CODE = ServerErrorCode.SUCCESS.getCode();
-    private static int FAILURE_CODE = ServerErrorCode.FAILURE.getCode();
+    private static int SUCCESS_CODE = 200;
+    private static int FAILURE_CODE = 500;
 
     private ApiResult() {
         super();
@@ -34,9 +31,9 @@ public class ApiResult<T> implements Serializable {
      * @param result 响应体
      * @return
      */
-    public static boolean isSuccess(@Nullable ApiResult<?> result) {
+    public static boolean isSuccess(ApiResult<?> result) {
         return Optional.ofNullable(result).map((x) -> {
-            return ObjectUtil.equal(ServerErrorCode.SUCCESS.getCode(), x.getCode());
+            return Objects.equals(SUCCESS_CODE, x.getCode());
         }).orElse(Boolean.FALSE);
     }
 
@@ -46,7 +43,7 @@ public class ApiResult<T> implements Serializable {
      * @param result 响应体
      * @return
      */
-    public static boolean isNotSuccess(@Nullable ApiResult<?> result) {
+    public static boolean isNotSuccess(ApiResult<?> result) {
         return !isSuccess(result);
     }
 
@@ -103,29 +100,6 @@ public class ApiResult<T> implements Serializable {
      */
     public static <T> ApiResult<T> fail(int code, String msg) {
         return restResult(code, msg, null, Boolean.FALSE);
-    }
-
-    /**
-     * 返回R
-     *
-     * @param iErrorCode 状态码
-     * @param msg  消息
-     * @param <T>  T 泛型标记
-     * @return R
-     */
-    public static <T> ApiResult<T> fail(IErrorCode iErrorCode, String msg) {
-        return restResult(iErrorCode.getCode(), msg, null, Boolean.FALSE);
-    }
-
-    /**
-     * 返回R
-     *
-     * @param errorCode 业务代码
-     * @param <T>        T 泛型标记
-     * @return R
-     */
-    public static <T> ApiResult<T> fail(IErrorCode errorCode) {
-        return restResult(errorCode.getCode(), errorCode.getValue(), null, Boolean.FALSE);
     }
 
     public static <T> ApiResult<T> restResult(Integer code, String message, T data, Boolean success) {

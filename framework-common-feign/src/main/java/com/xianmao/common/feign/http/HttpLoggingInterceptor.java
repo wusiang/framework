@@ -1,4 +1,4 @@
-package com.xianmao.cloud.http;
+package com.xianmao.common.feign.http;
 
 import okhttp3.*;
 import okhttp3.internal.http.HttpHeaders;
@@ -70,7 +70,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
 
     public interface Logger {
         void log(String message);
-        Logger DEFAULT = message -> Platform.get().log(message, INFO, null);
+        Logger DEFAULT = message -> Platform.get().log(message, Platform.INFO, null);
     }
 
     public HttpLoggingInterceptor() {

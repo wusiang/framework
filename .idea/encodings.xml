@@ -7,8 +7,12 @@
     <file url="file://$PROJECT_DIR$/framework-common-cloud/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-entity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-entity/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-excel/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-excel/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-feign/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-feign/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-job/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-job/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-log/src/main/java" charset="UTF-8" />
@@ -23,6 +27,8 @@
     <file url="file://$PROJECT_DIR$/framework-common-rocketmq/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-swagger/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-swagger/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-trace/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-trace/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-web/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />

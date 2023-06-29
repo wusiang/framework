@@ -1,8 +1,8 @@
-package com.xianmao.cloud.config;
+package com.xianmao.common.feign.config;
 
 
-import com.xianmao.cloud.http.HttpLoggingInterceptor;
-import com.xianmao.cloud.http.OkHttpSlf4jLogger;
+import com.xianmao.common.feign.http.HttpLoggingInterceptor;
+import com.xianmao.common.feign.http.OkHttpSlf4jLogger;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cloud.commons.httpclient.OkHttpClientConnectionPoolFactory;

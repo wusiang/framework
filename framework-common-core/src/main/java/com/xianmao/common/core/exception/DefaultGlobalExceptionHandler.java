@@ -1,7 +1,7 @@
 package com.xianmao.common.core.exception;
 
 import com.xianmao.common.core.utils.ExceptionUtils;
-import com.xianmao.common.core.web.ApiResult;
+import com.xianmao.common.entity.web.ApiResult;
 import org.apache.catalina.connector.ClientAbortException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,13 +40,13 @@ public class DefaultGlobalExceptionHandler {
     public ApiResult<?> handleException(Exception e) {
         IErrorCode iErrorCode = exceptionMap.getOrDefault(e, ServerErrorCode.INTERNAL_SERVER_ERROR);
         logger.error(Error.buildError(iErrorCode, ExceptionUtils.getExceptionString(e)));
-        return ApiResult.fail(iErrorCode);
+        return ApiResult.fail(iErrorCode.getCode(), iErrorCode.getValue());
     }
 
     @ExceptionHandler(BussinessException.class)
     public ApiResult<?> handleBussinessException(BussinessException bussinessException) {
         logger.error(Error.buildError(bussinessException.getCode(), ExceptionUtils.getExceptionString(bussinessException)));
-        return ApiResult.fail(bussinessException.getCode(), bussinessException.getMessage());
+        return ApiResult.fail(bussinessException.getCode().getCode(), bussinessException.getMessage());
     }
 
     /**

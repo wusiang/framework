@@ -1,4 +1,4 @@
-package com.xianmao.cloud.http;
+package com.xianmao.common.feign.http;
 
 import lombok.extern.slf4j.Slf4j;
 
