@@ -39,7 +39,7 @@
         <spring-cloud.version>2021.0.6</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
         <!---->
-        <hutool.version>5.8.18</hutool.version>
+        <hutool.version>5.8.21</hutool.version>
         <knife4j.version>2.0.9</knife4j.version>
         <easyexcel.version>3.1.1</easyexcel.version>
         <mybatis.plus.version>3.5.3.1</mybatis.plus.version>
