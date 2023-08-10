@@ -48,7 +48,7 @@
         <mysql.version>8.0.28</mysql.version>
         <druid.version>1.1.22</druid.version>
         <!--谷歌工具包-->
-        <gurava.version>31.1-jre</gurava.version>
+        <guava.version>31.1-jre</guava.version>
         <redisson.version>3.17.1</redisson.version>
         <!--job-->
         <com.dangdang.version>2.1.5</com.dangdang.version>
@@ -113,7 +113,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.vesion}</version>
+                <version>${mysql.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
