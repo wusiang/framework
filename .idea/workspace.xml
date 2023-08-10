@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,13 +30,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectId" id="1qsDm7TkoAITcihE8dazMvHfvyX" />
   <component name="ProjectLevelVcsManager">
@@ -62,7 +57,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;c449cbf91c7c690a297bb8ad6ca147ce&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;729b381a9da856fe51008b2987659896&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -210,6 +205,16 @@
       <workItem from="1688008704532" duration="4641000" />
       <workItem from="1690263037616" duration="640000" />
       <workItem from="1690334433727" duration="4000" />
+      <workItem from="1690436067413" duration="359000" />
+      <workItem from="1690797685052" duration="540000" />
+      <workItem from="1690857126587" duration="52000" />
+      <workItem from="1690870216501" duration="1129000" />
+      <workItem from="1691126882014" duration="125000" />
+      <workItem from="1691400635767" duration="29000" />
+      <workItem from="1691400675099" duration="590000" />
+      <workItem from="1691401273873" duration="413000" />
+      <workItem from="1691414380515" duration="613000" />
+      <workItem from="1691467491224" duration="2435000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
