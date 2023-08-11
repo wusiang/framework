@@ -10,7 +10,6 @@
         <module name="framework-common-rocketmq" />
         <module name="framework-common-redis" />
         <module name="framework-common-entity" />
-        <module name="framework-common-log" />
         <module name="framework-common-job" />
         <module name="framework-common-core" />
         <module name="framework-common-swagger" />
@@ -26,6 +25,26 @@
     <bytecodeTargetLevel>
       <module name="common" target="17" />
       <module name="framework-bom" target="1.7" />
+      <module name="framework-common-log" target="17" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="framework" options="-parameters" />
+      <module name="framework-common-cloud" options="-parameters" />
+      <module name="framework-common-core" options="-parameters" />
+      <module name="framework-common-entity" options="-parameters" />
+      <module name="framework-common-excel" options="-parameters" />
+      <module name="framework-common-feign" options="-parameters" />
+      <module name="framework-common-job" options="-parameters" />
+      <module name="framework-common-log" options="-parameters" />
+      <module name="framework-common-mybatis" options="-parameters" />
+      <module name="framework-common-redis" options="-parameters" />
+      <module name="framework-common-redo" options="-parameters" />
+      <module name="framework-common-rocketmq" options="-parameters" />
+      <module name="framework-common-swagger" options="-parameters" />
+      <module name="framework-common-trace" options="-parameters" />
+      <module name="framework-common-web" options="-parameters" />
+    </option>
   </component>
 </project>

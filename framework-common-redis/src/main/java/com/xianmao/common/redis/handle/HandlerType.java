@@ -61,10 +61,6 @@ public enum HandlerType {
      */
     PUBSUB(PubSubHandler.class),
     /**
-     * 流助手
-     */
-    STREAM(StreamHandler.class),
-    /**
      * 分布式锁助手
      */
     REDISLOCK(RedisLockHandler.class),

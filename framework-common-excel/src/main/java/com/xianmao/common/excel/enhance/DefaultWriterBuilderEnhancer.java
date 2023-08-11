@@ -5,7 +5,7 @@ import com.alibaba.excel.write.builder.ExcelWriterSheetBuilder;
 import com.xianmao.common.excel.annotation.ResponseExcel;
 import com.xianmao.common.excel.head.HeadGenerator;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * @author Hccake 2020/12/18

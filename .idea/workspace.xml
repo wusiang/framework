@@ -5,8 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-cloud/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-cloud/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/Error.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/IpAddressUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/IpAddressUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/RequestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/RequestUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/ServletUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/ServletUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/ResponseExcelAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/ResponseExcelAutoConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/aop/RequestExcelArgumentResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/aop/RequestExcelArgumentResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/aop/ResponseExcelReturnValueHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/aop/ResponseExcelReturnValueHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/enhance/DefaultWriterBuilderEnhancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/enhance/DefaultWriterBuilderEnhancer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/enhance/WriterBuilderEnhancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/enhance/WriterBuilderEnhancer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/AbstractSheetWriteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/AbstractSheetWriteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/DefaultAnalysisEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/DefaultAnalysisEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/ManySheetWriteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/ManySheetWriteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/SheetWriteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/SheetWriteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/SingleSheetWriteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handle/SingleSheetWriteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/kit/Validators.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/kit/Validators.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-feign/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-feign/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/config/FeignClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/config/FeignClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/interceptor/TraceFeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/interceptor/TraceFeignRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/annotation/SysLog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/aspect/SysLogAspect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/enums/LogTypeEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/event/SysLogEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/event/SysLogListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/model/SysLogInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/utils/SpringContextHolder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/utils/SysLogUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/plugins/SqlFilterArgumentResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/plugins/SqlFilterArgumentResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config/cache/RedisCacheConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config/cache/RedisCacheConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config/jedis/JedisConnectionConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config/jedis/JedisConnectionConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config/lettuce/LettuceConnectionConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config/lettuce/LettuceConnectionConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config/redisson/RedissonConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config/redisson/RedissonConnectionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/handle/ClusterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/handle/ClusterHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/handle/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/handle/DBHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/handle/SentinelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/handle/SentinelHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/handle/ZsetHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/handle/ZsetHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-swagger/src/main/java/com/xianmao/common/swagger/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/src/main/java/com/xianmao/common/swagger/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/feign/TraceFeignClientAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/feign/TraceFeignClientAutoConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/servlet/TraceServletFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-trace/src/main/java/com/xianmao/common/trace/instrument/servlet/TraceServletFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/filter/CachingContentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/filter/CachingContentFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/filter/TraceFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/src/main/java/com/xianmao/common/web/filter/TraceFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +76,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="1qsDm7TkoAITcihE8dazMvHfvyX" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -39,28 +87,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wujinghua/Desktop/xianmao/framework/framework-common-trace/src/main/resources/META-INF&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;729b381a9da856fe51008b2987659896&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "/Users/wujinghua/Desktop/xianmao/framework/framework-common-trace/src/main/resources/META-INF",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.40574712",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "902c143addf5c573fe3392c0fad3926d",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/framework-common-trace/src/main/resources/META-INF" />
@@ -215,6 +263,8 @@
       <workItem from="1691401273873" duration="413000" />
       <workItem from="1691414380515" duration="613000" />
       <workItem from="1691467491224" duration="2435000" />
+      <workItem from="1691659389050" duration="3536000" />
+      <workItem from="1691717579847" duration="3117000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>

@@ -4,7 +4,6 @@ import cn.hutool.core.util.NumberUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.xianmao.common.redis.handle.StreamHandler;
 import org.springframework.data.geo.GeoResult;
 import org.springframework.data.geo.GeoResults;
 import org.springframework.data.geo.Point;
@@ -180,35 +179,6 @@ public class ConvertUtil {
             map.put((double) i, values[i]);
         }
         return map;
-    }
-
-    /**
-     * 将列表转为字典
-     * @param list 列表
-     * @param type 数据类型
-     * @return 返回字典
-     */
-    public static <T> Map<String, T> toMap(List<? extends Record<String, T>> list, StreamHandler.StreamDataType type) {
-        Map<String, T> data;
-        if (list!=null&&list.size()>0) {
-            if (type== StreamHandler.StreamDataType.LATEST) {
-                data = new HashMap<>(1);
-                Record<String, T> record = list.get(list.size()-1);
-                data.put(record.getId().getValue(), record.getValue());
-            }else if (type== StreamHandler.StreamDataType.EARLIEST) {
-                data = new HashMap<>(1);
-                Record<String, T> record = list.get(0);
-                data.put(record.getId().getValue(), record.getValue());
-            }else {
-                data = new HashMap<>(list.size());
-                for (Record<String, T> records : list) {
-                    data.put(records.getId().getValue(), records.getValue());
-                }
-            }
-        }else {
-            data = new HashMap<>(0);
-        }
-        return data;
     }
 
     /**

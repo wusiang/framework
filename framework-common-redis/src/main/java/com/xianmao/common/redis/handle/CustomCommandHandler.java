@@ -1,9 +1,6 @@
 package com.xianmao.common.redis.handle;
 
-import com.xianmao.common.redis.config.lettuce.LettuceTypeHint;
 import com.xianmao.common.redis.util.ConvertUtil;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.connection.lettuce.LettuceConnection;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**
@@ -32,16 +29,6 @@ public final class CustomCommandHandler implements RedisHandler {
      */
     CustomCommandHandler(TransactionHandler transactionHandler) {
         this.redisTemplate = transactionHandler.getRedisTemplate();
-    }
-
-    /**
-     * 执行redis命令
-     * @param command 命令
-     * @param args 参数列表
-     * @return 返回信息
-     */
-    public Object execute(String command, byte[] ...args) {
-        return this.executeCommand(command, args);
     }
 
     /**
@@ -102,42 +89,5 @@ public final class CustomCommandHandler implements RedisHandler {
      */
     public RedisTemplate<String, Object> getRedisTemplate() {
         return this.redisTemplate;
-    }
-
-    /**
-     * 执行命令
-     * @param command 命令
-     * @param args 参数列表
-     * @return 返回结果
-     */
-    private Object executeCommand(String command, byte[] ...args) {
-        RedisConnection connection = this.redisTemplate.getRequiredConnectionFactory().getConnection();
-        if (connection instanceof LettuceConnection) {
-            return this.executeCommandByLettuce(connection, command, args);
-        }
-        return connection.execute(command, args);
-    }
-
-    /**
-     * 执行命令(lettuce客户端)
-     * @param connection 连接对象
-     * @param command 命令
-     * @param args 参数列表
-     * @return 返回结果
-     */
-    private Object executeCommandByLettuce(RedisConnection connection, String command, byte[] ...args) {
-        if (args.length>0) {
-            return ((LettuceConnection) connection).execute(
-                    command,
-                    LettuceTypeHint.getTypeHint(command, this.deserialize(args[0])),
-                    args
-            );
-        }else {
-            return ((LettuceConnection) connection).execute(
-                    command,
-                    LettuceTypeHint.getTypeHint(command, null),
-                    args
-            );
-        }
     }
 }

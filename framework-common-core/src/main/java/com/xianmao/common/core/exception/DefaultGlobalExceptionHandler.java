@@ -2,7 +2,6 @@ package com.xianmao.common.core.exception;
 
 import com.xianmao.common.core.utils.ExceptionUtils;
 import com.xianmao.common.entity.web.ApiResult;
-import org.apache.catalina.connector.ClientAbortException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -26,7 +25,6 @@ public class DefaultGlobalExceptionHandler {
     private static Map<Class, IErrorCode> exceptionMap = new HashMap<Class, IErrorCode>() {
         {
             put(HttpMessageNotReadableException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(ClientAbortException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
             put(NoHandlerFoundException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
             put(ParseException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
             put(NumberFormatException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);

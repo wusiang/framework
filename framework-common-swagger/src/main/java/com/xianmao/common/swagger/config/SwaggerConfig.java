@@ -55,6 +55,6 @@ public class SwaggerConfig {
         boolean shouldRegisterLinksMapping =
                 webEndpointProperties.getDiscovery().isEnabled() && (StringUtils.hasText(basePath)
                         || ManagementPortType.get(environment).equals(ManagementPortType.DIFFERENT));
-        return new WebMvcEndpointHandlerMapping(endpointMapping, webEndpoints, endpointMediaTypes, corsProperties.toCorsConfiguration(), new EndpointLinksResolver(allEndpoints, basePath), shouldRegisterLinksMapping, null);
+        return new WebMvcEndpointHandlerMapping(endpointMapping, webEndpoints, endpointMediaTypes, corsProperties.toCorsConfiguration(), new EndpointLinksResolver(allEndpoints, basePath), shouldRegisterLinksMapping);
     }
 }

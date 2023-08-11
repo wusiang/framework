@@ -5,9 +5,9 @@ import com.xianmao.common.feign.http.HttpLoggingInterceptor;
 import com.xianmao.common.feign.http.OkHttpSlf4jLogger;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.cloud.commons.httpclient.OkHttpClientConnectionPoolFactory;
-import org.springframework.cloud.commons.httpclient.OkHttpClientFactory;
-import org.springframework.cloud.openfeign.support.FeignHttpClientProperties;
+//import org.springframework.cloud.commons.httpclient.OkHttpClientConnectionPoolFactory;
+//import org.springframework.cloud.commons.httpclient.OkHttpClientFactory;
+//import org.springframework.cloud.openfeign.support.FeignHttpClientProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -38,39 +38,39 @@ public class FeignClientConfiguration {
 		return interceptor;
 	}
 
-	/**
-	 * okhttp3 链接池配置
-	 * @param connectionPoolFactory 链接池配置
-	 * @param httpClientProperties httpClient配置
-	 * @return okhttp3.ConnectionPool
-	 */
-	@Bean
-	public okhttp3.ConnectionPool httpClientConnectionPool(FeignHttpClientProperties httpClientProperties, OkHttpClientConnectionPoolFactory connectionPoolFactory) {
-		int maxTotalConnections = httpClientProperties.getMaxConnections();
-		long timeToLive = httpClientProperties.getTimeToLive();
-		TimeUnit ttlUnit = httpClientProperties.getTimeToLiveUnit();
-		return connectionPoolFactory.create(maxTotalConnections, timeToLive, ttlUnit);
-	}
-
-	/**
-	 * 配置OkHttpClient
-	 * @param httpClientFactory httpClient 工厂
-	 * @param connectionPool 链接池配置
-	 * @param httpClientProperties httpClient配置
-	 * @param interceptor 拦截器
-	 * @return OkHttpClient
-	 */
-	@Bean
-	public okhttp3.OkHttpClient httpClient(OkHttpClientFactory httpClientFactory, okhttp3.ConnectionPool connectionPool, FeignHttpClientProperties httpClientProperties, HttpLoggingInterceptor interceptor) {
-		boolean followRedirects = httpClientProperties.isFollowRedirects();
-		int connectTimeout = httpClientProperties.getConnectionTimeout();
-		return httpClientFactory.createBuilder(httpClientProperties.isDisableSslValidation())
-			.connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)
-			.writeTimeout(60, TimeUnit.SECONDS)
-			.readTimeout(60, TimeUnit.SECONDS)
-			.followRedirects(followRedirects)
-			.connectionPool(connectionPool)
-			.addInterceptor(interceptor)
-			.build();
-	}
+//	/**
+//	 * okhttp3 链接池配置
+//	 * @param connectionPoolFactory 链接池配置
+//	 * @param httpClientProperties httpClient配置
+//	 * @return okhttp3.ConnectionPool
+//	 */
+//	@Bean
+//	public okhttp3.ConnectionPool httpClientConnectionPool(FeignHttpClientProperties httpClientProperties, OkHttpClientConnectionPoolFactory connectionPoolFactory) {
+//		int maxTotalConnections = httpClientProperties.getMaxConnections();
+//		long timeToLive = httpClientProperties.getTimeToLive();
+//		TimeUnit ttlUnit = httpClientProperties.getTimeToLiveUnit();
+//		return connectionPoolFactory.create(maxTotalConnections, timeToLive, ttlUnit);
+//	}
+//
+//	/**
+//	 * 配置OkHttpClient
+//	 * @param httpClientFactory httpClient 工厂
+//	 * @param connectionPool 链接池配置
+//	 * @param httpClientProperties httpClient配置
+//	 * @param interceptor 拦截器
+//	 * @return OkHttpClient
+//	 */
+//	@Bean
+//	public okhttp3.OkHttpClient httpClient(OkHttpClientFactory httpClientFactory, okhttp3.ConnectionPool connectionPool, FeignHttpClientProperties httpClientProperties, HttpLoggingInterceptor interceptor) {
+//		boolean followRedirects = httpClientProperties.isFollowRedirects();
+//		int connectTimeout = httpClientProperties.getConnectionTimeout();
+//		return httpClientFactory.createBuilder(httpClientProperties.isDisableSslValidation())
+//			.connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)
+//			.writeTimeout(60, TimeUnit.SECONDS)
+//			.readTimeout(60, TimeUnit.SECONDS)
+//			.followRedirects(followRedirects)
+//			.connectionPool(connectionPool)
+//			.addInterceptor(interceptor)
+//			.build();
+//	}
 }

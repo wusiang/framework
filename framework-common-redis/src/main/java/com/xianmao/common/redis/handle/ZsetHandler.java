@@ -2,7 +2,10 @@ package com.xianmao.common.redis.handle;
 
 import com.xianmao.common.redis.util.ConvertUtil;
 import com.xianmao.common.redis.util.RedisUtil;
+import org.springframework.data.domain.Range;
 import org.springframework.data.redis.connection.RedisZSetCommands;
+import org.springframework.data.redis.connection.zset.Aggregate;
+import org.springframework.data.redis.connection.zset.Weights;
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
@@ -18,6 +21,10 @@ import java.util.*;
 public final class ZsetHandler implements RedisHandler {
     /**
      * 对象模板
+     * -- GETTER --
+     *  获取spring redis模板
+     *
+     * @return 返回对象模板
      */
     private RedisTemplate<String, Object> redisTemplate;
     /**
@@ -251,84 +258,6 @@ public final class ZsetHandler implements RedisHandler {
      */
     public Set<String> descRange(String key, Long startSortIndex, Long endSortIndex) {
         return this.ascRange(key, -endSortIndex - 1, -startSortIndex - 1);
-    }
-
-    /**
-     * 正序获取范围内的对象
-     * 
-     * @see <a href="http://redis.io/commands/zrangebylex">Redis Documentation: ZRANGEBYLEX</a>
-     * @since redis 2.8.9
-     * @param key 键
-     * @param startSortIndex 起始排序索引
-     * @param isContainsStart 是否包含起始
-     * @param endSortIndex 结束排序索引
-     * @param isContainsEnd 是否包含结束
-     * @return 返回对象集合
-     */
-    public Set ascRangeByLexAsObj(String key, Long startSortIndex, boolean isContainsStart, Long endSortIndex,
-        boolean isContainsEnd) {
-        return this.zSetOperations.rangeByLex(key,
-            this.getRange(startSortIndex, isContainsStart, endSortIndex, isContainsEnd));
-    }
-
-    /**
-     * 正序获取范围内的字符串
-     * 
-     * @see <a href="http://redis.io/commands/zrangebylex">Redis Documentation: ZRANGEBYLEX</a>
-     * @since redis 2.8.9
-     * @param key 键
-     * @param startSortIndex 起始排序索引
-     * @param isContainsStart 是否包含起始
-     * @param endSortIndex 结束排序索引
-     * @param isContainsEnd 是否包含结束
-     * @return 返回字符串集合
-     */
-    public Set<String> ascRangeByLex(String key, Long startSortIndex, boolean isContainsStart, Long endSortIndex,
-        boolean isContainsEnd) {
-        return this.stringZSetOperations.rangeByLex(key,
-            this.getRange(startSortIndex, isContainsStart, endSortIndex, isContainsEnd));
-    }
-
-    /**
-     * 正序获取范围内的对象
-     * 
-     * @see <a href="http://redis.io/commands/zrangebylex">Redis Documentation: ZRANGEBYLEX</a>
-     * @since redis 2.8.9
-     * @param key 键
-     * @param startSortIndex 起始排序索引
-     * @param isContainsStart 是否包含起始
-     * @param endSortIndex 结束排序索引
-     * @param isContainsEnd 是否包含结束
-     * @param count 返回数量
-     * @param offset 偏移量
-     * @return 返回对象集合
-     */
-    public Set ascRangeByLexAsObj(String key, Long startSortIndex, boolean isContainsStart, Long endSortIndex,
-        boolean isContainsEnd, Integer count, Integer offset) {
-        return this.zSetOperations.rangeByLex(key,
-            this.getRange(startSortIndex, isContainsStart, endSortIndex, isContainsEnd),
-            RedisZSetCommands.Limit.limit().count(count).offset(offset));
-    }
-
-    /**
-     * 正序获取范围内的字符串
-     * 
-     * @see <a href="http://redis.io/commands/zrangebylex">Redis Documentation: ZRANGEBYLEX</a>
-     * @since redis 2.8.9
-     * @param key 键
-     * @param startSortIndex 起始排序索引
-     * @param isContainsStart 是否包含起始
-     * @param endSortIndex 结束排序索引
-     * @param isContainsEnd 是否包含结束
-     * @param count 返回数量
-     * @param offset 偏移量
-     * @return 返回字符串集合
-     */
-    public Set<String> ascRangeByLex(String key, Long startSortIndex, boolean isContainsStart, Long endSortIndex,
-        boolean isContainsEnd, Integer count, Integer offset) {
-        return this.stringZSetOperations.rangeByLex(key,
-            this.getRange(startSortIndex, isContainsStart, endSortIndex, isContainsEnd),
-            RedisZSetCommands.Limit.limit().count(count).offset(offset));
     }
 
     /**
@@ -729,7 +658,7 @@ public final class ZsetHandler implements RedisHandler {
      * @param otherKys 其他键
      * @return 返回交集对象个数
      */
-    public Long intersectAndStoreAsObj(String key, String storeKey, RedisZSetCommands.Aggregate aggregate,
+    public Long intersectAndStoreAsObj(String key, String storeKey, Aggregate aggregate,
         String... otherKys) {
         return this.zSetOperations.intersectAndStore(key, Arrays.asList(otherKys), storeKey, aggregate);
     }
@@ -746,8 +675,7 @@ public final class ZsetHandler implements RedisHandler {
      * @param otherKys 其他键
      * @return 返回交集字符串个数
      */
-    public Long intersectAndStore(String key, String storeKey, RedisZSetCommands.Aggregate aggregate,
-        RedisZSetCommands.Weights weights, String... otherKys) {
+    public Long intersectAndStore(String key, String storeKey, Aggregate aggregate, Weights weights, String... otherKys) {
         return this.stringZSetOperations.intersectAndStore(key, Arrays.asList(otherKys), storeKey, aggregate, weights);
     }
 
@@ -763,8 +691,7 @@ public final class ZsetHandler implements RedisHandler {
      * @param otherKys 其他键
      * @return 返回交集对象个数
      */
-    public Long intersectAndStoreAsObj(String key, String storeKey, RedisZSetCommands.Aggregate aggregate,
-        RedisZSetCommands.Weights weights, String... otherKys) {
+    public Long intersectAndStoreAsObj(String key, String storeKey, Aggregate aggregate, Weights weights, String... otherKys) {
         return this.zSetOperations.intersectAndStore(key, Arrays.asList(otherKys), storeKey, aggregate, weights);
     }
 
@@ -779,7 +706,7 @@ public final class ZsetHandler implements RedisHandler {
      * @param otherKys 其他键
      * @return 返回交集字符串个数
      */
-    public Long intersectAndStore(String key, String storeKey, RedisZSetCommands.Aggregate aggregate, Double weight,
+    public Long intersectAndStore(String key, String storeKey, Aggregate aggregate, Double weight,
         String... otherKys) {
         return this.stringZSetOperations.intersectAndStore(key, Arrays.asList(otherKys), storeKey, aggregate);
     }
@@ -891,7 +818,7 @@ public final class ZsetHandler implements RedisHandler {
      * @param otherKys 其他键
      * @return 返回交集对象个数
      */
-    public Long unionAndStoreAsObj(String key, String storeKey, RedisZSetCommands.Aggregate aggregate,
+    public Long unionAndStoreAsObj(String key, String storeKey, Aggregate aggregate,
         String... otherKys) {
         return this.zSetOperations.unionAndStore(key, Arrays.asList(otherKys), storeKey, aggregate);
     }
@@ -908,8 +835,7 @@ public final class ZsetHandler implements RedisHandler {
      * @param otherKys 其他键
      * @return 返回交集字符串个数
      */
-    public Long unionAndStore(String key, String storeKey, RedisZSetCommands.Aggregate aggregate,
-        RedisZSetCommands.Weights weights, String... otherKys) {
+    public Long unionAndStore(String key, String storeKey, Aggregate aggregate, Weights weights, String... otherKys) {
         return this.stringZSetOperations.unionAndStore(key, Arrays.asList(otherKys), storeKey, aggregate, weights);
     }
 
@@ -925,8 +851,7 @@ public final class ZsetHandler implements RedisHandler {
      * @param otherKys 其他键
      * @return 返回交集对象个数
      */
-    public Long unionAndStoreAsObj(String key, String storeKey, RedisZSetCommands.Aggregate aggregate,
-        RedisZSetCommands.Weights weights, String... otherKys) {
+    public Long unionAndStoreAsObj(String key, String storeKey, Aggregate aggregate, Weights weights, String... otherKys) {
         return this.zSetOperations.unionAndStore(key, Arrays.asList(otherKys), storeKey, aggregate, weights);
     }
 
@@ -941,7 +866,7 @@ public final class ZsetHandler implements RedisHandler {
      * @param otherKys 其他键
      * @return 返回交集字符串个数
      */
-    public Long unionAndStore(String key, String storeKey, RedisZSetCommands.Aggregate aggregate, Double weight,
+    public Long unionAndStore(String key, String storeKey, Aggregate aggregate, Double weight,
         String... otherKys) {
         return this.stringZSetOperations.unionAndStore(key, Arrays.asList(otherKys), storeKey, aggregate);
     }
@@ -1215,185 +1140,6 @@ public final class ZsetHandler implements RedisHandler {
     }
 
     /**
-     * 弹出最大分数值对象
-     * 
-     * @see <a href="http://redis.io/commands/zpopmax">Redis Documentation: ZPOPMAX</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @return 返回对象
-     */
-    public Object popMaxAsObj(String key) {
-        return this.popMaxAsObj(key, 1).get(0);
-    }
-
-    /**
-     * 弹出最大分数值字符串
-     * 
-     * @see <a href="http://redis.io/commands/zpopmax">Redis Documentation: ZPOPMAX</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @return 返回字符串
-     */
-    public String popMax(String key) {
-        return this.popMax(key, 1).get(0);
-    }
-
-    /**
-     * 弹出最大分数值对象
-     * 
-     * @see <a href="http://redis.io/commands/zpopmax">Redis Documentation: ZPOPMAX</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @param count 弹出数量
-     * @return 返回对象列表
-     */
-    public List popMaxAsObj(String key, int count) {
-        return this.getPopResult("ZPOPMAX", key, count, this.redisTemplate.getValueSerializer()).get("values");
-    }
-
-    /**
-     * 弹出最大分数值字符串
-     * 
-     * @see <a href="http://redis.io/commands/zpopmax">Redis Documentation: ZPOPMAX</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @param count 弹出数量
-     * @return 返回字符串列表
-     */
-    public List<String> popMax(String key, int count) {
-        List<String> data = new ArrayList<>(count);
-        Map<String, List<Object>> popResult =
-            this.getPopResult("ZPOPMAX", key, count, this.stringRedisTemplate.getValueSerializer());
-        List<Object> valueList = popResult.get("values");
-        for (int i = 0; i < count; i++) {
-            data.add(String.valueOf(valueList.get(i)));
-        }
-        return data;
-    }
-
-    /**
-     * 弹出最大分数值对象(带分数)
-     * 
-     * @see <a href="http://redis.io/commands/zpopmax">Redis Documentation: ZPOPMAX</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @param count 弹出数量
-     * @return 返回对象字典
-     */
-    @SuppressWarnings("unchecked")
-    public Map<Double, Object> popMaxByScoreAsObj(String key, int count) {
-        return (Map<Double, Object>)this.getPopMap("ZPOPMAX", key, count, true);
-    }
-
-    /**
-     * 弹出最大分数值字符串(带分数)
-     * 
-     * @see <a href="http://redis.io/commands/zpopmax">Redis Documentation: ZPOPMAX</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @param count 弹出数量
-     * @return 返回字符串字典
-     */
-    @SuppressWarnings("unchecked")
-    public Map<Double, String> popMaxByScore(String key, int count) {
-        return (Map<Double, String>)this.getPopMap("ZPOPMAX", key, count, false);
-    }
-
-    /**
-     * 弹出最小分数值对象
-     * 
-     * @see <a href="http://redis.io/commands/zpopmin">Redis Documentation: ZPOPMIN</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @return 返回对象
-     */
-    public Object popMinAsObj(String key) {
-        return this.popMinAsObj(key, 1).get(0);
-    }
-
-    /**
-     * 弹出最小分数值字符串
-     * 
-     * @see <a href="http://redis.io/commands/zpopmin">Redis Documentation: ZPOPMIN</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @return 返回字符串
-     */
-    public String popMin(String key) {
-        return this.popMin(key, 1).get(0);
-    }
-
-    /**
-     * 弹出最小分数值对象
-     * 
-     * @see <a href="http://redis.io/commands/zpopmin">Redis Documentation: ZPOPMIN</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @param count 弹出数量
-     * @return 返回对象列表
-     */
-    public List popMinAsObj(String key, int count) {
-        return this.getPopResult("ZPOPMIN", key, count, this.redisTemplate.getValueSerializer()).get("values");
-    }
-
-    /**
-     * 弹出最小分数值字符串
-     * 
-     * @see <a href="http://redis.io/commands/zpopmin">Redis Documentation: ZPOPMIN</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @param count 弹出数量
-     * @return 返回字符串列表
-     */
-    public List<String> popMin(String key, int count) {
-        List<String> data = new ArrayList<>(count);
-        Map<String, List<Object>> popResult =
-            this.getPopResult("ZPOPMIN", key, count, this.stringRedisTemplate.getValueSerializer());
-        List<Object> valueList = popResult.get("values");
-        for (int i = 0; i < count; i++) {
-            data.add(String.valueOf(valueList.get(i)));
-        }
-        return data;
-    }
-
-    /**
-     * 弹出最小分数值对象(带分数)
-     * 
-     * @see <a href="http://redis.io/commands/zpopmin">Redis Documentation: ZPOPMIN</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @param count 弹出数量
-     * @return 返回对象字典
-     */
-    @SuppressWarnings("unchecked")
-    public Map<Double, Object> popMinByScoreAsObj(String key, int count) {
-        return (Map<Double, Object>)this.getPopMap("ZPOPMIN", key, count, true);
-    }
-
-    /**
-     * 弹出最小分数值字符串(带分数)
-     * 
-     * @see <a href="http://redis.io/commands/zpopmin">Redis Documentation: ZPOPMIN</a>
-     * @since redis 5.0.0
-     * @param key 键
-     * @param count 弹出数量
-     * @return 返回字符串字典
-     */
-    @SuppressWarnings("unchecked")
-    public Map<Double, String> popMinByScore(String key, int count) {
-        return (Map<Double, String>)this.getPopMap("ZPOPMIN", key, count, false);
-    }
-
-    /**
-     * 获取spring redis模板
-     * 
-     * @return 返回对象模板
-     */
-    public RedisTemplate<String, Object> getRedisTemplate() {
-        return this.redisTemplate;
-    }
-
-    /**
      * 获取spring string redis模板
      * 
      * @return 返回字符串模板
@@ -1412,7 +1158,7 @@ public final class ZsetHandler implements RedisHandler {
      * @return 返回范围对象
      */
     private RedisZSetCommands.Range getRange(Long startSortIndex, boolean isContainsStart, Long endSortIndex,
-        boolean isContainsEnd) {
+                           boolean isContainsEnd) {
         RedisZSetCommands.Range range = RedisZSetCommands.Range.range();
         if (isContainsStart) {
             range.gte(startSortIndex);
@@ -1425,66 +1171,5 @@ public final class ZsetHandler implements RedisHandler {
             range.lt(endSortIndex);
         }
         return range;
-    }
-
-    /**
-     * 获取弹出结果字典
-     * 
-     * @param command 弹出命令
-     * @param key 键
-     * @param count 弹出数量
-     * @param isObject 是否对象
-     * @return 返回弹出字典
-     */
-    private Map<Double, ?> getPopMap(String command, String key, int count, boolean isObject) {
-        Map<String, List<Object>> popResult =
-            this.getPopResult(command, key, count, this.stringRedisTemplate.getValueSerializer());
-        List<Object> keyList = popResult.get("keys");
-        List<Object> valueList = popResult.get("values");
-        if (isObject) {
-            Map<Double, String> data = new LinkedHashMap<>(count);
-            for (int i = 0; i < count; i++) {
-                data.put(Double.valueOf(String.valueOf(keyList.get(i))), String.valueOf(valueList.get(i)));
-            }
-            return data;
-        } else {
-            Map<Double, Object> data = new HashMap<>(count);
-            for (int i = 0; i < count; i++) {
-                data.put(Double.valueOf(String.valueOf(keyList.get(i))), valueList.get(i));
-            }
-            return data;
-        }
-    }
-
-    /**
-     * 获取弹出结果
-     * 
-     * @param command 弹出命令
-     * @param key 键
-     * @param count 弹出数量
-     * @param redisSerializer 序列化器
-     * @return 返回弹出结果字典
-     */
-    @SuppressWarnings("unchecked")
-    private Map<String, List<Object>> getPopResult(String command, String key, int count,
-        RedisSerializer redisSerializer) {
-        CustomCommandHandler commandHandler = RedisUtil.getCustomCommandHandler(this.dbIndex);
-        List<Object> list = (List<Object>)ConvertUtil.toJavaType(redisSerializer, commandHandler.execute(command,
-            commandHandler.serialize(key), commandHandler.serialize(String.valueOf(count))));
-        Map<String, List<Object>> data = new HashMap<>(2);
-        List<Object> keyList = new ArrayList<>(count);
-        List<Object> valueList = new ArrayList<>(count);
-        if (list != null && list.size() > 0) {
-            List<Object> dataList = (List<Object>)list.get(0);
-            for (int i = 0; i < count; i++) {
-                int scoreIndex = (i + 1) * 2 - 1;
-                int valueIndex = i * 2;
-                keyList.add(dataList.get(scoreIndex));
-                valueList.add(dataList.get(valueIndex));
-            }
-        }
-        data.put("keys", keyList);
-        data.put("values", valueList);
-        return data;
     }
 }

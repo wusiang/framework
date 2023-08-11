@@ -53,16 +53,6 @@ public class HandlerManagerProxy {
     }
 
     /**
-     * 获取流助手
-     * @param dbIndex 数据库索引
-     * @param mapper 哈希映射器
-     * @return 返回流助手
-     */
-    public StreamHandler getStreamHandler(int dbIndex, HashMapper<String, String, Object> mapper) {
-        return new StreamHandler(dbIndex, mapper);
-    }
-
-    /**
      * 获取默认的对象模板
      * @return 返回默认的对象模板
      */

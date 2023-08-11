@@ -259,23 +259,6 @@ public final class TransactionHandler implements RedisHandler{
     }
 
     /**
-     * 获取流助手
-     * @return 返回流助手
-     */
-    public StreamHandler getStreamHandler() {
-        return new StreamHandler(this);
-    }
-
-    /**
-     * 获取流助手
-     * @param hashMapper 哈希映射
-     * @return 返回流助手
-     */
-    public StreamHandler getStreamHandler(HashMapper<String, String, Object> hashMapper) {
-        return new StreamHandler(this, hashMapper);
-    }
-
-    /**
      * 获取哨兵助手
      * @return 返回哨兵助手
      */

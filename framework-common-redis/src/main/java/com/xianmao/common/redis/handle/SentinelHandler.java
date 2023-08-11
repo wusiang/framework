@@ -82,7 +82,7 @@ public final class SentinelHandler implements RedisHandler {
      * @return 返回从服务器列表
      */
     public Collection<RedisServer> slaves(String masterName) {
-        return this.connectionFactory.getSentinelConnection().slaves(
+        return this.connectionFactory.getSentinelConnection().replicas(
             RedisNode.newRedisNode()
                      .withName(masterName)
                      .promotedAs(RedisNode.NodeType.MASTER)

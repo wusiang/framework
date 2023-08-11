@@ -1,8 +1,6 @@
 package com.xianmao.common.redis.config;
 
 import com.xianmao.common.redis.config.cache.RedisCacheConfiguration;
-import com.xianmao.common.redis.config.jedis.JedisConnectionConfiguration;
-import com.xianmao.common.redis.config.lettuce.LettuceConnectionConfiguration;
 import com.xianmao.common.redis.config.redisson.RedissonAutoConfiguration;
 import com.xianmao.common.redis.util.ApplicationContextUtil;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -25,8 +23,6 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 @ConditionalOnClass({RedisTemplate.class})
 @Import({
         ApplicationContextUtil.class,
-        LettuceConnectionConfiguration.class,
-        JedisConnectionConfiguration.class,
         RedissonAutoConfiguration.class,
         RedisCacheConfiguration.class
 })

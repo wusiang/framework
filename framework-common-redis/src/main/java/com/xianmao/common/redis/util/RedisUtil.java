@@ -240,33 +240,6 @@ public class RedisUtil {
     }
 
     /**
-     * 获取流助手
-     * @return 返回流助手
-     */
-    public static StreamHandler getStreamHandler() {
-        return MANAGER.getHandler(HandlerType.STREAM);
-    }
-
-    /**
-     * 获取流助手
-     * @param dbIndex 数据库索引
-     * @return 返回流助手
-     */
-    public static StreamHandler getStreamHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.STREAM);
-    }
-
-    /**
-     * 获取流助手
-     * @param dbIndex 数据库索引
-     * @param mapper 哈希映射器
-     * @return 返回流助手
-     */
-    public static StreamHandler getStreamHandler(int dbIndex, HashMapper<String, String, Object> mapper) {
-        return MANAGER.getStreamHandler(dbIndex, mapper);
-    }
-
-    /**
      * 获取分布式锁助手(需添加redisson依赖)
      * @return 返回分布式锁助手
      */

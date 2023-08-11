@@ -75,29 +75,6 @@ public final class ClusterHandler implements RedisHandler {
     }
 
     /**
-     * 从节点集合
-     * @see <a href="http://redis.io/commands/cluster-slaves">Redis Documentation: CLUSTER SLAVES</a>
-     * @since redis 3.0.0
-     * @param masterId 主节点id
-     * @return 返回从节点集合
-     */
-    public Collection<RedisClusterNode> slaves(String masterId) {
-        return this.connectionFactory
-                   .getClusterConnection()
-                   .clusterGetSlaves(RedisClusterNode.newRedisClusterNode().withId(masterId).build());
-    }
-
-    /**
-     * 主从节点字典
-     * @see <a href="http://redis.io/commands/cluster-slaves">Redis Documentation: CLUSTER SLAVES</a>
-     * @since redis 3.0.0
-     * @return 返回主从节点字典
-     */
-    public Map<RedisClusterNode, Collection<RedisClusterNode>> masterSlaves() {
-        return this.connectionFactory.getClusterConnection().clusterGetMasterSlaveMap();
-    }
-
-    /**
      * 根据键获取节点
      * @param key 键
      * @return 返回节点

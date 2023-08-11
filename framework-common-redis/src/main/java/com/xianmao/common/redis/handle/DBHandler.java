@@ -264,38 +264,38 @@ public final class DBHandler implements RedisHandler {
         this.redisTemplate.killClient(ip, port);
     }
 
-    /**
-     * 角色的信息
-     * @see <a href="http://redis.io/commands/role">Redis Documentation: ROLE</a>
-     * @since redis 2.8.12
-     * @return 返回当前是master，slave还是sentinel
-     */
-    @SuppressWarnings("unchecked")
-    public String getRole() {
-        CustomCommandHandler commandHandler = RedisUtil.getCustomCommandHandler(this.dbIndex);
-        List<Object> list = (List<Object>) commandHandler.execute("ROLE");
-        return commandHandler.deserialize((byte[]) list.get(0));
-    }
+//    /**
+//     * 角色的信息
+//     * @see <a href="http://redis.io/commands/role">Redis Documentation: ROLE</a>
+//     * @since redis 2.8.12
+//     * @return 返回当前是master，slave还是sentinel
+//     */
+//    @SuppressWarnings("unchecked")
+//    public String getRole() {
+//        CustomCommandHandler commandHandler = RedisUtil.getCustomCommandHandler(this.dbIndex);
+//        List<Object> list = (List<Object>) commandHandler.execute("ROLE");
+//        return commandHandler.deserialize((byte[]) list.get(0));
+//    }
 
-    /**
-     * 转为从服务器
-     * @see <a href="http://redis.io/commands/slaveof">Redis Documentation: SLAVEOF</a>
-     * @since redis 1.0.0
-     * @param ip 主服务器IP
-     * @param port 主服务器端口
-     */
-    public void slaveOf(String ip, int port) {
-        this.redisTemplate.slaveOf(ip, port);
-    }
+//    /**
+//     * 转为从服务器
+//     * @see <a href="http://redis.io/commands/slaveof">Redis Documentation: SLAVEOF</a>
+//     * @since redis 1.0.0
+//     * @param ip 主服务器IP
+//     * @param port 主服务器端口
+//     */
+//    public void slaveOf(String ip, int port) {
+//        this.redisTemplate.slaveOf(ip, port);
+//    }
 
-    /**
-     * 转为主服务器
-     * @see <a href="http://redis.io/commands/slaveof">Redis Documentation: SLAVEOF NO ONE</a>
-     * @since redis 1.0.0
-     */
-    public void slaveOfNoOne() {
-        this.redisTemplate.slaveOfNoOne();
-    }
+//    /**
+//     * 转为主服务器
+//     * @see <a href="http://redis.io/commands/slaveof">Redis Documentation: SLAVEOF NO ONE</a>
+//     * @since redis 1.0.0
+//     */
+//    public void slaveOfNoOne() {
+//        this.redisTemplate.slaveOfNoOne();
+//    }
 
     /**
      * 异步AOF文件重写

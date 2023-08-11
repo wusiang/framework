@@ -26,8 +26,7 @@ import org.springframework.util.Assert;
  * @date 2019/5/14
  * @since 1.8
  */
-public class RedissonConnectionFactory implements RedisConnectionFactory,
-        ReactiveRedisConnectionFactory, InitializingBean, DisposableBean {
+public class RedissonConnectionFactory implements RedisConnectionFactory, ReactiveRedisConnectionFactory, InitializingBean, DisposableBean {
 
     private final static Log log = LogFactory.getLog(RedissonConnectionFactory.class);
 
@@ -77,7 +76,8 @@ public class RedissonConnectionFactory implements RedisConnectionFactory,
         if (!redisson.getConfig().isClusterConfig()) {
             throw new InvalidDataAccessResourceUsageException("Redisson is not in Cluster mode");
         }
-        return new RedissonClusterConnection(redisson);
+        return null;
+        //return new RedissonClusterConnection(redisson);
     }
 
     @Override

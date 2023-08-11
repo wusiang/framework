@@ -18,7 +18,6 @@
         <module>framework-common-job</module>
         <module>framework-common-rocketmq</module>
         <module>framework-common-redo</module>
-        <module>framework-common-log</module>
         <module>framework-common-cloud</module>
         <module>framework-common-entity</module>
         <module>framework-common-feign</module>
@@ -32,12 +31,12 @@
     <properties>
         <!---->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <!---->
-        <spring-boot.version>2.7.10</spring-boot.version>
-        <spring-cloud.version>2021.0.6</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <spring-boot.version>3.1.2</spring-boot.version>
+        <spring-cloud.version>2022.0.4</spring-cloud.version>
+        <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
         <!---->
         <hutool.version>5.8.21</hutool.version>
         <knife4j.version>2.0.9</knife4j.version>
@@ -57,7 +56,7 @@
         <rocketmq-client.version>5.0.0</rocketmq-client.version>
         <!---->
         <revision>1.0.0-SNAPSHOT</revision>
-        <jdk.version>1.8</jdk.version>
+        <jdk.version>17</jdk.version>
     </properties>
 
     <dependencyManagement>
@@ -237,21 +236,17 @@
     </distributionManagement>
 
     <build>
+        <finalName>${project.name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.2.0</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
                 <configuration>
-                    <delimiters>
-                        <delimiter>@</delimiter>
-                    </delimiters>
-                    <useDefaultDelimiters>false</useDefaultDelimiters>
-                    <encoding>UTF-8</encoding>
+                    <debug>false</debug>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
