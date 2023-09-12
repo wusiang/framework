@@ -15,6 +15,12 @@ import java.util.Map;
  */
 public class TraceFeignRequestInterceptor implements RequestInterceptor {
 
+    /**
+     * Feign GET 请求400 (一下正常200,一下异常400)
+     * A服务的Post请求 -> feign -> B服务的Get    (问题复现) okhhtp解析请求头会报错
+     * @link https://blog.csdn.net/u011504708/article/details/121315814
+     * @param requestTemplate
+     */
     @Override
     public void apply(RequestTemplate requestTemplate) {
         HttpServletRequest httpServletRequest = getHttpServletRequest();
