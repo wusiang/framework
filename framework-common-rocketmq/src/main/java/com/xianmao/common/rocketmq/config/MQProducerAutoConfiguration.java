@@ -1,6 +1,7 @@
 package com.xianmao.common.rocketmq.config;
 
 import com.xianmao.common.rocketmq.annotation.MQProducer;
+import lombok.Getter;
 import org.apache.rocketmq.client.apis.*;
 import org.apache.rocketmq.client.apis.producer.Producer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -9,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
-import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -19,11 +19,8 @@ import java.util.Map;
 @ConditionalOnBean(MQBaseAutoConfiguration.class)
 public class MQProducerAutoConfiguration extends MQBaseAutoConfiguration {
 
+    @Getter
     private static Producer producer;
-
-    public static Producer getProducer() {
-        return producer;
-    }
 
     @Bean
     public Producer exposeProducer() throws ClientException {
@@ -43,10 +40,6 @@ public class MQProducerAutoConfiguration extends MQBaseAutoConfiguration {
             final ClientServiceProvider provider = ClientServiceProvider.loadService();
             producer = provider.newProducerBuilder()
                     .setClientConfiguration(clientConfiguration)
-                    // Set the topic name(s), which is optional. It makes producer could prefetch the topic route before
-                    // message publishing.
-                    //.setTopics("")
-                    // May throw {@link ClientException} if the producer is not initialized.
                     .build();
         }
         return producer;

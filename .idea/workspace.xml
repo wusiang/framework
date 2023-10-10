@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/interceptor/TraceFeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-feign/src/main/java/com/xianmao/common/feign/interceptor/TraceFeignRequestInterceptor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,28 +41,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "/Users/wujinghua/Desktop/xianmao/framework/framework-common-trace/src/main/resources/META-INF",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "b61fd05df462d710c8f4df1a205c82eb",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wujinghua/Desktop/xianmao/framework/framework-common-trace/src/main/resources/META-INF&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b61fd05df462d710c8f4df1a205c82eb&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/framework-common-trace/src/main/resources/META-INF" />
@@ -219,7 +218,10 @@
       <workItem from="1691414380515" duration="613000" />
       <workItem from="1691467491224" duration="2435000" />
       <workItem from="1693841683487" duration="29000" />
-      <workItem from="1694508457348" duration="43000" />
+      <workItem from="1694508457348" duration="63000" />
+      <workItem from="1694603447506" duration="638000" />
+      <workItem from="1694659930151" duration="5000" />
+      <workItem from="1696833456865" duration="889000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -305,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1683277828254</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="升级版本">
+      <option name="closed" value="true" />
+      <created>1694508508172</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694508508172</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

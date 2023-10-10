@@ -28,19 +28,18 @@ public abstract class AbstractMQPushConsumer<T> extends AbstractMQConsumer<T> im
 
     }
 
-
     @Override
     public ConsumeResult consume(MessageView messageView) {
         try {
-            log.debug("receive messageId: {}", messageView.getMessageId());
+            log.info("receive messageId: {}", messageView.getMessageId());
             T t = parseMessage(messageView);
             if (!process(t)) {
-                log.warn("consume fail , ask for re-consume , msgId: {}", messageView.getMessageId());
+                log.warn("consume fail, ask for re-consume , msgId: {}", messageView.getMessageId());
                 return ConsumeResult.FAILURE;
             }
             return ConsumeResult.SUCCESS;
         } catch (Exception e) {
-            log.warn("consume fail , ask for re-consume , msgId: {}, {}", messageView.getMessageId(), e);
+            log.error("consume fail, ask for re-consume , msgId: {}", messageView.getMessageId(), e);
             return ConsumeResult.FAILURE;
         }
     }
