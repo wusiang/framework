@@ -54,7 +54,7 @@
         <com.dangdang.version>2.1.5</com.dangdang.version>
         <org.apache.curator.version>2.12.0</org.apache.curator.version>
         <oss.version>3.14.0</oss.version>
-        <rocketmq-client.version>5.0.0</rocketmq-client.version>
+        <rocketmq-client.version>5.0.4</rocketmq-client.version>
         <!---->
         <revision>1.0.0-SNAPSHOT</revision>
         <jdk.version>1.8</jdk.version>
