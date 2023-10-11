@@ -6,13 +6,14 @@ import com.xianmao.common.rocketmq.base.BaseMQ;
 import com.xianmao.common.rocketmq.base.MessageExtConst;
 import org.apache.rocketmq.client.apis.ClientServiceProvider;
 import org.apache.rocketmq.client.apis.consumer.*;
+import org.apache.rocketmq.shaded.com.google.common.base.Joiner;
+import org.apache.rocketmq.shaded.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.ParameterizedType;
@@ -32,6 +33,8 @@ public class MQConsumerAutoConfiguration extends MQBaseAutoConfiguration {
     private final static Logger log = LoggerFactory.getLogger(MQConsumerAutoConfiguration.class);
 
     private final static ClientServiceProvider provider = ClientServiceProvider.loadService();
+
+    private final static String prefixGroupId = "GID_";
 
     @PostConstruct
     public void init() throws Exception {
@@ -67,10 +70,12 @@ public class MQConsumerAutoConfiguration extends MQBaseAutoConfiguration {
             throw new RuntimeException(bean.getClass().getName() + " - consumer未实现Consumer抽象类");
         }
         Environment environment = applicationContext.getEnvironment();
+        // topic配置
         String topic = environment.resolvePlaceholders(mqConsumer.topic());
-        String tag = mqConsumer.tag();
-        if (!tag.contains("*") && !tag.contains("|")) {
-            throw new RuntimeException("tag" + tag + ":" + "config error");
+        // tag配置
+        String[] tag = mqConsumer.tag();
+        if (tag.length == 0) {
+            throw new RuntimeException("consumer tag must be define");
         }
         // 配置push consumer
         AbstractMQPushConsumer.class.isAssignableFrom(bean.getClass());
@@ -89,7 +94,7 @@ public class MQConsumerAutoConfiguration extends MQBaseAutoConfiguration {
         }
         //订阅关系
         Map<FilterExpression, MessageListener> subscriptionTable = new HashMap<>();
-        FilterExpression filterExpression = new FilterExpression(tag, FilterExpressionType.TAG);
+        FilterExpression filterExpression = new FilterExpression(Joiner.on("||").join(tag), FilterExpressionType.TAG);
         subscriptionTable.put(filterExpression, (MessageListener) bean);
         pushConsumerBuilder.setClientConfiguration(mqProperties.clientConfiguration());
         pushConsumerBuilder.setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression));
@@ -104,11 +109,11 @@ public class MQConsumerAutoConfiguration extends MQBaseAutoConfiguration {
     private String getGroupId(MQConsumer mqConsumer) {
         AtomicReference<String> groupId = new AtomicReference<>(applicationContext.getEnvironment().getProperty("rocketmq.consumerGroup"));
         Assert.notNull(groupId.get(), "comsumer groupId must not been null");
-        if (!StringUtils.isEmpty(mqConsumer.consumerGroup())) {
+        if (!StringUtils.isBlank(mqConsumer.consumerGroup())) {
             groupId.set(mqConsumer.consumerGroup());
         }
-        if (!groupId.get().contains("GID_")) {
-            groupId.set("GID_" + groupId);
+        if (!groupId.get().contains(prefixGroupId)) {
+            groupId.set(prefixGroupId + groupId);
         }
         return groupId.get();
     }

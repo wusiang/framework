@@ -9,6 +9,8 @@ import org.springframework.util.Assert;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Description：RocketMQ消费抽象基类
@@ -29,7 +31,8 @@ public abstract class AbstractMQConsumer<T> {
         final Type type = this.getMessageType();
         if (type instanceof Class) {
             try {
-                return gson.fromJson(message.getBody().toString(), type);
+                Charset charset = StandardCharsets.UTF_8;
+                return gson.fromJson(charset.decode(message.getBody()).toString(), type);
             } catch (JsonSyntaxException e) {
                 log.error("parse message json fail", e);
             }

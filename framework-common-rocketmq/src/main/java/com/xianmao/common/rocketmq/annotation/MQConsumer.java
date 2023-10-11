@@ -15,7 +15,7 @@ public @interface MQConsumer {
     /**
      * 消费组
      */
-    String consumerGroup();
+    String consumerGroup() default "";
 
     /**
      * 主题
@@ -27,6 +27,8 @@ public @interface MQConsumer {
      * 单线程消费: ORDERLY("ORDERLY");
      */
     String consumeMode() default MessageExtConst.CONSUME_MODE_CONCURRENTLY;
-
-    String tag() default "*";
+    /**
+     * 消息标签
+     */
+    String[] tag() default {"*"};
 }
