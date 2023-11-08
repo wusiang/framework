@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 
 @Data
 @Component
@@ -24,7 +25,7 @@ public class MessageBuilder {
     private String tag;
     private String key;
     private Object message;
-    private Long delayTimeLevel;
+    private Duration messageDelayTime;
 
     public static MessageBuilder of(String topic, String tag) {
         MessageBuilder builder = new MessageBuilder();
@@ -57,8 +58,8 @@ public class MessageBuilder {
     /**
      * 延时时间单位为毫秒（ms），指定一个时刻，在这个时刻之后才能被消费，这个例子表示 3秒 后才能被消费
      */
-    public MessageBuilder delayTimeLevel(long delayTime) {
-        this.delayTimeLevel = System.currentTimeMillis() + delayTime;
+    public MessageBuilder messageDelayTime(Duration messageDelayTime) {
+        this.messageDelayTime = messageDelayTime;
         return this;
     }
 
@@ -92,12 +93,12 @@ public class MessageBuilder {
         }
         final ClientServiceProvider provider = ClientServiceProvider.loadService();
 
-        if (delayTimeLevel != null && delayTimeLevel > 0) {
+        if (messageDelayTime != null && messageDelayTime.toMillis() > 0) {
             return provider.newMessageBuilder()
                     .setTopic(topic)
                     .setTag(tag)
                     .setKeys(messageKey)
-                    .setDeliveryTimestamp(System.currentTimeMillis() + delayTimeLevel * 1000)
+                    .setDeliveryTimestamp(System.currentTimeMillis() + messageDelayTime.toMillis())
                     .setBody(str.getBytes(StandardCharsets.UTF_8))
                     .build();
         } else {
