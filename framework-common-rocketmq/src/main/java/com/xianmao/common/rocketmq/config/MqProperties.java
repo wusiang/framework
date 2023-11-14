@@ -23,6 +23,7 @@ public class MqProperties {
         return ClientConfiguration.newBuilder()
                 .setEndpoints(this.nameSrvAddr)
                 .setCredentialProvider(sessionCredentialsProvider)
+                .enableSsl(false)
                 .build();
     }
 }
