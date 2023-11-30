@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="延迟消息处理">
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级mq版本">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,6 +234,8 @@
       <workItem from="1699260077272" duration="614000" />
       <workItem from="1699411534558" duration="75000" />
       <workItem from="1699438760096" duration="15000" />
+      <workItem from="1699936700071" duration="95000" />
+      <workItem from="1699937908663" duration="92000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -343,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699411586483</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="升级mq版本">
+      <option name="closed" value="true" />
+      <created>1699936788033</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699936788033</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +383,8 @@
     <MESSAGE value="完善rocketmq" />
     <MESSAGE value="升级连接池版本" />
     <MESSAGE value="延迟消息处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="延迟消息处理" />
+    <MESSAGE value="升级mq版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="升级mq版本" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
