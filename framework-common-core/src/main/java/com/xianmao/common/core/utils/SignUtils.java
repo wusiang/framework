@@ -1,47 +1,85 @@
 package com.xianmao.common.core.utils;
 
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.core.util.URLUtil;
-import cn.hutool.crypto.digest.MD5;
 
+import javax.crypto.Mac;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.GeneralSecurityException;
+import java.security.MessageDigest;
 import java.util.*;
 
 public class SignUtils {
-    /**
-     * 签名算法
-     * 1. 计算步骤
-     * 用于计算签名的参数在不同接口之间会有差异，但算法过程固定如下4个步骤。
-     * 将<key, value>请求参数对按key进行字典升序排序，得到有序的参数对列表N
-     * 将列表N中的参数对按URL键值对的格式拼接成字符串，得到字符串T（如：key1=value1&key2=value2），URL键值拼接过程value部分需要URL编码，URL编码算法用大写字母，例如%E8，而不是小写%e8
-     * 将应用密钥以app_key为键名，组成URL键值拼接到字符串T末尾，得到字符串S（如：key1=value1&key2=value2&app_key=密钥)
-     * 对字符串S进行MD5运算，将得到的MD5值所有字符转换成大写，得到接口请求签名
-     * 2. 注意事项
-     * 不同接口要求的参数对不一样，计算签名使用的参数对也不一样
-     * 参数名区分大小写，参数值为空不参与签名
-     * URL键值拼接过程value部分需要URL编码
-     *
-     * @return 签名字符串
-     */
-    private static String getSign(Map<String, Object> map, String secretKey) {
-        List<Map.Entry<String, Object>> infoIds = new ArrayList<>(map.entrySet());
-        Collections.sort(infoIds, new Comparator<Map.Entry<String, Object>>() {
-            public int compare(Map.Entry<String, Object> arg0, Map.Entry<String, Object> arg1) {
-                return (arg0.getKey()).compareTo(arg1.getKey());
-            }
-        });
-        StringBuffer sb = new StringBuffer();
-        for (Map.Entry<String, Object> m : infoIds) {
-            if (null == m.getValue() || StrUtil.isNotBlank(m.getValue().toString())) {
-                sb.append(m.getKey()).append("=").append(URLUtil.encodeAll(m.getValue().toString())).append("&");
+
+    public static String signTopRequest(Map<String, String> params, String secret, String signMethod) throws IOException {
+        // 第一步：检查参数是否已经排序
+        String[] keys = params.keySet().toArray(new String[0]);
+        Arrays.sort(keys);
+
+        // 第二步：把所有参数名和参数值串在一起
+        StringBuilder query = new StringBuilder();
+        if ("md5".equals(signMethod)) { //签名的摘要算法，可选值为：hmac，md5，hmac-sha256
+            query.append(secret);
+        }
+        for (String key : keys) {
+            String value = params.get(key);
+            if (StrUtil.isAllNotEmpty(key, value)) {
+                query.append(key).append(value);
             }
         }
-        sb.append("secretkey=").append(secretKey);
-        return MD5.create().digestHex(sb.toString()).toUpperCase();
+
+        // 第三步：使用MD5/HMAC加密
+        byte[] bytes;
+        if ("HMAC".equals(signMethod)) {
+            bytes = encryptHMAC(query.toString(), secret);
+        } else {
+            query.append(secret);
+            bytes = encryptMD5(query.toString());
+        }
+
+        //第四步：把二进制转化为大写的十六进制(正确签名应该为32大写字符串，此方法需要时使用)
+        return byte2hex(bytes);
     }
 
-    //签名验证方法
-    public static boolean signValidate(Map<String, Object> map, String secretKey, String sign) {
-        String mySign = getSign(map, secretKey);
-        return mySign.equals(sign);
+    public static String byte2hex(byte[] bytes) {
+        StringBuilder sign = new StringBuilder();
+        for (int i = 0; i < bytes.length; i++) {
+            String hex = Integer.toHexString(bytes[i] & 0xFF);
+            if (hex.length() == 1) {
+                sign.append("0");
+            }
+            sign.append(hex.toUpperCase());
+        }
+        return sign.toString();
+    }
+
+    public static byte[] encryptHMAC(String data, String secret) throws IOException {
+        byte[] bytes = null;
+        try {
+            SecretKey secretKey = new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), "HmacMD5");
+            Mac mac = Mac.getInstance(secretKey.getAlgorithm());
+            mac.init(secretKey);
+            bytes = mac.doFinal(data.getBytes(StandardCharsets.UTF_8));
+        } catch (GeneralSecurityException gse) {
+            throw new IOException(gse.toString());
+        }
+        return bytes;
+    }
+
+    public static byte[] encryptMD5(String data) throws IOException {
+        return encryptMD5(data.getBytes(StandardCharsets.UTF_8));
+    }
+
+    public static byte[] encryptMD5(byte[] data) throws IOException {
+        byte[] bytes = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            bytes = md.digest(data);
+        } catch (GeneralSecurityException gse) {
+            throw new IOException(gse.toString());
+        }
+        return bytes;
     }
 }
