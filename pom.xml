@@ -56,6 +56,7 @@
         <oss.version>3.14.0</oss.version>
         <rocketmq-client.version>5.0.5</rocketmq-client.version>
         <!---->
+        <commons-lang3.version>3.7</commons-lang3.version>
         <revision>1.0.0-SNAPSHOT</revision>
         <jdk.version>1.8</jdk.version>
     </properties>
@@ -177,6 +178,12 @@
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-recipes</artifactId>
                 <version>${org.apache.curator.version}</version>
+            </dependency>
+            <!-- commons -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
             </dependency>
             <!--  OSS上传组件  -->
             <dependency>
