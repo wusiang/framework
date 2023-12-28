@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级mq版本">
-      <change afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/SystemClock.java" afterDir="false" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +50,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/wujinghua/Desktop/xianmao/framework/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -81,6 +80,13 @@
       <recent name="com.xianmao.cloud.feign" />
       <recent name="com.xianmao.cloud.annotation" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-1.8.0_392-corretto-1.8.0_392-3183f394aec4-22f8fbaa" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -242,6 +248,9 @@
       <workItem from="1701319588177" duration="169000" />
       <workItem from="1701661835699" duration="602000" />
       <workItem from="1702452431371" duration="510000" />
+      <workItem from="1702452976265" duration="275000" />
+      <workItem from="1702454323906" duration="39000" />
+      <workItem from="1702454366985" duration="598000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -359,7 +368,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699936788033</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="升级版本">
+      <option name="closed" value="true" />
+      <created>1702453127118</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1702453127118</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,12 +402,12 @@
     <MESSAGE value="调整remo" />
     <MESSAGE value="调整error" />
     <MESSAGE value="添加工具" />
-    <MESSAGE value="升级版本" />
     <MESSAGE value="完善rocketmq" />
     <MESSAGE value="升级连接池版本" />
     <MESSAGE value="延迟消息处理" />
     <MESSAGE value="升级mq版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="升级mq版本" />
+    <MESSAGE value="升级版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="升级版本" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
