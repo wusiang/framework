@@ -47,6 +47,7 @@
         <!--数据库-->
         <mysql.version>8.0.28</mysql.version>
         <druid.version>1.2.16</druid.version>
+
         <!--谷歌工具包-->
         <guava.version>31.1-jre</guava.version>
         <redisson.version>3.17.1</redisson.version>
