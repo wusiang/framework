@@ -130,7 +130,13 @@ public class JobAutoConfiguration extends JobBaseConfiguration implements Initia
         String zkServerList = jobProperties.getAddress();
         log.info("zkServerList:" + zkServerList);
         zkServerList = zkServerList.replace("zookeeper://", "");
-        CoordinatorRegistryCenter regCenter = new ZookeeperRegistryCenter(new ZookeeperConfiguration(zkServerList, jobProperties.getNamespace()));
+        ZookeeperConfiguration zookeeperConfiguration =new ZookeeperConfiguration(zkServerList, jobProperties.getNamespace());
+        zookeeperConfiguration.setSessionTimeoutMilliseconds(10000);
+        zookeeperConfiguration.setConnectionTimeoutMilliseconds(10000);
+        zookeeperConfiguration.setBaseSleepTimeMilliseconds(1000);
+        zookeeperConfiguration.setMaxSleepTimeMilliseconds(5000);
+        zookeeperConfiguration.setMaxRetries(5);
+        CoordinatorRegistryCenter regCenter = new ZookeeperRegistryCenter(zookeeperConfiguration);
         regCenter.init();
         return regCenter;
     }
