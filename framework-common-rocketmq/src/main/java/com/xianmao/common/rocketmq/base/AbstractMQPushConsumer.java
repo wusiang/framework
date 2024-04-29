@@ -44,6 +44,7 @@ public abstract class AbstractMQPushConsumer<T> extends AbstractMQConsumer<T> im
         }
     }
 
+
     /**
      * 继承这个方法处理消息
      *
