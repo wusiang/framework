@@ -23,6 +23,7 @@
         <module>framework-common-entity</module>
         <module>framework-common-feign</module>
         <module>framework-common-trace</module>
+        <module>framework-common-idempotent</module>
     </modules>
 
     <name>framework</name>
@@ -206,6 +207,11 @@
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-excel</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

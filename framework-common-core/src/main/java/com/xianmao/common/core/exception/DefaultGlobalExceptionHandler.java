@@ -5,7 +5,6 @@ import com.xianmao.common.entity.web.ApiResult;
 import org.apache.catalina.connector.ClientAbortException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -23,30 +22,34 @@ import java.util.Map;
 public class DefaultGlobalExceptionHandler {
     private static Logger logger = LoggerFactory.getLogger(DefaultGlobalExceptionHandler.class);
 
-    private static Map<Class, IErrorCode> exceptionMap = new HashMap<Class, IErrorCode>() {
+    private static final Map<Class, ICode> exceptionMap = new HashMap<Class, ICode>() {
         {
-            put(HttpMessageNotReadableException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(ClientAbortException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(NoHandlerFoundException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(ParseException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(NumberFormatException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(IllegalArgumentException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(MaxUploadSizeExceededException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(BindException.class, ServerErrorCode.MSG_NOT_READABLE);
+            put(HttpMessageNotReadableException.class, ServerErrorCode.ERROR);
+            put(ClientAbortException.class, ServerErrorCode.ERROR);
+            put(NoHandlerFoundException.class, ServerErrorCode.ERROR);
+            put(ParseException.class, ServerErrorCode.ERROR);
+            put(NumberFormatException.class, ServerErrorCode.ERROR);
+            put(IllegalArgumentException.class, ServerErrorCode.ERROR);
+            put(MaxUploadSizeExceededException.class, ServerErrorCode.ERROR);
+            put(BindException.class, ServerErrorCode.ERROR);
         }
     };
 
     @ExceptionHandler(Exception.class)
     public ApiResult<?> handleException(Exception e) {
-        IErrorCode iErrorCode = exceptionMap.getOrDefault(e, ServerErrorCode.INTERNAL_SERVER_ERROR);
-        logger.error(Error.buildError(iErrorCode, ExceptionUtils.getExceptionString(e)));
-        return ApiResult.fail(iErrorCode.getCode(), iErrorCode.getValue());
+        ICode iCode = exceptionMap.getOrDefault(e, ServerErrorCode.ERROR);
+        logger.error(Error.buildError(iCode, ExceptionUtils.getExceptionString(e)), e);
+        return ApiResult.fail(Integer.parseInt(String.valueOf(iCode.getCode())), iCode.getValue());
     }
 
     @ExceptionHandler(BussinessException.class)
     public ApiResult<?> handleBussinessException(BussinessException bussinessException) {
-        logger.error(Error.buildError(bussinessException.getCode(), ExceptionUtils.getExceptionString(bussinessException)));
-        return ApiResult.fail(bussinessException.getCode().getCode(), bussinessException.getMessage());
+        if (bussinessException.getCode().getCode().equals(ServerErrorCode.ERROR.getCode())) {
+            logger.error(Error.buildError(bussinessException.getCode(), ExceptionUtils.getExceptionString(bussinessException)), bussinessException);
+        } else {
+            logger.warn(Error.buildError(bussinessException.getCode(), ExceptionUtils.getExceptionString(bussinessException)), bussinessException);
+        }
+        return ApiResult.fail(Integer.parseInt(String.valueOf(bussinessException.getCode().getCode())), bussinessException.getMessage());
     }
 
     /**
@@ -54,16 +57,16 @@ public class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ApiResult<?> handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
-        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)));
-        return ApiResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
+        logger.error(Error.buildError(ServerErrorCode.ERROR, ExceptionUtils.getExceptionString(e)), e);
+        return ApiResult.fail(ServerErrorCode.ERROR.getCode(), e.getMessage());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ApiResult<?> MethodArgumentNotValidException(MethodArgumentNotValidException e) {
         FieldError fieldError = e.getBindingResult().getFieldError();
-        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)), e);
+        logger.error(Error.buildError(ServerErrorCode.ERROR, ExceptionUtils.getExceptionString(e)), e);
         assert fieldError != null;
-        return ApiResult.fail(HttpStatus.BAD_REQUEST.value(), fieldError.getDefaultMessage());
+        return ApiResult.fail(ServerErrorCode.ERROR.getCode(), fieldError.getDefaultMessage());
     }
 
     /**
@@ -71,7 +74,7 @@ public class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public ApiResult<?> handleException(HttpRequestMethodNotSupportedException e) {
-        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)));
+        logger.error(Error.buildError(ServerErrorCode.ERROR, ExceptionUtils.getExceptionString(e)), e);
         return ApiResult.fail("不支持' " + e.getMethod() + "'请求");
     }
 }

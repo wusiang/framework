@@ -2,12 +2,13 @@ package com.xianmao.common.core.exception;
 
 import javax.servlet.http.HttpServletResponse;
 
-public enum ServerErrorCode implements IErrorCode {
+public enum ServerErrorCode implements ICode<Integer> {
 
     /*** 操作成功*/
     SUCCESS(HttpServletResponse.SC_OK, "操作成功"),
     /*** 业务异常*/
-    FAILURE(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "业务异常"),
+    WARN(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,"服务器异常"),
+    ERROR(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "业务异常"),
     /*** 请求未授权*/
     UN_AUTHORIZED(HttpServletResponse.SC_UNAUTHORIZED, "请求未授权"),
     /*** 404 没找到请求*/
