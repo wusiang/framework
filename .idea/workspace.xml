@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="升级版本">
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="新增幂等插件说明文档">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +45,8 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [install].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -50,7 +54,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wujinghua/Desktop/xianmao/framework/doc&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wujinghua/Desktop/xianmao/framework/framework-common-idempotent&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -66,18 +70,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/framework-common-idempotent" />
+      <recent name="$PROJECT_DIR$/framework-common-idempotent/src/main/resources/META-INF" />
+      <recent name="$PROJECT_DIR$/framework-common-idempotent/src/main/java/com/catcx/common/idempotent/expression" />
       <recent name="$PROJECT_DIR$/doc" />
       <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config" />
-      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/base" />
-      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/annotation" />
-      <recent name="$PROJECT_DIR$/framework-common-trace/src/main/resources/META-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.catcx.common.idempotent.exception" />
+      <recent name="com.catcx.common.idempotent.config" />
+      <recent name="com.catcx.common.idempotent.aspect" />
+      <recent name="com.catcx.common.idempotent.annotation" />
       <recent name="com.xianmao.cloud.annotation.endpoint" />
-      <recent name="com.xianmao.common.core.utils" />
-      <recent name="com.xianmao.common.trace.processor" />
-      <recent name="com.xianmao.common.trace.constants" />
-      <recent name="com.xianmao.cloud.feign" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -254,7 +258,8 @@
       <workItem from="1705990030057" duration="836000" />
       <workItem from="1706065763647" duration="1290000" />
       <workItem from="1714361578688" duration="1137000" />
-      <workItem from="1714445143088" duration="1508000" />
+      <workItem from="1714445143088" duration="2993000" />
+      <workItem from="1714455484889" duration="925000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -412,7 +417,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714378974800</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="新增幂等插件">
+      <option name="closed" value="true" />
+      <created>1714454860578</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1714454860579</updated>
+    </task>
+    <task id="LOCAL-00023" summary="新增幂等插件说明文档">
+      <option name="closed" value="true" />
+      <created>1714455080677</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1714455080677</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +465,9 @@
     <MESSAGE value="升级mq版本" />
     <MESSAGE value="优化代码" />
     <MESSAGE value="升级版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="升级版本" />
+    <MESSAGE value="新增幂等插件" />
+    <MESSAGE value="新增幂等插件说明文档" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增幂等插件说明文档" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

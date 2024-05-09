@@ -20,6 +20,7 @@
         <module name="framework-common-feign" />
         <module name="framework-common-web" />
         <module name="framework-common-cloud" />
+        <module name="framework-common-idempotent" />
         <module name="framework-common-mybatis" />
       </profile>
     </annotationProcessing>

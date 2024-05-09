@@ -13,6 +13,8 @@
     <file url="file://$PROJECT_DIR$/framework-common-excel/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-feign/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-feign/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-idempotent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-idempotent/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-job/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-job/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-log/src/main/java" charset="UTF-8" />
