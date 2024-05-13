@@ -30,6 +30,7 @@
 
 
     <properties>
+        <revision>1.0.0-SNAPSHOT</revision>
         <!---->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
@@ -201,27 +202,42 @@
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-core</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-web</artifactId>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-excel</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.catcx</groupId>
+                <artifactId>framework-common-idempotent</artifactId>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-redis</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-entity</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-feign</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-mybatis</artifactId>
+                <version>${revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
