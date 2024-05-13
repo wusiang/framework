@@ -2,7 +2,7 @@ package com.xianmao.common.core.exception;
 
 import java.io.Serializable;
 
-public interface ICode<K> extends Serializable {
+public interface IErrorCode<K> extends Serializable {
     /**
      * 获取code值
      *

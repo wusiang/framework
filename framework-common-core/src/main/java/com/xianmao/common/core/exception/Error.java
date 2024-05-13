@@ -8,7 +8,7 @@ import org.springframework.web.util.ContentCachingRequestWrapper;
 
 public class Error {
 
-    public static String buildError(ICode code, String msg) {
+    public static String buildError(IErrorCode code, String msg) {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attr.getRequest();
         String paramInfo = null;
@@ -22,7 +22,7 @@ public class Error {
         return buildErrorInfo(code, msg, request.getMethod() + ":" + request.getRequestURI(), paramInfo);
     }
 
-    public static String buildErrorInfo(ICode code, String errorMsg, String method, String paramInfo, Object... extra) {
+    public static String buildErrorInfo(IErrorCode code, String errorMsg, String method, String paramInfo, Object... extra) {
         StringBuilder sb = new StringBuilder();
         sb.append("----");
         sb.append(StringPool.PIPE);

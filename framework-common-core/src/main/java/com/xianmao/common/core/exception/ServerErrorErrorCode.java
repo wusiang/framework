@@ -3,7 +3,7 @@ package com.xianmao.common.core.exception;
 
 import jakarta.servlet.http.HttpServletResponse;
 
-public enum ServerErrorCode implements ICode<Integer> {
+public enum ServerErrorErrorCode implements IErrorCode<Integer> {
 
     /*** 操作成功*/
     SUCCESS(HttpServletResponse.SC_OK, "操作成功"),
@@ -54,7 +54,7 @@ public enum ServerErrorCode implements ICode<Integer> {
         return value;
     }
 
-    ServerErrorCode(Integer code, String value) {
+    ServerErrorErrorCode(Integer code, String value) {
         this.code = code;
         this.value = value;
     }

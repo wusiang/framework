@@ -1,10 +1,11 @@
 package com.xianmao.common.idempotent.aspect;
 
-import com.xianmao.common.core.exception.ServerErrorCode;
+import com.xianmao.common.core.exception.ServerErrorErrorCode;
 import com.xianmao.common.idempotent.annotation.Idempotent;
 import com.xianmao.common.idempotent.exception.IdempotentException;
 import com.xianmao.common.idempotent.expression.KeyResolver;
 import com.xianmao.common.redis.util.RedisUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -21,7 +22,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -94,7 +94,7 @@ public class IdempotentAspect {
             Object v1;
             if (null != rMapCache.get(key)) {
                 // had stored
-                throw ServerErrorCode.WARN.exp(info);
+                throw ServerErrorErrorCode.WARN.exp(info);
             }
             locked = rLock.tryLock(expireTime, expireTime, TimeUnit.SECONDS);
             v1 = rMapCache.putIfAbsent(key, value, expireTime, timeUnit);
@@ -107,9 +107,9 @@ public class IdempotentAspect {
         } catch (Exception e) {
             log.error("[idempotent]: locker error key={}}", key, e);
             if (e instanceof IdempotentException) {
-                throw ServerErrorCode.WARN.exp(e.getMessage());
+                throw ServerErrorErrorCode.WARN.exp(e.getMessage());
             } else {
-                throw ServerErrorCode.ERROR.exp(e.getMessage());
+                throw ServerErrorErrorCode.ERROR.exp(e.getMessage());
             }
         } finally {
             if (locked) {

@@ -1,7 +1,7 @@
 package com.xianmao.common.core.utils;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.xianmao.common.core.exception.ServerErrorCode;
+import com.xianmao.common.core.exception.ServerErrorErrorCode;
 import com.xianmao.common.entity.web.ApiResult;
 
 import java.util.Arrays;
@@ -35,7 +35,7 @@ public class RetOps<T> {
     /**
      * 状态码为成功
      */
-    public static final Predicate<ApiResult<?>> CODE_SUCCESS = r -> Objects.equals(ServerErrorCode.SUCCESS.getCode(), r.getCode());
+    public static final Predicate<ApiResult<?>> CODE_SUCCESS = r -> Objects.equals(ServerErrorErrorCode.SUCCESS.getCode(), r.getCode());
 
     /**
      * 数据有值
@@ -138,7 +138,7 @@ public class RetOps<T> {
      * 是否成功
      */
     public boolean isSuccess() {
-        return codeEquals(ServerErrorCode.SUCCESS.getCode());
+        return codeEquals(ServerErrorErrorCode.SUCCESS.getCode());
     }
 
     /**
@@ -179,7 +179,7 @@ public class RetOps<T> {
      * @throws Ex 断言失败时抛出
      */
     public <Ex extends Exception> RetOps<T> assertSuccess(Function<? super ApiResult<T>, ? extends Ex> func) throws Ex {
-        return assertCode(ServerErrorCode.SUCCESS.getCode(), func);
+        return assertCode(ServerErrorErrorCode.SUCCESS.getCode(), func);
     }
 
     /**

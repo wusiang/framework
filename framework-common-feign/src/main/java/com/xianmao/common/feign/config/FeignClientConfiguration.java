@@ -51,6 +51,7 @@ public class FeignClientConfiguration {
     public HttpLoggingInterceptor testLoggingInterceptor() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor(new OkHttpSlf4jLogger());
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        log.info("httpLoggingInterceptor registed");
         return interceptor;
     }
 
@@ -63,6 +64,7 @@ public class FeignClientConfiguration {
         int maxTotalConnections = properties.getMaxConnections();
         long timeToLive = properties.getTimeToLive();
         TimeUnit ttlUnit = properties.getTimeUnit();
+        log.info("Okhttp-ConnectionPool registed");
         return new ConnectionPool(maxTotalConnections, timeToLive, ttlUnit);
     }
 

@@ -24,19 +24,19 @@ public class DefaultGlobalExceptionHandler {
 
     private static Map<Class, IErrorCode> exceptionMap = new HashMap<Class, IErrorCode>() {
         {
-            put(HttpMessageNotReadableException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(NoHandlerFoundException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(ParseException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(NumberFormatException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(IllegalArgumentException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(MaxUploadSizeExceededException.class, ServerErrorCode.INTERNAL_SERVER_ERROR);
-            put(BindException.class, ServerErrorCode.MSG_NOT_READABLE);
+            put(HttpMessageNotReadableException.class, ServerErrorErrorCode.INTERNAL_SERVER_ERROR);
+            put(NoHandlerFoundException.class, ServerErrorErrorCode.INTERNAL_SERVER_ERROR);
+            put(ParseException.class, ServerErrorErrorCode.INTERNAL_SERVER_ERROR);
+            put(NumberFormatException.class, ServerErrorErrorCode.INTERNAL_SERVER_ERROR);
+            put(IllegalArgumentException.class, ServerErrorErrorCode.INTERNAL_SERVER_ERROR);
+            put(MaxUploadSizeExceededException.class, ServerErrorErrorCode.INTERNAL_SERVER_ERROR);
+            put(BindException.class, ServerErrorErrorCode.MSG_NOT_READABLE);
         }
     };
 
     @ExceptionHandler(Exception.class)
     public ApiResult<?> handleException(Exception e) {
-        IErrorCode iErrorCode = exceptionMap.getOrDefault(e, ServerErrorCode.INTERNAL_SERVER_ERROR);
+        IErrorCode iErrorCode = exceptionMap.getOrDefault(e, ServerErrorErrorCode.INTERNAL_SERVER_ERROR);
         logger.error(Error.buildError(iErrorCode, ExceptionUtils.getExceptionString(e)));
         return ApiResult.fail(iErrorCode.getCode(), iErrorCode.getValue());
     }
@@ -52,14 +52,14 @@ public class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ApiResult<?> handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
-        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)));
+        logger.error(Error.buildError(ServerErrorErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)));
         return ApiResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ApiResult<?> MethodArgumentNotValidException(MethodArgumentNotValidException e) {
         FieldError fieldError = e.getBindingResult().getFieldError();
-        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)), e);
+        logger.error(Error.buildError(ServerErrorErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)), e);
         assert fieldError != null;
         return ApiResult.fail(HttpStatus.BAD_REQUEST.value(), fieldError.getDefaultMessage());
     }
@@ -69,7 +69,7 @@ public class DefaultGlobalExceptionHandler {
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public ApiResult<?> handleException(HttpRequestMethodNotSupportedException e) {
-        logger.error(Error.buildError(ServerErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)));
+        logger.error(Error.buildError(ServerErrorErrorCode.INTERNAL_SERVER_ERROR, ExceptionUtils.getExceptionString(e)));
         return ApiResult.fail("不支持' " + e.getMethod() + "'请求");
     }
 }
