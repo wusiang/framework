@@ -38,13 +38,13 @@ public class DefaultGlobalExceptionHandler {
     public ApiResult<?> handleException(Exception e) {
         IErrorCode iErrorCode = exceptionMap.getOrDefault(e, ServerErrorErrorCode.INTERNAL_SERVER_ERROR);
         logger.error(Error.buildError(iErrorCode, ExceptionUtils.getExceptionString(e)));
-        return ApiResult.fail(iErrorCode.getCode(), iErrorCode.getValue());
+        return ApiResult.fail(Integer.valueOf(String.valueOf(iErrorCode.getCode())), iErrorCode.getValue());
     }
 
     @ExceptionHandler(BussinessException.class)
     public ApiResult<?> handleBussinessException(BussinessException bussinessException) {
         logger.error(Error.buildError(bussinessException.getCode(), ExceptionUtils.getExceptionString(bussinessException)));
-        return ApiResult.fail(bussinessException.getCode().getCode(), bussinessException.getMessage());
+        return ApiResult.fail(Integer.valueOf(String.valueOf(bussinessException.getCode().getCode())), bussinessException.getMessage());
     }
 
     /**
