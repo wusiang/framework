@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class BussinessException extends RuntimeException {
 
-    private IErrorCode code;
+    private ICode code;
 
     private String message;
 
@@ -17,13 +17,13 @@ public class BussinessException extends RuntimeException {
         this.message = message;
     }
 
-    public BussinessException(IErrorCode code, String message) {
+    public BussinessException(ICode code, String message) {
         super(message);
         this.code = code;
         this.message = message;
     }
 
-    public BussinessException(IErrorCode code, String message, Throwable e) {
+    public BussinessException(ICode code, String message, Throwable e) {
         super(message);
         this.code = code;
         this.message = message;

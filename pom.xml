@@ -22,6 +22,7 @@
         <module>framework-common-entity</module>
         <module>framework-common-feign</module>
         <module>framework-common-trace</module>
+        <module>framework-common-idempotent</module>
     </modules>
 
     <name>framework</name>
@@ -40,21 +41,23 @@
         <!---->
         <hutool.version>5.8.21</hutool.version>
         <knife4j.version>2.0.9</knife4j.version>
-        <easyexcel.version>3.1.1</easyexcel.version>
-        <mybatis.plus.version>3.5.3.1</mybatis.plus.version>
+        <easyexcel.version>3.3.4</easyexcel.version>
+        <mybatis.plus.version>3.5.5</mybatis.plus.version>
         <lombok.version>1.18.22</lombok.version>
         <!--数据库-->
         <mysql.version>8.0.28</mysql.version>
-        <druid.version>1.1.22</druid.version>
+        <druid.version>1.2.16</druid.version>
+
         <!--谷歌工具包-->
         <guava.version>31.1-jre</guava.version>
-        <redisson.version>3.17.1</redisson.version>
+        <redisson.version>3.19.3</redisson.version>
         <!--job-->
         <com.dangdang.version>2.1.5</com.dangdang.version>
         <org.apache.curator.version>2.12.0</org.apache.curator.version>
         <oss.version>3.14.0</oss.version>
-        <rocketmq-client.version>5.0.0</rocketmq-client.version>
+        <rocketmq-client.version>5.0.5</rocketmq-client.version>
         <!---->
+        <commons-lang3.version>3.7</commons-lang3.version>
         <revision>1.0.0-SNAPSHOT</revision>
         <jdk.version>17</jdk.version>
     </properties>
@@ -177,6 +180,12 @@
                 <artifactId>curator-recipes</artifactId>
                 <version>${org.apache.curator.version}</version>
             </dependency>
+            <!-- commons -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
             <!--  OSS上传组件  -->
             <dependency>
                 <groupId>com.aliyun.oss</groupId>
@@ -197,6 +206,11 @@
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-excel</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

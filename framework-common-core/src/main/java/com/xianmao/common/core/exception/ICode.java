@@ -2,13 +2,13 @@ package com.xianmao.common.core.exception;
 
 import java.io.Serializable;
 
-public interface IErrorCode extends Serializable {
+public interface ICode<K> extends Serializable {
     /**
      * 获取code值
      *
      * @return code值
      */
-    Integer getCode();
+    K getCode();
 
     /**
      * 获取value值

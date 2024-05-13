@@ -20,8 +20,8 @@ public abstract class AbstractMQProducer {
     public AbstractMQProducer() {
     }
 
-    @Autowired
     @Lazy
+    @Autowired
     private Producer producer;
 
     /**
@@ -30,12 +30,10 @@ public abstract class AbstractMQProducer {
     public void syncSend(Message message) throws Exception {
         try {
             SendReceipt sendResult = producer.send(message);
-            log.debug("Send message successfully, messageId={}", sendResult.getMessageId());
+            log.info("Send message successfully, messageId={}", sendResult.getMessageId());
         } catch (Exception e) {
             log.error("Send message Failed msgObj: {}", message, e);
-            throw new RuntimeException("消息发送失败，topic :" + message.getTopic() + ",e:" + e.getMessage());
-        } finally {
-            producer.close();
+            throw new RuntimeException("Send message Failed，topic :" + message.getTopic() + ",e:" + e.getMessage());
         }
     }
 
@@ -55,9 +53,7 @@ public abstract class AbstractMQProducer {
             });
         } catch (Exception e) {
             log.error("Send message Failed msgObj:{}", message, e);
-            throw new RuntimeException("消息发送失败，topic :" + message.getTopic() + ",e:" + e.getMessage());
-        } finally {
-            producer.close();
+            throw new RuntimeException("Send message Failed，topic :" + message.getTopic() + ",e:" + e.getMessage());
         }
     }
 }

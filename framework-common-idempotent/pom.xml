@@ -1,17 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>framework</artifactId>
         <groupId>com.xianmao</groupId>
+        <artifactId>framework</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>framework-common-rocketmq</artifactId>
-
-    <name>${project.artifactId}</name>
-    <version>${revision}</version>
+    <groupId>com.catcx</groupId>
+    <artifactId>framework-common-idempotent</artifactId>
     <packaging>jar</packaging>
+
+    <name>framework-commone-idempotent</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,24 +19,20 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-client-java</artifactId>
+            <groupId>com.xianmao</groupId>
+            <artifactId>framework-common-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xianmao</groupId>
+            <artifactId>framework-common-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-data-26</artifactId>
         </dependency>
     </dependencies>
 </project>
