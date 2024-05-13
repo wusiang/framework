@@ -35,8 +35,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <!---->
-        <spring-boot.version>3.1.2</spring-boot.version>
-        <spring-cloud.version>2022.0.4</spring-cloud.version>
+        <spring-boot.version>3.2.4</spring-boot.version>
+        <spring-cloud.version>2023.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
         <!---->
         <hutool.version>5.8.21</hutool.version>
@@ -49,7 +49,7 @@
         <druid.version>1.2.16</druid.version>
 
         <!--谷歌工具包-->
-        <guava.version>31.1-jre</guava.version>
+        <guava.version>33.1.0-jre</guava.version>
         <redisson.version>3.19.3</redisson.version>
         <!--job-->
         <com.dangdang.version>2.1.5</com.dangdang.version>
