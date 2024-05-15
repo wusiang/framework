@@ -36,11 +36,11 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <!---->
-        <spring-boot.version>2.7.10</spring-boot.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
         <spring-cloud.version>2021.0.6</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
         <!---->
-        <hutool.version>5.8.21</hutool.version>
+        <hutool.version>5.8.25</hutool.version>
         <knife4j.version>2.0.9</knife4j.version>
         <easyexcel.version>3.3.4</easyexcel.version>
         <mybatis.plus.version>3.5.5</mybatis.plus.version>
@@ -50,7 +50,7 @@
         <druid.version>1.2.16</druid.version>
 
         <!--谷歌工具包-->
-        <guava.version>31.1-jre</guava.version>
+        <guava.version>33.2.0-jre</guava.version>
         <redisson.version>3.19.3</redisson.version>
         <!--job-->
         <com.dangdang.version>2.1.5</com.dangdang.version>
@@ -60,6 +60,7 @@
         <!---->
         <commons-lang3.version>3.7</commons-lang3.version>
         <revision>1.0.0-SNAPSHOT</revision>
+        <fastjson.version>1.2.83</fastjson.version>
         <jdk.version>1.8</jdk.version>
     </properties>
 
@@ -106,6 +107,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
                 <version>${easyexcel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
