@@ -17,7 +17,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @AutoConfiguration
 @Configuration(proxyBeanMethods = false)
-@AutoConfigureAfter(RedisAutoConfiguration.class)
 public class IdempotentAutoConfiguration {
 
 	private static final Logger log = LoggerFactory.getLogger(IdempotentAutoConfiguration.class);
