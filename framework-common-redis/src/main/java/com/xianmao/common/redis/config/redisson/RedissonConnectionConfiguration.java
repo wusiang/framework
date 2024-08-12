@@ -312,23 +312,21 @@ public class RedissonConnectionConfiguration extends Config implements RedisConf
      * @return 返回连接管理器
      */
     public static ConnectionManager createConnectionManager(RedissonConnectionConfiguration configCopy) {
-        UUID id = UUID.randomUUID();
-
         if (configCopy.getMasterSlaveServersConfig() != null) {
             validate(configCopy.getMasterSlaveServersConfig());
-            return new MasterSlaveConnectionManager(configCopy.getMasterSlaveServersConfig(), configCopy, id);
+            return new MasterSlaveConnectionManager(configCopy.getMasterSlaveServersConfig(), configCopy);
         } else if (configCopy.getSingleServerConfig() != null) {
             validate(configCopy.getSingleServerConfig());
-            return new SingleConnectionManager(configCopy.getSingleServerConfig(), configCopy, id);
+            return new SingleConnectionManager(configCopy.getSingleServerConfig(), configCopy);
         } else if (configCopy.getSentinelServersConfig() != null) {
             validate(configCopy.getSentinelServersConfig());
-            return new SentinelConnectionManager(configCopy.getSentinelServersConfig(), configCopy, id);
+            return new SentinelConnectionManager(configCopy.getSentinelServersConfig(), configCopy);
         } else if (configCopy.getClusterServersConfig() != null) {
             validate(configCopy.getClusterServersConfig());
-            return new ClusterConnectionManager(configCopy.getClusterServersConfig(), configCopy, id);
+            return new ClusterConnectionManager(configCopy.getClusterServersConfig(), configCopy);
         } else if (configCopy.getReplicatedServersConfig() != null) {
             validate(configCopy.getReplicatedServersConfig());
-            return new ReplicatedConnectionManager(configCopy.getReplicatedServersConfig(), configCopy, id);
+            return new ReplicatedConnectionManager(configCopy.getReplicatedServersConfig(), configCopy);
         } else if (configCopy.getConnectionManager() != null) {
             return configCopy.getConnectionManager();
         }else {
