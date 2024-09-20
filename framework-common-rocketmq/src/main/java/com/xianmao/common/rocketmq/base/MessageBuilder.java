@@ -1,9 +1,10 @@
 package com.xianmao.common.rocketmq.base;
 
-import com.catcx.common.rocketmq.annotation.MQKey;
-import com.catcx.common.rocketmq.trace.MessageTrace;
-import com.catcx.common.rocketmq.trace.TraceConstant;
+
 import com.google.gson.Gson;
+import com.xianmao.common.rocketmq.annotation.MQKey;
+import com.xianmao.common.rocketmq.trace.MessageTrace;
+import com.xianmao.common.rocketmq.trace.TraceConstant;
 import lombok.Data;
 import org.apache.rocketmq.client.apis.ClientServiceProvider;
 import org.apache.rocketmq.client.apis.message.Message;
