@@ -1,8 +1,10 @@
 package com.xianmao.common.rocketmq.config;
 
+
 import com.xianmao.common.rocketmq.annotation.MQProducer;
 import lombok.Getter;
-import org.apache.rocketmq.client.apis.*;
+import org.apache.rocketmq.client.apis.ClientException;
+import org.apache.rocketmq.client.apis.ClientServiceProvider;
 import org.apache.rocketmq.client.apis.producer.Producer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
@@ -29,17 +31,12 @@ public class MQProducerAutoConfiguration extends MQBaseAutoConfiguration {
             return null;
         }
         if (producer == null) {
-            Assert.notNull(mqProperties.getAccessKey(), "producer accessKey must be defined");
-            Assert.notNull(mqProperties.getSecretKey(), "producer secretKey must be defined");
-            Assert.notNull(mqProperties.getNameSrvAddr(), "producer nameSrvAddr address must be defined");
-            SessionCredentialsProvider sessionCredentialsProvider = new StaticSessionCredentialsProvider(mqProperties.getAccessKey(), mqProperties.getSecretKey());
-            ClientConfiguration clientConfiguration = ClientConfiguration.newBuilder()
-                    .setEndpoints(mqProperties.getNameSrvAddr())
-                    .setCredentialProvider(sessionCredentialsProvider)
-                    .build();
+            Assert.notNull(mqProperties.getUsername(), "producer username must be defined");
+            Assert.notNull(mqProperties.getPassword(), "producer password must be defined");
+            Assert.notNull(mqProperties.getNamesrvaddr(), "producer nameSrvAddr address must be defined");
             final ClientServiceProvider provider = ClientServiceProvider.loadService();
             producer = provider.newProducerBuilder()
-                    .setClientConfiguration(clientConfiguration)
+                    .setClientConfiguration(mqProperties.clientConfiguration())
                     .build();
         }
         return producer;

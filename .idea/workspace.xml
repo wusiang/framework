@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:redisson版本">
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级hutool版本">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,6 +282,7 @@
       <workItem from="1725439466004" duration="425000" />
       <workItem from="1725439894646" duration="12000" />
       <workItem from="1725439908450" duration="37000" />
+      <workItem from="1726799847709" duration="1061000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -487,7 +488,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723440613952</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="feat:升级hutool版本">
+      <option name="closed" value="true" />
+      <created>1726800076274</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1726800076274</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +532,8 @@
     <MESSAGE value="升级版本" />
     <MESSAGE value="feat:jobch触发" />
     <MESSAGE value="feat:redisson版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:redisson版本" />
+    <MESSAGE value="feat:升级hutool版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:升级hutool版本" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,6 +1,8 @@
 package com.xianmao.common.rocketmq.base;
 
-import com.xianmao.common.rocketmq.annotation.MQKey;
+import com.catcx.common.rocketmq.annotation.MQKey;
+import com.catcx.common.rocketmq.trace.MessageTrace;
+import com.catcx.common.rocketmq.trace.TraceConstant;
 import com.google.gson.Gson;
 import lombok.Data;
 import org.apache.rocketmq.client.apis.ClientServiceProvider;
@@ -100,6 +102,7 @@ public class MessageBuilder {
                     .setKeys(messageKey)
                     .setDeliveryTimestamp(System.currentTimeMillis() + messageDelayTime.toMillis())
                     .setBody(str.getBytes(StandardCharsets.UTF_8))
+                    .addProperty(TraceConstant.LEGACY_TRACE_ID_NAME, MessageTrace.producerTrace())
                     .build();
         } else {
             return provider.newMessageBuilder()
@@ -107,6 +110,7 @@ public class MessageBuilder {
                     .setTag(tag)
                     .setKeys(messageKey)
                     .setBody(str.getBytes(StandardCharsets.UTF_8))
+                    .addProperty(TraceConstant.LEGACY_TRACE_ID_NAME, MessageTrace.producerTrace())
                     .build();
         }
     }
