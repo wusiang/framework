@@ -2,7 +2,7 @@ package com.xianmao.common.core.utils;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.xianmao.common.core.exception.ServerErrorCode;
-import com.xianmao.common.entity.web.ApiResult;
+import com.xianmao.common.entity.web.R;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -35,33 +35,33 @@ public class RetOps<T> {
     /**
      * 状态码为成功
      */
-    public static final Predicate<ApiResult<?>> CODE_SUCCESS = r -> Objects.equals(ServerErrorCode.SUCCESS.getCode(), r.getCode());
+    public static final Predicate<R<?>> CODE_SUCCESS = r -> Objects.equals(ServerErrorCode.SUCCESS.getCode(), r.getCode());
 
     /**
      * 数据有值
      */
-    public static final Predicate<ApiResult<?>> HAS_DATA = r -> ObjectUtil.isNotEmpty(r.getData());
+    public static final Predicate<R<?>> HAS_DATA = r -> ObjectUtil.isNotEmpty(r.getData());
 
     /**
      * 数据有值,并且包含元素
      */
-    public static final Predicate<ApiResult<?>> HAS_ELEMENT = r -> ObjectUtil.isNotEmpty(r.getData());
+    public static final Predicate<R<?>> HAS_ELEMENT = r -> ObjectUtil.isNotEmpty(r.getData());
 
     /**
      * 状态码为成功并且有值
      */
-    public static final Predicate<ApiResult<?>> DATA_AVAILABLE = CODE_SUCCESS.and(HAS_DATA);
+    public static final Predicate<R<?>> DATA_AVAILABLE = CODE_SUCCESS.and(HAS_DATA);
 
-    private final ApiResult<T> original;
+    private final R<T> original;
 
     // ~ 初始化
     // ===================================================================================================
 
-    RetOps(ApiResult<T> original) {
+    RetOps(R<T> original) {
         this.original = original;
     }
 
-    public static <T> RetOps<T> of(ApiResult<T> original) {
+    public static <T> RetOps<T> of(R<T> original) {
         return new RetOps<>(Objects.requireNonNull(original));
     }
 
@@ -73,7 +73,7 @@ public class RetOps<T> {
      *
      * @return R
      */
-    public ApiResult<T> peek() {
+    public R<T> peek() {
         return original;
     }
 
@@ -101,7 +101,7 @@ public class RetOps<T> {
      * @param predicate 断言函数
      * @return 返回 Optional 包装的data,如果断言失败返回empty
      */
-    public Optional<T> getDataIf(Predicate<? super ApiResult<?>> predicate) {
+    public Optional<T> getDataIf(Predicate<? super R<?>> predicate) {
         return predicate.test(original) ? getData() : Optional.empty();
     }
 
@@ -162,7 +162,7 @@ public class RetOps<T> {
      * @return 返回实例，以便于继续进行链式操作
      * @throws Ex 断言失败时抛出
      */
-    public <Ex extends Exception> RetOps<T> assertCode(int expect, Function<? super ApiResult<T>, ? extends Ex> func)
+    public <Ex extends Exception> RetOps<T> assertCode(int expect, Function<? super R<T>, ? extends Ex> func)
             throws Ex {
         if (codeNotEquals(expect)) {
             throw func.apply(original);
@@ -178,7 +178,7 @@ public class RetOps<T> {
      * @return 返回实例，以便于继续进行链式操作
      * @throws Ex 断言失败时抛出
      */
-    public <Ex extends Exception> RetOps<T> assertSuccess(Function<? super ApiResult<T>, ? extends Ex> func) throws Ex {
+    public <Ex extends Exception> RetOps<T> assertSuccess(Function<? super R<T>, ? extends Ex> func) throws Ex {
         return assertCode(ServerErrorCode.SUCCESS.getCode(), func);
     }
 
@@ -190,7 +190,7 @@ public class RetOps<T> {
      * @return 返回实例，以便于继续进行链式操作
      * @throws Ex 断言失败时抛出
      */
-    public <Ex extends Exception> RetOps<T> assertDataNotNull(Function<? super ApiResult<T>, ? extends Ex> func) throws Ex {
+    public <Ex extends Exception> RetOps<T> assertDataNotNull(Function<? super R<T>, ? extends Ex> func) throws Ex {
         if (Objects.isNull(original.getData())) {
             throw func.apply(original);
         }
@@ -205,7 +205,7 @@ public class RetOps<T> {
      * @return 返回实例，以便于继续进行链式操作
      * @throws Ex 断言失败时抛出
      */
-    public <Ex extends Exception> RetOps<T> assertDataNotEmpty(Function<? super ApiResult<T>, ? extends Ex> func) throws Ex {
+    public <Ex extends Exception> RetOps<T> assertDataNotEmpty(Function<? super R<T>, ? extends Ex> func) throws Ex {
         if (ObjectUtil.isEmpty(original.getData())) {
             throw func.apply(original);
         }
@@ -220,7 +220,7 @@ public class RetOps<T> {
      * @return 返回新实例，以便于继续进行链式操作
      */
     public <U> RetOps<U> map(Function<? super T, ? extends U> mapper) {
-        ApiResult<U> result = ApiResult.restResult(original.getCode(), original.getMessage(), mapper.apply(original.getData()), true);
+        R<U> result = R.restResult(original.getCode(), original.getMessage(), mapper.apply(original.getData()), true);
         return of(result);
     }
 
@@ -236,8 +236,8 @@ public class RetOps<T> {
      * @see RetOps#HAS_ELEMENT
      * @see RetOps#DATA_AVAILABLE
      */
-    public <U> RetOps<U> mapIf(Predicate<? super ApiResult<T>> predicate, Function<? super T, ? extends U> mapper) {
-        ApiResult<U> result = ApiResult.restResult(original.getCode(), original.getMessage(), mapper.apply(original.getData()), true);
+    public <U> RetOps<U> mapIf(Predicate<? super R<T>> predicate, Function<? super T, ? extends U> mapper) {
+        R<U> result = R.restResult(original.getCode(), original.getMessage(), mapper.apply(original.getData()), true);
         return of(result);
     }
 
@@ -282,7 +282,7 @@ public class RetOps<T> {
      * @see RetOps#HAS_ELEMENT
      * @see RetOps#DATA_AVAILABLE
      */
-    public void useDataIf(Predicate<? super ApiResult<T>> predicate, Consumer<? super T> consumer) {
+    public void useDataIf(Predicate<? super R<T>> predicate, Consumer<? super T> consumer) {
         if (predicate.test(original)) {
             consumer.accept(original.getData());
         }

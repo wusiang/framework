@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Setter
 @Getter
-public class ApiResult<T> implements Serializable {
+public class R<T> implements Serializable {
 
     private static final long serialVersionUID = 6439723870077111495L;
     /***响应参数*/
@@ -21,7 +21,7 @@ public class ApiResult<T> implements Serializable {
     private static int SUCCESS_CODE = 200;
     private static int FAILURE_CODE = 500;
 
-    private ApiResult() {
+    private R() {
         super();
     }
 
@@ -31,7 +31,7 @@ public class ApiResult<T> implements Serializable {
      * @param result 响应体
      * @return
      */
-    public static boolean isSuccess(ApiResult<?> result) {
+    public static boolean isSuccess(R<?> result) {
         return Optional.ofNullable(result).map((x) -> {
             return Objects.equals(SUCCESS_CODE, x.getCode());
         }).orElse(Boolean.FALSE);
@@ -43,7 +43,7 @@ public class ApiResult<T> implements Serializable {
      * @param result 响应体
      * @return
      */
-    public static boolean isNotSuccess(ApiResult<?> result) {
+    public static boolean isNotSuccess(R<?> result) {
         return !isSuccess(result);
     }
 
@@ -53,7 +53,7 @@ public class ApiResult<T> implements Serializable {
      * @param <T> T 泛型标记
      * @return
      */
-    public static <T> ApiResult<T> success() {
+    public static <T> R<T> success() {
         return restResult(SUCCESS_CODE, "操作成功", null, Boolean.TRUE);
     }
 
@@ -64,7 +64,7 @@ public class ApiResult<T> implements Serializable {
      * @param <T>  T 泛型标记
      * @return R
      */
-    public static <T> ApiResult<T> success(T data) {
+    public static <T> R<T> success(T data) {
         return restResult(SUCCESS_CODE, data == null ? "暂无数据" : "操作成功", data, Boolean.TRUE);
     }
 
@@ -74,7 +74,7 @@ public class ApiResult<T> implements Serializable {
      * @param <T> T 泛型标记
      * @return
      */
-    public static <T> ApiResult<T> fail() {
+    public static <T> R<T> fail() {
         return restResult(FAILURE_CODE, "操作失败", null, Boolean.FALSE);
     }
 
@@ -85,7 +85,7 @@ public class ApiResult<T> implements Serializable {
      * @param <T> T 泛型标记
      * @return R
      */
-    public static <T> ApiResult<T> fail(String msg) {
+    public static <T> R<T> fail(String msg) {
         return restResult(FAILURE_CODE, msg, null, Boolean.FALSE);
     }
 
@@ -98,16 +98,16 @@ public class ApiResult<T> implements Serializable {
      * @param <T>  T 泛型标记
      * @return R
      */
-    public static <T> ApiResult<T> fail(int code, String msg) {
+    public static <T> R<T> fail(int code, String msg) {
         return restResult(code, msg, null, Boolean.FALSE);
     }
 
-    public static <T> ApiResult<T> restResult(Integer code, String message, T data, Boolean success) {
-        ApiResult<T> apiResult = new ApiResult<>();
-        apiResult.setCode(code);
-        apiResult.setData(data);
-        apiResult.setSuccess(success);
-        apiResult.setMessage(message);
-        return apiResult;
+    public static <T> R<T> restResult(Integer code, String message, T data, Boolean success) {
+        R<T> r = new R<>();
+        r.setCode(code);
+        r.setData(data);
+        r.setSuccess(success);
+        r.setMessage(message);
+        return r;
     }
 }

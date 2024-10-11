@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级hutool版本">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级rocketmq" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -283,6 +281,7 @@
       <workItem from="1725439894646" duration="12000" />
       <workItem from="1725439908450" duration="37000" />
       <workItem from="1726799847709" duration="1061000" />
+      <workItem from="1726802216796" duration="156000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -496,7 +495,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726800076274</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="feat:升级rocketmq">
+      <option name="closed" value="true" />
+      <created>1726802234302</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1726802234302</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat:升级rocketmq">
+      <option name="closed" value="true" />
+      <created>1726802261520</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1726802261520</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +548,8 @@
     <MESSAGE value="feat:jobch触发" />
     <MESSAGE value="feat:redisson版本" />
     <MESSAGE value="feat:升级hutool版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:升级hutool版本" />
+    <MESSAGE value="feat:升级rocketmq" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:升级rocketmq" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
