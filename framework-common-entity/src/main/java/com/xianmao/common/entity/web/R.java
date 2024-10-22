@@ -1,5 +1,7 @@
 package com.xianmao.common.entity.web;
 
+import com.xianmao.common.entity.exception.ICode;
+import com.xianmao.common.entity.exception.ServerErrorCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,101 +15,72 @@ public class R<T> implements Serializable {
 
     private static final long serialVersionUID = 6439723870077111495L;
     /***响应参数*/
-    private Integer code;
+    private String code;
     private String message;
     private T data;
-    private Boolean success;
     /***响应状态码*/
-    private static int SUCCESS_CODE = 200;
-    private static int FAILURE_CODE = 500;
+    private static final String SUCCESS_CODE = ServerErrorCode.SUCCESS.getCode();
+    private static final String FAILURE_CODE = ServerErrorCode.ERROR.getCode();
 
-    private R() {
-        super();
-    }
-
-    /**
-     * 请求成功是否
-     *
-     * @param result 响应体
-     * @return
-     */
-    public static boolean isSuccess(R<?> result) {
-        return Optional.ofNullable(result).map((x) -> {
+    public boolean isOk() {
+        return Optional.ofNullable(this).map((x) -> {
             return Objects.equals(SUCCESS_CODE, x.getCode());
         }).orElse(Boolean.FALSE);
     }
 
-    /**
-     * 请求失败是否
-     *
-     * @param result 响应体
-     * @return
-     */
-    public static boolean isNotSuccess(R<?> result) {
-        return !isSuccess(result);
+    public static <T> R<T> buildAPIResult(ICode<String> iCode) {
+        return new R<>(iCode.getCode(), iCode.getValue());
     }
 
-    /**
-     * 返回R
-     *
-     * @param <T> T 泛型标记
-     * @return
-     */
+    public static <T> R<T> buildAPIResult(ICode<String> iCode, String message) {
+        return new R<>(iCode.getCode(), message);
+    }
+
+    public static <T> R<T> buildAPIResult(ICode<String> iCode, String message, T data) {
+        return new R<>(iCode.getCode(), message, data);
+    }
+
+    public static <T> R<T> buildAPIResult(String code, String message) {
+        return new R<>(code, message);
+    }
+
+    public static <T> R<T> buildAPIResult(String code, String message, T data) {
+        return new R<>(code, message, data);
+    }
+
     public static <T> R<T> success() {
-        return restResult(SUCCESS_CODE, "操作成功", null, Boolean.TRUE);
+        return R.buildAPIResult(SUCCESS_CODE, "操作成功", null);
     }
 
-    /**
-     * 返回R
-     *
-     * @param data 数据
-     * @param <T>  T 泛型标记
-     * @return R
-     */
     public static <T> R<T> success(T data) {
-        return restResult(SUCCESS_CODE, data == null ? "暂无数据" : "操作成功", data, Boolean.TRUE);
+        return R.buildAPIResult(SUCCESS_CODE, data == null ? "暂无数据" : "操作成功", data);
     }
-
-    /**
-     * 返回R
-     *
-     * @param <T> T 泛型标记
-     * @return
-     */
     public static <T> R<T> fail() {
-        return restResult(FAILURE_CODE, "操作失败", null, Boolean.FALSE);
+        return R.buildAPIResult(FAILURE_CODE, "操作失败", null);
     }
 
-    /**
-     * 返回R
-     *
-     * @param msg 消息
-     * @param <T> T 泛型标记
-     * @return R
-     */
+    public static <T> R<T> fail(ICode<String> iCode) {
+        return R.buildAPIResult(iCode.getCode(), iCode.getValue(), null);
+    }
+
     public static <T> R<T> fail(String msg) {
-        return restResult(FAILURE_CODE, msg, null, Boolean.FALSE);
+        return R.buildAPIResult(FAILURE_CODE, msg, null);
     }
 
-
-    /**
-     * 返回R
-     *
-     * @param code 状态码
-     * @param msg  消息
-     * @param <T>  T 泛型标记
-     * @return R
-     */
-    public static <T> R<T> fail(int code, String msg) {
-        return restResult(code, msg, null, Boolean.FALSE);
+    public static <T> R<T> fail(String code, String msg) {
+        return R.buildAPIResult(code, msg, null);
     }
 
-    public static <T> R<T> restResult(Integer code, String message, T data, Boolean success) {
-        R<T> r = new R<>();
-        r.setCode(code);
-        r.setData(data);
-        r.setSuccess(success);
-        r.setMessage(message);
-        return r;
+    public R(String code, String message, T data) {
+        super();
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
+    public R(String code, String message) {
+        super();
+        this.code = code;
+        this.message = message;
     }
 }

@@ -1,6 +1,7 @@
 package com.xianmao.common.core.exception;
 
 import com.xianmao.common.core.support.StringPool;
+import com.xianmao.common.entity.exception.ICode;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;

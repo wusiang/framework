@@ -1,4 +1,4 @@
-package com.xianmao.common.core.exception;
+package com.xianmao.common.entity.exception;
 
 import lombok.Data;
 
@@ -13,7 +13,7 @@ public class BussinessException extends RuntimeException {
 
     public BussinessException(String message) {
         super(message);
-        this.code = ServerErrorCode.INTERNAL_SERVER_ERROR;
+        this.code = ServerErrorCode.ERROR;
         this.message = message;
     }
 

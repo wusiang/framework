@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级rocketmq">
+      <change afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/exception/ServerErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/BussinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/exception/BussinessException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/Error.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ICode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/exception/ICode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/AssertUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/AssertUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/RetOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/RetOps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/web/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/web/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +43,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="userSettingsFile" value="D:\tcat\maven\settings.xml" />
+        <option name="userSettingsFile" value="$PROJECT_DIR$/../../settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -48,32 +59,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.framework [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.framework [install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wujinghua/Desktop/xianmao/framework/framework-common-idempotent&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;b61fd05df462d710c8f4df1a205c82eb&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.framework [clean].executor": "Run",
+    "Maven.framework [install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/wujinghua/Desktop/xianmao/framework/framework-common-idempotent",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.40574712",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "b61fd05df462d710c8f4df1a205c82eb",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/framework-common-idempotent" />
@@ -93,8 +104,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19072.14" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19072.14" />
       </set>
     </attachedChunks>
   </component>
@@ -287,6 +298,7 @@
       <workItem from="1728871894371" duration="33000" />
       <workItem from="1728875619152" duration="348000" />
       <workItem from="1729585213873" duration="653000" />
+      <workItem from="1729601240088" duration="2402000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -555,6 +567,18 @@
     <MESSAGE value="feat:升级hutool版本" />
     <MESSAGE value="feat:升级rocketmq" />
     <option name="LAST_COMMIT_MESSAGE" value="feat:升级rocketmq" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/support/StringPool.java</url>
+          <line>14</line>
+          <properties field="STAR" class="com.xianmao.common.core.support.StringPool" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,7 +1,7 @@
 package com.xianmao.common.core.utils;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.xianmao.common.core.exception.ServerErrorCode;
+import com.xianmao.common.entity.exception.ServerErrorCode;
 import com.xianmao.common.entity.web.R;
 
 import java.util.Arrays;
@@ -82,7 +82,7 @@ public class RetOps<T> {
      *
      * @return 返回code的值
      */
-    public int getCode() {
+    public String getCode() {
         return original.getCode();
     }
 
@@ -120,8 +120,8 @@ public class RetOps<T> {
      * @param value 基准值
      * @return 返回ture表示相等
      */
-    public boolean codeEquals(int value) {
-        return original.getCode() == value;
+    public boolean codeEquals(String value) {
+        return Objects.equals(original.getCode(), value);
     }
 
     /**
@@ -130,7 +130,7 @@ public class RetOps<T> {
      * @param value 基准值
      * @return 返回ture表示不相等
      */
-    public boolean codeNotEquals(int value) {
+    public boolean codeNotEquals(String value) {
         return !codeEquals(value);
     }
 
@@ -162,7 +162,7 @@ public class RetOps<T> {
      * @return 返回实例，以便于继续进行链式操作
      * @throws Ex 断言失败时抛出
      */
-    public <Ex extends Exception> RetOps<T> assertCode(int expect, Function<? super R<T>, ? extends Ex> func)
+    public <Ex extends Exception> RetOps<T> assertCode(String expect, Function<? super R<T>, ? extends Ex> func)
             throws Ex {
         if (codeNotEquals(expect)) {
             throw func.apply(original);
@@ -220,7 +220,7 @@ public class RetOps<T> {
      * @return 返回新实例，以便于继续进行链式操作
      */
     public <U> RetOps<U> map(Function<? super T, ? extends U> mapper) {
-        R<U> result = R.restResult(original.getCode(), original.getMessage(), mapper.apply(original.getData()), true);
+        R<U> result = new R<>(original.getCode(), original.getMessage(), mapper.apply(original.getData()));
         return of(result);
     }
 
@@ -237,7 +237,7 @@ public class RetOps<T> {
      * @see RetOps#DATA_AVAILABLE
      */
     public <U> RetOps<U> mapIf(Predicate<? super R<T>> predicate, Function<? super T, ? extends U> mapper) {
-        R<U> result = R.restResult(original.getCode(), original.getMessage(), mapper.apply(original.getData()), true);
+        R<U> result = new R<>(original.getCode(), original.getMessage(), mapper.apply(original.getData()));
         return of(result);
     }
 
@@ -259,8 +259,8 @@ public class RetOps<T> {
      * @param consumer 消费函数
      * @param codes    错误代码集合,匹配任意一个则调用消费函数
      */
-    public void useDataOnCode(Consumer<? super T> consumer, int... codes) {
-        useDataIf(o -> Arrays.stream(codes).filter(c -> original.getCode() == c).findFirst().isPresent(), consumer);
+    public void useDataOnCode(Consumer<? super T> consumer, String... codes) {
+        useDataIf(o -> Arrays.stream(codes).anyMatch(c -> Objects.equals(original.getCode(), c)), consumer);
     }
 
     /**

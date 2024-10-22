@@ -1,9 +1,0 @@
-# Auto Configuration
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.xianmao.common.trace.TraceAutoConfiguration,\
-com.xianmao.common.trace.instrument.gateway.TraceGatewayAutoConfiguration,\
-com.xianmao.common.trace.instrument.feign.TraceFeignClientAutoConfiguration
-
-# Environment Post Processor
-org.springframework.boot.env.EnvironmentPostProcessor=\
-com.xianmao.common.trace.processor.TraceEnvironmentPostProcessor

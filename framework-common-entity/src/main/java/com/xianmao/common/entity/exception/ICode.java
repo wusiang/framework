@@ -1,4 +1,4 @@
-package com.xianmao.common.core.exception;
+package com.xianmao.common.entity.exception;
 
 import java.io.Serializable;
 

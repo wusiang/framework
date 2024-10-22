@@ -1,6 +1,9 @@
 package com.xianmao.common.core.exception;
 
 import com.xianmao.common.core.utils.ExceptionUtils;
+import com.xianmao.common.entity.exception.BussinessException;
+import com.xianmao.common.entity.exception.ICode;
+import com.xianmao.common.entity.exception.ServerErrorCode;
 import com.xianmao.common.entity.web.R;
 import org.apache.catalina.connector.ClientAbortException;
 import org.slf4j.Logger;
@@ -20,9 +23,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DefaultGlobalExceptionHandler {
+
     private static Logger logger = LoggerFactory.getLogger(DefaultGlobalExceptionHandler.class);
 
-    private static final Map<Class, ICode> exceptionMap = new HashMap<Class, ICode>() {
+    private static Map<Class, ICode> exceptionMap = new HashMap<Class, ICode>() {
         {
             put(HttpMessageNotReadableException.class, ServerErrorCode.ERROR);
             put(ClientAbortException.class, ServerErrorCode.ERROR);
@@ -39,7 +43,7 @@ public class DefaultGlobalExceptionHandler {
     public R<?> handleException(Exception e) {
         ICode iCode = exceptionMap.getOrDefault(e, ServerErrorCode.ERROR);
         logger.error(Error.buildError(iCode, ExceptionUtils.getExceptionString(e)), e);
-        return R.fail(Integer.parseInt(String.valueOf(iCode.getCode())), iCode.getValue());
+        return R.fail(iCode.getCode().toString(), iCode.getValue());
     }
 
     @ExceptionHandler(BussinessException.class)
@@ -49,7 +53,7 @@ public class DefaultGlobalExceptionHandler {
         } else {
             logger.warn(Error.buildError(bussinessException.getCode(), ExceptionUtils.getExceptionString(bussinessException)), bussinessException);
         }
-        return R.fail(Integer.parseInt(String.valueOf(bussinessException.getCode().getCode())), bussinessException.getMessage());
+        return R.fail(bussinessException.getCode().getCode().toString(), bussinessException.getMessage());
     }
 
     /**

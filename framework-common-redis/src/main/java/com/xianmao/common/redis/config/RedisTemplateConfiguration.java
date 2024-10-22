@@ -1,7 +1,7 @@
 package com.xianmao.common.redis.config;
 
 import com.xianmao.common.redis.serializer.RedisKeySerializer;
-import com.xianmao.common.redis.util.RedisUtil;
+import com.xianmao.common.redis.utils.RedisUtil;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
