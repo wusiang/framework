@@ -19,6 +19,7 @@
         <module>framework-common-entity</module>
         <module>framework-common-feign</module>
         <module>framework-common-trace</module>
+        <module>framework-common-repet</module>
     </modules>
 
     <name>framework</name>
@@ -26,22 +27,29 @@
 
 
     <properties>
+        <!--需要和project.version保持一致-->
+        <revision>1.0.0-SNAPSHOT</revision>
         <!---->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <jdk.version>17</jdk.version>
+
         <!--https://sca.aliyun.com/docs/2023/overview/version-explain/?spm=5176.29160081.0.0.74805c72r7yUvO-->
         <!--三个版本说明-->
-        <spring-boot.version>3.2.4</spring-boot.version>
-        <spring-cloud.version>2023.0.1</spring-cloud.version>
-        <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
+        <spring-boot.version>3.3.4</spring-boot.version>
+        <spring-cloud.version>2023.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2023.0.1.2</spring-cloud-alibaba.version>
+
         <!---->
         <hutool.version>5.8.32</hutool.version>
-        <easyexcel.version>3.3.4</easyexcel.version>
-        <mybatis.plus.version>3.5.6</mybatis.plus.version>
+        <easyexcel.version>4.0.3</easyexcel.version>
+        <mybatis.plus.version>3.5.5</mybatis.plus.version>
+        <lock4j.version>2.2.7</lock4j.version>
         <lombok.version>1.18.22</lombok.version>
         <!--数据库-->
         <mysql.version>8.0.28</mysql.version>
+        <redisson.version>3.25.2</redisson.version>
         <druid.version>1.2.16</druid.version>
 
         <!--谷歌工具包-->
@@ -52,7 +60,6 @@
         <commons-lang3.version>3.7</commons-lang3.version>
         <revision>1.0.0-SNAPSHOT</revision>
         <fastjson.version>1.2.83</fastjson.version>
-        <jdk.version>17</jdk.version>
     </properties>
 
     <dependencyManagement>
@@ -122,8 +129,20 @@
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
                 <version>${mybatis.plus.version}</version>
+            </dependency>
+            <!--若使用redisson作为分布式锁底层-->
+            <!--redisson-->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>lock4j-redisson-spring-boot-starter</artifactId>
+                <version>${lock4j.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -151,27 +170,52 @@
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-core</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-excel</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-redis</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-entity</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-feign</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-repet</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-mybatis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-rocketmq</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-cloud</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-trace</artifactId>
+                <version>${revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

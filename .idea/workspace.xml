@@ -5,17 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级rocketmq">
-      <change afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/exception/ServerErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/annotation/DictTypeProperty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/annotation/ExcelLine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/annotation/RequestExcel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/annotation/ResponseExcel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/annotation/Sheet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/aop/DynamicNameAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/aop/RequestExcelArgumentResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/aop/ResponseExcelReturnValueHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/config/ExcelConfigProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/converters/DictTypeConvert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/converters/LocalDateStringConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/converters/LocalDateTimeStringConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/converters/LocalTimeStringConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/converters/LongStringConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/converters/StringArrayConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/enhance/DefaultWriterBuilderEnhancer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/enhance/WriterBuilderEnhancer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handler/AbstractSheetWriteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handler/DefaultAnalysisEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handler/DictCacheClearAnalysisEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handler/DictCacheClearSheetWriteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handler/DictDataProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handler/ListAnalysisEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handler/ManySheetWriteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handler/SheetWriteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/handler/SingleSheetWriteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/head/HeadGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/head/HeadMeta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/head/I18nHeaderCellWriteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/kit/ExcelException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/kit/SpringContextKit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/kit/Validators.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/processor/NameProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/processor/NameSpelExpressionProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/vo/DictEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/vo/ErrorMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-mybatis/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/BussinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/exception/BussinessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/DefaultGlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/Error.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ICode.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/exception/ICode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/exception/ServerErrorCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/AssertUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/AssertUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/RetOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/RetOps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/web/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/src/main/java/com/xianmao/common/entity/web/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/REDO.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-excel/Excel.md" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/Excel.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,9 +99,9 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "1.8",
+    "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/wujinghua/Desktop/xianmao/framework/framework-common-idempotent",
+    "last_opened_file_path": "/Users/wujinghua/Desktop/xianmao/framework/framework-common-excel/src/main/java/com/xianmao/common/excel/processor",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -80,25 +110,25 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "MavenSettings",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files",
     "spring.configuration.checksum": "b61fd05df462d710c8f4df1a205c82eb",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/framework-common-idempotent" />
-      <recent name="$PROJECT_DIR$/framework-common-idempotent/src/main/resources/META-INF" />
-      <recent name="$PROJECT_DIR$/framework-common-idempotent/src/main/java/com/catcx/common/idempotent/expression" />
-      <recent name="$PROJECT_DIR$/doc" />
-      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config" />
+      <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/processor" />
+      <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/kit" />
+      <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/head" />
+      <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/enhance" />
+      <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/converters" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xianmao.common.excel.config" />
       <recent name="com.xianmao.common.job.controller" />
       <recent name="com.catcx.common.idempotent.exception" />
       <recent name="com.catcx.common.idempotent.config" />
       <recent name="com.catcx.common.idempotent.aspect" />
-      <recent name="com.catcx.common.idempotent.annotation" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -298,7 +328,7 @@
       <workItem from="1728871894371" duration="33000" />
       <workItem from="1728875619152" duration="348000" />
       <workItem from="1729585213873" duration="653000" />
-      <workItem from="1729601240088" duration="2402000" />
+      <workItem from="1729601240088" duration="5230000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
