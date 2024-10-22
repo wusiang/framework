@@ -1,6 +1,7 @@
 package com.xianmao.cloud.annotation.endpoint;
 
 import com.alibaba.cloud.nacos.registry.NacosAutoServiceRegistration;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 
 /** 使用了nacos注册中心的服务关闭端点配置 */
 @ConditionalOnClass(NacosAutoServiceRegistration.class)

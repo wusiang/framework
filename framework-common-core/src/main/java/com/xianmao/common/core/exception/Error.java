@@ -1,11 +1,10 @@
 package com.xianmao.common.core.exception;
 
 import com.xianmao.common.core.support.StringPool;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.util.ContentCachingRequestWrapper;
-
-import javax.servlet.http.HttpServletRequest;
 
 public class Error {
 

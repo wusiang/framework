@@ -12,18 +12,13 @@
         <module>framework-common-core</module>
         <module>framework-common-mybatis</module>
         <module>framework-common-web</module>
-        <module>framework-common-swagger</module>
         <module>framework-common-redis</module>
         <module>framework-common-excel</module>
-        <module>framework-common-job</module>
         <module>framework-common-rocketmq</module>
-        <module>framework-common-redo</module>
-        <module>framework-common-log</module>
         <module>framework-common-cloud</module>
         <module>framework-common-entity</module>
         <module>framework-common-feign</module>
         <module>framework-common-trace</module>
-        <module>framework-common-idempotent</module>
     </modules>
 
     <name>framework</name>
@@ -36,12 +31,11 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <!---->
-        <spring-boot.version>2.7.18</spring-boot.version>
-        <spring-cloud.version>2021.0.6</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <spring-boot.version>3.2.9</spring-boot.version>
+        <spring-cloud.version>2023.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
         <!---->
         <hutool.version>5.8.32</hutool.version>
-        <knife4j.version>2.0.9</knife4j.version>
         <easyexcel.version>3.3.4</easyexcel.version>
         <mybatis.plus.version>3.5.6</mybatis.plus.version>
         <lombok.version>1.18.22</lombok.version>
@@ -51,17 +45,13 @@
 
         <!--谷歌工具包-->
         <guava.version>33.2.0-jre</guava.version>
-        <redisson.version>3.34.1</redisson.version>
-        <!--job-->
-        <com.dangdang.version>2.1.5</com.dangdang.version>
-        <org.apache.curator.version>2.12.0</org.apache.curator.version>
         <oss.version>3.14.0</oss.version>
         <rocketmq-client.version>5.0.6</rocketmq-client.version>
         <!---->
         <commons-lang3.version>3.7</commons-lang3.version>
         <revision>1.0.0-SNAPSHOT</revision>
         <fastjson.version>1.2.83</fastjson.version>
-        <jdk.version>1.8</jdk.version>
+        <jdk.version>17</jdk.version>
     </properties>
 
     <dependencyManagement>
@@ -97,11 +87,6 @@
                 <version>${hutool.version}</version>
             </dependency>
             <!--Api文档生成-->
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j.version}</version>
-            </dependency>
             <!--excel-->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -139,53 +124,10 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis.plus.version}</version>
             </dependency>
-            <!--redisson-->
-            <dependency>
-                <groupId>org.redisson</groupId>
-                <artifactId>redisson-spring-data-27</artifactId>
-                <version>${redisson.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework.data</groupId>
-                        <artifactId>spring-data-redis</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-            </dependency>
-            <!--elastic-job-->
-            <dependency>
-                <artifactId>elastic-job-common-core</artifactId>
-                <groupId>com.dangdang</groupId>
-                <version>${com.dangdang.version}</version>
-            </dependency>
-            <dependency>
-                <artifactId>elastic-job-lite-core</artifactId>
-                <groupId>com.dangdang</groupId>
-                <version>${com.dangdang.version}</version>
-            </dependency>
-            <dependency>
-                <artifactId>elastic-job-lite-spring</artifactId>
-                <groupId>com.dangdang</groupId>
-                <version>${com.dangdang.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.curator</groupId>
-                <artifactId>curator-framework</artifactId>
-                <version>${org.apache.curator.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.curator</groupId>
-                <artifactId>curator-client</artifactId>
-                <version>${org.apache.curator.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.curator</groupId>
-                <artifactId>curator-recipes</artifactId>
-                <version>${org.apache.curator.version}</version>
             </dependency>
             <!-- commons -->
             <dependency>

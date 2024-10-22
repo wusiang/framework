@@ -1,10 +1,10 @@
 package com.xianmao.common.core.utils;
 
 import cn.hutool.core.util.StrUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
 
 
 public class IpAddressUtils {

@@ -1,6 +1,7 @@
 package com.xianmao.common.core.exception;
 
-import javax.servlet.http.HttpServletResponse;
+
+import jakarta.servlet.http.HttpServletResponse;
 
 public enum ServerErrorCode implements ICode<Integer> {
 

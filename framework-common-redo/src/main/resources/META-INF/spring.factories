@@ -1,3 +1,0 @@
-# Auto Configure
-#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-#cn.com.kun.component.redo.configuration.RedoBeanAutoConfiguration

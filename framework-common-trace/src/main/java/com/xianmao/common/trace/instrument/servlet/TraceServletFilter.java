@@ -2,10 +2,10 @@ package com.xianmao.common.trace.instrument.servlet;
 
 import com.xianmao.common.trace.TraceContentFactory;
 import com.xianmao.common.trace.TraceLogProperties;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.MDC;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;

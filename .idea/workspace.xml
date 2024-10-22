@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级rocketmq" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级rocketmq">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +32,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="userSettingsFile" value="$PROJECT_DIR$/../../settings.xml" />
+        <option name="userSettingsFile" value="D:\tcat\maven\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -67,7 +69,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;b61fd05df462d710c8f4df1a205c82eb&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -91,8 +93,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19072.14" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19072.14" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -282,6 +284,9 @@
       <workItem from="1725439908450" duration="37000" />
       <workItem from="1726799847709" duration="1061000" />
       <workItem from="1726802216796" duration="156000" />
+      <workItem from="1728871894371" duration="33000" />
+      <workItem from="1728875619152" duration="348000" />
+      <workItem from="1729585213873" duration="653000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>

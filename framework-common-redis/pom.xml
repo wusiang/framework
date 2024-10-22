@@ -27,29 +27,9 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-data-27</artifactId>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.data</groupId>
-                    <artifactId>spring-data-redis</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 </project>
