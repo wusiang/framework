@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
@@ -30,8 +31,6 @@ public class RedisTemplateConfiguration {
 
 	/**
 	 * value 值 序列化
-	 *
-	 * @return RedisSerializer
 	 */
 	@Bean
 	@ConditionalOnMissingBean(RedisSerializer.class)

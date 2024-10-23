@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  */
 @Setter
 @Getter
-public class BaseEntity implements Serializable {
+public class BaseDO implements Serializable {
 
     /*** 主键*/
     @TableId(type = IdType.AUTO)
@@ -29,6 +29,7 @@ public class BaseEntity implements Serializable {
     private LocalDateTime updateTime;
 
     /*** 状态[0:未删除,1:删除]*/
+    @TableLogic
     @TableField(value = "del_flag")
     private Integer delFlag;
 }

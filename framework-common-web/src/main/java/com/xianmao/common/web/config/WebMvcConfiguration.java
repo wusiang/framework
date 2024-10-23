@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.xianmao.common.core.jackson.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
@@ -21,7 +22,7 @@ import java.util.List;
 import static org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication.Type.SERVLET;
 
 @Slf4j
-@Configuration
+@AutoConfiguration
 @ConditionalOnWebApplication(type = SERVLET)
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
