@@ -27,7 +27,6 @@
       <module name="framework-common-job" target="1.8" />
       <module name="framework-common-log" target="1.8" />
       <module name="framework-common-redo" target="1.8" />
-      <module name="framework-common-swagger" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

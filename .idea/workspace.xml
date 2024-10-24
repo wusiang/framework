@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级JDK">
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级rocketmq">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +32,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="userSettingsFile" value="$PROJECT_DIR$/../../settings.xml" />
+        <option name="userSettingsFile" value="D:\tcat\maven\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -59,7 +59,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "17",
+    "jdk.selected.JAVA_MODULE": "corretto-21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/wujinghua/Desktop/xianmao/framework/framework-common-excel/src/main/java/com/xianmao/common/excel/processor",
     "node.js.detected.package.eslint": "true",

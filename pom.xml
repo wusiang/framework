@@ -20,6 +20,7 @@
         <module>framework-common-feign</module>
         <module>framework-common-trace</module>
         <module>framework-common-repet</module>
+        <module>framework-common-swagger</module>
     </modules>
 
     <name>framework</name>
@@ -47,6 +48,7 @@
         <mybatis.plus.version>3.5.5</mybatis.plus.version>
         <lock4j.version>2.2.7</lock4j.version>
         <lombok.version>1.18.34</lombok.version>
+        <knife4j-openapi3.version>4.4.0</knife4j-openapi3.version>
         <!--数据库-->
         <mysql.version>8.0.28</mysql.version>
         <redisson.version>3.25.2</redisson.version>
@@ -94,7 +96,18 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
-            <!--Api文档生成-->
+            <!--Api文档生成 https://doc.xiaominfo.com/docs/quick-start-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+                <version>${knife4j-openapi3.version}</version>
+            </dependency>
+            <!--https://doc.xiaominfo.com/docs/middleware-sources/spring-cloud-gateway/spring-gateway-introduction-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
+                <version>${knife4j-openapi3.version}</version>
+            </dependency>
             <!--excel-->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -215,6 +228,11 @@
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-trace</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-swagger</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>
