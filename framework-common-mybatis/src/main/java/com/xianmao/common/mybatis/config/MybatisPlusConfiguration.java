@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
-import com.xianmao.common.mybatis.handler.MybatisPlusMetaObjectHandler;
 import com.xianmao.common.mybatis.plugins.PigPaginationInnerInterceptor;
 import com.xianmao.common.mybatis.props.TenantProperties;
 import com.xianmao.common.mybatis.utils.HttpServletUtils;
