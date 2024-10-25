@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -35,7 +36,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @AllArgsConstructor
 @ConditionalOnClass(okhttp3.OkHttpClient.class)
-@Configuration(proxyBeanMethods = false)
+@AutoConfiguration
 public class FeignClientConfiguration {
 
 	/**
