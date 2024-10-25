@@ -138,3 +138,4 @@ mvnw
 mvnw.cmd
 .mvn
 .imlv
+.flattened-pom.xml
