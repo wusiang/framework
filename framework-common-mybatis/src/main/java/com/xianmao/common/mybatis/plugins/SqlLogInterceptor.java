@@ -11,6 +11,7 @@ import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.session.ResultHandler;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Proxy;
@@ -37,6 +38,7 @@ import java.util.Map;
 )})
 @Component
 @Slf4j
+@ConditionalOnProperty(value = "mybatis-plus.sql-log", havingValue = "true")
 public class SqlLogInterceptor extends com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor {
 
     @Override
