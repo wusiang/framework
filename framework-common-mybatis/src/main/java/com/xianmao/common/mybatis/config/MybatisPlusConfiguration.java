@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
+import com.xianmao.common.mybatis.handler.MybatisPlusMetaObjectHandler;
 import com.xianmao.common.mybatis.plugins.PigPaginationInnerInterceptor;
-import com.xianmao.common.mybatis.plugins.SqlCryptoInterceptor;
 import com.xianmao.common.mybatis.props.TenantProperties;
 import com.xianmao.common.mybatis.utils.HttpServletUtils;
 import lombok.AllArgsConstructor;
@@ -59,15 +59,14 @@ public class MybatisPlusConfiguration {
      * 分页插件, 对于单一数据库类型来说,都建议配置该值,避免每次分页都去抓取数据库类型
      */
     @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+    public MybatisPlusInterceptor mybatisPlusInterceptor(TenantLineInnerInterceptor tenantLineInnerInterceptor) {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
         // 配置分页拦截器
         interceptor.addInnerInterceptor(new PigPaginationInnerInterceptor(DbType.MYSQL));
+        // 配置租户拦截器
+        if (tenantProperties.getEnable()) {
+            interceptor.addInnerInterceptor(tenantLineInnerInterceptor);
+        }
         return interceptor;
-    }
-
-    @Bean
-    public SqlCryptoInterceptor sqlCryptoInterceptor() {
-        return new SqlCryptoInterceptor();
     }
 }

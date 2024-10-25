@@ -18,13 +18,10 @@
 
     <dependencies>
 
+        <!-- HttpClent替换Feign底层客户端实现 -->
         <dependency>
             <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-okhttp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
+            <artifactId>feign-httpclient</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

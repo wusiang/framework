@@ -8,7 +8,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class HttpServletUtils {
 
-    private static final String tenantID = "X-TenantID";
+    private static final String tenantID = "x-tenant-id";
 
     /**
      * 获取租户Id

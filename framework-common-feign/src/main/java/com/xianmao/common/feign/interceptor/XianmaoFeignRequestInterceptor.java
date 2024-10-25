@@ -6,14 +6,22 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * feign 传递Request header
  */
-public class TraceFeignRequestInterceptor implements RequestInterceptor {
+public class XianmaoFeignRequestInterceptor implements RequestInterceptor {
+
+    /**
+     * 请求和转发的ip
+     */
+    private static final String[] ALLOW_HEADS = new String[]{
+            "X-Real-IP", "x-forwarded-for", "x-tenant-id"
+    };
 
     /**
      * Feign GET 请求400 (一下正常200,一下异常400)
@@ -25,31 +33,23 @@ public class TraceFeignRequestInterceptor implements RequestInterceptor {
     public void apply(RequestTemplate requestTemplate) {
         HttpServletRequest httpServletRequest = getHttpServletRequest();
         if (null != httpServletRequest) {
-            //获取头信息
-            Map<String, String> headers = getHeaders(httpServletRequest);
-            for (Map.Entry<String, String> entry : headers.entrySet()) {
-                requestTemplate.header(entry.getKey(), entry.getValue());
+            // 传递请求头
+            Enumeration<String> headerNames = httpServletRequest.getHeaderNames();
+            List<String> allowHeadsList = new ArrayList<>(Arrays.asList(ALLOW_HEADS));
+            if (headerNames != null) {
+                while (headerNames.hasMoreElements()) {
+                    String key = headerNames.nextElement();
+                    // 只支持配置的 header
+                    if (allowHeadsList.contains(key)) {
+                        String values = httpServletRequest.getHeader(key);
+                        // header value 不为空的 传递
+                        if (null != values && !values.isEmpty()) {
+                            requestTemplate.header(key, values);
+                        }
+                    }
+                }
             }
         }
-    }
-
-    /**
-     * 获取头信息
-     *
-     * @param request
-     * @return
-     */
-    private Map<String, String> getHeaders(HttpServletRequest request) {
-        Map<String, String> map = new LinkedHashMap<>();
-        Enumeration<String> enumeration = request.getHeaderNames();
-        if (enumeration != null) {
-            while (enumeration.hasMoreElements()) {
-                String key = enumeration.nextElement();
-                String value = request.getHeader(key);
-                map.put(key, value);
-            }
-        }
-        return map;
     }
 
     private HttpServletRequest getHttpServletRequest() {

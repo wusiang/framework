@@ -12,12 +12,12 @@ import java.util.List;
  */
 @Data
 @Configuration
-@ConfigurationProperties(prefix = "tenant")
+@ConfigurationProperties(prefix = "mybatis-plus.tenant")
 public class TenantProperties {
     /**
      * 是否开启租户模式
      */
-    private Boolean enable = true;
+    private Boolean enable = false;
     /**
      * 多租户字段名称
      */
