@@ -55,7 +55,7 @@
         <druid.version>1.2.16</druid.version>
 
         <!--谷歌工具包-->
-        <guava.version>33.3.1-jre</guava.version>
+        <guava.version>33.2.0-jre</guava.version>
         <oss.version>3.14.0</oss.version>
         <rocketmq-client.version>5.0.6</rocketmq-client.version>
         <!---->
