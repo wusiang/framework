@@ -7,7 +7,8 @@
     <groupId>com.xianmao</groupId>
     <artifactId>framework</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
+    <name>${project.artifactId}</name>
     <modules>
         <module>framework-common-core</module>
         <module>framework-common-mybatis</module>
@@ -22,10 +23,6 @@
         <module>framework-common-repet</module>
         <module>framework-common-swagger</module>
     </modules>
-
-    <name>framework</name>
-
-
 
     <properties>
         <!--需要和project.version保持一致-->
@@ -60,8 +57,7 @@
         <rocketmq-client.version>5.0.6</rocketmq-client.version>
         <!---->
         <commons-lang3.version>3.17.0</commons-lang3.version>
-        <revision>1.0.0-SNAPSHOT</revision>
-        <fastjson.version>2.0.53</fastjson.version>
+        <fastjson.version>2.0.3</fastjson.version>
     </properties>
 
     <dependencyManagement>
@@ -273,6 +269,32 @@
 
     <build>
         <plugins>
+            <!-- 统一 revision 版本 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                    <updatePomFile>true</updatePomFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
