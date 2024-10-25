@@ -2,7 +2,6 @@ package com.xianmao.common.mybatis.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.xianmao.common.mybatis.plugins.PigPaginationInnerInterceptor;
 import com.xianmao.common.mybatis.plugins.SqlCryptoInterceptor;
 import com.xianmao.common.mybatis.plugins.SqlLogInterceptor;

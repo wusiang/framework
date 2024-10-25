@@ -3,7 +3,7 @@ package com.xianmao.common.mybatis.plugins;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.ParameterUtils;
-import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.dialects.IDialect;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,19 +25,15 @@ import java.sql.SQLException;
  */
 @Data
 @NoArgsConstructor
-public class PigPaginationInnerInterceptor extends PaginationInnerInterceptor {
+public class PigPaginationInnerInterceptor implements InnerInterceptor {
 
 	/**
 	 * 数据库类型
-	 * <p>
-	 * 查看 {@link #findIDialect(Executor)} 逻辑
 	 */
 	private DbType dbType;
 
 	/**
 	 * 方言实现类
-	 * <p>
-	 * 查看 {@link #findIDialect(Executor)} 逻辑
 	 */
 	private IDialect dialect;
 
@@ -50,14 +46,13 @@ public class PigPaginationInnerInterceptor extends PaginationInnerInterceptor {
 	}
 
 	@Override
-	public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds,
-			ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
+	public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
 		IPage<?> page = ParameterUtils.findPage(parameter).orElse(null);
 		// size 小于 0 直接设置为 0 , 即不查询任何数据
 		if (null != page && page.getSize() < 0) {
 			page.setSize(0);
 		}
-		super.beforeQuery(executor, ms, page, rowBounds, resultHandler, boundSql);
+		InnerInterceptor.super.beforeQuery(executor, ms, parameter, rowBounds, resultHandler, boundSql);
 	}
 
 }
