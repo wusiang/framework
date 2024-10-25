@@ -2,7 +2,9 @@ package com.xianmao.common.entity.web;
 
 import com.xianmao.common.entity.exception.ICode;
 import com.xianmao.common.entity.exception.ServerErrorCode;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
@@ -11,6 +13,8 @@ import java.util.Optional;
 
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class R<T> implements Serializable {
 
     private static final long serialVersionUID = 6439723870077111495L;
@@ -69,13 +73,6 @@ public class R<T> implements Serializable {
 
     public static <T> R<T> fail(String code, String msg) {
         return R.buildAPIResult(code, msg, null);
-    }
-
-    public R(String code, String message, T data) {
-        super();
-        this.code = code;
-        this.message = message;
-        this.data = data;
     }
 
     public R(String code, String message) {

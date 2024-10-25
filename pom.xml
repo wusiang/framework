@@ -52,7 +52,7 @@
         <!--数据库-->
         <mysql.version>8.0.28</mysql.version>
         <redisson.version>3.25.2</redisson.version>
-        <druid.version>1.2.16</druid.version>
+        <druid.version>1.2.23</druid.version>
 
         <!--谷歌工具包-->
         <guava.version>33.2.0-jre</guava.version>
@@ -233,6 +233,16 @@
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-swagger</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-feign</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>

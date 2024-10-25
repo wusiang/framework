@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:集成swagger文档" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 升级guava版本">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,40 +49,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.framework [clean].executor": "Run",
-    "Maven.framework [compile].executor": "Run",
-    "Maven.framework [install].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "corretto-21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/xianmao/framework/framework-common-swagger/src/main/java/com/xianmao/common/swagger/launch",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "b61fd05df462d710c8f4df1a205c82eb",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/xianmao/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b61fd05df462d710c8f4df1a205c82eb&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xianmao\framework\framework-common-mybatis\src\main\java\com\xianmao\common\mybatis\base" />
       <recent name="D:\xianmao\framework\framework-common-swagger\src\main\java\com\xianmao\common\swagger\launch" />
       <recent name="D:\xianmao\framework\framework-common-swagger\src\main\resources\META-INF\spring" />
       <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/processor" />
       <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/kit" />
-      <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/head" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xianmao\framework\framework-common-swagger\src\main\resources\static" />
@@ -87,6 +91,9 @@
       <recent name="D:\xianmao\framework\framework-common-swagger\src\main\resources\static\image" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xianmao.common.mybatis.props" />
+      <recent name="com.xianmao.common.mybatis.utils" />
+      <recent name="com.xianmao.common.mybatis.base" />
       <recent name="com.xianmao.common.swagger.config" />
       <recent name="com.xianmao.common.excel.config" />
       <recent name="com.xianmao.common.feign.ssl" />
@@ -99,8 +106,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19072.14" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19072.14" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -298,6 +305,9 @@
       <workItem from="1729672249324" duration="188000" />
       <workItem from="1729672442965" duration="2093000" />
       <workItem from="1729687252079" duration="4189000" />
+      <workItem from="1729820022278" duration="11339000" />
+      <workItem from="1729844742310" duration="1664000" />
+      <workItem from="1729847490387" duration="596000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -551,7 +561,47 @@
       <option name="project" value="LOCAL" />
       <updated>1729759512260</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="feat: 升级以来">
+      <option name="closed" value="true" />
+      <created>1729832627722</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1729832627722</updated>
+    </task>
+    <task id="LOCAL-00035" summary="feat: 升级mybatisplus 3.5.9">
+      <option name="closed" value="true" />
+      <created>1729832863923</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1729832863923</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat: 升级mybatisplus 3.5.9 适配CrudRepository">
+      <option name="closed" value="true" />
+      <created>1729833298142</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1729833298142</updated>
+    </task>
+    <task id="LOCAL-00037" summary="feat: 升级mybatisplus支持住户ID查询">
+      <option name="closed" value="true" />
+      <created>1729841265733</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1729841265733</updated>
+    </task>
+    <task id="LOCAL-00038" summary="feat: 升级guava版本">
+      <option name="closed" value="true" />
+      <created>1729842032021</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1729842032021</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,8 +619,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="pageutil" />
-    <MESSAGE value="修改错误类" />
     <MESSAGE value="maven-云效果" />
     <MESSAGE value="mybatis自动加密解密" />
     <MESSAGE value="调整baseEntity" />
@@ -591,7 +639,12 @@
     <MESSAGE value="feat:升级rocketmq" />
     <MESSAGE value="feat:升级JDK" />
     <MESSAGE value="feat:集成swagger文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:集成swagger文档" />
+    <MESSAGE value="feat: 升级以来" />
+    <MESSAGE value="feat: 升级mybatisplus 3.5.9" />
+    <MESSAGE value="feat: 升级mybatisplus 3.5.9 适配CrudRepository" />
+    <MESSAGE value="feat: 升级mybatisplus支持住户ID查询" />
+    <MESSAGE value="feat: 升级guava版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 升级guava版本" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
