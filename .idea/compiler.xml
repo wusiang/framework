@@ -11,6 +11,7 @@
         <module name="framework-common-redis" />
         <module name="framework-common-repet" />
         <module name="framework-common-core" />
+        <module name="framework-common-swagger" />
         <module name="framework-common-entity" />
         <module name="framework-common-excel" />
         <module name="framework-common-trace" />

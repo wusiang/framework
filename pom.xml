@@ -45,7 +45,7 @@
         <!---->
         <hutool.version>5.8.32</hutool.version>
         <easyexcel.version>4.0.3</easyexcel.version>
-        <mybatis.plus.version>3.5.5</mybatis.plus.version>
+        <mybatis.plus.version>3.5.9</mybatis.plus.version>
         <lock4j.version>2.2.7</lock4j.version>
         <lombok.version>1.18.34</lombok.version>
         <knife4j-openapi3.version>4.5.0</knife4j-openapi3.version>
@@ -55,13 +55,13 @@
         <druid.version>1.2.16</druid.version>
 
         <!--谷歌工具包-->
-        <guava.version>33.2.0-jre</guava.version>
+        <guava.version>33.3.1-jre</guava.version>
         <oss.version>3.14.0</oss.version>
         <rocketmq-client.version>5.0.6</rocketmq-client.version>
         <!---->
-        <commons-lang3.version>3.7</commons-lang3.version>
+        <commons-lang3.version>3.17.0</commons-lang3.version>
         <revision>1.0.0-SNAPSHOT</revision>
-        <fastjson.version>1.2.83</fastjson.version>
+        <fastjson.version>2.0.53</fastjson.version>
     </properties>
 
     <dependencyManagement>
@@ -96,13 +96,13 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
-            <!--Api文档生成 https://doc.xiaominfo.com/docs/quick-start-->
+            <!--微服务knife4j文档生成 https://doc.xiaominfo.com/docs/quick-start-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
                 <version>${knife4j-openapi3.version}</version>
             </dependency>
-            <!--https://doc.xiaominfo.com/docs/middleware-sources/spring-cloud-gateway/spring-gateway-introduction-->
+            <!-- 网关进行聚合的组件knife4j https://doc.xiaominfo.com/docs/middleware-sources/spring-cloud-gateway/spring-gateway-introduction-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
@@ -115,8 +115,8 @@
                 <version>${easyexcel.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
             <dependency>

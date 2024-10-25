@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级rocketmq">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:集成swagger文档" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +59,7 @@
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "corretto-21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/wujinghua/Desktop/xianmao/framework/framework-common-excel/src/main/java/com/xianmao/common/excel/processor",
+    "last_opened_file_path": "D:/xianmao/framework/framework-common-swagger/src/main/java/com/xianmao/common/swagger/launch",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,13 +75,19 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xianmao\framework\framework-common-swagger\src\main\java\com\xianmao\common\swagger\launch" />
+      <recent name="D:\xianmao\framework\framework-common-swagger\src\main\resources\META-INF\spring" />
       <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/processor" />
       <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/kit" />
       <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/head" />
-      <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/enhance" />
-      <recent name="$PROJECT_DIR$/framework-common-excel/src/main/java/com/xianmao/common/excel/converters" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xianmao\framework\framework-common-swagger\src\main\resources\static" />
+      <recent name="D:\xianmao\framework\framework-common-swagger\src\main\resources" />
+      <recent name="D:\xianmao\framework\framework-common-swagger\src\main\resources\static\image" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xianmao.common.swagger.config" />
       <recent name="com.xianmao.common.excel.config" />
       <recent name="com.xianmao.common.feign.ssl" />
       <recent name="com.xianmao.common.redis.util" />
@@ -531,7 +535,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729672600635</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="feat:集成swagger文档">
+      <option name="closed" value="true" />
+      <created>1729754148908</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1729754148908</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat:集成swagger文档">
+      <option name="closed" value="true" />
+      <created>1729759512260</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1729759512260</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +590,8 @@
     <MESSAGE value="feat:升级hutool版本" />
     <MESSAGE value="feat:升级rocketmq" />
     <MESSAGE value="feat:升级JDK" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:升级JDK" />
+    <MESSAGE value="feat:集成swagger文档" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:集成swagger文档" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
