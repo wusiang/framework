@@ -22,6 +22,7 @@
         <module>framework-common-trace</module>
         <module>framework-common-repet</module>
         <module>framework-common-swagger</module>
+        <module>framework-common-email</module>
     </modules>
 
     <properties>
@@ -58,6 +59,7 @@
         <!---->
         <commons-lang3.version>3.17.0</commons-lang3.version>
         <fastjson.version>2.0.3</fastjson.version>
+        <email.version>1.6.0</email.version>
     </properties>
 
     <dependencyManagement>
@@ -175,6 +177,12 @@
                 <artifactId>rocketmq-client-java</artifactId>
                 <version>${rocketmq-client.version}</version>
             </dependency>
+            <!--  email组件  -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-email</artifactId>
+                <version>${email.version}</version>
+            </dependency>
             <!--项目组件-->
             <dependency>
                 <groupId>com.xianmao</groupId>
@@ -239,6 +247,11 @@
             <dependency>
                 <groupId>com.xianmao</groupId>
                 <artifactId>framework-common-feign</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-email</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>
