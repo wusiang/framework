@@ -18,27 +18,40 @@ public class IpAddressUtils {
      * 如果使用了多级反向代理的话，X-Forwarded-For的值并不止一个，而是一串IP地址，X-Forwarded-For中第一个非unknown的有效IP字符串，则为真实IP地址
      */
     public static String getIpAddr(HttpServletRequest request) {
-        String ip = null;
-        try {
-            ip = request.getHeader("x-forwarded-for");
-            if (StrUtil.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getHeader("Proxy-Client-IP");
-            }
-            if (StrUtil.isEmpty(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getHeader("WL-Proxy-Client-IP");
-            }
-            if (StrUtil.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getHeader("HTTP_CLIENT_IP");
-            }
-            if (StrUtil.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-            }
-            if (StrUtil.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
-                ip = request.getRemoteAddr();
-            }
-        } catch (Exception e) {
-            logger.error("IPUtils ERROR ", e);
+        if (request == null) {
+            return "0.0.0.0";
         }
-        return ip;
+        String Xip = request.getHeader("X-Real-IP");
+        String XFor = request.getHeader("X-Forwarded-For");
+        String UNKNOWN_IP = "unknown";
+        if (StrUtil.isNotEmpty(XFor) && !UNKNOWN_IP.equalsIgnoreCase(XFor)) {
+            //多次反向代理后会有多个ip值，第一个ip才是真实ip
+            int index = XFor.indexOf(",");
+            if (index != -1) {
+                return XFor.substring(0, index);
+            } else {
+                return XFor;
+            }
+        }
+        XFor = Xip;
+        if (StrUtil.isNotEmpty(XFor) && !UNKNOWN_IP.equalsIgnoreCase(XFor)) {
+            return XFor;
+        }
+        if (StrUtil.isBlank(XFor) || UNKNOWN_IP.equalsIgnoreCase(XFor)) {
+            XFor = request.getHeader("Proxy-Client-IP");
+        }
+        if (StrUtil.isBlank(XFor) || UNKNOWN_IP.equalsIgnoreCase(XFor)) {
+            XFor = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (StrUtil.isBlank(XFor) || UNKNOWN_IP.equalsIgnoreCase(XFor)) {
+            XFor = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (StrUtil.isBlank(XFor) || UNKNOWN_IP.equalsIgnoreCase(XFor)) {
+            XFor = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (StrUtil.isBlank(XFor) || UNKNOWN_IP.equalsIgnoreCase(XFor)) {
+            XFor = request.getRemoteAddr();
+        }
+        return XFor;
     }
 }
