@@ -58,7 +58,7 @@
         <rocketmq-client.version>5.0.6</rocketmq-client.version>
         <!---->
         <commons-lang3.version>3.17.0</commons-lang3.version>
-        <fastjson.version>2.0.3</fastjson.version>
+        <fastjson.version>2.0.53</fastjson.version>
         <email.version>1.6.0</email.version>
     </properties>
 
@@ -154,6 +154,11 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
             <!-- commons -->
             <dependency>
