@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.xianmao</groupId>
         <artifactId>framework</artifactId>
-        <version>${revision}</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>framework-common-trace</artifactId>
