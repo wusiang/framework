@@ -23,6 +23,7 @@
         <module>framework-common-repet</module>
         <module>framework-common-swagger</module>
         <module>framework-common-email</module>
+        <module>framework-common-xxl</module>
     </modules>
 
     <properties>
