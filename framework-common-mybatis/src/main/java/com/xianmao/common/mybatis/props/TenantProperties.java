@@ -1,6 +1,5 @@
 package com.xianmao.common.mybatis.props;
 
-import com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +12,10 @@ import java.util.List;
  */
 @Data
 @Configuration
-public class TenantProperties extends MybatisPlusProperties {
+@ConfigurationProperties(
+        prefix = "mybatis-plus.tenant"
+)
+public class TenantProperties {
     /**
      * 是否开启租户模式
      */

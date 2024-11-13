@@ -7,22 +7,7 @@
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 优化租户配置">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-cloud/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-cloud/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-email/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-email/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-entity/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-entity/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-excel/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-excel/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-feign/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-feign/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-mybatis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-redis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-redis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-repet/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-repet/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-rocketmq/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-rocketmq/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-swagger/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-swagger/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-trace/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-trace/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +34,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="userSettingsFile" value="D:\tcat\maven\xianmaosettings.xml" />
+        <option name="userSettingsFile" value="$PROJECT_DIR$/../../settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -65,35 +50,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.framework [clean].executor": "Run",
-    "Maven.framework [compile].executor": "Run",
-    "Maven.framework [deploy].executor": "Run",
-    "Maven.framework [install].executor": "Run",
-    "Maven.framework [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "corretto-21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/xianmao/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "b61fd05df462d710c8f4df1a205c82eb",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/xianmao/framework/framework-common-mybatis/src/main/java/com/xianmao/common/mybatis/base&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b61fd05df462d710c8f4df1a205c82eb&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xianmao\framework\framework-common-mybatis\src\main\java\com\xianmao\common\mybatis\base" />
@@ -123,8 +108,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19072.14" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19072.14" />
       </set>
     </attachedChunks>
   </component>
@@ -332,6 +317,7 @@
       <workItem from="1730342950997" duration="1050000" />
       <workItem from="1730423751312" duration="1649000" />
       <workItem from="1730430232193" duration="968000" />
+      <workItem from="1731499710933" duration="358000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>

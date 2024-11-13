@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="framework-common-rocketmq" />
         <module name="framework-common-redis" />
+        <module name="framework-common-xxl" />
         <module name="framework-common-entity" />
         <module name="framework-common-email" />
         <module name="framework-common-repet" />

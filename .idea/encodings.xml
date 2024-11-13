@@ -37,6 +37,8 @@
     <file url="file://$PROJECT_DIR$/framework-common-trace/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework-common-web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-xxl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework-common-xxl/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
