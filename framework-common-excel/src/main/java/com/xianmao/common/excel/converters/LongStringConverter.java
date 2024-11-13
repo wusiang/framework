@@ -9,9 +9,6 @@ import com.alibaba.excel.metadata.property.ExcelContentProperty;
 
 import java.text.ParseException;
 
-/**
- * Long and string converter
- */
 public enum LongStringConverter implements Converter<Long> {
 
 	/**

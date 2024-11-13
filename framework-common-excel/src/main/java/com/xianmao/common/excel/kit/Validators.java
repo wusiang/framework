@@ -4,11 +4,7 @@ import jakarta.validation.*;
 
 import java.util.Set;
 
-/**
- * 校验工具
- *
- * @author L.cm
- */
+
 public final class Validators {
 
 	private Validators() {

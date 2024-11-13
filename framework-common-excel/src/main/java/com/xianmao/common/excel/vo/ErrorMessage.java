@@ -9,6 +9,9 @@ import java.util.Set;
 
 /**
  * 校验错误信息
+ *
+ * @author lengleng
+ * @date 2021/8/4
  */
 @Data
 @NoArgsConstructor

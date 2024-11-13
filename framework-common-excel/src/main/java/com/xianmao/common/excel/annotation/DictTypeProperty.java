@@ -1,11 +1,15 @@
 package com.xianmao.common.excel.annotation;
 
+
 import com.xianmao.common.excel.vo.DictEnum;
 
 import java.lang.annotation.*;
 
 /**
  * Excel dict type 属性
+ *
+ * @author lengleng
+ * @date 2024/08/30
  */
 @Documented
 @Target({ ElementType.FIELD })

@@ -20,6 +20,9 @@ import java.util.Objects;
 
 /**
  * dict 转换器
+ *
+ * @author lengleng
+ * @date 2024/08/30
  */
 @Slf4j
 public enum DictTypeConvert implements Converter<String> {

@@ -2,9 +2,6 @@ package com.xianmao.common.excel.head;
 
 /**
  * Excel头生成器，用于自定义生成头部信息
- *
- * @author Hccake 2020/10/27
- * @version 1.0
  */
 public interface HeadGenerator {
 

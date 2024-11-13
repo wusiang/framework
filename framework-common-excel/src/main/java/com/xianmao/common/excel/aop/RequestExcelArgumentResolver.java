@@ -1,6 +1,5 @@
 package com.xianmao.common.excel.aop;
 
-
 import com.alibaba.excel.EasyExcel;
 import com.xianmao.common.excel.annotation.RequestExcel;
 import com.xianmao.common.excel.converters.*;
@@ -27,10 +26,6 @@ import java.util.List;
 
 /**
  * 上传excel 解析注解
- *
- * @author lengleng
- * @author L.cm
- * @date 2021/4/16
  */
 @Slf4j
 public class RequestExcelArgumentResolver implements HandlerMethodArgumentResolver {

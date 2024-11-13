@@ -16,8 +16,6 @@ import java.util.stream.Collectors;
 
 /**
  * 对表头进行国际化处理
- *
- * @author hccake
  */
 @RequiredArgsConstructor
 public class I18nHeaderCellWriteHandler implements CellWriteHandler {

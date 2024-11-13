@@ -11,9 +11,7 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-/**
- * LocalDate and string converter
- */
+
 public enum StringArrayConverter implements Converter<String[]> {
 
 	/**
