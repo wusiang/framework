@@ -24,6 +24,7 @@
         <module>framework-common-swagger</module>
         <module>framework-common-email</module>
         <module>framework-common-xxl</module>
+        <module>framework-common-log</module>
     </modules>
 
     <properties>
