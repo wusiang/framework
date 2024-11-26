@@ -14,7 +14,6 @@ public class OperateLogEnums {
         ADD("add", "新增"),
         DELETE("delete", "删除"),
         UPDATE("update", "修改"),
-        LOGIN("login", "登录"),
         ;
         private final String type;
         private final String value;
