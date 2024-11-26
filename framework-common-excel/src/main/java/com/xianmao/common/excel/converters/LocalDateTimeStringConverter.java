@@ -14,6 +14,8 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * LocalDateTime and string converter
+ *
+ * @author L.cm
  */
 public enum LocalDateTimeStringConverter implements Converter<LocalDateTime> {
 

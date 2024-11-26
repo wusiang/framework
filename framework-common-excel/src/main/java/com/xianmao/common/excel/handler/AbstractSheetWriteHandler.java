@@ -48,9 +48,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-/**
- * @author lengleng
- */
+
 @RequiredArgsConstructor
 public abstract class AbstractSheetWriteHandler implements SheetWriteHandler, ApplicationContextAware {
 

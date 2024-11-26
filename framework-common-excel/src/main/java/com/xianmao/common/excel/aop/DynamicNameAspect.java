@@ -14,10 +14,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-/**
- * @author lengleng
- * @date 2020/3/29
- */
+
 @Aspect
 @RequiredArgsConstructor
 public class DynamicNameAspect {

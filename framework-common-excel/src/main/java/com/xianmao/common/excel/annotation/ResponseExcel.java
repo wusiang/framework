@@ -5,12 +5,11 @@ import com.alibaba.excel.support.ExcelTypeEnum;
 import com.alibaba.excel.write.handler.WriteHandler;
 import com.xianmao.common.excel.head.HeadGenerator;
 
+
 import java.lang.annotation.*;
 
 /**
  * `@ResponseExcel 注解`
- *
- * @author lengleng
  */
 @Documented
 @Target(ElementType.METHOD)

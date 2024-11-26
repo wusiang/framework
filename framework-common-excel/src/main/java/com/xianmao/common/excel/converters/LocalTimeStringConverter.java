@@ -11,9 +11,6 @@ import java.text.ParseException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * LocalDate and string converter
- */
 public enum LocalTimeStringConverter implements Converter<LocalTime> {
 
 	/**

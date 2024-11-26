@@ -1,6 +1,5 @@
 package com.xianmao.common.excel.annotation;
 
-
 import com.xianmao.common.excel.head.HeadGenerator;
 
 import java.lang.annotation.*;

@@ -5,10 +5,7 @@ import lombok.Data;
 import java.util.List;
 import java.util.Set;
 
-/**
- * @author Yakir
- * @date 2021/4/26 10:58
- */
+
 @Data
 public class HeadMeta {
 
