@@ -1,71 +1,49 @@
 package com.xianmao.common.redis.config;
 
-import com.xianmao.common.redis.serializer.RedisKeySerializer;
-import com.xianmao.common.redis.utils.RedisUtil;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.AutoConfigureBefore;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import com.xianmao.common.redis.config.cache.RedisCacheConfiguration;
+import com.xianmao.common.redis.util.ApplicationContextUtil;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.cache.RedisCacheConfiguration;
-import org.springframework.data.redis.cache.RedisCacheManager;
-import org.springframework.data.redis.cache.RedisCacheWriter;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
-import java.time.Duration;
-
 /**
- * RedisTemplate 配置
+ * redis自动配置
+ * @author wujh
+ * @date 2019/4/18
+ * @since 1.8
  */
-@EnableCaching
-@AutoConfiguration
-@AutoConfigureBefore(RedisAutoConfiguration.class)
+@Configuration
+@ConditionalOnClass({RedisTemplate.class})
+@Import({
+        ApplicationContextUtil.class,
+        RedisCacheConfiguration.class
+})
 public class RedisTemplateConfiguration {
 
-	/**
-	 * value 值 序列化
-	 */
-	@Bean
-	@ConditionalOnMissingBean(RedisSerializer.class)
-	public RedisSerializer<Object> redisSerializer() {
-		return new JdkSerializationRedisSerializer();
-	}
+    @Bean
+    @ConditionalOnMissingBean({RedisTemplate.class})
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        JsonRedisSerializer jsonRedisSerializer = new JsonRedisSerializer();
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
+        template.setKeySerializer(RedisSerializer.string());
+        template.setValueSerializer(jsonRedisSerializer);
+        template.setHashKeySerializer(RedisSerializer.string());
+        template.setHashValueSerializer(jsonRedisSerializer);
+        template.setConnectionFactory(redisConnectionFactory);
+        return template;
+    }
 
-	@Bean(name = "redisTemplate")
-	@ConditionalOnMissingBean(RedisTemplate.class)
-	public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory, RedisSerializer<Object> redisSerializer) {
-		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-		RedisKeySerializer redisKeySerializer = new RedisKeySerializer();
-		// key 序列化
-		redisTemplate.setKeySerializer(redisKeySerializer);
-		redisTemplate.setHashKeySerializer(redisKeySerializer);
-		// value 序列化
-		redisTemplate.setValueSerializer(redisSerializer);
-		redisTemplate.setHashValueSerializer(redisSerializer);
-		redisTemplate.setConnectionFactory(redisConnectionFactory);
-		return redisTemplate;
-	}
-
-	@Bean
-	public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
-		RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
-			.entryTtl(Duration.ofHours(1));
-		return RedisCacheManager
-			.builder(RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory))
-			.cacheDefaults(redisCacheConfiguration).build();
-	}
-
-	@Bean(name = "redisUtil")
-	@ConditionalOnBean(RedisTemplate.class)
-	public RedisUtil redisUtils(RedisTemplate<String, Object> redisTemplate) {
-		return new RedisUtil(redisTemplate);
-	}
-
+    @Bean
+    @ConditionalOnMissingBean({StringRedisTemplate.class})
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        StringRedisTemplate template = new StringRedisTemplate();
+        template.setConnectionFactory(redisConnectionFactory);
+        return template;
+    }
 }

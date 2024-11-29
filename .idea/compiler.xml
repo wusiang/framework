@@ -27,9 +27,6 @@
     <bytecodeTargetLevel>
       <module name="common" target="17" />
       <module name="framework-bom" target="1.7" />
-      <module name="framework-common-idempotent" target="17" />
-      <module name="framework-common-job" target="1.8" />
-      <module name="framework-common-redo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
