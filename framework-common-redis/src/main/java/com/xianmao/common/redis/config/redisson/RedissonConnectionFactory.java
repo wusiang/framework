@@ -5,7 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.client.RedisClient;
-import org.redisson.client.protocol.RedisCommand;
+import org.redisson.client.protocol.RedisCommands;
 import org.redisson.connection.SentinelConnectionManager;
 import org.redisson.liveobject.core.RedissonObjectBuilder;
 import org.redisson.reactive.CommandReactiveService;
@@ -95,7 +95,7 @@ public class RedissonConnectionFactory implements RedisConnectionFactory,
         for (RedisClient client : manager.getSentinels()) {
             org.redisson.client.RedisConnection connection = client.connect();
             try {
-                String res = connection.sync(new RedisCommand<>("PIND"));
+                String res = connection.sync(RedisCommands.PING);
                 if ("pong".equalsIgnoreCase(res)) {
                     return new RedissonSentinelConnection(connection);
                 }
