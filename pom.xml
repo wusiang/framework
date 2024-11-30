@@ -24,7 +24,6 @@
         <module>framework-common-swagger</module>
         <module>framework-common-email</module>
         <module>framework-common-xxl</module>
-        <module>framework-common-log</module>
     </modules>
 
     <properties>
@@ -38,21 +37,21 @@
 
         <!--https://sca.aliyun.com/docs/2023/overview/version-explain/?spm=5176.29160081.0.0.74805c72r7yUvO-->
         <!--三个版本说明-->
-        <spring-boot.version>3.3.4</spring-boot.version>
-        <spring-cloud.version>2023.0.3</spring-cloud.version>
+        <spring-boot.version>3.3.6</spring-boot.version>
+        <spring-cloud.version>2023.0.4</spring-cloud.version>
         <spring-cloud-alibaba.version>2023.0.1.2</spring-cloud-alibaba.version>
 
         <!---->
-        <hutool.version>5.8.32</hutool.version>
+        <hutool.version>5.8.34</hutool.version>
         <easyexcel.version>4.0.3</easyexcel.version>
         <mybatis.plus.version>3.5.9</mybatis.plus.version>
         <lock4j.version>2.2.7</lock4j.version>
         <lombok.version>1.18.34</lombok.version>
         <knife4j-openapi3.version>4.5.0</knife4j-openapi3.version>
         <!--数据库-->
-        <mysql.version>8.0.28</mysql.version>
+        <mysql.version>8.0.33</mysql.version>
         <redisson.version>3.39.0</redisson.version>
-        <druid.version>1.2.23</druid.version>
+        <druid.version>1.2.24</druid.version>
 
         <!--谷歌工具包-->
         <guava.version>33.3.1-jre</guava.version>

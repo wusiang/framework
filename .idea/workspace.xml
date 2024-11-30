@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat:升级rocketmq">
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 修改redis">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/annotation/OperateLog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/aop/OperateLogAspect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/enums/OperateLogEnums.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-log/src/main/java/com/xianmao/common/log/model/CarOperateLog.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +101,21 @@
       <recent name="com.catcx.common.idempotent.aspect" />
       <recent name="com.catcx.common.idempotent.annotation" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="framework-common-log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="framework-common-log" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -291,6 +311,8 @@
       <workItem from="1725439908450" duration="37000" />
       <workItem from="1726799847709" duration="1061000" />
       <workItem from="1726802216796" duration="156000" />
+      <workItem from="1732892160545" duration="911000" />
+      <workItem from="1732924955516" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -520,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726802261520</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="feat: 修改redis">
+      <option name="closed" value="true" />
+      <created>1732893040533</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1732893040533</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +588,8 @@
     <MESSAGE value="feat:redisson版本" />
     <MESSAGE value="feat:升级hutool版本" />
     <MESSAGE value="feat:升级rocketmq" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:升级rocketmq" />
+    <MESSAGE value="feat: 修改redis" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改redis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
