@@ -150,7 +150,7 @@ public class SnowflakeIdeable implements Ideable<Long> {
     }
 
     public static String getDateSnowflakeId() throws Exception {
-        return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")) + getSnowflakeId();
+        return LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")) + getSnowflakeId();
     }
 
     private synchronized long nextId() {
