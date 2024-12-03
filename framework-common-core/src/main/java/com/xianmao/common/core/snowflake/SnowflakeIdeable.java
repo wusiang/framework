@@ -145,6 +145,10 @@ public class SnowflakeIdeable implements Ideable<Long> {
         return result;
     }
 
+    /**
+     * 因为长度太长了，这个方式先废弃
+     */
+    @Deprecated
     public static Long getSnowflakeId() {
         return SnowflakeIdeable.getInstanceSnowflake().nextId();
     }
