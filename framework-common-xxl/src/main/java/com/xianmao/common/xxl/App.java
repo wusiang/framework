@@ -1,4 +1,4 @@
-package com.xianmao;
+package com.xianmao.common.xxl;
 
 /**
  * Hello world!
