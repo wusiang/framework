@@ -1,6 +1,8 @@
 package com.xianmao.common.core.utils;
 
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.json.JSON;
+import cn.hutool.json.JSONUtil;
 import com.xianmao.common.core.support.StringPool;
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
@@ -45,7 +47,7 @@ public class RequestUtils {
         response.setCharacterEncoding("UTF-8");
         response.setContentType(contentType);
         try (PrintWriter out = response.getWriter()) {
-            out.append(JsonUtils.toJson(result));
+            out.append(JSONUtil.toJsonStr(result));
         } catch (IOException e) {
             log.error(e.getMessage(), e);
         }
