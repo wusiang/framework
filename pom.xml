@@ -35,7 +35,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <jdk.version>21</jdk.version>
 
-        <!--https://sca.aliyun.com/docs/2023/overview/version-explain/?spm=5176.29160081.0.0.74805c72r7yUvO-->
+        <!--c-->
         <!--三个版本说明-->
         <spring-boot.version>3.3.6</spring-boot.version>
         <spring-cloud.version>2023.0.4</spring-cloud.version>

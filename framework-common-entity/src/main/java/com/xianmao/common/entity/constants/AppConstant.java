@@ -1,6 +1,6 @@
 package com.xianmao.common.entity.constants;
 
-public class AppConstant {
+public interface AppConstant {
     /**
      * 开发环境
      */
@@ -17,4 +17,8 @@ public class AppConstant {
      * 预发环境
      */
     String PRE_CODE = "pre";
+    /**
+     * 本地环境
+     */
+    String LOCAL_CODE = "local";
 }
