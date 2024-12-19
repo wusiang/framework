@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 /**
  * 正则校验通用工具类
  */
-public class ValidationUtil {
+public class RegexUtils {
 
 	/**
 	 * 自定义字段校验

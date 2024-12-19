@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 /**
  * 模版解析工具类
  */
-public class TemplateUtil {
+public class TemplateUtils {
 
 	/**
 	 * 支持 ${} 与 #{} 两种模版占位符

@@ -64,6 +64,10 @@
             <groupId>com.xianmao</groupId>
             <artifactId>framework-common-entity</artifactId>
         </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
     </dependencies>
 
 
