@@ -43,7 +43,7 @@
 
         <!---->
         <hutool.version>5.8.34</hutool.version>
-        <easyexcel.version>4.0.3</easyexcel.version>
+        <fastexcel.version>1.0.0</fastexcel.version>
         <mybatis.plus.version>3.5.9</mybatis.plus.version>
         <lock4j.version>2.2.7</lock4j.version>
         <lombok.version>1.18.34</lombok.version>
@@ -109,9 +109,19 @@
             </dependency>
             <!--excel-->
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>easyexcel</artifactId>
-                <version>${easyexcel.version}</version>
+                <groupId>cn.idev.excel</groupId>
+                <artifactId>fastexcel</artifactId>
+                <version>${fastexcel.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-compress</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>

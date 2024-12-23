@@ -1,6 +1,6 @@
 package com.xianmao.common.excel.aop;
 
-import com.alibaba.excel.EasyExcel;
+import cn.idev.excel.EasyExcel;
 import com.xianmao.common.excel.annotation.RequestExcel;
 import com.xianmao.common.excel.converters.*;
 import com.xianmao.common.excel.handler.DictCacheClearAnalysisEventListener;
