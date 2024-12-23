@@ -40,10 +40,10 @@ public class IdempotentAspect {
     private static final String DELKEY = "delKey";
 
     @Autowired
-    private KeyResolver keyResolver;
+    private RedissonClient redissonClient;
 
     @Autowired
-    private RedissonClient redissonClient;
+    private KeyResolver keyResolver;
 
     @Pointcut("@annotation(com.xianmao.common.repet.annotation.Idempotent)")
     public void pointCut() {
@@ -66,17 +66,16 @@ public class IdempotentAspect {
 
         // 若没有配置 幂等 标识编号，则使用 url + 参数列表作为区分
         if (!StringUtils.hasLength(idempotent.key())) {
-            String url = request.getRequestURL().toString();
+            String url = request.getRequestURI();
             String argString = Arrays.asList(joinPoint.getArgs()).toString();
             key = url + argString;
-        }
-        else {
+        } else {
             // 使用jstl 规则区分
             key = keyResolver.resolver(idempotent, joinPoint);
         }
         // 当配置了el表达式但是所选字段为空时,会抛出异常,兜底使用url做标识
         if (key == null) {
-            key = request.getRequestURL().toString();
+            key = request.getRequestURI();
         }
 
         long expireTime = idempotent.expireTime();
@@ -93,12 +92,10 @@ public class IdempotentAspect {
             throw new IdempotentException(info);
         }
         synchronized (this) {
-            //
             v1 = rMapCache.putIfAbsent(key, value, expireTime, timeUnit);
             if (null != v1) {
                 throw new IdempotentException(info);
-            }
-            else {
+            } else {
                 log.info("[idempotent]:has stored key={},value={},expireTime={}{},now={}", key, value, expireTime,
                         timeUnit, LocalDateTime.now().toString());
             }
@@ -115,12 +112,15 @@ public class IdempotentAspect {
         if (CollectionUtils.isEmpty(map)) {
             return;
         }
+
         RMapCache<Object, Object> mapCache = redissonClient.getMapCache(RMAPCACHE_KEY);
-        if (CollectionUtils.isEmpty(mapCache)) {
+        if (mapCache.size() == 0) {
             return;
         }
+
         String key = map.get(KEY).toString();
         boolean delKey = (boolean) map.get(DELKEY);
+
         if (delKey) {
             mapCache.fastRemove(key);
             log.info("[idempotent]:has removed key={}", key);
