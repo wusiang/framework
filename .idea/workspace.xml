@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 新增正则校验">
+      <change afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/Threads.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/annotation/EnableXxlJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/base/BaseXxlJobHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/config/XxlJobConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/trace/TraceConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/trace/XxlJobTrace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-repet/src/main/java/com/xianmao/common/repet/aspect/IdempotentAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-repet/src/main/java/com/xianmao/common/repet/aspect/IdempotentAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-xxl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-xxl/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +77,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wujinghua/Desktop/xianmao/framework/framework-common-idempotent&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/xianmao/framework/framework-common-xxl/src/main/java/com/xianmao/common/xxl/trace&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -84,18 +93,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xianmao\framework\framework-common-xxl\src\main\java\com\xianmao\common\xxl\trace" />
       <recent name="$PROJECT_DIR$/framework-common-idempotent" />
       <recent name="$PROJECT_DIR$/framework-common-idempotent/src/main/resources/META-INF" />
       <recent name="$PROJECT_DIR$/framework-common-idempotent/src/main/java/com/catcx/common/idempotent/expression" />
       <recent name="$PROJECT_DIR$/doc" />
-      <recent name="$PROJECT_DIR$/framework-common-rocketmq/src/main/java/com/xianmao/common/rocketmq/config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xianmao.common.xxl.base" />
+      <recent name="com.xianmao.common.xxl.annotation" />
       <recent name="com.xianmao.common.core.utils" />
       <recent name="com.xianmao.common.job.controller" />
       <recent name="com.catcx.common.idempotent.exception" />
-      <recent name="com.catcx.common.idempotent.config" />
-      <recent name="com.catcx.common.idempotent.aspect" />
     </key>
   </component>
   <component name="RunManager">
@@ -317,6 +326,8 @@
       <workItem from="1734075372467" duration="626000" />
       <workItem from="1734601737322" duration="194000" />
       <workItem from="1734932511874" duration="100000" />
+      <workItem from="1735003032424" duration="2197000" />
+      <workItem from="1735006238661" duration="295000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
