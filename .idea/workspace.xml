@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 新增正则校验">
-      <change afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/utils/Threads.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/annotation/EnableXxlJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/base/BaseXxlJobHandle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/config/XxlJobConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/trace/TraceConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/trace/XxlJobTrace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-xxl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-xxl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 集成XXL" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -327,7 +315,7 @@
       <workItem from="1734601737322" duration="194000" />
       <workItem from="1734932511874" duration="100000" />
       <workItem from="1735003032424" duration="2197000" />
-      <workItem from="1735006238661" duration="295000" />
+      <workItem from="1735006238661" duration="883000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -613,7 +601,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734601919657</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="feat: 集成XXL">
+      <option name="closed" value="true" />
+      <created>1735006736281</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1735006736281</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="pageutil" />
     <MESSAGE value="修改错误类" />
     <MESSAGE value="maven-云效果" />
     <MESSAGE value="mybatis自动加密解密" />
@@ -656,7 +651,8 @@
     <MESSAGE value="feat:废弃json工具类，统一采用fastjson" />
     <MESSAGE value="feat: 优化代码" />
     <MESSAGE value="feat: 新增正则校验" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 新增正则校验" />
+    <MESSAGE value="feat: 集成XXL" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 集成XXL" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
