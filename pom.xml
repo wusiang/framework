@@ -271,6 +271,11 @@
                 <artifactId>framework-common-email</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.xianmao</groupId>
+                <artifactId>framework-common-xxl</artifactId>
+                <version>${revision}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

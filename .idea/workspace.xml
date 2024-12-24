@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: Money类">
-      <change afterPath="$PROJECT_DIR$/framework-common-core/src/main/java/com/xianmao/common/core/money/Money.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: Money类" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +66,7 @@
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/xianmao/framework/framework-common-xxl/src/main/java/com/xianmao/common/xxl/trace",
+    "last_opened_file_path": "D:/xianmao/framework/framework-common-core/src/main/java/com/xianmao/common/core/log",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,11 +82,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xianmao\framework\framework-common-core\src\main\java\com\xianmao\common\core\log" />
       <recent name="D:\xianmao\framework\framework-common-xxl\src\main\java\com\xianmao\common\xxl\trace" />
       <recent name="$PROJECT_DIR$/framework-common-idempotent" />
       <recent name="$PROJECT_DIR$/framework-common-idempotent/src/main/resources/META-INF" />
       <recent name="$PROJECT_DIR$/framework-common-idempotent/src/main/java/com/catcx/common/idempotent/expression" />
-      <recent name="$PROJECT_DIR$/doc" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.xianmao.common.xxl.base" />
@@ -100,19 +97,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Money" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xianmao.common.core.money.Money" />
-      <module name="framework-common-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xianmao.common.core.money.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="framework-common-log" />
       <method v="2">
@@ -126,11 +110,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Money" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -337,7 +316,7 @@
       <workItem from="1734601737322" duration="194000" />
       <workItem from="1734932511874" duration="100000" />
       <workItem from="1735003032424" duration="2197000" />
-      <workItem from="1735006238661" duration="5285000" />
+      <workItem from="1735006238661" duration="6238000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -647,7 +626,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735018695917</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="feat: Money类">
+      <option name="closed" value="true" />
+      <created>1735020101141</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1735020101141</updated>
+    </task>
+    <task id="LOCAL-00042" summary="feat: Money类">
+      <option name="closed" value="true" />
+      <created>1735020484311</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1735020484311</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
