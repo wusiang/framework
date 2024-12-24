@@ -141,8 +141,7 @@ public class SnowflakeIdeable implements Ideable<Long> {
         int max = (int) (MAX_WORKER_ID);
         int min = 1;
         Random random = new Random();
-        long result = random.nextInt(max - min) + min;
-        return result;
+        return random.nextInt(max - min) + min;
     }
 
     public static Long getSnowflakeId() {
@@ -154,7 +153,7 @@ public class SnowflakeIdeable implements Ideable<Long> {
     }
 
     private synchronized long nextId() {
-        if (lastTimestamp == -1l) {
+        if (lastTimestamp == -1L) {
             lastTimestamp = time();
         } else {
             // 当前毫秒内，则+1
@@ -165,10 +164,9 @@ public class SnowflakeIdeable implements Ideable<Long> {
             }
         }
         // ID偏移组合生成最终的ID，并返回ID
-        long nextId = ((lastTimestamp - TWEPOCH) << TIMESTAMP_LEFT_SHIFT)
-                | (dataCenterId << DATA_CENTER_ID_SHIFT) | (workerId << WORKER_ID_SHIFT) | sequence;
 
-        return nextId;
+        return ((lastTimestamp - TWEPOCH) << TIMESTAMP_LEFT_SHIFT)
+                | (dataCenterId << DATA_CENTER_ID_SHIFT) | (workerId << WORKER_ID_SHIFT) | sequence;
     }
 
     private long tilNextMillis(final long lastTimestamp) {
