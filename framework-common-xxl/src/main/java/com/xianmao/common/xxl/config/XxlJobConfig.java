@@ -1,6 +1,7 @@
 package com.xianmao.common.xxl.config;
 
 import com.xianmao.common.xxl.annotation.EnableXxlJob;
+import com.xianmao.common.xxl.executor.XianmaoXxlJobSpringExecutor;
 import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,9 +42,9 @@ public class XxlJobConfig {
 
     @Bean
     @ConditionalOnMissingBean(XxlJobSpringExecutor.class)
-    public XxlJobSpringExecutor xxlJobExecutor() {
+    public XianmaoXxlJobSpringExecutor xxlJobExecutor() {
         log.info(">>>>>>>>>>> xxl-job config init.");
-        XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
+        XianmaoXxlJobSpringExecutor xxlJobSpringExecutor = new XianmaoXxlJobSpringExecutor();
         xxlJobSpringExecutor.setAdminAddresses(adminAddresses);
         xxlJobSpringExecutor.setAppname(appname);
         xxlJobSpringExecutor.setAddress(address);

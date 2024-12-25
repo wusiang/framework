@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 新增xxljob配置说明">
-      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/executor/XianmaoMethodJobHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/executor/XianmaoXxlJobSpringExecutor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/interceptor/XxlJobInterceptor.java" afterDir="false" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 待完善traceId">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-xxl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-xxl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/config/XxlJobConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/config/XxlJobConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +112,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.xianmao.common.xxl.interceptor in framework-common-xxl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="framework-common-xxl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xianmao.common.xxl.interceptor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xianmao.common.xxl.interceptor" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="framework-common-log" />
       <method v="2">
@@ -130,6 +139,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.com.xianmao.common.xxl.interceptor in framework-common-xxl" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -339,7 +353,7 @@
       <workItem from="1735006238661" duration="6238000" />
       <workItem from="1735032334109" duration="1910000" />
       <workItem from="1735090112189" duration="28000" />
-      <workItem from="1735090164487" duration="4355000" />
+      <workItem from="1735090164487" duration="5206000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -689,7 +703,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735091869198</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="feat: 待完善traceId">
+      <option name="closed" value="true" />
+      <created>1735096517463</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1735096517463</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,7 +729,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mybatis自动加密解密" />
     <MESSAGE value="调整baseEntity" />
     <MESSAGE value="调整remo" />
     <MESSAGE value="调整error" />
@@ -732,7 +753,8 @@
     <MESSAGE value="feat: 集成XXL" />
     <MESSAGE value="feat: Money类" />
     <MESSAGE value="feat: 新增xxljob配置说明" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 新增xxljob配置说明" />
+    <MESSAGE value="feat: 待完善traceId" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 待完善traceId" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
