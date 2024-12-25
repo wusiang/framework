@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,6 +18,7 @@ import java.util.Optional;
 @NoArgsConstructor
 public class R<T> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 6439723870077111495L;
     /***响应参数*/
     private String code;
@@ -27,7 +29,7 @@ public class R<T> implements Serializable {
     private static final String FAILURE_CODE = ServerErrorCode.ERROR.getCode();
 
     public boolean isOk() {
-        return Optional.ofNullable(this).map((x) -> {
+        return Optional.of(this).map((x) -> {
             return Objects.equals(SUCCESS_CODE, x.getCode());
         }).orElse(Boolean.FALSE);
     }

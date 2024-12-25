@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.CollectionUtils;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -30,14 +31,13 @@ public class FreeMarkerUtil {
 		Map<String, Object> newMap = new HashMap<String, Object>();
 
 		Set<String> keySet = map.keySet();
-		if (keySet != null && keySet.size() > 0) {
+		if (!CollectionUtils.isEmpty(keySet)) {
 			for (String key : keySet) {
 				Object o = map.get(key);
 				if (o != null) {
 					if (o instanceof String) {
 						String value = o.toString();
-						if (value != null)
-							value = value.trim();
+                        value = value.trim();
 						if (isNeedFilter) {
 							value = StringEscapeUtils.escapeXml(value);
 						}

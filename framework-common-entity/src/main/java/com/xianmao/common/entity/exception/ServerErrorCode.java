@@ -3,8 +3,8 @@ package com.xianmao.common.entity.exception;
 public enum ServerErrorCode implements ICode<String> {
 
     SUCCESS("200", "操作成功"),
-    WARN("100000", "服务器异常"),
-    ERROR("100400", "服务器异常");
+    WARN("100000", "服务器开小差，请稍后再试(●'◡'●)"),
+    ERROR("100400", "服务器开小差，请稍后再试(●'◡'●)");
     ;
 
     /**

@@ -628,9 +628,7 @@ public class Money implements Serializable, Comparable<Money> {
      */
     public String dump() {
         String lineSeparator = System.getProperty("line.separator");
-        StringBuffer sb = new StringBuffer();
-        sb.append("cent = ").append(cent).append(lineSeparator);
-        sb.append("currency = ").append(currency);
-        return sb.toString();
+        return "cent = " + cent + lineSeparator +
+                "currency = " + currency;
     }
 }

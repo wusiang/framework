@@ -24,7 +24,7 @@ import java.lang.reflect.Method;
 @Component
 public class LogAspect {
 
-    @Around("@annotation(com.catcx.common.core.logging.BizLog)")
+    @Around("@annotation(com.xianmao.common.core.log.BizLog)")
     public Object invoke(ProceedingJoinPoint point) throws Throwable {
         Object obj = null;
         MethodSignature methodSignature = (MethodSignature) point.getSignature();
