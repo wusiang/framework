@@ -55,4 +55,10 @@ public class XxlJobConfig {
         log.info(">>>>>>>>>>> xxl-job config success.");
         return xxlJobSpringExecutor;
     }
+
+//    @Bean
+//    @ConditionalOnMissingBean
+//    public XxlJobInterceptor xxlJobInterceptor() {
+//        return new XxlJobInterceptor();
+//    }
 }

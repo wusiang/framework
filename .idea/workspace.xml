@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: Money类">
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 新增xxljob配置说明">
+      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/executor/XianmaoMethodJobHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/executor/XianmaoXxlJobSpringExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/interceptor/XxlJobInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-xxl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-xxl/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/config/XxlJobConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework-common-xxl/src/main/java/com/xianmao/common/xxl/config/XxlJobConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,11 +96,11 @@
       <recent name="$PROJECT_DIR$/framework-common-idempotent/src/main/java/com/catcx/common/idempotent/expression" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xianmao.common.xxl.executor" />
       <recent name="com.xianmao.common.xxl.base" />
       <recent name="com.xianmao.common.xxl.annotation" />
       <recent name="com.xianmao.common.core.utils" />
       <recent name="com.xianmao.common.job.controller" />
-      <recent name="com.catcx.common.idempotent.exception" />
     </key>
   </component>
   <component name="RunManager">
@@ -334,7 +339,7 @@
       <workItem from="1735006238661" duration="6238000" />
       <workItem from="1735032334109" duration="1910000" />
       <workItem from="1735090112189" duration="28000" />
-      <workItem from="1735090164487" duration="1589000" />
+      <workItem from="1735090164487" duration="4355000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -676,7 +681,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735033253327</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="feat: 新增xxljob配置说明">
+      <option name="closed" value="true" />
+      <created>1735091869198</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1735091869198</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="maven-云效果" />
     <MESSAGE value="mybatis自动加密解密" />
     <MESSAGE value="调整baseEntity" />
     <MESSAGE value="调整remo" />
@@ -719,7 +731,8 @@
     <MESSAGE value="feat: 新增正则校验" />
     <MESSAGE value="feat: 集成XXL" />
     <MESSAGE value="feat: Money类" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Money类" />
+    <MESSAGE value="feat: 新增xxljob配置说明" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 新增xxljob配置说明" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
