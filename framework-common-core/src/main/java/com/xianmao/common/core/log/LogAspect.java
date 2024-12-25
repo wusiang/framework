@@ -38,7 +38,7 @@ public class LogAspect {
         long start = System.currentTimeMillis();
         //日志输入打印
         if (bizLog.value() != BizLog.NotifyEnum.After) {
-            logger.info("^^^^|{}|{}", name, JSON.toJSONString(point.getArgs()));
+            logger.info(">>>>>>>>>>>[begin]|{}|{}", name, JSON.toJSONString(point.getArgs()));
         }
         //执行
         try {
@@ -46,7 +46,7 @@ public class LogAspect {
         } catch (Throwable e) {
             //如果报错,强制打印输入
             if (bizLog.value() == BizLog.NotifyEnum.After) {
-                logger.info("^^^^|{}|{}", name, JSON.toJSONString(point.getArgs()));
+                logger.info(">>>>>>>>>>>[error]|{}|{}", name, JSON.toJSONString(point.getArgs()));
             }
             throw e;
         } finally {
@@ -60,7 +60,7 @@ public class LogAspect {
                         paramInfo = paramInfo.substring(0, 2048);
                     }
                 }
-                logger.info("$$$$|{}|{}|{}", name, costTime, paramInfo);
+                logger.info(">>>>>>>>>>>[end]|{}|{}|{}", name, costTime, paramInfo);
             }
         }
         return obj;
