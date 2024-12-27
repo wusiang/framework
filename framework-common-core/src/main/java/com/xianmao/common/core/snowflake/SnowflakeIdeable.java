@@ -148,7 +148,7 @@ public class SnowflakeIdeable implements Ideable<Long> {
         return SnowflakeIdeable.getInstanceSnowflake().nextId();
     }
 
-    public static String getDateSnowflakeId() throws Exception {
+    public static String getDateSnowflakeId() {
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")) + getSnowflakeId();
     }
 
