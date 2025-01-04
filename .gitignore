@@ -131,6 +131,7 @@ local.properties
 rebel.xml
 
 Servers/
+/.idea/
 isz-common-config/
 
 HELP.md
