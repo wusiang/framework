@@ -26,7 +26,7 @@ public class NacosStopEndpoint {
     private final ApplicationContext context;
 
     /** 注销服务后关闭应用前等待的时间(毫秒) */
-    private int waitTime = 10000;
+    private final int waitTime = 10000;
 
     /**
      * 关闭服务 <br>

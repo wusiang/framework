@@ -6,10 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
 
 /**
  * feign 传递Request header
@@ -19,9 +16,9 @@ public class XianmaoFeignRequestInterceptor implements RequestInterceptor {
     /**
      * 请求和转发的ip
      */
-    private static final String[] ALLOW_HEADS = new String[]{
+    private static final Set<String> ALLOW_HEADS = new HashSet<>(Arrays.asList(
             "X-Real-IP", "x-forwarded-for", "x-tenant-id"
-    };
+    ));
 
     /**
      * Feign GET 请求400 (一下正常200,一下异常400)
@@ -32,18 +29,17 @@ public class XianmaoFeignRequestInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
         HttpServletRequest httpServletRequest = getHttpServletRequest();
-        if (null != httpServletRequest) {
+        if (httpServletRequest != null) {
             // 传递请求头
             Enumeration<String> headerNames = httpServletRequest.getHeaderNames();
-            List<String> allowHeadsList = new ArrayList<>(Arrays.asList(ALLOW_HEADS));
             if (headerNames != null) {
                 while (headerNames.hasMoreElements()) {
                     String key = headerNames.nextElement();
                     // 只支持配置的 header
-                    if (allowHeadsList.contains(key)) {
+                    if (ALLOW_HEADS.contains(key)) {
                         String values = httpServletRequest.getHeader(key);
                         // header value 不为空的 传递
-                        if (null != values && !values.isEmpty()) {
+                        if (values != null && !values.isEmpty()) {
                             requestTemplate.header(key, values);
                         }
                     }
@@ -53,10 +49,8 @@ public class XianmaoFeignRequestInterceptor implements RequestInterceptor {
     }
 
     private HttpServletRequest getHttpServletRequest() {
-        try {
-            return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        } catch (Exception e) {
-            return null;
-        }
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        // 提前进行空值检查
+        return attributes != null ? attributes.getRequest() : null;
     }
 }
