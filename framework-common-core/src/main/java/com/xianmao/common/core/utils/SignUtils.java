@@ -13,6 +13,16 @@ import java.util.*;
 
 public class SignUtils {
 
+    // 签名算法常量
+    private static final String SIGN_METHOD_MD5 = "md5";
+    private static final String SIGN_METHOD_HMAC = "HMAC";
+
+    /**
+     * 对Top请求参数进行签名
+     * @param params 请求参数
+     * @param secret 密钥
+     * @param signMethod 签名方法，可选值为：hmac，md5，hmac-sha256
+     */
     public static String signTopRequest(Map<String, String> params, String secret, String signMethod) throws IOException {
         // 第一步：检查参数是否已经排序
         String[] keys = params.keySet().toArray(new String[0]);
@@ -20,7 +30,7 @@ public class SignUtils {
 
         // 第二步：把所有参数名和参数值串在一起
         StringBuilder query = new StringBuilder();
-        if ("md5".equals(signMethod)) { //签名的摘要算法，可选值为：hmac，md5，hmac-sha256
+        if (SIGN_METHOD_MD5.equals(signMethod)) { //签名的摘要算法，可选值为：hmac，md5，hmac-sha256
             query.append(secret);
         }
         for (String key : keys) {
@@ -32,7 +42,7 @@ public class SignUtils {
 
         // 第三步：使用MD5/HMAC加密
         byte[] bytes;
-        if ("HMAC".equals(signMethod)) {
+        if (SIGN_METHOD_HMAC.equals(signMethod)) {
             bytes = encryptHMAC(query.toString(), secret);
         } else {
             query.append(secret);
@@ -45,8 +55,8 @@ public class SignUtils {
 
     public static String byte2hex(byte[] bytes) {
         StringBuilder sign = new StringBuilder();
-        for (int i = 0; i < bytes.length; i++) {
-            String hex = Integer.toHexString(bytes[i] & 0xFF);
+        for (byte aByte : bytes) {
+            String hex = Integer.toHexString(aByte & 0xFF);
             if (hex.length() == 1) {
                 sign.append("0");
             }
