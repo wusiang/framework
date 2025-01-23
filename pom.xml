@@ -57,7 +57,7 @@
         <!--谷歌工具包-->
         <guava.version>33.3.1-jre</guava.version>
         <oss.version>3.14.0</oss.version>
-        <rocketmq-client.version>5.0.7</rocketmq-client.version>
+        <rocketmq-client.version>5.0.6</rocketmq-client.version>
         <!---->
         <commons-lang3.version>3.17.0</commons-lang3.version>
         <fastjson.version>2.0.53</fastjson.version>
