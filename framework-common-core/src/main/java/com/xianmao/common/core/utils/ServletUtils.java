@@ -14,8 +14,6 @@ public class ServletUtils extends ServletUtil {
 
     /**
      * 获得当前请求上下文中的{@linkplain ServletRequestAttributes}
-     *
-     * @return ServletRequestAttributes
      */
     public static ServletRequestAttributes getRequestAttributes() {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes());
@@ -23,8 +21,6 @@ public class ServletUtils extends ServletUtil {
 
     /**
      * 获得当前请求上下文中的{@linkplain HttpServletRequest}
-     *
-     * @return HttpServletRequest
      */
     public static HttpServletRequest getRequest() {
         return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
@@ -32,8 +28,6 @@ public class ServletUtils extends ServletUtil {
 
     /**
      * 获得当前请求上下文中的{@linkplain HttpServletResponse}
-     *
-     * @return HttpServletResponse
      */
     public static HttpServletResponse getResponse() {
         return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getResponse();
@@ -41,8 +35,6 @@ public class ServletUtils extends ServletUtil {
 
     /**
      * 获得当前请求{@linkplain HttpSession}
-     *
-     * @return HttpSession
      */
     public static HttpSession getSession() {
         return getRequest().getSession();
@@ -50,9 +42,6 @@ public class ServletUtils extends ServletUtil {
 
     /**
      * 获取String参数
-     *
-     * @param name
-     * @return
      */
     public static String getParameter(String name) {
         return getRequest().getParameter(name);
@@ -60,12 +49,36 @@ public class ServletUtils extends ServletUtil {
 
     /**
      * 获取String参数
-     *
-     * @param name
-     * @param defaultValue
-     * @return
      */
     public static String getParameter(String name, String defaultValue) {
         return Convert.toStr(getRequest().getParameter(name), defaultValue);
+    }
+
+    /**
+     * 获取Integer参数
+     */
+    public static Integer getParameterToInt(String name) {
+        return Convert.toInt(getRequest().getParameter(name));
+    }
+
+    /**
+     * 获取Integer参数
+     */
+    public static Integer getParameterToInt(String name, Integer defaultValue) {
+        return Convert.toInt(getRequest().getParameter(name), defaultValue);
+    }
+
+    /**
+     * 获取Boolean参数
+     */
+    public static Boolean getParameterToBool(String name) {
+        return Convert.toBool(getRequest().getParameter(name));
+    }
+
+    /**
+     * 获取Boolean参数
+     */
+    public static Boolean getParameterToBool(String name, Boolean defaultValue) {
+        return Convert.toBool(getRequest().getParameter(name), defaultValue);
     }
 }
