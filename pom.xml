@@ -48,6 +48,7 @@
         <lombok.version>1.18.34</lombok.version>
         <knife4j-openapi3.version>4.5.0</knife4j-openapi3.version>
         <xxljob.version>2.4.2</xxljob.version>
+        <pinyin4j.version>2.5.1</pinyin4j.version>
         <!--数据库-->
         <mysql.version>8.0.33</mysql.version>
         <redisson.version>3.39.0</redisson.version>
@@ -127,6 +128,11 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId>
+                <version>${pinyin4j.version}</version>
             </dependency>
             <!--mybatis && 数据库-->
             <dependency>
