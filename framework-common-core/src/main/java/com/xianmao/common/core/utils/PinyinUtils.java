@@ -43,32 +43,6 @@ public class PinyinUtils {
 
     }
 
-
-    /**
-     * 中文则获取拼音首字母，英文直接获取首字母
-     */
-    public static String getPinyinHeaderOrFirstWord(String str) {
-        if (StrUtil.isEmpty(str)) {
-            return "";
-        }
-        StringBuilder convert = new StringBuilder();
-        String newStr = str.replaceAll(CHINESE_REGEX, "");
-        if (!newStr.isEmpty()) {
-            for (int j = 0; j < newStr.length(); j++) {
-                char word = newStr.charAt(j);
-                String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(word);
-                if (pinyinArray != null) {
-                    convert.append(pinyinArray[0].charAt(0));
-                } else {
-                    convert.append(word);
-                }
-            }
-        } else {
-            convert.append(str.charAt(0));
-        }
-        return convert.toString().toUpperCase();
-    }
-
     /**
      * 获取汉字拼音首字母大写
      */
