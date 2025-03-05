@@ -26,7 +26,7 @@ public class DefaultGlobalExceptionHandler {
 
     private static Logger logger = LoggerFactory.getLogger(DefaultGlobalExceptionHandler.class);
 
-    private static Map<Class, ICode> exceptionMap = new HashMap<Class, ICode>() {
+    private static final Map<Class<? extends Exception>, ICode> EXCEPTION_MAP = new HashMap<Class<? extends Exception>, ICode>() {
         {
             put(HttpMessageNotReadableException.class, ServerErrorCode.ERROR);
             put(ClientAbortException.class, ServerErrorCode.ERROR);
@@ -41,7 +41,7 @@ public class DefaultGlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public R<?> handleException(Exception e) {
-        ICode iCode = exceptionMap.getOrDefault(e, ServerErrorCode.ERROR);
+        ICode iCode = EXCEPTION_MAP.getOrDefault(e.getClass(), ServerErrorCode.ERROR);
         logger.error(Error.buildError(iCode, ExceptionUtils.getExceptionString(e)), e);
         return R.fail(iCode.getCode().toString(), iCode.getValue());
     }
