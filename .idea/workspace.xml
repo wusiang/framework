@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 完善xxl-job的traceId">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +32,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/cn/hutool/hutool-all/5.8.34/hutool-all-5.8.34.jar!/cn/hutool/core/date/DatePattern.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/redisson/redisson/3.39.0/redisson-3.39.0.jar!/org/redisson/client/protocol/RedisCommands.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/6.1.15/spring-context-6.1.15.jar!/org/springframework/context/annotation/Primary.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="userSettingsFile" value="$PROJECT_DIR$/../../xianmaosettings.xml" />
+        <option name="userSettingsFile" value="$PROJECT_DIR$/../../work/xianmaosettings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -351,6 +356,20 @@
       <workItem from="1743582071536" duration="5092000" />
       <workItem from="1743589509866" duration="80000" />
       <workItem from="1743589625648" duration="2462000" />
+      <workItem from="1743656262445" duration="489000" />
+      <workItem from="1743682264244" duration="277000" />
+      <workItem from="1743937992867" duration="599000" />
+      <workItem from="1744072704630" duration="610000" />
+      <workItem from="1744080062385" duration="598000" />
+      <workItem from="1744082845206" duration="598000" />
+      <workItem from="1744087777481" duration="660000" />
+      <workItem from="1744094041603" duration="744000" />
+      <workItem from="1744105718837" duration="802000" />
+      <workItem from="1744159814463" duration="717000" />
+      <workItem from="1744177665503" duration="604000" />
+      <workItem from="1744179843857" duration="600000" />
+      <workItem from="1744185808751" duration="4114000" />
+      <workItem from="1744245359938" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
