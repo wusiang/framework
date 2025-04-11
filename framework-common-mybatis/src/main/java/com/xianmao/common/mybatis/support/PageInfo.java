@@ -35,5 +35,5 @@ public class PageInfo<T> implements Serializable {
     /**
      * 列表数据
      */
-    private List<?> rows;
+    private List<T> rows;
 }

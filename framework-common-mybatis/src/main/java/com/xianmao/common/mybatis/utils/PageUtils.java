@@ -44,9 +44,12 @@ public class PageUtils {
         pageInfo.setTotalPage((int) page.getPages());
         if (!CollectionUtils.isEmpty(page.getRecords())) {
             if (function == null) {
-                pageInfo.setRows(page.getRecords());
+                // 安全转换：当 function 为 null 时，R 必须与 T 相同
+                @SuppressWarnings("unchecked")
+                List<R> records = (List<R>) page.getRecords();
+                pageInfo.setRows(records);
             } else {
-                pageInfo.setRows(page.getRecords().stream().map(function::apply).collect(Collectors.toList()));
+                pageInfo.setRows(page.getRecords().stream().map(function).collect(Collectors.toList()));
             }
         }
         return pageInfo;
