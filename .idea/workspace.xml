@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 完善xxl-job的traceId" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 优化代码">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -368,6 +370,9 @@
       <workItem from="1744185808751" duration="4114000" />
       <workItem from="1744245359938" duration="6000" />
       <workItem from="1744260703120" duration="3154000" />
+      <workItem from="1744350091049" duration="54000" />
+      <workItem from="1744613052085" duration="619000" />
+      <workItem from="1744855351960" duration="1513000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -452,14 +457,6 @@
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1683277828254</updated>
-    </task>
-    <task id="LOCAL-00013" summary="升级版本">
-      <option name="closed" value="true" />
-      <created>1694508508172</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1694508508172</updated>
     </task>
     <task id="LOCAL-00014" summary="升级连接池版本">
       <option name="closed" value="true" />
@@ -749,7 +746,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744260774600</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="feat: 优化代码">
+      <option name="closed" value="true" />
+      <created>1744350134975</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1744350134975</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,14 +790,14 @@
     <MESSAGE value="feat: 修改redis" />
     <MESSAGE value="feat:雪花ID算法优化" />
     <MESSAGE value="feat:废弃json工具类，统一采用fastjson" />
-    <MESSAGE value="feat: 优化代码" />
     <MESSAGE value="feat: 新增正则校验" />
     <MESSAGE value="feat: 集成XXL" />
     <MESSAGE value="feat: Money类" />
     <MESSAGE value="feat: 新增xxljob配置说明" />
     <MESSAGE value="feat: 待完善traceId" />
     <MESSAGE value="feat: 完善xxl-job的traceId" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 完善xxl-job的traceId" />
+    <MESSAGE value="feat: 优化代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 优化代码" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

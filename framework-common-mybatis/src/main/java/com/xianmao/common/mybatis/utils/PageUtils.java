@@ -1,5 +1,6 @@
 package com.xianmao.common.mybatis.utils;
 
+import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -21,13 +22,13 @@ public class PageUtils {
      */
     public static <T> IPage<T> getPage(PageQuery pageQuery) {
         Page<T> page = new Page<>(Convert.toInt(pageQuery.getPageNo(), 1), Convert.toInt(pageQuery.getPageSize(), 10));
-        if (StrUtil.isNotBlank(pageQuery.getAscs())) {
+        if (CollectionUtil.isNotEmpty(pageQuery.getAscs())) {
             String[] ascArr = Convert.toStrArray(pageQuery.getAscs());
             for (String asc : ascArr) {
                 page.addOrder(OrderItem.asc(cleanIdentifier(asc)));
             }
         }
-        if (StrUtil.isNotBlank(pageQuery.getDescs())) {
+        if (CollectionUtil.isNotEmpty(pageQuery.getDescs())) {
             String[] descArr = Convert.toStrArray(pageQuery.getDescs());
             for (String desc : descArr) {
                 page.addOrder(OrderItem.desc(cleanIdentifier(desc)));
