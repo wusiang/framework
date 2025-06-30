@@ -1,276 +1,619 @@
 package com.xianmao.common.redis.util;
 
-import com.xianmao.common.redis.handle.*;
+import lombok.AllArgsConstructor;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.hash.HashMapper;
+import org.springframework.data.redis.serializer.RedisSerializer;
 
-import java.util.logging.StreamHandler;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
-/**
- * redis工具
- * @author wujh
- * @date
- * @since 1.8
- */
+
+@AllArgsConstructor
 public class RedisUtil {
 
-    /**
-     * 助手管理代理实例
-     */
-    private static final HandlerManagerProxy MANAGER = new HandlerManagerProxy();
+    private RedisTemplate<String, Object> redisTemplate;
+
+    //=============================common============================
 
     /**
-     * 获取键助手
-     * @return 返回键助手
+     * 指定缓存失效时间
+     *
+     * @param key  键
+     * @param time 时间(秒)
+     * @return boolean
      */
-    public static KeyHandler getKeyHandler() {
-        return MANAGER.getHandler(HandlerType.KEY);
+    public boolean expire(String key, long time) {
+        try {
+            if (time > 0) {
+                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取键助手
-     * @param dbIndex 数据库索引
-     * @return 返回键助手
+     * 根据key 获取过期时间
+     *
+     * @param key 键 不能为null
+     * @return 时间(秒) 返回0代表为永久有效
      */
-    public static KeyHandler getKeyHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.KEY);
+    public long getExpire(String key) {
+        return redisTemplate.getExpire(key, TimeUnit.SECONDS);
     }
 
     /**
-     * 获取数字助手
-     * @return 返回数字助手
+     * 判断key是否存在
+     *
+     * @param key 键
+     * @return true 存在 false不存在
      */
-    public static NumberHandler getNumberHandler() {
-        return MANAGER.getHandler(HandlerType.NUMBER);
+    public boolean hasKey(String key) {
+        try {
+            return redisTemplate.hasKey(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取数字助手
-     * @param dbIndex 数据库索引
-     * @return 返回数字助手
+     * 删除缓存
+     *
+     * @param key 可以传一个值 或多个
      */
-    public static NumberHandler getNumberHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.NUMBER);
+    public void del(String... key) {
+        if (key != null && key.length > 0) {
+            if (key.length == 1) {
+                redisTemplate.delete(key[0]);
+            } else {
+                redisTemplate.delete(Arrays.asList(key));
+            }
+        }
     }
 
     /**
-     * 获取字符串助手
-     * @return 返回字符串助手
+     * 管道操作删除缓存
+     *
+     * @param keys
+     * @return
      */
-    public static StringHandler getStringHandler() {
-        return MANAGER.getHandler(HandlerType.STRING);
+    public Long deleteKeys(Collection<String> keys) {
+        // 获取键序列化器
+        RedisSerializer<String> keySerializer = (RedisSerializer<String>) redisTemplate.getKeySerializer();
+        List<Object> results = redisTemplate.executePipelined(new RedisCallback<Object>() {
+            @Override
+            public Object doInRedis(RedisConnection connection) throws DataAccessException {
+                keys.forEach(key -> {
+                    byte[] keyBytes = keySerializer.serialize(key);
+                    if (keyBytes != null) {
+                        connection.del(keyBytes);
+                    }
+                });
+                return null;
+            }
+        });
+
+        return results.stream()
+                .filter(r -> r instanceof Long)
+                .mapToLong(r -> (Long) r)
+                .sum();
+    }
+
+    //============================String=============================
+
+    /**
+     * 普通缓存获取
+     *
+     * @param key 键
+     * @return 值
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T get(String key) {
+        return key == null ? null : (T) redisTemplate.opsForValue().get(key);
+    }
+
+
+    /**
+     * 普通缓存放入
+     *
+     * @param key   键
+     * @param value 值
+     * @return true成功 false失败
+     */
+    public boolean set(String key, Object value) {
+        try {
+            redisTemplate.opsForValue().set(key, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
     /**
-     * 获取字符串助手
-     * @param dbIndex 数据库索引
-     * @return 返回字符串助手
+     * 普通缓存放入并设置时间
+     *
+     * @param key   键
+     * @param value 值
+     * @param time  时间(秒) time要大于0 如果time小于等于0 将设置无限期
+     * @return true成功 false 失败
      */
-    public static StringHandler getStringHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.STRING);
+    public boolean set(String key, Object value, long time) {
+        try {
+            if (time > 0) {
+                redisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
+            } else {
+                set(key, value);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取哈希助手
-     * @return 返回哈希助手
+     * 普通缓存放入并设置时间
+     *
+     * @param key      键
+     * @param value    值
+     * @param time     时间
+     * @param timeUnit 时间单位
+     * @return true成功 false 失败
      */
-    public static HashHandler getHashHandler() {
-        return MANAGER.getHandler(HandlerType.HASH);
+    public boolean set(String key, Object value, long time, TimeUnit timeUnit) {
+        try {
+            if (time > 0) {
+                redisTemplate.opsForValue().set(key, value, time, timeUnit);
+            } else {
+                set(key, value);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取哈希助手
-     * @param dbIndex 数据库索引
-     * @return 返回哈希助手
+     * 递增
+     *
+     * @param key   键
+     * @param delta 要增加几(大于0)
+     * @return long
      */
-    public static HashHandler getHashHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.HASH);
+    public Long incr(String key, long delta) {
+        if (delta < 0) {
+            throw new RuntimeException("递增因子必须大于0");
+        }
+        return redisTemplate.opsForValue().increment(key, delta);
     }
 
     /**
-     * 获取列表助手
-     * @return 返回列表助手
+     * 递减
+     *
+     * @param key   键
+     * @param delta 要减少几(小于0)
+     * @return long
      */
-    public static ListHandler getListHandler() {
-        return MANAGER.getHandler(HandlerType.LIST);
+    public Long decr(String key, long delta) {
+        if (delta < 0) {
+            throw new RuntimeException("递减因子必须大于0");
+        }
+        return redisTemplate.opsForValue().increment(key, -delta);
+    }
+
+    //================================Map=================================
+
+    /**
+     * HashGet
+     *
+     * @param key  键 不能为null
+     * @param item 项 不能为null
+     * @return 值
+     */
+    public Object hget(String key, String item) {
+        return redisTemplate.opsForHash().get(key, item);
     }
 
     /**
-     * 获取列表助手
-     * @param dbIndex 数据库索引
-     * @return 返回列表助手
+     * 获取hashKey对应的所有键值
+     *
+     * @param key 键
+     * @return 对应的多个键值
      */
-    public static ListHandler getListHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.LIST);
+    public Map<Object, Object> hmget(String key) {
+        return redisTemplate.opsForHash().entries(key);
     }
 
     /**
-     * 获取无序集合助手
-     * @return 返回无序集合助手
+     * HashSet
+     *
+     * @param key 键
+     * @param map 对应多个键值
+     * @return true 成功 false 失败
      */
-    public static SetHandler getSetHandler() {
-        return MANAGER.getHandler(HandlerType.SET);
+    public boolean hmset(String key, Map<String, Object> map) {
+        try {
+            redisTemplate.opsForHash().putAll(key, map);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取无序集合助手
-     * @param dbIndex 数据库索引
-     * @return 返回无序集合助手
+     * HashSet 并设置时间
+     *
+     * @param key  键
+     * @param map  对应多个键值
+     * @param time 时间(秒)
+     * @return true成功 false失败
      */
-    public static SetHandler getSetHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.SET);
+    public boolean hmset(String key, Map<String, Object> map, long time) {
+        try {
+            redisTemplate.opsForHash().putAll(key, map);
+            if (time > 0) {
+                expire(key, time);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取有序集合助手
-     * @return 返回有序集合助手
+     * 向一张hash表中放入数据,如果不存在将创建
+     *
+     * @param key   键
+     * @param item  项
+     * @param value 值
+     * @return true 成功 false失败
      */
-    public static ZsetHandler getZsetHandler() {
-        return MANAGER.getHandler(HandlerType.ZSET);
+    public boolean hset(String key, String item, Object value) {
+        try {
+            redisTemplate.opsForHash().put(key, item, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取有序集合助手
-     * @param dbIndex 数据库索引
-     * @return 返回有序集合助手
+     * 向一张hash表中放入数据,如果不存在将创建
+     *
+     * @param key   键
+     * @param item  项
+     * @param value 值
+     * @param time  时间(秒)  注意:如果已存在的hash表有时间,这里将会替换原有的时间
+     * @return true 成功 false失败
      */
-    public static ZsetHandler getZsetHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.ZSET);
+    public boolean hset(String key, String item, Object value, long time) {
+        try {
+            redisTemplate.opsForHash().put(key, item, value);
+            if (time > 0) {
+                expire(key, time);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取基数助手
-     * @return 返回基数助手
+     * 删除hash表中的值
+     *
+     * @param key  键 不能为null
+     * @param item 项 可以使多个 不能为null
      */
-    public static HyperLogLogHandler getHyperLogLogHandler() {
-        return MANAGER.getHandler(HandlerType.HYPERLOGLOG);
+    public void hdel(String key, Object... item) {
+        redisTemplate.opsForHash().delete(key, item);
     }
 
     /**
-     * 获取基数助手
-     * @param dbIndex 数据库索引
-     * @return 返回基数助手
+     * 判断hash表中是否有该项的值
+     *
+     * @param key  键 不能为null
+     * @param item 项 不能为null
+     * @return true 存在 false不存在
      */
-    public static HyperLogLogHandler getHyperLogLogHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.HYPERLOGLOG);
+    public boolean hHasKey(String key, String item) {
+        return redisTemplate.opsForHash().hasKey(key, item);
     }
 
     /**
-     * 获取位图助手
-     * @return 返回位图助手
+     * hash递增 如果不存在,就会创建一个 并把新增后的值返回
+     *
+     * @param key  键
+     * @param item 项
+     * @param by   要增加几(大于0)
+     * @return double
      */
-    public static BitmapHandler getBitmapHandler() {
-        return MANAGER.getHandler(HandlerType.BITMAP);
+    public double hincr(String key, String item, double by) {
+        return redisTemplate.opsForHash().increment(key, item, by);
     }
 
     /**
-     * 获取位图助手
-     * @param dbIndex 数据库索引
-     * @return 返回位图助手
+     * hash递减
+     *
+     * @param key  键
+     * @param item 项
+     * @param by   要减少记(小于0)
+     * @return double
      */
-    public static BitmapHandler getBitmapHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.BITMAP);
+    public double hdecr(String key, String item, double by) {
+        return redisTemplate.opsForHash().increment(key, item, -by);
+    }
+
+    //============================set=============================
+
+    /**
+     * 根据key获取Set中的所有值
+     *
+     * @param key 键
+     * @return Set
+     */
+    public Set<Object> sGet(String key) {
+        try {
+            return redisTemplate.opsForSet().members(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
-     * 获取lua脚本助手
-     * @return 返回lua脚本助手
+     * 根据value从一个set中查询,是否存在
+     *
+     * @param key   键
+     * @param value 值
+     * @return true 存在 false不存在
      */
-    public static ScriptHandler getScriptHandler() {
-        return MANAGER.getHandler(HandlerType.SCRIPT);
+    public Boolean sHasKey(String key, Object value) {
+        try {
+            return redisTemplate.opsForSet().isMember(key, value);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取lua脚本助手
-     * @param dbIndex 数据库索引
-     * @return 返回lua脚本助手
+     * 将数据放入set缓存
+     *
+     * @param key    键
+     * @param values 值 可以是多个
+     * @return 成功个数
      */
-    public static ScriptHandler getScriptHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.SCRIPT);
+    public Long sSet(String key, Object... values) {
+        try {
+            return redisTemplate.opsForSet().add(key, values);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
     }
 
     /**
-     * 获取发布订阅助手
-     * @return 返回发布订阅助手
+     * 将set数据放入缓存
+     *
+     * @param key    键
+     * @param time   时间(秒)
+     * @param values 值 可以是多个
+     * @return 成功个数
      */
-    public static PubSubHandler getPubSubHandler() {
-        return MANAGER.getHandler(HandlerType.PUBSUB);
+    public Long sSetAndTime(String key, long time, Object... values) {
+        try {
+            Long count = redisTemplate.opsForSet().add(key, values);
+            if (time > 0) {
+                expire(key, time);
+            }
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
     }
 
     /**
-     * 获取发布订阅助手
-     * @param dbIndex 数据库索引
-     * @return 返回发布订阅助手
+     * 获取set缓存的长度
+     *
+     * @param key 键
+     * @return long
      */
-    public static PubSubHandler getPubSubHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.PUBSUB);
+    public Long sGetSetSize(String key) {
+        try {
+            return redisTemplate.opsForSet().size(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
     }
 
     /**
-     * 获取分布式锁助手(需添加redisson依赖)
-     * @return 返回分布式锁助手
+     * 移除值为value的
+     *
+     * @param key    键
+     * @param values 值 可以是多个
+     * @return 移除的个数
      */
-    public static RedisLockHandler getRedisLockHandler() {
-        return MANAGER.getHandler(HandlerType.REDISLOCK);
+    public Long setRemove(String key, Object... values) {
+        try {
+            return redisTemplate.opsForSet().remove(key, values);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
+    }
+    //===============================list=================================
+
+    /**
+     * 获取list缓存的内容
+     *
+     * @param key   键
+     * @param start 开始
+     * @param end   结束  0 到 -1代表所有值
+     * @return List
+     */
+    public List<Object> lGet(String key, long start, long end) {
+        try {
+            return redisTemplate.opsForList().range(key, start, end);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
-     * 获取分布式锁助手(需添加redisson依赖)
-     * @param dbIndex 数据库索引
-     * @return 返回分布式锁助手
+     * 获取list缓存的长度
+     *
+     * @param key 键
+     * @return long
      */
-    public static RedisLockHandler getRedisLockHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.REDISLOCK);
+    public Long lGetListSize(String key) {
+        try {
+            return redisTemplate.opsForList().size(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
     }
 
     /**
-     * 获取事务助手
-     * @return 返回事务助手
+     * 通过索引 获取list中的值
+     *
+     * @param key   键
+     * @param index 索引
+     * @return Object
      */
-    public static TransactionHandler getTransactionHandler() {
-        return MANAGER.getHandler(HandlerType.TRANSACTION);
+    public Object lGetIndex(String key, long index) {
+        try {
+            return redisTemplate.opsForList().index(key, index);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
-     * 获取事务助手
-     * @param dbIndex 数据库索引
-     * @return 返回事务助手
+     * 将list放入缓存
+     *
+     * @param key   键
+     * @param value 值
+     * @return boolean
      */
-    public static TransactionHandler getTransactionHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.TRANSACTION);
+    public boolean lSet(String key, Object value) {
+        try {
+            redisTemplate.opsForList().rightPush(key, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取自定义命令助手
-     * @return 返回自定义命令助手
+     * 将list放入缓存
+     *
+     * @param key   键
+     * @param value 值
+     * @param time  时间(秒)
+     * @return boolean
      */
-    public static CustomCommandHandler getCustomCommandHandler() {
-        return MANAGER.getHandler(HandlerType.CUSTOMCOMMAND);
+    public boolean lSet(String key, Object value, long time) {
+        try {
+            redisTemplate.opsForList().rightPush(key, value);
+            if (time > 0) {
+                expire(key, time);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取自定义命令助手
-     * @param dbIndex 数据库索引
-     * @return 返回自定义命令助手
+     * 将list放入缓存
+     *
+     * @param key   键
+     * @param value 值
+     * @return boolean
      */
-    public static CustomCommandHandler getCustomCommandHandler(int dbIndex) {
-        return MANAGER.getHandler(String.valueOf(dbIndex), HandlerType.CUSTOMCOMMAND);
+    public boolean lSet(String key, List<Object> value) {
+        try {
+            redisTemplate.opsForList().rightPushAll(key, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取默认的对象模板
-     * @return 返回对象模板
+     * 将list放入缓存
+     *
+     * @param key   键
+     * @param value 值
+     * @param time  时间(秒)
+     * @return boolean
      */
-    public static RedisTemplate<String, Object> getDefaultRedisTemplate() {
-        return MANAGER.getDefaultRedisTemplate();
+    public boolean lSet(String key, List<Object> value, long time) {
+        try {
+            redisTemplate.opsForList().rightPushAll(key, value);
+            if (time > 0) {
+                expire(key, time);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 获取默认的字符串模板
-     * @return 返回字符串模板
+     * 根据索引修改list中的某条数据
+     *
+     * @param key   键
+     * @param index 索引
+     * @param value 值
+     * @return boolean
      */
-    public static StringRedisTemplate getDefaultStringRedisTemplate() {
-        return MANAGER.getDefaultStringRedisTemplate();
+    public boolean lUpdateIndex(String key, long index, Object value) {
+        try {
+            redisTemplate.opsForList().set(key, index, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 移除N个值为value
+     *
+     * @param key   键
+     * @param count 移除多少个
+     * @param value 值
+     * @return 移除的个数
+     */
+    public Long lRemove(String key, long count, Object value) {
+        try {
+            return redisTemplate.opsForList().remove(key, count, value);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
     }
 }

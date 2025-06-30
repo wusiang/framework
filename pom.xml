@@ -50,7 +50,7 @@
         <xxljob.version>2.4.2</xxljob.version>
         <!--数据库-->
         <mysql.version>8.0.33</mysql.version>
-        <redisson.version>3.39.0</redisson.version>
+        <redisson.version>3.27.1</redisson.version>
         <druid.version>1.2.24</druid.version>
 
         <!--谷歌工具包-->
@@ -161,11 +161,11 @@
                 <artifactId>mybatis-plus-jsqlparser</artifactId>
                 <version>${mybatis.plus.version}</version>
             </dependency>
-            <!--若使用redisson作为分布式锁底层-->
+
             <!--redisson-->
             <dependency>
                 <groupId>org.redisson</groupId>
-                <artifactId>redisson-spring-data-33</artifactId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
             </dependency>
             <dependency>
