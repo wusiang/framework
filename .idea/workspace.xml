@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="feat: 更换redis实现" />
+    <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="统一管理jdk版本">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,38 +51,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Money.executor": "Debug",
-    "JUnit.com.xianmao.common.xxl.interceptor in framework-common-xxl.executor": "Debug",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.framework [clean].executor": "Run",
-    "Maven.framework [compile].executor": "Run",
-    "Maven.framework [deploy].executor": "Run",
-    "Maven.framework [install].executor": "Run",
-    "Maven.framework [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/wujh/Desktop/wujinghua/project/framework/framework-common-redis/src/main/java/com/xianmao/common/redis/config",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "b61fd05df462d710c8f4df1a205c82eb",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Money.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.com.xianmao.common.xxl.interceptor in framework-common-xxl.executor&quot;: &quot;Debug&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wujh/Desktop/wujinghua/project/framework/framework-common-redis/src/main/java/com/xianmao/common/redis/config&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b61fd05df462d710c8f4df1a205c82eb&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config" />
@@ -365,6 +367,9 @@
       <workItem from="1744613052085" duration="619000" />
       <workItem from="1744855351960" duration="1513000" />
       <workItem from="1751248864351" duration="965000" />
+      <workItem from="1751262172107" duration="301000" />
+      <workItem from="1751262511180" duration="10000" />
+      <workItem from="1751275453494" duration="183000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -449,22 +454,6 @@
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1683277828254</updated>
-    </task>
-    <task id="LOCAL-00015" summary="延迟消息处理">
-      <option name="closed" value="true" />
-      <created>1699411586483</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1699411586483</updated>
-    </task>
-    <task id="LOCAL-00016" summary="升级mq版本">
-      <option name="closed" value="true" />
-      <created>1699936788033</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1699936788033</updated>
     </task>
     <task id="LOCAL-00017" summary="升级版本">
       <option name="closed" value="true" />
@@ -746,7 +735,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751249793857</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="redisson的锁 交给redisson控制">
+      <option name="closed" value="true" />
+      <created>1751262302305</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1751262302305</updated>
+    </task>
+    <task id="LOCAL-00053" summary="统一管理jdk版本">
+      <option name="closed" value="true" />
+      <created>1751262419134</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1751262419134</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -764,8 +769,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="调整error" />
-    <MESSAGE value="添加工具" />
     <MESSAGE value="完善rocketmq" />
     <MESSAGE value="升级连接池版本" />
     <MESSAGE value="延迟消息处理" />
@@ -789,7 +792,9 @@
     <MESSAGE value="feat: 完善xxl-job的traceId" />
     <MESSAGE value="feat: 优化代码" />
     <MESSAGE value="feat: 更换redis实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 更换redis实现" />
+    <MESSAGE value="redisson的锁 交给redisson控制" />
+    <MESSAGE value="统一管理jdk版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="统一管理jdk版本" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
