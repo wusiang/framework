@@ -1,5 +1,7 @@
 package com.xianmao.common.mybatis.support;
 
+import java.util.List;
+
 public class PageQuery {
     /**
      * 当前页
@@ -14,12 +16,12 @@ public class PageQuery {
     /**
      * 排序的字段名
      */
-    private String ascs;
+    private List<String> ascs;
 
     /**
      * 排序方式
      */
-    private String descs;
+    private List<String> descs;
 
     public Integer getPageNo() {
         return pageNo;
@@ -37,19 +39,19 @@ public class PageQuery {
         this.pageSize = pageSize;
     }
 
-    public String getAscs() {
+    public List<String> getAscs() {
         return ascs;
     }
 
-    public void setAscs(String ascs) {
+    public void setAscs(List<String> ascs) {
         this.ascs = ascs;
     }
 
-    public String getDescs() {
+    public List<String> getDescs() {
         return descs;
     }
 
-    public void setDescs(String descs) {
+    public void setDescs(List<String> descs) {
         this.descs = descs;
     }
 }

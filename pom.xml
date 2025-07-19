@@ -31,37 +31,38 @@
         <revision>1.0.0-SNAPSHOT</revision>
         <!---->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <jdk.version>21</jdk.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <jdk.version>17</jdk.version>
 
         <!--c-->
         <!--三个版本说明-->
-        <spring-boot.version>3.4.1</spring-boot.version>
-        <spring-cloud.version>2024.0.0</spring-cloud.version>
-        <spring-cloud-alibaba.version>2023.0.1.2</spring-cloud-alibaba.version>
+        <spring-boot.version>3.5.3</spring-boot.version>
+        <spring-cloud.version>2025.0.0</spring-cloud.version>
+        <spring-cloud-alibaba.version>2023.0.3.3</spring-cloud-alibaba.version>
 
         <!---->
         <hutool.version>5.8.34</hutool.version>
         <fastexcel.version>1.0.0</fastexcel.version>
-        <mybatis.plus.version>3.5.10.1</mybatis.plus.version>
+        <mybatis.plus.version>3.5.11</mybatis.plus.version>
         <lombok.version>1.18.34</lombok.version>
         <knife4j-openapi3.version>4.5.0</knife4j-openapi3.version>
         <xxljob.version>2.4.2</xxljob.version>
-        <pinyin4j.version>2.5.1</pinyin4j.version>
         <!--数据库-->
         <mysql.version>8.0.33</mysql.version>
-        <redisson.version>3.39.0</redisson.version>
+        <redisson.version>3.27.1</redisson.version>
         <druid.version>1.2.24</druid.version>
 
         <!--谷歌工具包-->
         <guava.version>33.3.1-jre</guava.version>
         <oss.version>3.14.0</oss.version>
         <rocketmq-client.version>5.0.6</rocketmq-client.version>
+        <spring.sleuth.version>3.1.9</spring.sleuth.version>
         <!---->
         <commons-lang3.version>3.17.0</commons-lang3.version>
         <fastjson.version>2.0.53</fastjson.version>
         <email.version>1.6.0</email.version>
+        <jasypt.version>3.0.5</jasypt.version>
     </properties>
 
     <dependencyManagement>
@@ -108,7 +109,13 @@
                 <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
                 <version>${knife4j-openapi3.version}</version>
             </dependency>
-            <!--excel-->
+            <!--配置文件加解密-->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+            <!--excel导出-->
             <dependency>
                 <groupId>cn.idev.excel</groupId>
                 <artifactId>fastexcel</artifactId>
@@ -128,11 +135,6 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.belerweb</groupId>
-                <artifactId>pinyin4j</artifactId>
-                <version>${pinyin4j.version}</version>
             </dependency>
             <!--mybatis && 数据库-->
             <dependency>
@@ -160,11 +162,11 @@
                 <artifactId>mybatis-plus-jsqlparser</artifactId>
                 <version>${mybatis.plus.version}</version>
             </dependency>
-            <!--若使用redisson作为分布式锁底层-->
+
             <!--redisson-->
             <dependency>
                 <groupId>org.redisson</groupId>
-                <artifactId>redisson-spring-data-33</artifactId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
             </dependency>
             <dependency>
@@ -294,11 +296,11 @@
     <distributionManagement>
         <repository>
             <id>rdc-releases</id>
-            <url>https://packages.aliyun.com/6285d6f5cfea268afc224322/maven/2231008-snapshot-fsqv1y</url>
+            <url>https://packages.aliyun.com/67d8e7547564dc59f36552bd/maven/2525725-snapshot-qzfw3v</url>
         </repository>
         <snapshotRepository>
             <id>rdc-snapshots</id>
-            <url>https://packages.aliyun.com/6285d6f5cfea268afc224322/maven/2231008-snapshot-fsqv1y</url>
+            <url>https://packages.aliyun.com/67d8e7547564dc59f36552bd/maven/2525725-snapshot-qzfw3v</url>
         </snapshotRepository>
     </distributionManagement>
 

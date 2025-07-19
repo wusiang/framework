@@ -1,5 +1,6 @@
 package com.xianmao.common.mybatis.utils;
 
+import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -21,13 +22,13 @@ public class PageUtils {
      */
     public static <T> IPage<T> getPage(PageQuery pageQuery) {
         Page<T> page = new Page<>(Convert.toInt(pageQuery.getPageNo(), 1), Convert.toInt(pageQuery.getPageSize(), 10));
-        if (StrUtil.isNotBlank(pageQuery.getAscs())) {
+        if (CollectionUtil.isNotEmpty(pageQuery.getAscs())) {
             String[] ascArr = Convert.toStrArray(pageQuery.getAscs());
             for (String asc : ascArr) {
                 page.addOrder(OrderItem.asc(cleanIdentifier(asc)));
             }
         }
-        if (StrUtil.isNotBlank(pageQuery.getDescs())) {
+        if (CollectionUtil.isNotEmpty(pageQuery.getDescs())) {
             String[] descArr = Convert.toStrArray(pageQuery.getDescs());
             for (String desc : descArr) {
                 page.addOrder(OrderItem.desc(cleanIdentifier(desc)));
@@ -44,9 +45,12 @@ public class PageUtils {
         pageInfo.setTotalPage((int) page.getPages());
         if (!CollectionUtils.isEmpty(page.getRecords())) {
             if (function == null) {
-                pageInfo.setRows(page.getRecords());
+                // 安全转换：当 function 为 null 时，R 必须与 T 相同
+                @SuppressWarnings("unchecked")
+                List<R> records = (List<R>) page.getRecords();
+                pageInfo.setRows(records);
             } else {
-                pageInfo.setRows(page.getRecords().stream().map(function::apply).collect(Collectors.toList()));
+                pageInfo.setRows(page.getRecords().stream().map(function).collect(Collectors.toList()));
             }
         }
         return pageInfo;
