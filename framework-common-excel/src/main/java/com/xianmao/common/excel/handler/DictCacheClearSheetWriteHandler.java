@@ -1,0 +1,24 @@
+package com.xianmao.common.excel.handler;
+
+import cn.idev.excel.write.handler.WorkbookWriteHandler;
+import cn.idev.excel.write.handler.context.WorkbookWriteHandlerContext;
+import com.xianmao.common.excel.converters.DictTypeConvert;
+
+/**
+ * dict 缓存清空
+ *
+ * @author lengleng
+ * @date 2024/08/31
+ */
+public class DictCacheClearSheetWriteHandler implements WorkbookWriteHandler {
+
+	/**
+	 * Called after all operations on the workbook have been completed
+	 * @param context
+	 */
+	@Override
+	public void afterWorkbookDispose(WorkbookWriteHandlerContext context) {
+		DictTypeConvert.cache.clear();
+	}
+
+}
