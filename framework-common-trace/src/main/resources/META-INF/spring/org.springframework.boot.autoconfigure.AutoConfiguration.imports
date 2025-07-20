@@ -1,4 +1,0 @@
-# Auto Configuration
-com.xianmao.common.trace.TraceAutoConfiguration
-com.xianmao.common.trace.instrument.gateway.TraceGatewayAutoConfiguration
-com.xianmao.common.trace.instrument.feign.TraceFeignClientAutoConfiguration
