@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed0ad18-2775-402b-9ddd-00cf572a38be" name="Default Changelist" comment="统一管理jdk版本">
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,12 +37,19 @@
     <setting file="jar://$MAVEN_REPOSITORY$/org/redisson/redisson/3.39.0/redisson-3.39.0.jar!/org/redisson/client/protocol/RedisCommands.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/6.1.15/spring-context-6.1.15.jar!/org/springframework/context/annotation/Primary.class" root0="SKIP_INSPECTION" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="$PROJECT_DIR$/../../settings.xml" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -55,38 +63,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Money.executor": "Debug",
-    "JUnit.com.xianmao.common.xxl.interceptor in framework-common-xxl.executor": "Debug",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.framework [clean].executor": "Run",
-    "Maven.framework [compile].executor": "Run",
-    "Maven.framework [deploy].executor": "Run",
-    "Maven.framework [install].executor": "Run",
-    "Maven.framework [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging master",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/wujh/Desktop/wujinghua/project/framework/framework-common-redis/src/main/java/com/xianmao/common/redis/config",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.40574712",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "b61fd05df462d710c8f4df1a205c82eb",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Money.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.com.xianmao.common.xxl.interceptor in framework-common-xxl.executor&quot;: &quot;Debug&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.framework [package].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wujh/Desktop/wujinghua/project/framework/framework-common-redis/src/main/java/com/xianmao/common/redis/config&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40574712&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b61fd05df462d710c8f4df1a205c82eb&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/framework-common-redis/src/main/java/com/xianmao/common/redis/config" />
@@ -374,6 +383,8 @@
       <workItem from="1751262172107" duration="301000" />
       <workItem from="1751262511180" duration="10000" />
       <workItem from="1751275453494" duration="183000" />
+      <workItem from="1753088439964" duration="2075000" />
+      <workItem from="1753092705970" duration="136000" />
     </task>
     <task id="LOCAL-00001" summary="pageutil">
       <created>1661413106890</created>
@@ -458,14 +469,6 @@
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1683277828254</updated>
-    </task>
-    <task id="LOCAL-00017" summary="升级版本">
-      <option name="closed" value="true" />
-      <created>1702453127118</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1702453127118</updated>
     </task>
     <task id="LOCAL-00018" summary="升级版本">
       <option name="closed" value="true" />
@@ -755,7 +758,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751262419134</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="统一管理jdk版本">
+      <option name="closed" value="true" />
+      <created>1753088624138</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1753088624138</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
